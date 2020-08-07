@@ -1,0 +1,17 @@
+.Wrapper {
+  margin: 5px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+}
+
+.Nav {
+  /* border: 1px solid blue; */
+  margin: 5px;
+}
+
+.FullProject {
+  margin: 5px;
+  /* border: 1px solid green; */
+  width: 100%;
+}
