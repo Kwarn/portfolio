@@ -1,0 +1,19 @@
+.Contact {
+  height: 100%;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
+  padding: 10px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.TextBox {
+  font-size: 1.5em;
+  text-align: left;
+  /* overflow: scroll; */
+  width: 500px;
+  height: 350px;
+}
