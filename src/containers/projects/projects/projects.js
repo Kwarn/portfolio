@@ -6,7 +6,7 @@ const Projects = props => {
     burgerBuilder: {
       title: 'Burger Builder',
       techStack:
-        'React, React-Router, Redux, Redux-Saga, Axios, Firebase realtime database, Firebase Hosting',
+        'JavaScript, React, React-Router, Redux, Redux-Saga, Axios, Firebase realtime database, Firebase Hosting',
       gitHub: 'https://github.com/Kwarn/burger-builder',
       courseLink:
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
@@ -17,6 +17,12 @@ const Projects = props => {
       techStack: 'Python, Tkinter, sq3lite',
       gitHub: 'https://github.com/Kwarn/fitness',
       description: 'fitness app, learned lots',
+    },
+    SquarePlayground: {
+      title: 'Square Playground',
+      techStack: 'Javascript, React, Redux',
+      gitHub: 'placeholder',
+      description: 'Gambling game',
     },
   })
 
