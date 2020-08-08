@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Home from './containers/Home/Home'
 import ProjectsOverview from './containers/projects/ProjectsOverview/ProjectsOverview'
+import classes from './App.module.css'
 
 const Cv = React.lazy(() => import('./components/cv/cv'))
 
@@ -30,7 +31,7 @@ const App = props => {
     </Switch>
   )
 
-  return routes
+  return <div className={classes.App}>{routes}</div>
 }
 
 export default App

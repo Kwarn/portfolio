@@ -1,29 +1,25 @@
 .Project {
-  font-size: 0.9em;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 3px #ccc;
-  padding: 10px;
-  margin: 10px auto;
+  height: 100px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
+  margin: 15px;
   overflow: hidden;
+  background-color: #748DA1;
+  cursor: pointer;
 }
 
-@media (min-width: 500px) and (min-height: 400px) {
-  .Project {
-    width: 50px;
-    height: 25px;
-  }
+.Title {
+  display: inline-block;
+  font-size: 1.6em;
+  padding: 5px;
 }
 
-@media (min-width: 500px) and (min-height: 401px) {
-  .Project {
-    width: 250px;
-    height: 125px;
-  }
+.Tech {
+  padding: 5px;
 }
 
-@media (min-width: 1000px) and (min-height: 700px) {
-  .Project {
-    width: 300px;
-    height: 150px;
-  }
+.Image {
+  padding: 5px;
+  height: 25px;
+  width: 25px;
 }

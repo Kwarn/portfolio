@@ -17,7 +17,7 @@ const Projects = props => {
         key={project}
         id={project}
         title={projects[project].title}
-        tech={projects[project].techStack}
+        tech={projects[project].previewTechStack}
         clicked={() => displayFullProjectHandler(project)}
       />
     )

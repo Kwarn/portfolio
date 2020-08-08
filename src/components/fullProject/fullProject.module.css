@@ -1,8 +1,11 @@
 .FullProject {
   height: 100%;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 3px #ccc;
-  padding: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
   margin: 10px;
-  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }

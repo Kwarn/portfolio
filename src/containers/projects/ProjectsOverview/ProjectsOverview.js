@@ -5,20 +5,29 @@ import FullProject from '../../../components/fullProject/fullProject'
 import classes from './ProjectsOverview.module.css'
 
 const ProjectsOverview = props => {
-  const {projects, fullProject} = props
+  const { projects, fullProject } = props
 
-  let fullProjectDisplayed = <FullProject title={projects[fullProject].title} />
+  let fullProjectDisplayed = (
+    <FullProject
+      projectId={fullProject}
+      title={projects[fullProject].title}
+      desc={projects[fullProject].description}
+    />
+  )
+  // const fullProjectRef = useRef()
 
   return (
-    <>
-      <h1 className={classes.center}>Projects</h1>
+    <div className={classes.ProjectsOverview}>
+
+      <h1 className={classes.ProjectsHeader}>Projects</h1>
       <div className={classes.Wrapper}>
         <div className={classes.Nav}>
           <Projects />
         </div>
+        <hr/>
         <div className={classes.FullProject}>{fullProjectDisplayed}</div>
       </div>
-    </>
+    </div>
   )
 }
 

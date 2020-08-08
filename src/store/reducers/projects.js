@@ -5,6 +5,7 @@ const initalState = {
   projects: {
     burgerBuilder: {
       title: 'Burger Builder',
+      previewTechStack: 'Javascript, React, Redux, Redux-Saga, Firebase',
       techStack:
         'JavaScript, React, React-Router, Redux, Redux-Saga, Axios, Firebase realtime database, Firebase Hosting',
       gitHub: 'https://github.com/Kwarn/burger-builder',
@@ -12,17 +13,28 @@ const initalState = {
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
       description: 'Learned alot.',
     },
-    Fitness: {
-      title: 'Fitness app',
-      techStack: 'Python, Tkinter, sq3lite',
-      gitHub: 'https://github.com/Kwarn/fitness',
-      description: 'fitness app, learned lots',
-    },
     SquarePlayground: {
       title: 'Square Playground',
+      previewTechStack: 'Javascript, React, Redux',
       techStack: 'Javascript, React, Redux',
       gitHub: 'placeholder',
       description: 'Gambling game',
+    },
+    Fitness: {
+      title: 'Fitness app',
+      previewTechStack: 'Python, Tkinter, SQlite3',
+      techStack: 'Python, Tkinter, SQlite3',
+      gitHub: 'https://github.com/Kwarn/fitness',
+      description: 'fitness app, learned lots',
+    },
+    shutdownTimer: {
+      title: 'Shutdown Timer',
+      previewTechStack: 'Python, tkinter',
+      image: '',
+      techStack: 'Python, tkinter',
+      gitHub: 'placeholder',
+      description:
+        'Desktop Application for setting an automatic shutdown/reset/sleep time',
     },
   },
   fullProject: 'burgerBuilder',
