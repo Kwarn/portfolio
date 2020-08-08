@@ -6,7 +6,9 @@ import * as actions from '../../../store/actions/index'
 const Projects = props => {
   const { projects } = props
 
-  const displayFullProjectHandler = id => {}
+  const displayFullProjectHandler = projectId => {
+    props.switchFullProject(projectId)
+  }
 
   let projectElements = []
   for (let project in projects) {

@@ -5,7 +5,9 @@ import FullProject from '../../../components/fullProject/fullProject'
 import classes from './ProjectsOverview.module.css'
 
 const ProjectsOverview = props => {
-  let fullProject = <FullProject projectId={props.fullProject} />
+  const {projects, fullProject} = props
+
+  let fullProjectDisplayed = <FullProject title={projects[fullProject].title} />
 
   return (
     <>
@@ -14,7 +16,7 @@ const ProjectsOverview = props => {
         <div className={classes.Nav}>
           <Projects />
         </div>
-        <div className={classes.FullProject}>{fullProject}</div>
+        <div className={classes.FullProject}>{fullProjectDisplayed}</div>
       </div>
     </>
   )
@@ -22,6 +24,7 @@ const ProjectsOverview = props => {
 
 const mapStateToProps = state => {
   return {
+    projects: state.projects.projects,
     fullProject: state.projects.fullProject,
   }
 }

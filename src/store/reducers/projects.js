@@ -25,7 +25,7 @@ const initalState = {
       description: 'Gambling game',
     },
   },
-  fullProject: null,
+  fullProject: 'burgerBuilder',
 }
 
 const reducer = (state = initalState, action) => {

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import projectsReducer from './store/reducers/projects'
 import './index.css'
 import App from './App'
@@ -12,7 +13,7 @@ const rootReducer = combineReducers({
   projects: projectsReducer,
 })
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, composeWithDevTools())
 
 ReactDOM.render(
   <Provider store={store}>
