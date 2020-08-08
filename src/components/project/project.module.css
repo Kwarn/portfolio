@@ -1,8 +1,29 @@
 .Project {
-  width: 300px;
-  height: 150px;
+  font-size: 0.9em;
   border: 1px solid #eee;
   box-shadow: 0 2px 3px #ccc;
   padding: 10px;
   margin: 10px auto;
+  overflow: hidden;
+}
+
+@media (min-width: 500px) and (min-height: 400px) {
+  .Project {
+    width: 50px;
+    height: 25px;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 401px) {
+  .Project {
+    width: 250px;
+    height: 125px;
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 700px) {
+  .Project {
+    width: 300px;
+    height: 150px;
+  }
 }

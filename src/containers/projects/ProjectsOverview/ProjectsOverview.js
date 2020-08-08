@@ -1,10 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Projects from '../projects/projects'
 import FullProject from '../../../components/fullProject/fullProject'
 import classes from './ProjectsOverview.module.css'
 
 const ProjectsOverview = props => {
-  let fullProject = <FullProject />
+  let fullProject = <FullProject projectId={props.fullProject} />
 
   return (
     <>
@@ -13,12 +14,16 @@ const ProjectsOverview = props => {
         <div className={classes.Nav}>
           <Projects />
         </div>
-        <div className={classes.FullProject}>
-          {fullProject}
-        </div>
+        <div className={classes.FullProject}>{fullProject}</div>
       </div>
     </>
   )
 }
 
-export default ProjectsOverview
+const mapStateToProps = state => {
+  return {
+    fullProject: state.projects.fullProject,
+  }
+}
+
+export default connect(mapStateToProps)(ProjectsOverview)

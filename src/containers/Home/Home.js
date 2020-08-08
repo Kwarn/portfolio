@@ -7,6 +7,9 @@ const Home = props => {
       <Link to='/cv'>
         <button>Cv</button>
       </Link>
+      <Link to='/projects'>
+        <button>Projects</button>
+      </Link>
     </div>
   )
 }

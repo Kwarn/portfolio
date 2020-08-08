@@ -1,16 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createStore, combineReducers } from 'redux'
+import projectsReducer from './store/reducers/projects'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
+const rootReducer = combineReducers({
+  projects: projectsReducer,
+})
+
+const store = createStore(rootReducer)
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  </Provider>,
+
   document.getElementById('root')
 )
 
