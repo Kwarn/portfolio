@@ -5,12 +5,14 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import projectsReducer from './store/reducers/projects'
+import contactReducer from './store/reducers/contact'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 const rootReducer = combineReducers({
   projects: projectsReducer,
+  contact: contactReducer
 })
 
 const store = createStore(rootReducer, composeWithDevTools())
