@@ -20,11 +20,12 @@ const Project = props => {
 
   return (
     <>
-      <div className={classes.Project} onClick={props.clicked}>
-        <h1 className={classes.Title}>{props.title}{images}</h1>
-        
-        <p className={classes.Tech}>{props.tech}</p>
-        
+      <div className={classes.ProjectWrapper}>
+        <div className={classes.Project} onClick={props.clicked}>
+          <h1 className={classes.Title}>{props.title}</h1>
+          <div className={classes.Images}>{images}</div>
+          <p className={classes.Tech}>{props.tech}</p>
+        </div>
       </div>
     </>
   )

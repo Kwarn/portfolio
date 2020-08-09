@@ -11,7 +11,9 @@ const Contact = props => {
         <input placeholder="Your name" />
         <input placeholder="Your email address" />
         <textarea className={classes.TextBox} placeholder="Your message here!"/>
+        <button>Submit</button>
       </form>
+
     </div>
   )
 }

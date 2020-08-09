@@ -5,7 +5,7 @@ const initalState = {
   projects: {
     burgerBuilder: {
       title: 'Burger Builder',
-      previewTechStack: 'Javascript, React, Redux, Redux-Saga, Firebase',
+      previewTechStack: 'Javascript, React, Redux, Redux-Saga, Firebase, Css',
       techStack:
         'JavaScript, React, React-Router, Redux, Redux-Saga, Axios, Firebase realtime database, Firebase Hosting',
       gitHub: 'https://github.com/Kwarn/burger-builder',
@@ -15,7 +15,7 @@ const initalState = {
     },
     SquarePlayground: {
       title: 'Square Playground',
-      previewTechStack: 'Javascript, React, Redux',
+      previewTechStack: 'Javascript, React, Redux, Css, Html',
       techStack: 'Javascript, React, Redux',
       gitHub: 'placeholder',
       description: 'Gambling game',

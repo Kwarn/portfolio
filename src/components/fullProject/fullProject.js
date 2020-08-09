@@ -5,8 +5,8 @@ import classes from './fullProject.module.css'
 const FullProject = props => {
   const project = (
     <div className={classes.FullProject}>
-      <h1>{props.title}</h1>
-      <p>{props.desc}</p>
+      <h1 className={classes.Title}>{props.title}</h1>
+      <p className={classes.Desc}>{props.desc}</p>
       <img src={imageAssets[props.projectId]} alt='burgerBuilder' />
     </div>
   )
