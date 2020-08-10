@@ -1,0 +1,1 @@
+remove border between fullproject and project

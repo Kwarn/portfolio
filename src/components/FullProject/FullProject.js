@@ -4,7 +4,7 @@ import classes from './FullProject.module.css'
 
 const FullProject = props => {
   const projectElement = (
-    <div className={classes.FullProject}>
+    <div className={`${classes.FullProject} ${classes.FadeIn}`}>
       <p className={classes.Desc}>{props.desc}</p>
       <img src={imageAssets[props.projectId]} alt="burgerBuilder" />
     </div>

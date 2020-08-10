@@ -1,5 +1,4 @@
 .ProjectOverview {
-
 }
 
 .Wrapper {
@@ -8,6 +7,7 @@
 }
 
 .Projects {
+  padding-top: 15px;
   width: 100%;
 }
 /* 

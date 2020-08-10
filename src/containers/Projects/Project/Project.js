@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import imageAssets from '../../../assets/assets'
-import classes from './Project.module.css'
 import FullProject from '../../../components/FullProject/FullProject'
+import classes from './Project.module.css'
 
 const Project = props => {
   const [showFullProject, setShowFullProject] = useState(false)
@@ -41,7 +41,7 @@ const Project = props => {
   ) : null
 
   return (
-    <>
+    <> 
       <div className={classes.ProjectWrapper}>
         <div
           className={classes.Project}

@@ -1,3 +1,4 @@
+
 .ProjectWrapper :hover {
   cursor: pointer;
   background-color: #85a2bb;;
@@ -26,7 +27,7 @@
 }
 
 .DrawIcon {
-  width: 20px;
+  width: 15px;
   height: auto;
 }
 

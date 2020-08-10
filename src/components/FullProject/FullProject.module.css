@@ -1,19 +1,40 @@
 .FullProject {
   background-color: #85a2bb;
-  width: auto;
-  height: auto;
   border: 1px solid rgb(0, 0, 0);
   box-shadow: 0 5px 10px rgb(0, 0, 0);
   margin: 0px 15px 20px 15px;
-  padding: 5px
+  padding: 5px;
+  animation: openFullProject 0.3s ease-in-out;
 }
 
-.HeaderDescription {
-  
+/* .FadeIn {
+  animation: openFullProject;
+} */
+
+@keyframes openFullProject {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  25% {
+    opacity: 0.1;
+    height: 20px;
+  }
+  50% {
+    opacity: 0.3;
+    height: 40px;
+  }
+  75% {
+    opacity: 0.5;
+    height: 60px;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .Desc {
-  padding: 5px
+  padding: 5px;
 }
 
 img {
