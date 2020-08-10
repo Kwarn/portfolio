@@ -1,3 +1,8 @@
+.LayoutWrapper {
+  width: 100vw;
+  overflow: hidden;
+}
+
 .Content {
   margin-top: 56px;
 }

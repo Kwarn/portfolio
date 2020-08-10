@@ -15,7 +15,7 @@ const Projects = props => {
     projectElements.push(
       <Project
         key={project}
-        id={project}
+        projectId={project}
         project={projects[project]}
         clicked={() => displayFullProjectHandler(project)}
       />

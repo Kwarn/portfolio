@@ -10,3 +10,7 @@
   );
   background: linear-gradient(to bottom, #2e3341 0%, #195e8e 25%, #ffffff 100%);
 }
+
+.App ::-webkit-scrollbar {
+  display: none;
+}
