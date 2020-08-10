@@ -25,6 +25,17 @@ const Project = props => {
     }
   }
 
+  const drawDrop =(
+    <div className={!showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper}>
+      <img
+        className={classes.DrawIcon}
+        src={!showFullProject ? imageAssets.openDraw : imageAssets.closeDraw}
+        alt={!showFullProject ? "openDraw" : 'closeDraw'}
+      />
+    </div>
+  )
+
+
   const fullProject = showFullProject ? (
     <FullProject projectId={projectId} desc={project.description} />
   ) : null
@@ -39,10 +50,11 @@ const Project = props => {
           <h1 className={classes.Title}>{project.title}</h1>
           <div className={classes.Images}>{images}</div>
           <p className={classes.Tech}>{project.previewTechStack}</p>
-          <img className={classes.OpenDraw} src={imageAssets.openDraw} alt="openDraw" />
         </div>
       </div>
+      {!showFullProject ? drawDrop : null}
       {fullProject}
+      {showFullProject ? drawDrop : null}
     </>
   )
 }

@@ -12,11 +12,22 @@
   background-color: #748DA1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 50px,;
+  grid-template-rows: 50px 50px 50px;
 }
 
-.OpenDraw {
+.OpenDrawWrapper {
+  margin: -5px;
   text-align: center;
+}
+
+.CloseDrawWrapper {
+  margin: -25px 0 20px 0;
+  text-align: center;
+}
+
+.DrawIcon {
+  width: 20px;
+  height: auto;
 }
 
 .Title {
