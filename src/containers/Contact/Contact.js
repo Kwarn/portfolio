@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index'
 import classes from './Contact.module.css'
@@ -13,6 +13,11 @@ const Contact = props => {
   const submitHandler = () => {}
   const onChangeHandler = (event, inputIdentifier) =>
     props.onInputChanged(event, inputIdentifier)
+
+   
+  if (!props.name.isValid){
+    
+  }
 
   // conditionally add css classes base on props.name.isValid
 

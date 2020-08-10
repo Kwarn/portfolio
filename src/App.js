@@ -2,28 +2,28 @@ import React, { Suspense } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Home from './containers/Home/Home'
-import ProjectsOverview from './containers/Projects/ProjectsOverview/ProjectsOverview'
 import Layout from './Hoc/Layout/Layout'
 import Contact from './containers/Contact/Contact'
 import classes from './App.module.css'
 
-const Cv = React.lazy(() => import('./components/Cv/Cv'))
+const ProjectsOverview = React.lazy(() => import('./containers/Projects/ProjectsOverview/ProjectsOverview'))
+const Education = React.lazy(() => import('./components/Education/Education'))
 
 const App = props => {
   let routes = (
     <Switch>
       <Route
-        path="/cv"
+        path="/education"
         render={() => (
           <Suspense fallback={<Home />}>
-            <Cv />
+            <Education />
           </Suspense>
         )}
       />
       <Route
         path="/projects"
         render={() => (
-          <Suspense>
+          <Suspense fallback={<div>Something Went Wrong...</div>}>
             <ProjectsOverview />
           </Suspense>
         )}
@@ -31,7 +31,7 @@ const App = props => {
       <Route
         path="/contact"
         render={() => (
-          <Suspense>
+          <Suspense fallback={<div>Something Went Wrong...</div>}>
             <Contact />
           </Suspense>
         )}

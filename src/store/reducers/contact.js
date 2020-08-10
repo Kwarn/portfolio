@@ -41,8 +41,9 @@ const inputChangedHandler = (state, action) => {
   })
 
   const updatedInputForm = updateObject(state.inputForm, {
-    [action.identifier] : updatedInputElement
+    [action.identifier]: updatedInputElement,
   })
+
   return updateObject(state, { inputForm: updatedInputForm })
 }
 

@@ -6,7 +6,9 @@ const imageAssets = {
   redux: require('../assets/redux.png'),
   firebase: require('../assets/firebase.png'),
   sqlite3: require('../assets/sqlite3.png'),
-  css: require('../assets/css.png')
-} 
+  css: require('../assets/css.png'),
+  javascriptCertificate: require('../assets/javascriptCertificate.jpg'),
+  reactCertificate: require('../assets/reactCertificate.jpg'),
+}
 
 export default imageAssets
