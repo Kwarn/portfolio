@@ -33,7 +33,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    switchFullProject: (projectId) => dispatch(actions.switchFullProject(projectId))
+    switchFullProject: projectId =>
+      dispatch(actions.switchFullProject(projectId)),
   }
 }
 

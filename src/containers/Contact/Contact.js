@@ -1,23 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as actions from '../../store/actions/index'
 import classes from './Contact.module.css'
 
 const Contact = props => {
   const submitHandler = () => {}
-  const onChangeHandler = event => {}
+  const onChangeHandler = (event, inputIdentifier) =>
+    props.onInputChanged(event, inputIdentifier)
+
+  // conditionally add css classes base on props.name.isValid
 
   return (
     <div className={classes.Contact}>
       <h1> Contact Me!</h1>
       <form className={classes.Form} onSubmit={submitHandler}>
         <input
-          onChange={event => onChangeHandler(event)}
+          onChange={event => onChangeHandler(event, 'name')}
           placeholder="Your name"
+          value={props.name.value}
         />
-        <input placeholder="Your email address" />
+        <input
+          onChange={event => onChangeHandler(event, 'email')}
+          placeholder="Your email address"
+          value={props.email.value}
+        />
         <textarea
+          onChange={event => onChangeHandler(event, 'textBox')}
           className={classes.TextBox}
           placeholder="Your message here!"
+          value={props.textBox.value}
         />
         <button>Submit</button>
       </form>
@@ -28,7 +39,16 @@ const Contact = props => {
 const mapStateToProps = state => {
   return {
     formValidation: state.contact.formValidation,
+    name: state.contact.inputForm.name,
+    email: state.contact.inputForm.email,
+    textBox: state.contact.inputForm.textBox,
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    onInputChanged: (value, inputIdentifier) =>
+      dispatch(actions.inputChangedHandler(value, inputIdentifier)),
   }
 }
 
-export default connect(mapStateToProps)(Contact)
+export default connect(mapStateToProps, mapDispatchToProps)(Contact)
