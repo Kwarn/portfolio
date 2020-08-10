@@ -1,36 +1,43 @@
 .ProjectWrapper :hover {
+  cursor: pointer;
   background-color: #85a2bb;;
 }
 
 .Project {
+  height: 100px;
   border: 1px solid rgb(0, 0, 0);
   box-shadow: 0 5px 10px rgb(0, 0, 0);
   margin: 15px;
   overflow: hidden;
   background-color: #748DA1;
-  cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 50px;
+  grid-template-rows: 50px 50px,;
 }
 
 .Title {
+  overflow: visible;
+  grid-column: 1/3;
   font-size: 1.5em;
   padding: 5px;
   margin-top: 3px;
 }
 
 .Tech {
-  grid-column: 1/3;
+  grid-column: 1/4;
   padding: 5px;
 }
 
 .Image {
   padding: 5px;
-  height: auto;
-  width: 15%;
+  height: auto; 
+  width: 30px;
 }
 
 .Images {
+  
+  grid-column: 3/4;
   text-align: right;
 }
+
+/* mediaQuery for < 420px */
