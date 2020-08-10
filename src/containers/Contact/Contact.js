@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index'
 import classes from './Contact.module.css'
 
 const Contact = props => {
+  // const {name, email, textBox} = props
+  // useEffect(() => {
+  //   console.log('rerendered')
+  // }, [name])
+
+
   const submitHandler = () => {}
   const onChangeHandler = (event, inputIdentifier) =>
     props.onInputChanged(event, inputIdentifier)
@@ -46,8 +52,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    onInputChanged: (value, inputIdentifier) =>
-      dispatch(actions.inputChangedHandler(value, inputIdentifier)),
+    onInputChanged: (event, inputIdentifier) =>
+      dispatch(actions.inputChangedHandler(event, inputIdentifier)),
   }
 }
 

@@ -31,23 +31,25 @@ const initalState = {
   },
 }
 
-const inputValidation = (state, action) => {
-  const isValid = validateInput(
-    action.value,
-    state.inputForm[action.inputIdentifier].validation
-  )
-  const updatedInputForm = updateObject(state.inputForm, {
-    ...state.inputForm[action.inputIdentifier].validation,
-    [action.inputIdentifier]: isValid,
+const inputChangedHandler = (state, action) => {
+  const updatedInputElement = updateObject(state.inputForm[action.identifier], {
     value: action.value,
+    isValid: validateInput(
+      action.value,
+      state.inputForm[action.identifier].validation
+    ),
   })
-  updateObject(state, updatedInputForm)
+
+  const updatedInputForm = updateObject(state.inputForm, {
+    [action.identifier] : updatedInputElement
+  })
+  return updateObject(state, { inputForm: updatedInputForm })
 }
 
 const reducer = (state = initalState, action) => {
   switch (action.type) {
     case actionTypes.INPUT_CHANGED_HANDLER:
-      return inputValidation(state, action)
+      return inputChangedHandler(state, action)
     default:
       return state
   }
