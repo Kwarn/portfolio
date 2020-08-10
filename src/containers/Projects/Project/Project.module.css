@@ -7,12 +7,16 @@
   height: 100px;
   border: 1px solid rgb(0, 0, 0);
   box-shadow: 0 5px 10px rgb(0, 0, 0);
-  margin: 15px;
+  margin: 20px 15px 0px 15px;
   overflow: hidden;
   background-color: #748DA1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px 50px,;
+}
+
+.OpenDraw {
+  text-align: center;
 }
 
 .Title {
@@ -34,8 +38,7 @@
   width: 30px;
 }
 
-.Images {
-  
+.Images { 
   grid-column: 3/4;
   text-align: right;
 }

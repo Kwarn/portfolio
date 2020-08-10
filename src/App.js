@@ -6,7 +6,7 @@ import Layout from './Hoc/Layout/Layout'
 import classes from './App.module.css'
 
 const ProjectsOverview = React.lazy(() =>
-  import('./containers/Projects/ProjectsOverview/ProjectsOverview')
+  import('./components/ProjectsOverview/ProjectsOverview')
 )
 const Skills = React.lazy(() => import('./components/Skills/Skills'))
 const Contact = React.lazy(() => import('./containers/Contact/Contact'))

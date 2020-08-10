@@ -19,7 +19,7 @@
 .NavigationItem a:hover,
   .NavigationItem a:active,
   .NavigationItem a.active {
-    color: white;
+    color: black;
     border: 1px dotted #85a2bb;
     background-color: #748DA1;
     border-bottom: 4px solid #85a2bb;

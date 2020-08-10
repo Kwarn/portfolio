@@ -3,13 +3,12 @@ import imageAssets from '../../assets/assets'
 import classes from './FullProject.module.css'
 
 const FullProject = props => {
-  const project = (
+  const projectElement = (
     <div className={classes.FullProject}>
-      <h1 className={classes.Title}>{props.title}</h1>
       <p className={classes.Desc}>{props.desc}</p>
-      <img src={imageAssets[props.projectId]} alt='burgerBuilder' />
+      <img src={imageAssets[props.projectId]} alt="burgerBuilder" />
     </div>
   )
-  return project
+  return projectElement
 }
 export default FullProject

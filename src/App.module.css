@@ -1,4 +1,5 @@
 .App {
+  height: 100%;
   background: #2e3341;
   background: -moz-linear-gradient(top, #2e3341 0%, #195e8e 25%, #ffffff 100%);
   background: -webkit-linear-gradient(

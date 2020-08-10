@@ -9,6 +9,7 @@ const imageAssets = {
   css: require('../assets/css.png'),
   javascriptCertificate: require('../assets/javascriptCertificate.jpg'),
   reactCertificate: require('../assets/reactCertificate.jpg'),
+  openDraw: require('../assets/openDraw.png')
 }
 
 export default imageAssets

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Project from '../../../components/Project/Project'
-import * as actions from '../../../store/actions/index'
+import Project from './Project/Project'
+import * as actions from '../../store/actions/index'
 
 const Projects = props => {
   const { projects } = props
@@ -16,8 +16,7 @@ const Projects = props => {
       <Project
         key={project}
         id={project}
-        title={projects[project].title}
-        tech={projects[project].previewTechStack}
+        project={projects[project]}
         clicked={() => displayFullProjectHandler(project)}
       />
     )
@@ -33,8 +32,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    switchFullProject: projectId =>
-      dispatch(actions.switchFullProject(projectId)),
+    switchFullProject: (projectId) => dispatch(actions.switchFullProject(projectId))
   }
 }
 
