@@ -1,7 +1,8 @@
-.Education {
-  color: aliceblue;
+.Skills {
 }
-
+.Skills img {
+  display: flex;
+}
 .Title {
   text-align: center;
 }

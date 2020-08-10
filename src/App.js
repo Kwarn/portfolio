@@ -8,7 +8,7 @@ import classes from './App.module.css'
 const ProjectsOverview = React.lazy(() =>
   import('./containers/Projects/ProjectsOverview/ProjectsOverview')
 )
-const Education = React.lazy(() => import('./components/Education/Education'))
+const Skills = React.lazy(() => import('./components/Skills/Skills'))
 const Contact = React.lazy(() => import('./containers/Contact/Contact'))
 
 const App = props => {
@@ -23,10 +23,10 @@ const App = props => {
         )}
       />
       <Route
-        path="/education"
+        path="/skills"
         render={() => (
           <Suspense fallback={<div>Something Went Wrong...</div>}>
-            <Education />
+            <Skills />
           </Suspense>
         )}
       />
