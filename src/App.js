@@ -25,7 +25,7 @@ const App = props => {
       <Route
         path="/education"
         render={() => (
-          <Suspense fallback={<Home />}>
+          <Suspense fallback={<div>Something Went Wrong...</div>}>
             <Education />
           </Suspense>
         )}
