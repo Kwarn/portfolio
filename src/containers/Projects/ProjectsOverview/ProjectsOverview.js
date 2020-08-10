@@ -18,8 +18,6 @@ const ProjectsOverview = props => {
 
   return (
     <div className={classes.ProjectsOverview}>
-
-      <h1 className={classes.ProjectsHeader}>Projects</h1>
       <div className={classes.Wrapper}>
         <div className={classes.Nav}>
           <Projects />
