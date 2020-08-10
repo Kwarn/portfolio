@@ -1,6 +1,6 @@
 import React from 'react'
 import imageAssets from '../../assets/assets'
-import classes from './project.module.css'
+import classes from './Project.module.css'
 
 const Project = props => {
   const imageTags = props.tech.split(',').map(tag => tag.toLowerCase().trim())

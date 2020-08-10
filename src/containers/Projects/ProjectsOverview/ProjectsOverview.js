@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Projects from '../projects/projects'
-import FullProject from '../../../components/fullProject/fullProject'
+import Projects from '../Projects/Projects'
+import FullProject from '../../../components/FullProject/FullProject'
 import classes from './ProjectsOverview.module.css'
 
 const ProjectsOverview = props => {

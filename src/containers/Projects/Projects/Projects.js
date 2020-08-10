@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Project from '../../../components/project/project'
+import Project from '../../../components/Project/Project'
 import * as actions from '../../../store/actions/index'
 
 const Projects = props => {
