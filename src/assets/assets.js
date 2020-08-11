@@ -13,7 +13,8 @@ const imageAssets = {
   closeDraw: require('../assets/closeDraw.png'),
   homeBackground: require('../assets/homeBackground.jpg'),
   gitHub: require('../assets/gitHub.png'),
-  showDemo: require('../assets/showDemo.png')
+  showDemo: require('../assets/showDemo.png'),
+  profileImage: require('../assets/profileImage.png')
 }
 
 export default imageAssets

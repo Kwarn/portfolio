@@ -1,5 +1,32 @@
+.Home {
 
+}
 
+.Title {
+  position: relative;
+  left: 70px;
+  margin-top: 300px;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
 
+.Home img {
+  position: relative;
+  top: 107px;
+  right: 165px;
+  border-radius: 110px;
+  margin-right: 50px;
+  height: 120px;
+  width: auto;
+}
 
+.ButtonsWrapper {
+  margin: 5px;
+}
 
+button {
+  height: 30px;
+  padding: 3px;
+  margin: 5px;
+}
