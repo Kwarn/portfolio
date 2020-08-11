@@ -1,18 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import classes from './Home.module.css'
 
 const Home = props => {
   return (
-    <div>
-      <Link to='/cv'>
-        <button>Cv</button>
-      </Link>
-      <Link to='/projects'>
-        <button>Projects</button>
-      </Link>
-      <Link to='/contact'>
-        <button>Contact</button>
-      </Link>
+    <div className={classes.Home}>
+      <h1>Testing</h1>
     </div>
   )
 }

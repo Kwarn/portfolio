@@ -25,23 +25,36 @@ const Project = props => {
     }
   }
 
-  const drawDrop =(
-    <div className={!showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper}>
+
+  const drawDrop = (
+    <div
+      className={
+        !showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper
+      }
+      onClick={()=> setShowFullProject(!showFullProject)}
+    >
       <img
         className={classes.DrawIcon}
         src={!showFullProject ? imageAssets.openDraw : imageAssets.closeDraw}
-        alt={!showFullProject ? "openDraw" : 'closeDraw'}
+        alt={!showFullProject ? 'openDraw' : 'closeDraw'}
       />
     </div>
   )
 
-
   const fullProject = showFullProject ? (
-    <FullProject projectId={projectId} desc={project.description} />
+    <FullProject
+      projectId={projectId}
+      desc={project.description}
+      lessons={project.lessons}
+      demoLink={project.liveDemoLink}
+      gitHubLink={project.gitHubLink}
+      courseLink={project.courseLink}
+      techStack={project.techStack}
+    />
   ) : null
 
   return (
-    <> 
+    <>
       <div className={classes.ProjectWrapper}>
         <div
           className={classes.Project}

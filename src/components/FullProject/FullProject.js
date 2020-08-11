@@ -3,10 +3,17 @@ import imageAssets from '../../assets/assets'
 import classes from './FullProject.module.css'
 
 const FullProject = props => {
-  console.log(props)
+  const listItems = props.lessons.split(', ').map(lesson => (
+    <li className={classes.ListItem} key={lesson}>
+      {lesson}
+    </li>
+  ))
+
   const projectElement = (
     <div className={classes.FullProject}>
       <p className={classes.Desc}>{props.desc}</p>
+      <p className={classes.ListHeader}>What I learned:</p>
+      <ul className={classes.List}>{listItems}</ul>
       <img src={imageAssets[props.projectId]} alt="burgerBuilder" />
     </div>
   )
