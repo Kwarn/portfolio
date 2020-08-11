@@ -16,7 +16,6 @@ const FullProject = props => {
           ? `${classes.FullProject} ${classes.OnMouseOverDraw}`
           : classes.FullProject
       }
-      onClick={props.clicked}
     >
       <p className={classes.Desc}>{props.desc}</p>
       <p className={classes.ListHeader}>What I learned:</p>

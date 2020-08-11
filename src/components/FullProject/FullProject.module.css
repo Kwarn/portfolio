@@ -9,11 +9,6 @@
   animation: openFullProject 0.3s ease-in-out;
 }
 
-.FullProject:hover {
-  background-color: #85a2bb;
-  cursor: pointer;
-}
-
 .OnMouseOverDraw {
   background-color: #85a2bb;
 }

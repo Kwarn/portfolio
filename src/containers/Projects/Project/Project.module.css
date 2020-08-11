@@ -1,4 +1,5 @@
 .IconsBar {
+  border-bottom: 1px dotted black;
   border-radius: 10px 10px 0px 0px;
   height: auto;
   margin: 20px 15px 0px 15px;
@@ -20,32 +21,51 @@
   padding: 5px;
 }
 
-.LiveDemoLink {
-  padding-bottom: 3px;
-}
-
-.Image {
+.IconImage {
   padding: 5px;
   height: auto;
   width: 30px;
 }
 
+
 .OpenDrawWrapper {
+  cursor: pointer;
   margin: -5px;
   text-align: center;
 }
 
 .CloseDrawWrapper {
+  cursor: pointer;
   margin: -25px 0 20px 0;
   text-align: center;
 }
 
-.DrawIcon {
-  width: 15px;
-  height: auto;
+.OpenDrawWrapper:hover .DrawIcon {
+  width: 20px;
+  margin-bottom: -5px;
 }
 
-.ExpandDrawIcon {
+.CloseDrawWrapper:hover .DrawIcon {
+  width: 20px;
+  margin-bottom: -5px;
+}
+
+.DrawToggle {
+  height: auto;
+  margin: 0px 15px 0px 15px;
+  background-color: #748da1;
+}
+
+.HighlightDrawToggle {
+  background-color: #85a2bb;
+}
+
+.DrawToggle:hover {
+  cursor: pointer;
+  background-color: #85a2bb;
+}
+
+.DrawToggle:hover .DrawIcon {
   width: 20px;
   margin-bottom: -5px;
 }
@@ -61,20 +81,12 @@
   padding: 5px 5px 10px 5px;
 }
 
-.DrawToggle {
+.DrawIcon {
+  width: 15px;
   height: auto;
-  margin: 0px 15px 0px 15px;
-  background-color: #748da1;
 }
 
-.DrawToggle:hover {
-  cursor: pointer;
-  background-color: #85a2bb;
-}
-
-.DrawToggle:hover .DrawIcon {
+.ExpandDrawIcon {
   width: 20px;
   margin-bottom: -5px;
 }
-
-/* mediaQuery for < 420px */

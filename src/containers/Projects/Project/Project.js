@@ -17,7 +17,7 @@ const Project = props => {
     if (tag in imageAssets) {
       images.push(
         <img
-          className={classes.Image}
+          className={classes.IconImage}
           src={imageAssets[tag]}
           key={tag}
           alt={tag}
@@ -26,12 +26,19 @@ const Project = props => {
     }
   }
 
+  const toggleDrawhandler = () => {
+    setShowFullProject(!showFullProject)
+    setIsMouseOverDraw(false)
+  }
+
   const drawDrop = (
     <div
       className={
         !showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper
       }
-      onClick={() => setShowFullProject(!showFullProject)}
+      onClick={() => toggleDrawhandler()}
+      onMouseEnter={() => setIsMouseOverDraw(true)}
+      onMouseLeave={() => setIsMouseOverDraw(false)}
     >
       <img
         className={
@@ -52,7 +59,6 @@ const Project = props => {
       lessons={project.lessons}
       techStack={project.techStack}
       isMouseOverDraw={isMouseOverDraw}
-      clicked={() => setShowFullProject(false)}
     />
   ) : null
 
@@ -63,14 +69,14 @@ const Project = props => {
         <div className={classes.Links}>
           <a href={project.liveDemoLink}>
             <img
-              className={`${classes.Image} ${classes.LiveDemoLink}`}
+              className={`${classes.IconImage} ${classes.LiveDemoLink}`}
               src={imageAssets.showDemo}
               alt="liveDemoLink"
             />
           </a>
           <a href={project.gitHubLink}>
             <img
-              className={classes.Image}
+              className={classes.IconImage}
               src={imageAssets.gitHub}
               alt="gitHub"
             />
@@ -79,10 +85,16 @@ const Project = props => {
       </div>
 
       <div
-        className={classes.DrawToggle}
-        onMouseOver={() => setIsMouseOverDraw(true)}
+        className={
+          !showFullProject
+            ? isMouseOverDraw
+              ? `${classes.DrawToggle} ${classes.HighlightDrawToggle}`
+              : classes.DrawToggle
+            : classes.DrawToggle
+        }
+        onMouseEnter={() => setIsMouseOverDraw(true)}
         onMouseLeave={() => setIsMouseOverDraw(false)}
-        onClick={() => setShowFullProject(!showFullProject)}
+        onClick={() => toggleDrawhandler()}
       >
         <h1 className={classes.Title}>{project.title}</h1>
       </div>
