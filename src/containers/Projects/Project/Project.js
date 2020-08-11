@@ -5,6 +5,7 @@ import classes from './Project.module.css'
 
 const Project = props => {
   const [showFullProject, setShowFullProject] = useState(false)
+  const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
 
   const { projectId, project } = props
 
@@ -25,16 +26,19 @@ const Project = props => {
     }
   }
 
-
   const drawDrop = (
     <div
       className={
         !showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper
       }
-      onClick={()=> setShowFullProject(!showFullProject)}
+      onClick={() => setShowFullProject(!showFullProject)}
     >
       <img
-        className={classes.DrawIcon}
+        className={
+          isMouseOverDraw
+            ? `${classes.DrawIcon} ${classes.ExpandDrawIcon}`
+            : classes.DrawIcon
+        }
         src={!showFullProject ? imageAssets.openDraw : imageAssets.closeDraw}
         alt={!showFullProject ? 'openDraw' : 'closeDraw'}
       />
@@ -46,24 +50,41 @@ const Project = props => {
       projectId={projectId}
       desc={project.description}
       lessons={project.lessons}
-      demoLink={project.liveDemoLink}
-      gitHubLink={project.gitHubLink}
-      courseLink={project.courseLink}
       techStack={project.techStack}
+      isMouseOverDraw={isMouseOverDraw}
+      clicked={() => setShowFullProject(false)}
     />
   ) : null
 
   return (
     <>
-      <div className={classes.ProjectWrapper}>
-        <div
-          className={classes.Project}
-          onClick={() => setShowFullProject(!showFullProject)}
-        >
-          <h1 className={classes.Title}>{project.title}</h1>
-          <div className={classes.Images}>{images}</div>
-          <p className={classes.Tech}>{project.previewTechStack}</p>
+      <div className={classes.IconsBar}>
+        <div className={classes.TechImages}>{images}</div>
+        <div className={classes.Links}>
+          <a href={project.liveDemoLink}>
+            <img
+              className={`${classes.Image} ${classes.LiveDemoLink}`}
+              src={imageAssets.showDemo}
+              alt="liveDemoLink"
+            />
+          </a>
+          <a href={project.gitHubLink}>
+            <img
+              className={classes.Image}
+              src={imageAssets.gitHub}
+              alt="gitHub"
+            />
+          </a>
         </div>
+      </div>
+
+      <div
+        className={classes.DrawToggle}
+        onMouseOver={() => setIsMouseOverDraw(true)}
+        onMouseLeave={() => setIsMouseOverDraw(false)}
+        onClick={() => setShowFullProject(!showFullProject)}
+      >
+        <h1 className={classes.Title}>{project.title}</h1>
       </div>
       {!showFullProject ? drawDrop : null}
       {fullProject}

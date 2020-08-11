@@ -10,7 +10,14 @@ const FullProject = props => {
   ))
 
   const projectElement = (
-    <div className={classes.FullProject}>
+    <div
+      className={
+        props.isMouseOverDraw
+          ? `${classes.FullProject} ${classes.OnMouseOverDraw}`
+          : classes.FullProject
+      }
+      onClick={props.clicked}
+    >
       <p className={classes.Desc}>{props.desc}</p>
       <p className={classes.ListHeader}>What I learned:</p>
       <ul className={classes.List}>{listItems}</ul>

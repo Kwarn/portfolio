@@ -12,7 +12,8 @@ const imageAssets = {
   openDraw: require('../assets/openDraw.png'),
   closeDraw: require('../assets/closeDraw.png'),
   homeBackground: require('../assets/homeBackground.jpg'),
-  gitHub: require('../assets/gitHub.png')
+  gitHub: require('../assets/gitHub.png'),
+  showDemo: require('../assets/showDemo.png')
 }
 
 export default imageAssets

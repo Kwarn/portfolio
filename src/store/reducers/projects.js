@@ -11,7 +11,7 @@ const initalState = {
       courseLink:
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
       description:
-        "This app allows users to create and order their own customized burger. Features include authentication, user's order history, automatic login and preservation of the users session. ",
+        "This app allows users to create and order their own customized burger. Features include form validation, authentication, database management, automatic login and preservation of the users session. ",
       lessons:
         'Multiple approaches to Handling State, Authentication tokens and localStorage, Asynchronous actions, Class-based components and lifecycle hooks, Functional components and react hooks, Higher order components, Form validation, Database rules configuration',
     },
@@ -20,26 +20,24 @@ const initalState = {
       previewTechStack: 'Javascript, React, Redux, Css, Html',
 
       gitHubLink: 'placeholder',
-      description: 'Gambling game',
-      lessons: '',
+      description: 'This was my first dive into the world of javascript and React',
+      lessons: 'Fundamentals of state and data management',
     },
     Fitness: {
-      title: 'Fitness app',
+      title: 'Fitness',
       previewTechStack: 'Python, Tkinter, SQlite3',
 
       gitHubLink: 'https://github.com/Kwarn/fitness',
       description: 'fitness app, learned lots',
-      lessons: '',
+      lessons: 'Database queries',
     },
     shutdownTimer: {
       title: 'Shutdown Timer',
       previewTechStack: 'Python, tkinter',
-      image: '',
-
       gitHubLink: 'placeholder',
       description:
         'Desktop Application for setting an automatic shutdown/reset/sleep time',
-      lessons: '',
+      lessons: 'System process access',
     },
   },
   fullProject: 'burgerBuilder',
