@@ -4,7 +4,7 @@ import * as actions from '../../store/actions/index'
 import classes from './Contact.module.css'
 
 const Contact = props => {
-  // const {name, email, textBox} = props
+  const {name, email, textBox} = props
   // useEffect(() => {
   //   console.log('rerendered')
   // }, [name])
@@ -15,7 +15,7 @@ const Contact = props => {
     props.onInputChanged(event, inputIdentifier)
 
    
-  if (!props.name.isValid){
+  if (!name.isValid){
     
   }
 
@@ -28,18 +28,18 @@ const Contact = props => {
         <input
           onChange={event => onChangeHandler(event, 'name')}
           placeholder="Your name"
-          value={props.name.value}
+          value={name.value}
         />
         <input
           onChange={event => onChangeHandler(event, 'email')}
           placeholder="Your email address"
-          value={props.email.value}
+          value={email.value}
         />
         <textarea
           onChange={event => onChangeHandler(event, 'textBox')}
           className={classes.TextBox}
           placeholder="Your message here!"
-          value={props.textBox.value}
+          value={textBox.value}
         />
         <button>Submit</button>
       </form>
@@ -49,7 +49,6 @@ const Contact = props => {
 
 const mapStateToProps = state => {
   return {
-    formValidation: state.contact.formValidation,
     name: state.contact.inputForm.name,
     email: state.contact.inputForm.email,
     textBox: state.contact.inputForm.textBox,
