@@ -1,8 +1,11 @@
 .Skills {
+  color: white;
 }
 
 .Skills img {
   display: flex;
+  height: 150px;
+  width: auto;
 }
 .Title {
   text-align: center;
@@ -10,4 +13,21 @@
 
 .Images {
   display: flex;
+}
+
+.TechLists {
+  justify-content: space-between;
+}
+
+ul {
+  display: inline;
+}
+.JavascriptList {
+  padding: 10px;
+  display: inline-block;
+}
+
+.PythonList {
+  padding: 10px;
+  display: inline-block;
 }

@@ -1,13 +1,15 @@
 import React from 'react'
-
-import NavigationItems from '../NavigationItems/NavigationItems'
-
+import NavigationItemsLeft from '../NavigationItems/NavigationItemsLeft/NavigationItemsLeft'
+import NavigationItemsRight from '../NavigationItems/NavigationItemsRight/NavigationItemsRight'
 import classes from './Toolbar.module.css'
 
 const toolbar = props => (
   <header className={classes.Toolbar}>
     <nav>
-      <NavigationItems />
+      <NavigationItemsLeft />
+    </nav>
+    <nav>
+      <NavigationItemsRight />
     </nav>
   </header>
 )

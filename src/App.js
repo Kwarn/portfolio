@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Home from './containers/Home/Home'
 import Layout from './Hoc/Layout/Layout'
+import AboutMe from './components/AboutMe/AboutMe'
 import classes from './App.module.css'
 
 const ProjectsOverview = React.lazy(() =>
@@ -35,6 +36,14 @@ const App = props => {
         render={() => (
           <Suspense fallback={<div>Something Went Wrong...</div>}>
             <Contact />
+          </Suspense>
+        )}
+      />
+      <Route
+        path="/aboutme"
+        render={() => (
+          <Suspense fallback={<div>Something Went Wrong...</div>}>
+            <AboutMe />
           </Suspense>
         )}
       />

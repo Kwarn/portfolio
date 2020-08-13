@@ -7,7 +7,7 @@ const Home = props => {
   return (
     <div className={classes.Home}>
       <div className={classes.Title}>
-      <img src={imageAssets.profileImage} alt="profileImage" />
+        <img src={imageAssets.profileImage} alt="profileImage" />
         <h1>Karl Warner</h1>
         <p>{`</> Software Developer`}</p>
         <div className={classes.Buttons}>
@@ -19,6 +19,7 @@ const Home = props => {
           </Link>
         </div>
       </div>
+      <p className={classes.Footer}>Website built and designed with react/css modules</p>
     </div>
   )
 }
