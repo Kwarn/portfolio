@@ -1,5 +1,4 @@
 import React from 'react'
-import imageAssets from '../../assets/assets'
 import classes from './AboutMe.module.css'
 
 const AboutMe = (props) => {
