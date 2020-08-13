@@ -3,6 +3,7 @@
   border-radius: 10px 10px 0px 0px;
   height: auto;
   margin: 20px 15px 0px 15px;
+  opacity: 90%;
   background-color: #748da1;
   display: flex;
   justify-content: space-between;
@@ -51,6 +52,7 @@
 }
 
 .DrawToggle {
+  opacity: 90%;
   height: auto;
   margin: 0px 15px 0px 15px;
   background-color: #748da1;
