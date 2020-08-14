@@ -5,30 +5,34 @@ import Courses from '../../containers/Courses/Courses'
 const Skills = props => {
   return (
     <div className={classes.Skills}>
-      <h1 className={classes.SectionTitle}>Languages and Frameworks</h1>
+      <h1 className={classes.SectionTitle}>Technologies</h1>
       <div className={classes.TechLists}>
-        <div className={classes.JavascriptList}>
+        <div className={classes.TechSubsection}>
           <h2>Javascript</h2>
-          <ul>
-            <li>React</li>
-            <li>React-Redux</li>
-            <li>React-Router</li>
-            <li>Axios</li>
-          </ul>
+          <p>
+            React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme,
+            react-transition-group
+          </p>
         </div>
-        <div className={classes.PythonList}>
+        <div className={classes.TechSubsection}>
           <h2>Python</h2>
-          <ul>
-            <li>Tkinter</li>
-            <li>Pygame</li>
-            <li>sqlite3</li>
-          </ul>
+          <p>TkInter, PyGame, SQLite</p>
+        </div>
+        <div className={classes.TechSubsection}>
+          <h2>General</h2>
+          <p>
+            HTML, CSS modules, GitHub/Git Commands, Unix Command-line, Redux
+            Dev-Tools, Firebase Auth/Database/Hosting, Webpack
+          </p>
+        </div>
+        <div>
+          <h2>Development Environment</h2>
+          <p>Ubuntu 20.04, VSCode, Firefox/Chrome</p>
         </div>
       </div>
 
       <h1 className={classes.SectionTitle}>Courses and Certificates</h1>
       <Courses />
-      <h1 className={classes.SectionTitle}>Development environment</h1>
     </div>
   )
 }
