@@ -6,8 +6,8 @@ import Layout from './Hoc/Layout/Layout'
 import AboutMe from './components/AboutMe/AboutMe'
 import classes from './App.module.css'
 
-const ProjectsOverview = React.lazy(() =>
-  import('./components/ProjectsOverview/ProjectsOverview')
+const Projects = React.lazy(() =>
+  import('./containers/Projects/Projects')
 )
 const Skills = React.lazy(() => import('./components/Skills/Skills'))
 const Contact = React.lazy(() => import('./containers/Contact/Contact'))
@@ -19,7 +19,7 @@ const App = props => {
         path="/projects"
         render={() => (
           <Suspense fallback={<div>Something Went Wrong...</div>}>
-            <ProjectsOverview />
+            <Projects/>
           </Suspense>
         )}
       />

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Project from '../../components/Project/Project'
 import * as actions from '../../store/actions/index'
+import classes from './Projects.module.css'
 
 const Projects = props => {
   const { projects } = props
@@ -22,7 +23,7 @@ const Projects = props => {
     )
   }
 
-  return projectElements
+  return  (<div className={classes.ProjectsWrapper}>{projectElements}</div>)
 }
 
 const mapStateToProps = state => {
