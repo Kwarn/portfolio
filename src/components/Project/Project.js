@@ -60,7 +60,7 @@ const Project = props => {
           </a>
         </div>
       </div>
-      <Draw drawContentProps={drawContentProps} />
+      <Draw contentType='project' drawContentProps={drawContentProps} />
     </>
   )
 }

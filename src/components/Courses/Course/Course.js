@@ -20,7 +20,7 @@ const Course = props => {
       <div className={classes.Course}>
         <h1>{title}</h1>
       </div>
-      <Draw drawContentProps={drawContentProps} />
+      <Draw contentType='course' drawContentProps={drawContentProps} />
     </>
   )
 }
