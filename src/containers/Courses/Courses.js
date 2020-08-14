@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import imageAssets from '../../assets/assets'
-import Course from './Course/Course'
+import Course from '../../components/Course/Course'
+import classes from '../../containers/Courses/Courses.module.css'
 
 const Courses = props => {
   const [coursesObject] = useState({
@@ -33,7 +34,7 @@ const Courses = props => {
     )
   }
 
-  return courses
+  return <div className={classes.CoursesWrapper}>{courses}</div>
 }
 
 export default Courses

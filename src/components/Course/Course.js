@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Course.module.css'
-import Draw from '../../../containers/Draw/Draw'
+import Draw from '../../containers/Draw/Draw'
 
 const Course = props => {
   const { title, desc, cert } = props
