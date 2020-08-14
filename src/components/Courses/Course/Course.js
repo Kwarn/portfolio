@@ -34,6 +34,8 @@ const Course = props => {
     </div>
   )
 
+  
+
   return (
     <div className={classes.Course}>
       <h1 className={classes.Title}>{title}</h1>

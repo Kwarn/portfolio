@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import imageAssets from '../../../assets/assets'
 import FullProject from '../../../components/FullProject/FullProject'
 import classes from './Project.module.css'
+import Draw from '../../../components/Ui/Draw'
 
 const Project = props => {
-  const [showFullProject, setShowFullProject] = useState(false)
-  const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
+  // const [showFullProject, setShowFullProject] = useState(false)
+  // const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
 
   const { projectId, project } = props
 
@@ -26,41 +27,40 @@ const Project = props => {
     }
   }
 
-  const toggleDrawhandler = () => {
-    setShowFullProject(!showFullProject)
-    setIsMouseOverDraw(false)
-  }
+  // const toggleDrawhandler = () => {
+  //   setShowFullProject(!showFullProject)
+  //   setIsMouseOverDraw(false)
+  // }
 
-  const drawDrop = (
-    <div
-      className={
-        !showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper
-      }
-      onClick={() => toggleDrawhandler()}
-      onMouseEnter={() => setIsMouseOverDraw(true)}
-      onMouseLeave={() => setIsMouseOverDraw(false)}
-    >
-      <img
-        className={
-          isMouseOverDraw
-            ? `${classes.DrawIcon} ${classes.ExpandDrawIcon}`
-            : classes.DrawIcon
-        }
-        src={!showFullProject ? imageAssets.openDraw : imageAssets.closeDraw}
-        alt={!showFullProject ? 'openDraw' : 'closeDraw'}
-      />
-    </div>
-  )
+  // const drawDrop = (
+  //   <div
+  //     className={
+  //       !showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper
+  //     }
+  //     onClick={() => toggleDrawhandler()}
+  //     onMouseEnter={() => setIsMouseOverDraw(true)}
+  //     onMouseLeave={() => setIsMouseOverDraw(false)}
+  //   >
+  //     <img
+  //       className={
+  //         isMouseOverDraw
+  //           ? `${classes.DrawIcon} ${classes.ExpandDrawIcon}`
+  //           : classes.DrawIcon
+  //       }
+  //       src={!showFullProject ? imageAssets.openDraw : imageAssets.closeDraw}
+  //       alt={!showFullProject ? 'openDraw' : 'closeDraw'}
+  //     />
+  //   </div>
+  // )
 
-  const fullProject = showFullProject ? (
+  const fullProject = (
     <FullProject
       projectId={projectId}
       desc={project.description}
       lessons={project.lessons}
       techStack={project.techStack}
-      isMouseOverDraw={isMouseOverDraw}
     />
-  ) : null
+  )
 
   return (
     <>
@@ -83,24 +83,7 @@ const Project = props => {
           </a>
         </div>
       </div>
-
-      <div
-        className={
-          !showFullProject
-            ? isMouseOverDraw
-              ? `${classes.DrawToggle} ${classes.HighlightDrawToggle}`
-              : classes.DrawToggle
-            : classes.DrawToggle
-        }
-        onMouseEnter={() => setIsMouseOverDraw(true)}
-        onMouseLeave={() => setIsMouseOverDraw(false)}
-        onClick={() => toggleDrawhandler()}
-      >
-        <h1 className={classes.Title}>{project.title}</h1>
-      </div>
-      {!showFullProject ? drawDrop : null}
-      {fullProject}
-      {showFullProject ? drawDrop : null}
+      <Draw title={project.title} openDrawContent={fullProject} />
     </>
   )
 }
