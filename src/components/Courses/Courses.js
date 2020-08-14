@@ -15,7 +15,7 @@ const Courses = props => {
       cert: imageAssets.reactCertificate,
     },
     JavascriptFreeCodeCamp: {
-      title: 'Javascript Algorithms and Data Structues',
+      title: 'Javascript Algorithms and Data Structures',
       desc: 'A comprehensive course including ES6 features',
       cert: imageAssets.freeCodeCampCertificate,
     },
