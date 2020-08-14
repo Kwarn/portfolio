@@ -1,12 +1,11 @@
 import React from 'react'
-import imageAssets from '../../../assets/assets'
+import imageAssets from '../../assets/assets'
 import classes from './DrawContent.module.css'
 
 const DrawContent = props => {
   const { isMouseOverDraw } = props
 
   let content = null
-  console.log(isMouseOverDraw)
 
   if (props.isProject) {
     content = (

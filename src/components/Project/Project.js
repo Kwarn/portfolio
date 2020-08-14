@@ -1,6 +1,6 @@
 import React from 'react'
-import imageAssets from '../../../assets/assets'
-import Draw from '../../Ui/Draw'
+import imageAssets from '../../assets/assets'
+import Draw from '../../containers/Draw/Draw'
 import classes from './Project.module.css'
 
 const Project = props => {
