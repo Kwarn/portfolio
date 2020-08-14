@@ -1,7 +1,7 @@
 .DrawContent {
   opacity: 90%;
   border-radius: 0px 0px 10px 10px;
-  background-color: #748da1;
+  background-color: #A9B4C2;
   border: 1px 0px 0px 1px solid rgb(0, 0, 0);
   box-shadow: 0 5px 10px rgb(0, 0, 0);
   margin: 0px 15px 20px 15px;
@@ -11,7 +11,7 @@
 }
 
 .OnMouseOverDraw {
-  background-color: #85a2bb;
+  background-color: #EEF1EF;
 }
 
 .ListHeader {

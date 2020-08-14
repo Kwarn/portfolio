@@ -1,10 +1,10 @@
 .Title {
   position: relative;
   left: 70px;
-  margin-top: 300px;
+  margin-top: 250px;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: #EEF1EF;
 }
 
 .Footer {
@@ -18,7 +18,7 @@
 
 .Home img {
   position: relative;
-  top: 100px;
+  top: 130px;
   right: 165px;
   border-radius: 110px;
   margin-right: 50px;
@@ -26,12 +26,41 @@
   width: auto;
 }
 
+.Home button {
+  border-radius: 5px;
+  height: 100%;
+  width: auto;
+  padding: 10px;
+  margin: 20px 5px 0px 5px;
+  color: black;
+  background-color: #A9B4C2;
+  border: 1px solid #EEF1EF;
+  transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+.Home button:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+}
+
 .ButtonsWrapper {
   margin: 5px;
 }
 
-button {
-  height: 30px;
-  padding: 3px;
-  margin: 5px;
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }
