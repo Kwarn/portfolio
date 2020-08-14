@@ -18,12 +18,11 @@ const Projects = props => {
         key={project}
         projectId={project}
         project={projects[project]}
-        clicked={() => displayFullProjectHandler(project)}
       />
     )
   }
 
-  return  (<div className={classes.ProjectsWrapper}>{projectElements}</div>)
+  return <div className={classes.ProjectsWrapper}>{projectElements}</div>
 }
 
 const mapStateToProps = state => {

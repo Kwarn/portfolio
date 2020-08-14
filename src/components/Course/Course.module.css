@@ -1,8 +1,10 @@
 .Course {
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
   border-bottom: 1px dotted black;
   border-radius: 10px 10px 0px 0px;
   height: auto;
   margin: 20px 15px 0px 15px;
+  padding: 10px;
   opacity: 90%;
   background-color: #748da1;
   display: flex;

@@ -1,6 +1,5 @@
 .Skills {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 1px;
 }
 
 .TechLists {
@@ -17,21 +16,13 @@
 }
 
 .SectionTitle {
-  margin: 25px 15px 0px 15px;
+  margin: 20px 15px 0px 15px;
   border-radius: 10px 10px 0px 0px;
   background-color: #4f6f8a;
   padding: 10px 0px 5px 0px;
   text-align: center;
   font-size: larger;
   color: black;
-}
-
-.LanguagesTitle {
-  background-color: #748da1;
-  font-size: larger;
-  text-align: center;
-  padding: 15px;
-  border-bottom: 1px dotted black;
 }
 
 ul {
