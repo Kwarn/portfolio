@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './AboutMe.module.css'
-import FullProject from '../FullProject/FullProject'
-import Draw from '../Ui/Draw'
+import FullProject from '../../containers/Ui/DrawContent/DrawContent'
+import Draw from '../../containers/Ui/Draw'
 
 const AboutMe = props => {
   const fullProject = (

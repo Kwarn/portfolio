@@ -1,13 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import imageAssets from '../../../assets/assets'
-import FullProject from '../../../components/FullProject/FullProject'
+import Draw from '../../Ui/Draw'
 import classes from './Project.module.css'
-import Draw from '../../../components/Ui/Draw'
 
 const Project = props => {
-  // const [showFullProject, setShowFullProject] = useState(false)
-  // const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
-
   const { projectId, project } = props
 
   const imageTags = project.previewTechStack
@@ -27,40 +23,20 @@ const Project = props => {
     }
   }
 
-  // const toggleDrawhandler = () => {
-  //   setShowFullProject(!showFullProject)
-  //   setIsMouseOverDraw(false)
-  // }
+  const lessonsListItems = project.lessons.split(', ').map(lesson => (
+    <li className={classes.ListItem} key={lesson}>
+      {lesson}
+    </li>
+  ))
 
-  // const drawDrop = (
-  //   <div
-  //     className={
-  //       !showFullProject ? classes.OpenDrawWrapper : classes.CloseDrawWrapper
-  //     }
-  //     onClick={() => toggleDrawhandler()}
-  //     onMouseEnter={() => setIsMouseOverDraw(true)}
-  //     onMouseLeave={() => setIsMouseOverDraw(false)}
-  //   >
-  //     <img
-  //       className={
-  //         isMouseOverDraw
-  //           ? `${classes.DrawIcon} ${classes.ExpandDrawIcon}`
-  //           : classes.DrawIcon
-  //       }
-  //       src={!showFullProject ? imageAssets.openDraw : imageAssets.closeDraw}
-  //       alt={!showFullProject ? 'openDraw' : 'closeDraw'}
-  //     />
-  //   </div>
-  // )
-
-  const fullProject = (
-    <FullProject
-      projectId={projectId}
-      desc={project.description}
-      lessons={project.lessons}
-      techStack={project.techStack}
-    />
-  )
+  const drawContentProps = {
+    isProject: true,
+    lessonsListItems: lessonsListItems,
+    projectId: projectId,
+    desc: project.description,
+    lessons: project.lessons,
+    techStack: project.techStack,
+  }
 
   return (
     <>
@@ -83,7 +59,7 @@ const Project = props => {
           </a>
         </div>
       </div>
-      <Draw title={project.title} openDrawContent={fullProject} />
+      <Draw title={project.title} drawContentProps={drawContentProps} />
     </>
   )
 }
