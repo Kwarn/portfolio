@@ -1,0 +1,19 @@
+.Course {
+  border-bottom: 1px dotted black;
+  border-radius: 10px 10px 0px 0px;
+  height: auto;
+  margin: 20px 15px 0px 15px;
+  opacity: 90%;
+  background-color: #748da1;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.Title {
+}
+
+.Image {
+  height: 120px;
+  padding: 10px;
+}

@@ -19,7 +19,7 @@ const FullProject = props => {
     >
       <p className={classes.Desc}>{props.desc}</p>
       <p className={classes.ListHeader}>What I learned:</p>
-      <ul className={classes.List}>{listItems}</ul>
+      <ul className={classes.LearnedList}>{listItems}</ul>
       <img src={imageAssets[props.projectId]} alt="burgerBuilder" />
     </div>
   )

@@ -2,17 +2,10 @@
   color: white;
 }
 
-.Skills img {
-  display: flex;
-  height: 150px;
-  width: auto;
-}
-.Title {
+.Skills h1 {
+  font-size: larger;
   text-align: center;
-}
-
-.Images {
-  display: flex;
+  padding: 15px;
 }
 
 .TechLists {

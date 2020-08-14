@@ -1,12 +1,12 @@
 import React from 'react'
-import imageAssets from '../../assets/assets'
 import classes from './Skills.module.css'
+import Courses from '../Courses/Courses'
 
 const Skills = props => {
   return (
     <div className={classes.Skills}>
-      <h1 className={classes.Title}>Skills</h1>
       <div className={classes.TechLists}>
+        <h1 className={classes.Title}>Languages and Frameworks</h1>
         <div className={classes.JavascriptList}>
           <h2>Javascript</h2>
           <ul>
@@ -25,13 +25,9 @@ const Skills = props => {
           </ul>
         </div>
       </div>
-      <div className={classes.Images}>
-        <img
-          src={imageAssets.javascriptCertificate}
-          alt="javascriptCertificate"
-        ></img>
-        <img src={imageAssets.reactCertificate} alt="reactCertificate"></img>
-      </div>
+      <h1>Comprehensive Courses</h1>
+      <Courses></Courses>
+      <h1>Development environment</h1>
     </div>
   )
 }

@@ -14,7 +14,8 @@ const imageAssets = {
   homeBackground: require('../assets/homeBackground.jpg'),
   gitHub: require('../assets/gitHub.png'),
   showDemo: require('../assets/showDemo.png'),
-  profileImage: require('../assets/profileImage.png')
+  profileImage: require('../assets/profileImage.png'),
+  freeCodeCampCertificate: require('../assets/freeCodeCampCertificate.png')
 }
 
 export default imageAssets
