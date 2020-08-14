@@ -13,7 +13,7 @@ const DrawContent = props => {
         <p className={classes.Desc}>{props.desc}</p>
         <p className={classes.ListHeader}>What I learned:</p>
         <ul className={classes.LearnedList}>{props.lessonsListItems}</ul>
-        <img src={imageAssets[props.projectId]} alt="burgerBuilder" />{' '}
+        <img src={imageAssets[props.projectId]} alt={props.projectId} />
       </>
     )
   } else {
@@ -23,7 +23,7 @@ const DrawContent = props => {
   return (
     <div
       className={
-        props.isMouseOverDraw
+        isMouseOverDraw
           ? `${classes.DrawContent} ${classes.OnMouseOverDraw}`
           : classes.DrawContent
       }
