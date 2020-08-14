@@ -5,8 +5,8 @@ import Courses from '../Courses/Courses'
 const Skills = props => {
   return (
     <div className={classes.Skills}>
+      <h1 className={classes.SectionTitle}>Languages and Frameworks</h1>
       <div className={classes.TechLists}>
-        <h1 className={classes.Title}>Languages and Frameworks</h1>
         <div className={classes.JavascriptList}>
           <h2>Javascript</h2>
           <ul>
@@ -25,9 +25,10 @@ const Skills = props => {
           </ul>
         </div>
       </div>
-      <h1>Comprehensive Courses</h1>
-      <Courses></Courses>
-      <h1>Development environment</h1>
+
+      <h1 className={classes.SectionTitle}>Courses and Certificates</h1>
+      <Courses />
+      <h1 className={classes.SectionTitle}>Development environment</h1>
     </div>
   )
 }

@@ -31,6 +31,7 @@ const Project = props => {
 
   const drawContentProps = {
     isProject: true,
+    title: project.title,
     lessonsListItems: lessonsListItems,
     projectId: projectId,
     desc: project.description,
@@ -59,7 +60,7 @@ const Project = props => {
           </a>
         </div>
       </div>
-      <Draw title={project.title} drawContentProps={drawContentProps} />
+      <Draw drawContentProps={drawContentProps} />
     </>
   )
 }

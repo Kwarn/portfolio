@@ -6,14 +6,17 @@
   opacity: 90%;
   background-color: #748da1;
   display: flex;
-  justify-content: space-between;
-  color: white;
+  justify-content: center;
 }
 
-.Title {
+.Course h1 {
+  font-size: larger;
+  text-align: center;
+  padding: 15px;
 }
 
 .Image {
   height: 120px;
+  width: auto;
   padding: 10px;
 }

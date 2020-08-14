@@ -6,14 +6,17 @@ import classes from './Draw.module.css'
 const Draw = props => {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
   const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
-  const { title, drawContentProps } = props
+  const { drawContentProps } = props
 
   const toggleDrawhandler = () => {
     setIsDrawOpen(!isDrawOpen)
     setIsMouseOverDraw(false)
   }
 
-  const showTitle = title ? <h1 className={classes.Title}>{title}</h1> : null
+  const showTitle = drawContentProps.title ? (
+    <h1 className={classes.Title}>{drawContentProps.title}</h1>
+  ) : null
+  
   const drawToggle = (
     <div
       className={
