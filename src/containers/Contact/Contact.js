@@ -67,22 +67,22 @@ const Contact = props => {
 
   return (
     <div className={classes.Contact}>
-      <h1> Contact Me!</h1>
+      <h1 className={classes.SectionTitle}> Contact Me!</h1>
       <form className={classes.Form} onSubmit={submitHandler}>
+        <h2>Name</h2>
         <input
           onChange={event => inputChangedHandler(event.target.value, 'name')}
-          placeholder="Your name"
           value={nameElement.value}
         />
+        <h2>Email</h2>
         <input
           onChange={event => inputChangedHandler(event.target.value, 'email')}
-          placeholder="Your email address"
           value={emailElement.value}
         />
+        <h2>Message</h2>
         <textarea
           onChange={event => inputChangedHandler(event.target.value, 'textBox')}
           className={classes.TextBox}
-          placeholder="Your message here!"
           value={textBoxElement.value}
         />
         <button onSubmit={event => submitHandler(event)}>Submit</button>
