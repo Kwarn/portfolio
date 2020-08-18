@@ -3,7 +3,7 @@ import classes from './Course.module.css'
 import Draw from '../../containers/Draw/Draw'
 
 const Course = props => {
-  const { title, desc, cert } = props
+  const { title, desc, cert, courseLink } = props
 
   const certificate = (
     <img className={classes.Image} src={cert} alt={`${title} certificate`} />
@@ -11,8 +11,9 @@ const Course = props => {
 
   const drawContentProps = {
     title: 'More info',
+    courseLink: courseLink,
     desc: desc,
-    cert: certificate
+    cert: certificate,
   }
 
   return (
@@ -20,7 +21,7 @@ const Course = props => {
       <div className={classes.Course}>
         <h1>{title}</h1>
       </div>
-      <Draw contentType='course' drawContentProps={drawContentProps} />
+      <Draw contentType="course" drawContentProps={drawContentProps} />
     </>
   )
 }

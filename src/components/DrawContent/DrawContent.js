@@ -3,7 +3,7 @@ import imageAssets from '../../assets/assets'
 import classes from './DrawContent.module.css'
 
 const DrawContent = props => {
-  const { isMouseOverDraw, cert } = props
+  const { isMouseOverDraw, cert, courseLink } = props
 
   let content = null
 
@@ -19,6 +19,7 @@ const DrawContent = props => {
   } else {
     content = (
       <>
+        <p>{courseLink}</p>
         {cert}
         <p className={classes.Desc}>{props.desc}</p>
       </>

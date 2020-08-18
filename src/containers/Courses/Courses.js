@@ -17,7 +17,8 @@ const Courses = props => {
       desc: 'A comprehensive course including ES6 features',
       courseLink:
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
-      quote: 'This is the most comprehensive and modern course you can find on JavaScript - Maximilian Schwarzmüller',
+      quote:
+        'This is the most comprehensive and modern course you can find on JavaScript - Maximilian Schwarzmüller',
       cert: imageAssets.reactCertificate,
     },
     JavascriptFreeCodeCamp: {
@@ -36,6 +37,7 @@ const Courses = props => {
         title={coursesObject[course].title}
         desc={coursesObject[course].desc}
         cert={coursesObject[course].cert}
+        courseLink={coursesObject[course].courseLink}
       ></Course>
     )
   }
