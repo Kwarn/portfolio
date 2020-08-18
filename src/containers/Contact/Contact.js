@@ -20,6 +20,13 @@ const Contact = props => {
     isValid: false,
     value: '',
   })
+  const [subjectElement, setSubjectElement] = useState({
+    validation: {
+      required: false,
+    },
+    isValid: true,
+    value: '',
+  })
   const [textBoxElement, setTextBoxElement] = useState({
     validation: {
       required: true,
@@ -39,9 +46,9 @@ const Contact = props => {
   }
 
   const inputChangedHandler = (value, elementIdentifier) => {
-    let targetElement;
-    let setTargetElement;
-    
+    let targetElement
+    let setTargetElement
+
     if (elementIdentifier === 'name') {
       targetElement = nameElement
       setTargetElement = setNameElement
@@ -49,6 +56,10 @@ const Contact = props => {
     if (elementIdentifier === 'email') {
       targetElement = emailElement
       setTargetElement = setEmailElement
+    }
+    if (elementIdentifier === 'subject') {
+      targetElement = subjectElement
+      setTargetElement = setSubjectElement
     }
     if (elementIdentifier === 'textBox') {
       targetElement = textBoxElement
@@ -61,7 +72,6 @@ const Contact = props => {
       })
     )
   }
-
 
   // conditionally add css classes base on props.name.isValid
 
@@ -78,6 +88,11 @@ const Contact = props => {
         <input
           onChange={event => inputChangedHandler(event.target.value, 'email')}
           value={emailElement.value}
+        />
+        <h2>Subject</h2>
+        <input
+          onChange={event => inputChangedHandler(event.target.value, 'subject')}
+          value={subjectElement.value}
         />
         <h2>Message</h2>
         <textarea
