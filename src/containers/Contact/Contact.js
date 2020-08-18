@@ -38,32 +38,30 @@ const Contact = props => {
     console.log(isFormValid)
   }
 
-  const nameChangeHandler = value => {
-    setNameElement(
-      updateObject(nameElement, {
-        isValid: validateInput(value, nameElement.validation),
+  const inputChangedHandler = (value, elementIdentifier) => {
+    let targetElement;
+    let setTargetElement;
+    
+    if (elementIdentifier === 'name') {
+      targetElement = nameElement
+      setTargetElement = setNameElement
+    }
+    if (elementIdentifier === 'email') {
+      targetElement = emailElement
+      setTargetElement = setEmailElement
+    }
+    if (elementIdentifier === 'textBox') {
+      targetElement = textBoxElement
+      setTargetElement = setTextBoxElement
+    }
+    setTargetElement(
+      updateObject(targetElement, {
+        isValid: validateInput(value, targetElement.validation),
         value: value,
       })
     )
   }
 
-  const emailChangedHandler = value => {
-    setEmailElement(
-      updateObject(emailElement, {
-        isValid: validateInput(value, emailElement.validation),
-        value: value,
-      })
-    )
-  }
-
-  const textBoxChangedHandler = value => {
-    setTextBoxElement(
-      updateObject(textBoxElement, {
-        isValid: validateInput(value, textBoxElement.validation),
-        value: value,
-      })
-    )
-  }
 
   // conditionally add css classes base on props.name.isValid
 
@@ -72,17 +70,17 @@ const Contact = props => {
       <h1> Contact Me!</h1>
       <form className={classes.Form} onSubmit={submitHandler}>
         <input
-          onChange={event => nameChangeHandler(event.target.value)}
+          onChange={event => inputChangedHandler(event.target.value, 'name')}
           placeholder="Your name"
           value={nameElement.value}
         />
         <input
-          onChange={event => emailChangedHandler(event.target.value)}
+          onChange={event => inputChangedHandler(event.target.value, 'email')}
           placeholder="Your email address"
           value={emailElement.value}
         />
         <textarea
-          onChange={event => textBoxChangedHandler(event.target.value)}
+          onChange={event => inputChangedHandler(event.target.value, 'textBox')}
           className={classes.TextBox}
           placeholder="Your message here!"
           value={textBoxElement.value}
