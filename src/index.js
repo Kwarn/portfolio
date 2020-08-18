@@ -1,27 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { createStore, combineReducers } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import contactReducer from './store/reducers/contact'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-const rootReducer = combineReducers({
-  contact: contactReducer
-})
-
-const store = createStore(rootReducer, composeWithDevTools())
-
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
-
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root')
 )
 

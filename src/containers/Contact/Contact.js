@@ -1,22 +1,68 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import * as actions from '../../store/actions/index'
+import React, { useState } from 'react'
+import { validateInput } from '../../shared/validation'
+import { updateObject } from '../../shared/Utility'
 import classes from './Contact.module.css'
 
 const Contact = props => {
-  const {name, email, textBox} = props
-  // useEffect(() => {
-  //   console.log('rerendered')
-  // }, [name])
+  const [nameElement, setNameElement] = useState({
+    validation: {
+      required: true,
+      minLength: 2,
+    },
+    isValid: false,
+    value: '',
+  })
+  const [emailElement, setEmailElement] = useState({
+    validation: {
+      required: true,
+      isEmail: true,
+    },
+    isValid: false,
+    value: '',
+  })
+  const [textBoxElement, setTextBoxElement] = useState({
+    validation: {
+      required: true,
+      minLength: 10,
+    },
+    isValid: false,
+    value: '',
+  })
+  const [isFormValid, setIsFormValid] = useState(false)
 
+  const submitHandler = event => {
+    event.preventDefault()
+    if (nameElement.isValid && emailElement.isValid && textBoxElement.isValid)
+      setIsFormValid(true)
+    else setIsFormValid(false)
+    console.log(isFormValid)
+  }
 
-  const submitHandler = () => {}
-  const onChangeHandler = (event, inputIdentifier) =>
-    props.onInputChanged(event, inputIdentifier)
+  const nameChangeHandler = value => {
+    setNameElement(
+      updateObject(nameElement, {
+        isValid: validateInput(value, nameElement.validation),
+        value: value,
+      })
+    )
+  }
 
-   
-  if (!name.isValid){
-    
+  const emailChangedHandler = value => {
+    setEmailElement(
+      updateObject(emailElement, {
+        isValid: validateInput(value, emailElement.validation),
+        value: value,
+      })
+    )
+  }
+
+  const textBoxChangedHandler = value => {
+    setTextBoxElement(
+      updateObject(textBoxElement, {
+        isValid: validateInput(value, textBoxElement.validation),
+        value: value,
+      })
+    )
   }
 
   // conditionally add css classes base on props.name.isValid
@@ -26,39 +72,25 @@ const Contact = props => {
       <h1> Contact Me!</h1>
       <form className={classes.Form} onSubmit={submitHandler}>
         <input
-          onChange={event => onChangeHandler(event, 'name')}
+          onChange={event => nameChangeHandler(event.target.value)}
           placeholder="Your name"
-          value={name.value}
+          value={nameElement.value}
         />
         <input
-          onChange={event => onChangeHandler(event, 'email')}
+          onChange={event => emailChangedHandler(event.target.value)}
           placeholder="Your email address"
-          value={email.value}
+          value={emailElement.value}
         />
         <textarea
-          onChange={event => onChangeHandler(event, 'textBox')}
+          onChange={event => textBoxChangedHandler(event.target.value)}
           className={classes.TextBox}
           placeholder="Your message here!"
-          value={textBox.value}
+          value={textBoxElement.value}
         />
-        <button>Submit</button>
+        <button onSubmit={event => submitHandler(event)}>Submit</button>
       </form>
     </div>
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    name: state.contact.inputForm.name,
-    email: state.contact.inputForm.email,
-    textBox: state.contact.inputForm.textBox,
-  }
-}
-const mapDispatchToProps = dispatch => {
-  return {
-    onInputChanged: (event, inputIdentifier) =>
-      dispatch(actions.inputChangedHandler(event, inputIdentifier)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Contact)
+export default Contact
