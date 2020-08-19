@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import * as emailjs from 'emailjs-com'
 import { validateInput } from '../../shared/validation'
 import { updateObject } from '../../shared/Utility'
+import Spinner from '../../components/Spinner/Spinner'
 import classes from './Contact.module.css'
 
 const Contact = props => {
@@ -104,7 +105,7 @@ const Contact = props => {
   }
 
   let formOrSpinner = emailHandler.isSending ? (
-    <div>Spinner</div>
+    <Spinner />
   ) : (
     <form
       id="ContactForm"
