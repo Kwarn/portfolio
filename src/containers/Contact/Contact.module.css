@@ -53,3 +53,7 @@
   font-size: larger;
   padding: 5px 0px 5px 0px;
 }
+
+.FormNotValid {
+  background-color: salmon;
+}

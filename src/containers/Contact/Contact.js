@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as emailjs from 'emailjs-com'
 import { validateInput } from '../../shared/validation'
 import { updateObject } from '../../shared/Utility'
@@ -10,6 +10,7 @@ const Contact = props => {
       required: true,
       minLength: 2,
     },
+    wasTouched: false,
     isValid: false,
     value: '',
   })
@@ -18,6 +19,7 @@ const Contact = props => {
       required: true,
       isEmail: true,
     },
+    wasTouched: false,
     isValid: false,
     value: '',
   })
@@ -25,6 +27,7 @@ const Contact = props => {
     validation: {
       required: false,
     },
+    wasTouched: false,
     isValid: true,
     value: '',
   })
@@ -33,24 +36,42 @@ const Contact = props => {
       required: true,
       minLength: 10,
     },
+    wasTouched: false,
     isValid: false,
     value: '',
   })
   const [isFormValid, setIsFormValid] = useState(false)
+  const [emailHandler, setEmailHandler] = useState({
+    isSending: false,
+    isSuccess: false,
+  })
 
-  const submitHandler = event => {
-    event.preventDefault()
+  useEffect(() => {
     if (nameElement.isValid && emailElement.isValid && textBoxElement.isValid)
       setIsFormValid(true)
     else setIsFormValid(false)
-    console.log(isFormValid)
+  }, [nameElement, emailElement, subjectElement, textBoxElement])
 
-    emailjs.sendForm(
-      'gmail',
-      'portfoliocontactme',
-      'ContactForm',
-      process.env.REACT_APP_EMAILJS_API_KEY
-    )
+  const submitHandler = event => {
+    event.preventDefault()
+
+    // provide else case to display "fill-out form correctly error"
+    if (isFormValid) {
+      setEmailHandler({ isSending: true, isSuccess: false })
+      emailjs
+        .sendForm(
+          'gmail',
+          'portfoliocontactme',
+          'ContactForm',
+          process.env.REACT_APP_EMAILJS_API_KEY
+        )
+        .then(response => {
+          setEmailHandler({ isSending: false, isSuccess: true })
+        })
+        .catch(error => {
+          setEmailHandler({ isSending: false, isSuccess: false })
+        })
+    }
   }
 
   const inputChangedHandler = (value, elementIdentifier) => {
@@ -76,48 +97,69 @@ const Contact = props => {
     setTargetElement(
       updateObject(targetElement, {
         isValid: validateInput(value, targetElement.validation),
+        wasTouched: true,
         value: value,
       })
     )
   }
 
-  // conditionally add css classes base on props.name.isValid
+  let formOrSpinner = emailHandler.isSending ? (
+    <div>Spinner</div>
+  ) : (
+    <form
+      id="ContactForm"
+      className={classes.ContactForm}
+      onSubmit={submitHandler}
+    >
+      <h2>Name</h2>
+      <input
+        className={
+          !nameElement.isValid && nameElement.wasTouched
+            ? classes.FormNotValid
+            : null
+        }
+        name="name"
+        onChange={event => inputChangedHandler(event.target.value, 'name')}
+        value={nameElement.value}
+      />
+      <h2>Email</h2>
+      <input
+        className={
+          !emailElement.isValid && emailElement.wasTouched
+            ? classes.FormNotValid
+            : null
+        }
+        name="email"
+        onChange={event => inputChangedHandler(event.target.value, 'email')}
+        value={emailElement.value}
+      />
+      <h2>Subject</h2>
+      <input
+        name="subject"
+        onChange={event => inputChangedHandler(event.target.value, 'subject')}
+        value={subjectElement.value}
+      />
+      <h2>Message</h2>
+      <textarea
+        className={
+          !textBoxElement.isValid && textBoxElement.wasTouched
+            ? `${classes.FormNotValid} ${classes.TextBox}`
+            : classes.TextBox
+        }
+        name="message"
+        onChange={event => inputChangedHandler(event.target.value, 'textBox')}
+        value={textBoxElement.value}
+      />
+      <button onSubmit={event => submitHandler(event)}>Submit</button>
+    </form>
+  )
+
+  // conditionally render spinner or form on "emailHandler.isSending"
 
   return (
     <div className={classes.Contact}>
       <h1 className={classes.SectionTitle}> Contact Me!</h1>
-      <form
-        id="ContactForm"
-        className={classes.ContactForm}
-        onSubmit={submitHandler}
-      >
-        <h2>Name</h2>
-        <input
-          name="name"
-          onChange={event => inputChangedHandler(event.target.value, 'name')}
-          value={nameElement.value}
-        />
-        <h2>Email</h2>
-        <input
-          name="email"
-          onChange={event => inputChangedHandler(event.target.value, 'email')}
-          value={emailElement.value}
-        />
-        <h2>Subject</h2>
-        <input
-          name="subject"
-          onChange={event => inputChangedHandler(event.target.value, 'subject')}
-          value={subjectElement.value}
-        />
-        <h2>Message</h2>
-        <textarea
-          name="message"
-          onChange={event => inputChangedHandler(event.target.value, 'textBox')}
-          className={classes.TextBox}
-          value={textBoxElement.value}
-        />
-        <button onSubmit={event => submitHandler(event)}>Submit</button>
-      </form>
+      {formOrSpinner}
     </div>
   )
 }
