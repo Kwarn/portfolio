@@ -12,8 +12,6 @@ const Projects = React.lazy(() =>
 const Skills = React.lazy(() => import('./components/Skills/Skills'))
 const Contact = React.lazy(() => import('./containers/Contact/Contact'))
 
-console.log(process.env.REACT_APP_EMAILJS_API_KEY)
-
 
 const App = props => {
   let routes = (
