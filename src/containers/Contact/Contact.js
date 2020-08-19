@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import * as emailjs from 'emailjs-com'
 import { validateInput } from '../../shared/validation'
 import { updateObject } from '../../shared/Utility'
 import classes from './Contact.module.css'
@@ -43,6 +44,13 @@ const Contact = props => {
       setIsFormValid(true)
     else setIsFormValid(false)
     console.log(isFormValid)
+
+    emailjs.sendForm(
+      'gmail',
+      'portfoliocontactme',
+      'ContactForm',
+      process.env.REACT_APP_GOOGLE_API_KEY
+    )
   }
 
   const inputChangedHandler = (value, elementIdentifier) => {
@@ -78,24 +86,32 @@ const Contact = props => {
   return (
     <div className={classes.Contact}>
       <h1 className={classes.SectionTitle}> Contact Me!</h1>
-      <form className={classes.Form} onSubmit={submitHandler}>
+      <form
+        id="ContactForm"
+        className={classes.ContactForm}
+        onSubmit={submitHandler}
+      >
         <h2>Name</h2>
         <input
+          name="name"
           onChange={event => inputChangedHandler(event.target.value, 'name')}
           value={nameElement.value}
         />
         <h2>Email</h2>
         <input
+          name="email"
           onChange={event => inputChangedHandler(event.target.value, 'email')}
           value={emailElement.value}
         />
         <h2>Subject</h2>
         <input
+          name="subject"
           onChange={event => inputChangedHandler(event.target.value, 'subject')}
           value={subjectElement.value}
         />
         <h2>Message</h2>
         <textarea
+          name="message"
           onChange={event => inputChangedHandler(event.target.value, 'textBox')}
           className={classes.TextBox}
           value={textBoxElement.value}
