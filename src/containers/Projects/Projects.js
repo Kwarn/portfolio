@@ -11,18 +11,22 @@ const Projects = props => {
       gitHubLink: 'https://github.com/Kwarn/burger-builder',
       courseLink:
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
-      description:
-        'This app allows users to create and order their own customized burger. Features include form validation, authentication, database management, automatic login and preservation of the users session. ',
-      lessons:
-        'Multiple approaches to Handling State, Authentication tokens and localStorage, Asynchronous actions, Class-based components and lifecycle hooks, Functional components and react hooks, Higher order components, Form validation, Database rules configuration',
+      description: `This app allows users to create and order their own customized burger.
+       Features include form validation, authentication, database management,
+        automatic login and preservation of the users session. `,
+      lessons: `Multiple approaches to Handling State, Authentication tokens 
+        and localStorage, Asynchronous actions, Class-based components 
+        and lifecycle hooks, Functional components and react hooks, 
+        Higher order components, Form validation, Database rules configuration`,
     },
     SquarePlayground: {
       title: 'Square Playground',
       previewTechStack: 'Javascript, React, Redux, Css, Html',
 
       gitHubLink: 'placeholder',
-      description:
-        'This was my first dive into the world of javascript and React',
+      description: `This is a gambling game based on simple random chance logic to match boxes
+        like a slot machine. This was my first dive into the world of javascript and React,
+        built with pure google-fu and no tutorials!`,
       lessons: 'Fundamentals of state and data management',
     },
     Fitness: {
@@ -30,7 +34,10 @@ const Projects = props => {
       previewTechStack: 'Python, Tkinter, SQlite3',
 
       gitHubLink: 'https://github.com/Kwarn/fitness',
-      description: 'fitness app, learned lots',
+      description: `This is a light-weight MyFitnessPal clone, my first attempt at building
+        a python app.
+        it allows users to track meals and add new meals and ingredients
+        to a SQlite database along with their calorie information`,
       lessons: 'Database queries',
     },
     shutdownTimer: {
