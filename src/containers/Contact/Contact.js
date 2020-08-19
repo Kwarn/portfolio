@@ -49,7 +49,7 @@ const Contact = props => {
       'gmail',
       'portfoliocontactme',
       'ContactForm',
-      process.env.REACT_APP_GOOGLE_API_KEY
+      process.env.REACT_APP_EMAILJS_API_KEY
     )
   }
 
