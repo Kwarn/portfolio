@@ -14,9 +14,12 @@
   background-color: #EEF1EF;
 }
 
+.MouseOverCert:hover {
+  cursor: pointer;
+}
+
 .ListHeader {
   text-decoration: underline;
-
   text-align: center;
   padding-top: 15px;
 }

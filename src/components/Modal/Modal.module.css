@@ -3,6 +3,7 @@
   z-index: 500;
   background-color: white;
   width: 70%;
+  height: 30%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
@@ -10,4 +11,18 @@
   top: 30%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
+}
+
+.Cert {
+  text-align: center;
+  height: 100%;
+  width: auto;
+}
+
+.Cert img {
+  height: 90%;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: fill;
 }
