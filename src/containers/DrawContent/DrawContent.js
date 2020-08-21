@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import imageAssets from '../../assets/assets'
-import Modal from '../Modal/Modal'
+import Modal from '../../components/Modal/Modal'
 import classes from './DrawContent.module.css'
 
 const DrawContent = props => {
