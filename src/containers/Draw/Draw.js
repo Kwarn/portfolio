@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import imageAssets from '../../assets/assets'
-import DrawContent from '../DrawContent/DrawContent'
+import DrawContent from './DrawContent/DrawContent'
 import classes from './Draw.module.css'
 
 const Draw = props => {

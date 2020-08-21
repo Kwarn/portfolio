@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import imageAssets from '../../assets/assets'
-import Modal from '../../components/Modal/Modal'
+import Modal from '../../../components/Modal/Modal'
 import classes from './DrawContent.module.css'
 
 const DrawContent = props => {
@@ -15,7 +14,6 @@ const DrawContent = props => {
         <p className={classes.Desc}>{props.desc}</p>
         <p className={classes.ListHeader}>What I learned:</p>
         <ul className={classes.LearnedList}>{props.lessonsListItems}</ul>
-        <img src={imageAssets[props.projectId]} alt={props.projectId} />
       </>
     )
   } else {
