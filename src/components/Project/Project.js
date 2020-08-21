@@ -44,14 +44,14 @@ const Project = props => {
       <div className={classes.IconsBar}>
         <div className={classes.TechImages}>{images}</div>
         <div className={classes.Links}>
-          <a href={project.liveDemoLink}>
+          <a href={project.liveDemoLink} target="_blank">
             <img
               className={`${classes.IconImage} ${classes.LiveDemoLink}`}
               src={imageAssets.showDemo}
               alt="liveDemoLink"
             />
           </a>
-          <a href={project.gitHubLink}>
+          <a href={project.gitHubLink} target="_blank">
             <img
               className={classes.IconImage}
               src={imageAssets.gitHub}
