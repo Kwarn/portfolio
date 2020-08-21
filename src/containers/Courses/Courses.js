@@ -7,26 +7,40 @@ const Courses = props => {
   const [coursesObject] = useState({
     javascriptComplete: {
       title: 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',
-      desc: 'A comprehensive course including ES6 features',
+      desc: `A comprehensive course including ES6 features. 
+        This course was vital in helping cement my understanding of the 
+        underlying ways in which Javascript works.`,
+      quote:
+        'This is the most comprehensive and modern course you can find on JavaScript - Maximilian Schwarzmüller',
       courseLink:
         'https://www.udemy.com/course/javascript-the-complete-guide-2020-beginner-advanced/',
       cert: imageAssets.javascriptCertificate,
     },
     reactComplete: {
       title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
-      desc: 'A comprehensive course including ES6 features',
+      desc: `Very detailed course demonstrating multiple approaches both new and old to creating react apps.`,
       courseLink:
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
-      quote:
-        'This is the most comprehensive and modern course you can find on JavaScript - Maximilian Schwarzmüller',
       cert: imageAssets.reactCertificate,
     },
     JavascriptFreeCodeCamp: {
       title: 'Javascript Algorithms and Data Structures',
-      desc: 'A comprehensive course including ES6 features',
+      desc: 'My first detailed introduction to Javascript, left me wanting more!',
       courseLink: 'https://www.freecodecamp.org/karl_warner',
       cert: imageAssets.freeCodeCampCertificate,
     },
+    sqlCodeAcademy: {
+      title: 'Learn SQL',
+      desc: 'I took this course as I found a need in the fitness app for a database.',
+      courseLink: 'https://www.codecademy.com/learn/learn-sql',
+      cert: imageAssets.sqlCodeAcademyCertificate,
+    },
+    pythonCodeAcademy: {
+      title: 'Learn Python 3',
+      desc: 'The first online course I completed back in 2017, when I first discovered my love of programming.',
+      courseLink: 'https://www.codecademy.com/learn/learn-python-3',
+    }
+
   })
 
   let courses = []
