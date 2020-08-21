@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import Modal from '../../../components/Modal/Modal'
+import React from 'react'
 import classes from './DrawContent.module.css'
 
 const DrawContent = props => {
-  const { isMouseOverDraw, cert, courseLink } = props
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { isMouseOverDraw, courseLink } = props
 
   let content = null
 
@@ -20,27 +18,21 @@ const DrawContent = props => {
     content = (
       <>
         <p>{courseLink}</p>
-        <div className={classes.MouseOverCert} onClick={() => setIsModalOpen(true)}>{cert}</div>
         <p className={classes.Desc}>{props.desc}</p>
       </>
     )
   }
 
   return (
-    <>
-      <div
-        className={
-          isMouseOverDraw
-            ? `${classes.DrawContent} ${classes.OnMouseOverDraw}`
-            : classes.DrawContent
-        }
-      >
-        {content}
-      </div>
-      <Modal show={isModalOpen} close={()=> setIsModalOpen(false)}>
-        {cert}
-      </Modal>
-    </>
+    <div
+      className={
+        isMouseOverDraw
+          ? `${classes.DrawContent} ${classes.OnMouseOverDraw}`
+          : classes.DrawContent
+      }
+    >
+      {content}
+    </div>
   )
 }
 export default DrawContent

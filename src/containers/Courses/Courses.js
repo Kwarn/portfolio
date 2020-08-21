@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import imageAssets from '../../assets/assets'
-import Course from '../../components/Course/Course'
+import Course from './Course/Course'
 import classes from '../../containers/Courses/Courses.module.css'
 
 const Courses = props => {

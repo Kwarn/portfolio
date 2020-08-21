@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import imageAssets from '../../../assets/assets'
+import Draw from '../../Draw/Draw'
+import Modal from '../../../components/Modal/Modal'
 import classes from './Course.module.css'
-import Draw from '../../containers/Draw/Draw'
 
 const Course = props => {
   const { title, desc, cert, courseLink } = props
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const certificate = (
     <img className={classes.Image} src={cert} alt={`${title} certificate`} />
@@ -20,8 +23,10 @@ const Course = props => {
     <>
       <div className={classes.Course}>
         <h1>{title}</h1>
+        <img onClick={()=>setIsModalOpen(true)} src={imageAssets.certificateIcon} alt="certificateIcon"></img>
       </div>
       <Draw contentType="course" drawContentProps={drawContentProps} />
+      <Modal show={isModalOpen} close={()=>setIsModalOpen(false)}>{certificate}</Modal>
     </>
   )
 }

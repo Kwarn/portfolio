@@ -8,11 +8,20 @@
   opacity: 90%;
   background-color: #5E6572;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .Course h1 {
   font-size: larger;
   text-align: center;
   padding: 15px;
+}
+
+.Course img {
+  height: 50px;
+  width: auto;
+}
+
+.Course img:hover {
+  cursor: pointer;
 }
