@@ -19,14 +19,24 @@ const Course = props => {
     cert: certificate,
   }
 
+  const certIcon = cert ? (
+    <img
+      onClick={() => setIsModalOpen(true)}
+      src={imageAssets.certificateIcon}
+      alt="certificateIcon"
+    />
+  ) : null
+
   return (
     <>
       <div className={classes.Course}>
         <h1>{title}</h1>
-        <img onClick={()=>setIsModalOpen(true)} src={imageAssets.certificateIcon} alt="certificateIcon"></img>
+        {certIcon}
       </div>
       <Draw contentType="course" drawContentProps={drawContentProps} />
-      <Modal show={isModalOpen} close={()=>setIsModalOpen(false)}>{certificate}</Modal>
+      <Modal show={isModalOpen} close={() => setIsModalOpen(false)}>
+        {certificate}
+      </Modal>
     </>
   )
 }
