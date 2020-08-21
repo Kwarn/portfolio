@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './DrawContent.module.css'
 
 const DrawContent = props => {
-  const { isMouseOverDraw, courseLink } = props
+  const { isMouseOverDraw } = props
 
   let content = null
 
@@ -17,7 +17,6 @@ const DrawContent = props => {
   } else {
     content = (
       <>
-        <p>{courseLink}</p>
         <p className={classes.Desc}>{props.desc}</p>
       </>
     )

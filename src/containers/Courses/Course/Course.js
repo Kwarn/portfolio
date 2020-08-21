@@ -14,9 +14,7 @@ const Course = props => {
 
   const drawContentProps = {
     title: 'More info',
-    courseLink: courseLink,
     desc: desc,
-    cert: certificate,
   }
 
   const certIcon = cert ? (
@@ -31,7 +29,12 @@ const Course = props => {
     <>
       <div className={classes.Course}>
         <h1>{title}</h1>
-        {certIcon}
+        <div className={classes.Icons}>
+          <a href={courseLink}>
+            <img src={imageAssets.showDemo} alt="showCourse" />
+          </a>
+          {certIcon}
+        </div>
       </div>
       <Draw contentType="course" drawContentProps={drawContentProps} />
       <Modal show={isModalOpen} close={() => setIsModalOpen(false)}>
