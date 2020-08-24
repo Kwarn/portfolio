@@ -55,9 +55,9 @@ const Draw = props => {
     >
       <img
         className={
-          isMouseOverDraw
-            ? `${classes.DrawIcon} ${classes.ExpandDrawIcon}`
-            : classes.DrawIcon
+          isMouseOverDraw && !isDrawOpen
+            ? `${classes.OpenDrawIcon} ${classes.ExpandDrawIcon}`
+            : classes.CloseDrawIcon
         }
         src={!isDrawOpen ? imageAssets.openDraw : imageAssets.closeDraw}
         alt={!isDrawOpen ? 'openDraw' : 'closeDraw'}
