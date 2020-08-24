@@ -44,14 +44,22 @@ const Project = props => {
       <div className={classes.IconsBar}>
         <div className={classes.TechImages}>{images}</div>
         <div className={classes.Links}>
-          <a href={project.liveDemoLink} target="_blank">
+          <a
+            href={project.liveDemoLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className={`${classes.IconImage} ${classes.LiveDemoLink}`}
               src={imageAssets.showDemo}
               alt="liveDemoLink"
             />
           </a>
-          <a href={project.gitHubLink} target="_blank">
+          <a
+            href={project.gitHubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className={classes.IconImage}
               src={imageAssets.gitHub}
@@ -60,7 +68,7 @@ const Project = props => {
           </a>
         </div>
       </div>
-      <Draw contentType='project' drawContentProps={drawContentProps} />
+      <Draw contentType="project" drawContentProps={drawContentProps} />
     </>
   )
 }

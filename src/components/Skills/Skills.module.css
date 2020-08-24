@@ -1,28 +1,24 @@
 .Skills {
-  padding: 1px;
+  padding-top: 10px;
 }
 
 .SectionTitle {
   border-bottom: 1px dotted black;
-  margin: 20px 15px 0px 15px;
-  /* border-radius: 10px 10px 0px 0px; */
+  margin: 0px 15px 0px 15px;
   background-color: #5e6572;
   padding: 15px 0px 15px 0px;
   text-align: center;
-  font-size:x-large ;
+  font-size: x-large;
   color: black;
 }
 
 .TechLists {
-  /* text-align: center; */
   opacity: 90%;
   background-color: #a9b4c2;
   border-bottom: 1px dotted black;
-  /* border-radius: 0px 0px 10px 10px; */
   height: auto;
   margin: 0px 15px 15px 15px;
   opacity: 90%;
-  
 }
 
 .TechLists p {

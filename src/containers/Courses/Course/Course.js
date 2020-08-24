@@ -30,7 +30,7 @@ const Course = props => {
       <div className={classes.Course}>
         <h1>{title}</h1>
         <div className={classes.Icons}>
-          <a href={courseLink} target="_blank">
+          <a href={courseLink} target="_blank" rel="noopener noreferrer" >
             <img src={imageAssets.showDemo} alt="showCourse" />
           </a>
           {certIcon}

@@ -57,7 +57,12 @@ const Projects = props => {
     )
   }
 
-  return <div className={classes.ProjectsWrapper}>{projectElements}</div>
+  return (
+    <div className={classes.Projects}>
+      <h1 className={classes.SectionTitle}>Projects</h1>
+      <div className={classes.ProjectsContainer}>{projectElements}</div>
+    </div>
+  )
 }
 
 export default Projects

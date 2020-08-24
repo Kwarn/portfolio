@@ -1,7 +1,20 @@
-.ProjectsWrapper {
-  opacity: 90%;
-  border-radius: 10px 10px 10px 10px;
-  background-color: #A9B4C2;
-  margin: 75px 15px 20px 15px;
+.Projects {
   padding-top: 10px;
+}
+
+.ProjectsContainer {
+  opacity: 90%;
+  background-color: #a9b4c2;
+  margin: 0px 15px 20px 15px;
+  padding-top: 10px;
+}
+
+.SectionTitle {
+  border-bottom: 1px dotted black;
+  margin: 0px 15px 0px 15px;
+  background-color: #5e6572;
+  padding: 15px 0px 15px 0px;
+  text-align: center;
+  font-size: x-large;
+  color: black;
 }
