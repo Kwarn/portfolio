@@ -1,6 +1,5 @@
 import React from 'react'
 import classes from './Skills.module.css'
-import Courses from '../../containers/Courses/Courses'
 
 const Skills = props => {
   return (

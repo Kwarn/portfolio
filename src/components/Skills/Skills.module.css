@@ -13,12 +13,10 @@
 }
 
 .TechLists {
-  opacity: 90%;
   background-color: #a9b4c2;
   border-bottom: 1px dotted black;
   height: auto;
   margin: 0px 15px 15px 15px;
-  opacity: 90%;
 }
 
 .TechLists p {
