@@ -11,7 +11,7 @@ const imageAssets = {
   reactCertificate: require('../assets/reactCertificate.jpg'),
   openDraw: require('../assets/openDraw.png'),
   closeDraw: require('../assets/closeDraw.png'),
-  homeBackground: require('../assets/homeBackground.jpg'),
+  appBackground: require('../assets/appBackground.jpg'),
   gitHub: require('../assets/gitHub.png'),
   showDemo: require('../assets/showDemo.png'),
   profileImage: require('../assets/profileImage.png'),
