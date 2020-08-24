@@ -1,4 +1,4 @@
-.App {
+/* .App {
   background-image: url('./assets/homeBackground.jpg');
   width: 100%;
   height: auto;
@@ -7,7 +7,7 @@
   min-width: 100%;
   object-fit: contain;
   overflow: hidden;
-}
+} */
 
 .App ::-webkit-scrollbar {
   display: none;

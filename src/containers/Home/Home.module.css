@@ -4,12 +4,16 @@
   margin-top: 250px;
   justify-content: center;
   text-align: center;
-  color: #EEF1EF;
+  color: black;
+}
+
+.Buttons {
+  padding-right: 10px;
 }
 
 .Footer {
   text-align: center;
-  color: white;
+  color: black;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -18,7 +22,7 @@
 
 .Home img {
   position: relative;
-  top: 130px;
+  top: 120px;
   right: 165px;
   border-radius: 110px;
   margin-right: 50px;
@@ -27,11 +31,13 @@
 }
 
 .Home button {
+  position: relative;
+  bottom: 10px;
   border-radius: 5px;
   height: 100%;
   width: auto;
   padding: 10px;
-  margin: 20px 5px 0px 5px;
+  margin: 20px 5px 5px 15px;
   color: black;
   background-color: #A9B4C2;
   border: 1px solid #EEF1EF;

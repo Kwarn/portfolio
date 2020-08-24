@@ -5,30 +5,32 @@
 .SectionTitle {
   border-bottom: 1px dotted black;
   margin: 20px 15px 0px 15px;
-  border-radius: 10px 10px 0px 0px;
+  /* border-radius: 10px 10px 0px 0px; */
   background-color: #5e6572;
-  padding: 10px 0px 5px 0px;
+  padding: 15px 0px 15px 0px;
   text-align: center;
-  font-size: larger;
+  font-size:x-large ;
   color: black;
 }
 
 .TechLists {
+  /* text-align: center; */
   opacity: 90%;
   background-color: #a9b4c2;
   border-bottom: 1px dotted black;
-  border-radius: 0px 0px 10px 10px;
+  /* border-radius: 0px 0px 10px 10px; */
   height: auto;
   margin: 0px 15px 15px 15px;
   opacity: 90%;
+  
 }
 
 .TechLists p {
-  padding: 5px 10px 10px 10px;
+  padding: 5px 15px 10px 15px;
 }
 
 .TechLists h2 {
-  padding: 10px 10px 0px 10px;
+  padding: 10px 15px 0px 15px;
 }
 
 .TechSubsection {
