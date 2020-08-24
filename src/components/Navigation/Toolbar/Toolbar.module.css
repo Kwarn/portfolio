@@ -4,19 +4,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  /* background-color: #5E6572; */
+  background-color: #FFF;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
-  z-index: 90;
+  z-index: 100;
+  transition: top 0.6s;
 }
 
 .Toolbar nav {
   height: 100%;
 }
 
-.Logo {
-  height: 80%;
+.ToolbarHidden {
+  top: -56px;
+}
+
+.ToolbarShown {
+  top: 0
 }

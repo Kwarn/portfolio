@@ -19,7 +19,9 @@ const Home = props => {
           </Link>
         </div>
       </div>
-      <p className={classes.Footer}>Website built and designed with react/css modules</p>
+      <p className={classes.Footer}>
+        Website built and designed with react/css modules
+      </p>
     </div>
   )
 }
