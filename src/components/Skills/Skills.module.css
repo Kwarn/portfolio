@@ -1,22 +1,24 @@
 .Skills {
-  padding-top: 10px;
+  padding: 10px 0px 30px 0px;
 }
 
 .SectionTitle {
   border-bottom: 1px dotted black;
   margin: 0px 15px 0px 15px;
-  background-color: #5e6572;
+  background-color: #6b6361;
   padding: 15px 0px 15px 0px;
   text-align: center;
   font-size: x-large;
   color: black;
+  background: linear-gradient(to right, rgb(209, 77, 77), transparent 100%);
 }
 
 .TechLists {
-  background-color: #a9b4c2;
+  background-color: #b1afae;
   border-bottom: 1px dotted black;
   height: auto;
   margin: 0px 15px 15px 15px;
+  background: linear-gradient(to right, rgb(209, 77, 77), transparent 100%);
 }
 
 .TechLists p {

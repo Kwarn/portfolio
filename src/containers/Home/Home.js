@@ -35,11 +35,11 @@ const Home = props => {
           </div>
         </div>
         <p className={classes.AboutMe}>
-          A tech person from a young age, I'm dedicated to improving myself and
-          everything I'm involved in. I love understanding how things work and
-          never shy away from finding a solution. I'm able to work with minimal
-          guidance when required and I strive to work and communicate
-          effectively as part of a team.
+          As a technical and mechanical tinkerer from a young age, I've always
+          been drawn to understanding how things work and finding logical solutions
+          to problems. My curiosity has led me to understand a broad range of
+          different technologies and I'd like to continue my journey inside a
+          skilled team that I can learn from and grow with.
         </p>
       </div>
       <Skills />
