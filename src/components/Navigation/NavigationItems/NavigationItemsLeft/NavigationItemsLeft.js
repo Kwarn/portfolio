@@ -6,8 +6,7 @@ const navigationItemsLeft = props => {
   return (
     <ul className={classes.NavigationItems}>
       <NavigationItem link="/">Home</NavigationItem>
-      <NavigationItem link="/projects">Projects</NavigationItem>
-      <NavigationItem link="/skills">Skills</NavigationItem>
+      <NavigationItem link="/aboutme">About Me</NavigationItem>
     </ul>
   )
 }

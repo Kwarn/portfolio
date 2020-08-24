@@ -5,7 +5,7 @@ import Courses from '../../containers/Courses/Courses'
 const Skills = props => {
   return (
     <div className={classes.Skills}>
-      <h1 className={classes.SectionTitle}>Technologies</h1>
+      <h1 className={classes.SectionTitle}>Skills</h1>
       <div className={classes.TechLists}>
         <div className={classes.TechSubsection}>
           <h2>Javascript</h2>
@@ -30,9 +30,6 @@ const Skills = props => {
           <p>Ubuntu 20.04, VSCode, Firefox/Chrome</p>
         </div>
       </div>
-
-      <h1 className={classes.SectionTitle}>Courses and Certificates</h1>
-      <Courses />
     </div>
   )
 }

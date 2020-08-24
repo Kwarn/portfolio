@@ -25,22 +25,24 @@ const Courses = props => {
     },
     JavascriptFreeCodeCamp: {
       title: 'Javascript Algorithms and Data Structures',
-      desc: 'My first detailed introduction to Javascript, left me wanting more!',
+      desc:
+        'My first detailed introduction to Javascript, left me wanting more!',
       courseLink: 'https://www.freecodecamp.org/karl_warner',
       cert: imageAssets.freeCodeCampCertificate,
     },
     sqlCodeAcademy: {
       title: 'Learn SQL',
-      desc: 'I took this course as I found a need in the fitness app for a database.',
+      desc:
+        'I took this course as I found a need in the fitness app for a database.',
       courseLink: 'https://www.codecademy.com/learn/learn-sql',
       cert: imageAssets.sqlCodeAcademyCertificate,
     },
     pythonCodeAcademy: {
       title: 'Learn Python 3',
-      desc: 'The first online course I completed back in 2017, when I first discovered my love of programming.',
+      desc:
+        'The first online course I completed back in 2017, when I first discovered my love of programming.',
       courseLink: 'https://www.codecademy.com/learn/learn-python-3',
-    }
-
+    },
   })
 
   let courses = []
@@ -56,7 +58,12 @@ const Courses = props => {
     )
   }
 
-  return <div className={classes.CoursesWrapper}>{courses}</div>
+  return (
+    <div>
+      <h1 className={classes.SectionTitle}>Courses and Certificates</h1>
+      <div className={classes.CoursesWrapper}>{courses}</div>
+    </div>
+  )
 }
 
 export default Courses

@@ -5,7 +5,6 @@ import classes from './NavigationItemsRight.module.css'
 const navigationItemsRight = props => {
   return (
     <ul className={classes.NavigationItems}>
-      <NavigationItem link="/aboutme">About Me</NavigationItem>
       <NavigationItem link="/contact">Contact</NavigationItem>
     </ul>
   )
