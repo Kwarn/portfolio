@@ -34,8 +34,12 @@ const Home = props => {
             </a>
           </div>
         </div>
-        <p className={classes.Footer}>
-          Website built and designed with react/css modules
+        <p className={classes.AboutMe}>
+          A tech person from a young age, I'm dedicated to improving myself and
+          everything I'm involved in. I love understanding how things work and
+          never shy away from finding a solution. I'm able to work with minimal
+          guidance when required and I strive to work and communicate
+          effectively as part of a team.
         </p>
       </div>
       <Skills />
