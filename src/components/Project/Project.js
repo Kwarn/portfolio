@@ -30,6 +30,7 @@ const Project = props => {
   ))
 
   const drawContentProps = {
+    isAlwaysShown: project.title === 'Burger Builder',
     isProject: true,
     title: project.title,
     lessonsListItems: lessonsListItems,

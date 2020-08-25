@@ -4,18 +4,25 @@
 }
 
 .ProjectsContainer {
-  background-color: #b1afae;
-  background: linear-gradient(to left, rgb(209, 77, 77), transparent 100%);
+  background-color: rgb(209, 77, 77);
   margin: 0px 15px 20px 15px;
   padding: 10px 0px 30px 0px;
 }
 
 .SectionTitle {
-  background: linear-gradient(to left, rgb(209, 77, 77), transparent 100%);
+  background-color: rgb(209, 77, 77);
   border-bottom: 1px dotted black;
   margin: 0px 15px 0px 15px;
   padding: 15px 0px 15px 0px;
   text-align: center;
   font-size: x-large;
   color: black;
+}
+
+@media (min-width: 900px) {
+  .Projects {
+    width: 100%;
+    height: auto;
+    margin-top: 140px;
+  }
 }

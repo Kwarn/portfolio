@@ -11,14 +11,14 @@
   text-align: center;
   font-size: x-large;
   color: black;
-  background-color: rgb(209, 77, 77);
+  background: linear-gradient(to left, rgb(209, 77, 77), transparent 100%);
 }
 
 .TechLists {
   border-bottom: 1px dotted black;
   height: auto;
   margin: 0px 15px 15px 15px;
-  background-color: rgb(209, 77, 77);
+  background: linear-gradient(to left, rgb(209, 77, 77), transparent 100%);
 }
 .TechLists p {
   padding: 5px 15px 10px 15px;
@@ -30,4 +30,10 @@
 
 .TechSubsection {
   border-bottom: 1px dotted black;
+}
+
+@media (min-width: 900px) {
+  .Skills {
+    width: 100%;
+  }
 }

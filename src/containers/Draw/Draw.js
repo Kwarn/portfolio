@@ -14,14 +14,8 @@ const Draw = props => {
   }
 
   useEffect(() => {
-    if (
-      (contentType === 'project' &&
-        drawContentProps.title === 'Burger Builder') ||
-      drawContentProps.title ===
-        'Javascript - The Complete Guide 2020 (Beginner + Advanced)'
-    )
-      setIsDrawOpen(true)
-  }, [contentType, drawContentProps.title])
+    if (drawContentProps.isAlwaysShown) setIsDrawOpen(true)
+  }, [drawContentProps])
 
   const showTitle = drawContentProps.title ? (
     <h1

@@ -18,3 +18,11 @@
   font-size: x-large;
   color: black;
 }
+
+@media (min-width: 900px) {
+  .Courses {
+    margin-top: 150px;
+    width: 100%;
+    height: auto;
+  }
+}
