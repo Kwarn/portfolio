@@ -1,13 +1,13 @@
 .App {
-  background-image: url('./assets/appBackground.jpg');
+  background-image: url('./assets/appBackground.png');
+  background-repeat: repeat;
   width: 100%;
   height: auto;
   position: absolute;
   min-height: 100%;
   min-width: 100%;
-  overflow: hidden;
 }
 
-.App ::-webkit-scrollbar {
+/* .App ::-webkit-scrollbar {
   display: none;
-}
+} */

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import imageAssets from '../../assets/assets'
 import DrawContent from './DrawContent/DrawContent'
 import classes from './Draw.module.css'
@@ -12,6 +12,16 @@ const Draw = props => {
     setIsDrawOpen(!isDrawOpen)
     setIsMouseOverDraw(false)
   }
+
+  useEffect(() => {
+    if (
+      (contentType === 'project' &&
+        drawContentProps.title === 'Burger Builder') ||
+      drawContentProps.title ===
+        'Javascript - The Complete Guide 2020 (Beginner + Advanced)'
+    )
+      setIsDrawOpen(true)
+  }, [contentType, drawContentProps.title])
 
   const showTitle = drawContentProps.title ? (
     <h1

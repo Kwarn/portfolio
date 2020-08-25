@@ -1,0 +1,20 @@
+.FadeFromRight {
+  opacity: 0;
+  transform: translateX(-20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.3s ease-out;
+  will-change: opacity, visibility;
+}
+.FadeFromLeft {
+  opacity: 0;
+  transform: translateX(20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.3s ease-out;
+  will-change: opacity, visibility;
+}
+
+.IsVisible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}

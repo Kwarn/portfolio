@@ -1,3 +1,7 @@
+.Home {
+  padding-top: 140px;
+}
+
 .Title {
   position: relative;
   top: -75px;
@@ -16,7 +20,7 @@
   margin-top: -20px;
   text-align: center;
   color: black;
-  padding: 0px 35px 20px 35px;
+  padding: 25px 35px 25px 35px;
 }
 
 .ProfileImage {

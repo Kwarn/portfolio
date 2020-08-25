@@ -4,6 +4,7 @@ import imageAssets from '../../assets/assets'
 import Skills from '../../components/Skills/Skills'
 import Projects from '../Projects/Projects'
 import Courses from '../Courses/Courses'
+import FadeInSection from '../FadeInSection/FadeInSection'
 
 const Home = props => {
   return (
@@ -36,15 +37,21 @@ const Home = props => {
         </div>
         <p className={classes.AboutMe}>
           As a technical and mechanical tinkerer from a young age, I've always
-          been drawn to understanding how things work and finding logical solutions
-          to problems. My curiosity has led me to understand a broad range of
-          different technologies and I'd like to continue my journey inside a
-          skilled team that I can learn from and grow with.
+          been drawn to understanding how things work and finding logical
+          solutions to problems. My curiosity has led me to understand a broad
+          range of different technologies and I'd like to continue my journey
+          inside a skilled team that I can learn from and grow with.
         </p>
       </div>
-      <Skills />
-      <Projects />
-      <Courses />
+      <FadeInSection fadeDirection="left">
+        <Skills />
+      </FadeInSection>
+      <FadeInSection fadeDirection="right">
+        <Projects />
+      </FadeInSection>
+      <FadeInSection fadeDirection="left">
+        <Courses />
+      </FadeInSection>
     </>
   )
 }

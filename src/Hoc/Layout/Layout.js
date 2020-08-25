@@ -8,7 +8,6 @@ const Layout = props => {
       <Toolbar />
       <main className={classes.Content}>{props.children}</main>
     </div>
-  
   )
 }
 
