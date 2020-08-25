@@ -14,10 +14,9 @@
 }
 
 .FadeFromTop {
-  margin: 100px 0 0 0 ; 
   text-align: center;
   opacity: 0;
-  transform: translateY(-10vh);
+  transform: translateY(-5vh);
   visibility: hidden;
   transition: opacity 0.9s ease-out, transform 2s ease-out;
   will-change: opacity, visibility;

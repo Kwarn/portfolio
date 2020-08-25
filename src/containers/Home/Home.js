@@ -10,6 +10,11 @@ const Home = props => {
   return (
     <>
       <div className={classes.Home}>
+        <img
+          className={classes.WelcomeImage}
+          src={imageAssets.appBackground}
+          alt="welcomeImage"
+        />
         <div className={classes.WelcomeElements}>
           <div className={classes.Title}>
             <img
@@ -17,23 +22,25 @@ const Home = props => {
               src={imageAssets.profileImage}
               alt="profileImage"
             />
-            <h1>Karl Warner</h1>
-            <p>{`</> Software Developer`}</p>
-            <div className={classes.LinkIcons}>
-              <a
-                href="https://github.com/Kwarn/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={imageAssets.gitHub} alt="gitHubIcon"></img>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/karl-warner-9147661b5/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={imageAssets.linkedIn} alt="linkedInIcon"></img>
-              </a>
+            <div className={classes.WelcomeTop}>
+              <h1>Karl Warner</h1>
+              <p>{`</> Software Developer`}</p>
+              <div className={classes.LinkIcons}>
+                <a
+                  href="https://github.com/Kwarn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={imageAssets.gitHub} alt="gitHubIcon"></img>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/karl-warner-9147661b5/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={imageAssets.linkedIn} alt="linkedInIcon"></img>
+                </a>
+              </div>
             </div>
           </div>
           <div className={classes.Divider}></div>

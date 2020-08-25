@@ -1,9 +1,26 @@
 .Home {
-  padding-top: 140px;
 }
-
+.WelcomeTop {
+  z-index: 1;
+  background-color: white;
+  opacity: 80%;
+  padding: 15px 10px 0px 10px;
+  border-radius: 90px 90px;
+  width: auto;
+}
 .WelcomeElements {
   position: relative;
+  text-align: center;
+}
+
+.WelcomeImage {
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  max-height: 80%;
+  /* min-height: 100%;
+  min-width: 100%; */
 }
 
 .Divider {
@@ -28,13 +45,15 @@
 
 .AboutMe {
   margin: 0vw 20vw 0vw 20vw;
+  padding: 10px;
   text-align: center;
   color: black;
 }
 
 .ProfileImage {
+  z-index: 1;
   position: relative;
-  top: 120px;
+  top: 145px;
   right: 165px;
   border-radius: 110px;
   margin-right: 50px;
@@ -43,14 +62,23 @@
 }
 
 .OpenDrawIcon {
+  margin-top: 40px;
   color: white;
   width: auto;
   height: 30px;
 }
 
+@media (min-width: 500px) {
+  .WelcomeElements {
+    position: relative;
+    margin-top: -288px;
+  }
+}
+
 @media (min-width: 900px) {
   .WelcomeElements {
     margin-left: 20vw;
+    margin-top: -500px;
     display: flex;
   }
   .AboutMe {
@@ -59,9 +87,40 @@
     height: 400px;
   }
   .Divider {
-
     border-left: 6px solid black;
     border-bottom: 0px;
     height: 300px;
+    margin-left: 10vw;
   }
 }
+
+@media (min-width: 1100px) {
+  .WelcomeElements {
+    margin-top: -600px;
+    margin-right: 5vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .WelcomeElements {
+    margin-top: -700px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .WelcomeElements {
+    margin-top: -900px;
+  }
+  .OpenDrawIcon {
+    margin-bottom: 80px;
+  }
+}
+@media (min-width: 1800px) {
+  .WelcomeElements {
+    margin-top: -1100px;
+  }
+  .OpenDrawIcon {
+    margin-bottom: 250px;
+  }
+}
+/* 840 divider lines up with pic */

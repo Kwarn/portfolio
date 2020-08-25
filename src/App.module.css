@@ -1,5 +1,6 @@
 .App {
-  background-image: url('./assets/appBackground.png');
+  /* background-image: url('./assets/appBackground.png'); */
+  background-color: whitesmoke;
   background-repeat: repeat;
   width: 100%;
   height: auto;
