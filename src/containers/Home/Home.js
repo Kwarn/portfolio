@@ -36,6 +36,7 @@ const Home = props => {
               </a>
             </div>
           </div>
+          <div className={classes.Divider}></div>
           <p className={classes.AboutMe}>
             As a technical and mechanical tinkerer from a young age, I've always
             been drawn to understanding how things work and finding logical

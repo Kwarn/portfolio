@@ -3,7 +3,13 @@
 }
 
 .WelcomeElements {
-  
+  position: relative;
+}
+
+.Divider {
+  margin: 0 0 10vw 10vw;
+  width: 80vw;
+  border-bottom: 6px solid black;
 }
 
 .Title {
@@ -14,17 +20,16 @@
   color: black;
 }
 
-.LinkIcons img{
+.LinkIcons img {
   height: 40px;
   width: auto;
   padding-right: 10px;
 }
 
 .AboutMe {
-  margin-top: -20px;
+  margin: 0vw 20vw 0vw 20vw;
   text-align: center;
   color: black;
-  padding: 25px 35px 25px 35px;
 }
 
 .ProfileImage {
@@ -39,16 +44,24 @@
 
 .OpenDrawIcon {
   color: white;
-  bottom: 50;
   width: auto;
-  height: 2.5rem; 
+  height: 30px;
 }
 
-/* @media (min-width: 900px) {
+@media (min-width: 900px) {
   .WelcomeElements {
-    display: inline;
+    margin-left: 20vw;
+    display: flex;
   }
   .AboutMe {
-    display: inline;
+    margin: 100px 5vw 5vw -65vw;
+    width: 400px;
+    height: 400px;
   }
-} */
+  .Divider {
+
+    border-left: 6px solid black;
+    border-bottom: 0px;
+    height: 300px;
+  }
+}
