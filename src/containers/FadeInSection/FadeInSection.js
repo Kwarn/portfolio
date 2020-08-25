@@ -21,6 +21,8 @@ function FadeInSection(props) {
           ? classes.FadeFromLeft
           : fadeDirection === 'right'
           ? classes.FadeFromRight
+          : fadeDirection === 'top'
+          ? classes.FadeFromTop
           : null
       } ${isVisible ? classes.IsVisible : ''}`}
       ref={domRef}

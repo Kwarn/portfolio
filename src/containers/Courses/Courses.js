@@ -59,7 +59,7 @@ const Courses = props => {
   }
 
   return (
-    <div>
+    <div className={classes.Courses}>
       <h1 className={classes.SectionTitle}>Courses and Certificates</h1>
       <div className={classes.CoursesWrapper}>{courses}</div>
     </div>

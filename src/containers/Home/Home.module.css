@@ -2,6 +2,10 @@
   padding-top: 140px;
 }
 
+.WelcomeElements {
+  
+}
+
 .Title {
   position: relative;
   top: -75px;
@@ -33,3 +37,18 @@
   width: auto;
 }
 
+.OpenDrawIcon {
+  color: white;
+  bottom: 50;
+  width: auto;
+  height: 2.5rem; 
+}
+
+/* @media (min-width: 900px) {
+  .WelcomeElements {
+    display: inline;
+  }
+  .AboutMe {
+    display: inline;
+  }
+} */
