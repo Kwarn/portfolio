@@ -1,6 +1,5 @@
 import React from 'react'
 import imageAssets from '../../assets/assets'
-import Draw from '../../containers/Draw/Draw'
 import classes from './Project.module.css'
 
 const Project = props => {
@@ -28,17 +27,6 @@ const Project = props => {
       {lesson}
     </li>
   ))
-
-  const drawContentProps = {
-    isAlwaysShown: project.title === 'Burger Builder',
-    isProject: true,
-    title: project.title,
-    lessonsListItems: lessonsListItems,
-    projectId: projectId,
-    desc: project.description,
-    lessons: project.lessons,
-    techStack: project.techStack,
-  }
 
   return (
     <>
@@ -69,7 +57,12 @@ const Project = props => {
           </a>
         </div>
       </div>
-      <Draw contentType="project" drawContentProps={drawContentProps} />
+      <div className={classes.ProjectDesc}>
+        <h2> {project.title}</h2>
+        <p className={classes.Desc}>{project.description}</p>
+        <p className={classes.ListHeader}>What I learned:</p>
+        <ul className={classes.LearnedList}>{lessonsListItems}</ul>
+      </div>
     </>
   )
 }

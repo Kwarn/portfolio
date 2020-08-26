@@ -61,17 +61,9 @@ const Home = props => {
         </FadeInSection>
       </div>
       <div className={classes.ComponentsWrapper}>
-        <FadeInSection fadeDirection="right">
-          <Skills />
-        </FadeInSection>
-
-        <FadeInSection fadeDirection="top">
-          <Projects />
-        </FadeInSection>
-
-        <FadeInSection fadeDirection="left">
-          <Courses />
-        </FadeInSection>
+        <Skills />
+        <Projects />
+        <Courses />
       </div>
     </>
   )

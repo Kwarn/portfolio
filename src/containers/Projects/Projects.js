@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Project from '../../components/Project/Project'
 import classes from './Projects.module.css'
+import FadeInSection from '../FadeInSection/FadeInSection'
 
 const Projects = props => {
   const [projects] = useState({
@@ -53,7 +54,13 @@ const Projects = props => {
   let projectElements = []
   for (let project in projects) {
     projectElements.push(
-      <Project key={project} projectId={project} project={projects[project]} />
+      <FadeInSection fadeDirection="top">
+        <Project
+          key={project}
+          projectId={project}
+          project={projects[project]}
+        />
+      </FadeInSection>
     )
   }
 

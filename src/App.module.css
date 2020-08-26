@@ -1,12 +1,8 @@
 .App {
   /* background-image: url('./assets/appBackground.png'); */
   background-color: whitesmoke;
-  background-repeat: repeat;
   width: 100%;
   height: auto;
-  position: absolute;
-  min-height: 100%;
-  min-width: 100%;
 }
 
 /* .App ::-webkit-scrollbar {

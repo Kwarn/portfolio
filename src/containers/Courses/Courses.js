@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import imageAssets from '../../assets/assets'
 import Course from './Course/Course'
 import classes from '../../containers/Courses/Courses.module.css'
+import FadeInSection from '../FadeInSection/FadeInSection'
 
 const Courses = props => {
   const [coursesObject] = useState({
@@ -48,13 +49,15 @@ const Courses = props => {
   let courses = []
   for (let course in coursesObject) {
     courses.push(
-      <Course
-        key={coursesObject[course].title}
-        title={coursesObject[course].title}
-        desc={coursesObject[course].desc}
-        cert={coursesObject[course].cert}
-        courseLink={coursesObject[course].courseLink}
-      ></Course>
+      <FadeInSection fadeDirection="top">
+        <Course
+          key={coursesObject[course].title}
+          title={coursesObject[course].title}
+          desc={coursesObject[course].desc}
+          cert={coursesObject[course].cert}
+          courseLink={coursesObject[course].courseLink}
+        ></Course>
+      </FadeInSection>
     )
   }
 
