@@ -10,11 +10,6 @@ const Home = props => {
   return (
     <>
       <div className={classes.Home}>
-        <img
-          className={classes.WelcomeImage}
-          src={imageAssets.appBackground}
-          alt="welcomeImage"
-        />
         <div className={classes.WelcomeElements}>
           <div className={classes.Title}>
             <img
@@ -22,7 +17,7 @@ const Home = props => {
               src={imageAssets.profileImage}
               alt="profileImage"
             />
-            <div className={classes.WelcomeTop}>
+            <div className={classes.TitleElementsGroup}>
               <h1>Karl Warner</h1>
               <p>{`</> Software Developer`}</p>
               <div className={classes.LinkIcons}>
