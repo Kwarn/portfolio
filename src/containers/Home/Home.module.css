@@ -15,6 +15,10 @@
   height: 30px;
 }
 
+.ContactButton {
+  text-align: center;
+}
+
 @media (min-width: 900px) {
   .ComponentsWrapper {
     display: flex;

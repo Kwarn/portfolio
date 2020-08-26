@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import classes from './Home.module.css'
 import imageAssets from '../../assets/assets'
 import Skills from '../../components/Skills/Skills'
@@ -44,10 +45,13 @@ const Home = props => {
       <div className={classes.ComponentsWrapper}>
         <Skills />
         <Projects />
-        <Courses
-          showModal={modalContent => showModalHandler(modalContent)}
-        />
+        <Courses showModal={modalContent => showModalHandler(modalContent)} />
       </div>
+      <Link to="/contact">
+        <div>
+          <button className={classes.ContactButton}>Contact</button>
+        </div>
+      </Link>
     </>
   )
 }
