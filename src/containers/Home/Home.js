@@ -43,7 +43,7 @@ const Home = props => {
         <FadeInSection fadeDirection="top">
           <img
             className={classes.OpenDrawIcon}
-            src={imageAssets.blackDownArrow}
+            src={imageAssets.downArrow}
             alt="openDrawIcon"
           />
         </FadeInSection>

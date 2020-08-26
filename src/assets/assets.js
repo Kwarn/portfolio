@@ -19,7 +19,7 @@ const imageAssets = {
   certificateIcon: require('../assets/certificateIcon.png'),
   linkedIn: require('../assets/linkedIn.png'),
   homeBackgroundImage: require('../assets/homeBackground.jpg'),
-  blackDownArrow: require('../assets/blackDownArrow.png')
+  downArrow: require('../assets/downArrow.png')
 }
 
 export default imageAssets
