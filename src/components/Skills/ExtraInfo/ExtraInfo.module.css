@@ -1,0 +1,21 @@
+.ExtraInfo {
+  padding: 30px 0 30px 0;
+}
+
+.ContentContainer {
+  border-radius: 10px 10px 10px 10px;
+  background-color: #f9f4ee;
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
+  margin: 0px 15px 0px 15px;
+  padding: 15px;
+}
+
+.ContentContainer h2 {
+  padding: 0 0 20px 0;
+}
+
+
+.ContentContainer img {
+  height: 150px;
+  width: auto;
+}

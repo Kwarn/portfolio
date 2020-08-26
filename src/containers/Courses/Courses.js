@@ -29,7 +29,7 @@ const Courses = props => {
       cert: imageAssets.reactCertificate,
     },
     JavascriptFreeCodeCamp: {
-      contentTypeTag: 'javascript',
+      tag: 'javascript',
       title: 'Javascript Algorithms and Data Structures',
       desc:
         'My first detailed introduction to Javascript, left me wanting more!',

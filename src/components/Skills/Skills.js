@@ -1,15 +1,18 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import classes from './Skills.module.css'
+import ExtraInfo from './ExtraInfo/ExtraInfo'
 
 const Skills = props => {
   const { selectedContentHandler, selectedContentTag } = props
-  
+
   return (
     <div className={classes.Skills}>
       <h1 className={classes.SectionTitle}>Skills</h1>
       <div className={classes.TechLists}>
         <div
-          className={`${classes.TechSubsection} ${selectedContentTag === 'javascript' ? classes.Highlight : null}` }
+          className={`${classes.TechSubsection} ${
+            selectedContentTag === 'javascript' ? classes.Highlight : null
+          }`}
           onClick={() => selectedContentHandler('javascript')}
         >
           <h2>Javascript</h2>
@@ -19,25 +22,32 @@ const Skills = props => {
           </p>
         </div>
         <div
-          className={`${classes.TechSubsection} ${selectedContentTag === 'python' ? classes.Highlight : null}`}
+          className={`${classes.TechSubsection} ${
+            selectedContentTag === 'python' ? classes.Highlight : null
+          }`}
           onClick={() => selectedContentHandler('python')}
         >
           <h2>Python</h2>
           <p>TkInter, PyGame, SQLite</p>
         </div>
         <div
-          className={`${classes.TechSubsection} ${selectedContentTag === 'general' ? classes.Highlight : null}`}
+          className={`${classes.TechSubsection} ${
+            selectedContentTag === 'general' ? classes.Highlight : null
+          }`}
           onClick={() => selectedContentHandler('general')}
         >
           <h2>General</h2>
           <p>
-            UX/UI design, HTML, CSS modules, GitHub/Git Commands, Unix Command-line, Redux
-            Dev-Tools, Firebase Auth/Database/Hosting, Webpack
+            UX/UI design, HTML, CSS modules, GitHub/Git Commands, Unix
+            Command-line, Redux Dev-Tools, Firebase Auth/Database/Hosting,
+            Webpack
           </p>
         </div>
         <div>
           <div
-            className={`${classes.TechSubsection} ${selectedContentTag === 'environment' ? classes.Highlight : null}`}
+            className={`${classes.TechSubsection} ${
+              selectedContentTag === 'environment' ? classes.Highlight : null
+            }`}
             onClick={() => selectedContentHandler('environment')}
           >
             <h2>Development Environment</h2>
@@ -45,6 +55,8 @@ const Skills = props => {
           </div>
         </div>
       </div>
+
+      <ExtraInfo />
     </div>
   )
 }
