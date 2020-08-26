@@ -8,13 +8,14 @@
 }
 
 .SectionTitle {
-  border-bottom: 1px dotted black;
+  border-bottom: 6px solid black;
   margin: 0px 15px 0px 15px;
   padding: 15px 0px 15px 0px;
   text-align: center;
   font-size: x-large;
   color: black;
 }
+
 
 @media (min-width: 900px) {
   .Courses {

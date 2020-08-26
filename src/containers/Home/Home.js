@@ -15,6 +15,11 @@ const Home = props => {
     modalContent: null,
   })
 
+  const [selectedContent, setSelectedContent] = useState('')
+  const selectedContentHandler = selectedContentTag => {
+    setSelectedContent(selectedContentTag)
+  }
+
   const showModalHandler = modalContent => {
     setModalControl({ modalContent: modalContent, isOpen: true })
   }
@@ -43,9 +48,12 @@ const Home = props => {
         </FadeInSection>
       </div>
       <div className={classes.ComponentsWrapper}>
-        <Skills />
-        <Projects />
-        <Courses showModal={modalContent => showModalHandler(modalContent)} />
+        <Skills selectedContentHandler={tag => selectedContentHandler(tag)} />
+        <Projects selectedContentTag={selectedContent} />
+        <Courses
+          selectedContentTag={selectedContent}
+          showModal={modalContent => showModalHandler(modalContent)}
+        />
       </div>
       <Link to="/contact">
         <div>

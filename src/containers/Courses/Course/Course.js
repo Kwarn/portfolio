@@ -4,7 +4,7 @@ import Draw from '../../Draw/Draw'
 import classes from './Course.module.css'
 
 const Course = props => {
-  const { title, desc, cert, courseLink, showModal } = props
+  const { title, desc, cert, courseLink, showModal, isHighlighted } = props
 
   const certificate = (
     <img className={classes.Image} src={cert} alt={`${title} certificate`} />
@@ -27,7 +27,7 @@ const Course = props => {
 
   return (
     <>
-      <div className={classes.Course}>
+      <div className={`${classes.Course} ${isHighlighted ? classes.Highlight : null}`}>
         <h1>{title}</h1>
         <div className={classes.Icons}>
           <a href={courseLink} target="_blank" rel="noopener noreferrer">
