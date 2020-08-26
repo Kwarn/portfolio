@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Project from '../../components/Project/Project'
+import Project from './Project/Project'
 import classes from './Projects.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 

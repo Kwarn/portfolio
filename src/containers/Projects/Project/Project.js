@@ -1,5 +1,5 @@
 import React from 'react'
-import imageAssets from '../../assets/assets'
+import imageAssets from '../../../assets/assets'
 import classes from './Project.module.css'
 
 const Project = props => {
