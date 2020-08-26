@@ -20,14 +20,14 @@ const WelcomeElements = props => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={imageAssets.gitHub} alt="gitHubIcon"></img>
+              <img src={imageAssets.gitHubCharcoal} alt="gitHubIcon"></img>
             </a>
             <a
               href="https://www.linkedin.com/in/karl-warner-9147661b5/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={imageAssets.linkedIn} alt="linkedInIcon"></img>
+              <img src={imageAssets.linkedInCharcoal} alt="linkedInIcon"></img>
             </a>
           </div>
         </div>

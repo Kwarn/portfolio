@@ -1,6 +1,6 @@
 .TitleElementsGroup {
   margin: 0px 0px 0px 5vw;
-  background-color: #FBF3EE;
+  background-color: #fbf3ee;
   padding: 15px 10px 0px 150px;
   border-radius: 90px 0px 0px 90px;
   width: auto;
@@ -12,8 +12,8 @@
 }
 
 .Title {
+  color: #474747;
   text-align: center;
-  color: black;
 }
 
 .LinkIcons img {
@@ -26,7 +26,7 @@
   margin: 150px 10vw 150px 10vw;
   padding: 10px;
   text-align: center;
-  color: #FBF3EE;
+  color: #fbf3ee;
 }
 
 .ProfileImage {
