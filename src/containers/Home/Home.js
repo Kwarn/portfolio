@@ -49,7 +49,10 @@ const Home = props => {
         </FadeInSection>
       </div>
       <div className={classes.ComponentsWrapper}>
-        <Skills selectedContentHandler={tag => selectedContentHandler(tag)} />
+        <Skills
+          selectedContentTag={selectedContent}
+          selectedContentHandler={tag => selectedContentHandler(tag)}
+        />
         <Projects selectedContentTag={selectedContent} />
         <Courses
           selectedContentTag={selectedContent}

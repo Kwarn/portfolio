@@ -3,6 +3,10 @@
   padding: 0px 0px 80px 0px;
 }
 
+.Highlight {
+  background-color: springgreen;
+}
+
 .SectionTitle {
   border-bottom: 6px solid black;
   margin: 0px 15px 0px 15px;

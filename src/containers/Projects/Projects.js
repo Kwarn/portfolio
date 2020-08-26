@@ -5,7 +5,6 @@ import FadeInSection from '../FadeInSection/FadeInSection'
 
 const Projects = props => {
   const { selectedContentTag } = props
-  console.log(selectedContentTag)
   const [projects] = useState({
     burgerBuilder: {
       tag: 'javascript',
@@ -60,7 +59,6 @@ const Projects = props => {
 
   let projectElements = []
   for (let project in projects) {
-    console.log(projects[project].tag, selectedContentTag)
     projectElements.push(
       <FadeInSection key={project} fadeDirection="bottom">
         <Project
