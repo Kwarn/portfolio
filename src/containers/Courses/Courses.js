@@ -49,9 +49,8 @@ const Courses = props => {
   let courses = []
   for (let course in coursesObject) {
     courses.push(
-      <FadeInSection fadeDirection="top">
+      <FadeInSection key={coursesObject[course].title} fadeDirection="top">
         <Course
-          key={coursesObject[course].title}
           title={coursesObject[course].title}
           desc={coursesObject[course].desc}
           cert={coursesObject[course].cert}

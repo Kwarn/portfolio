@@ -54,12 +54,8 @@ const Projects = props => {
   let projectElements = []
   for (let project in projects) {
     projectElements.push(
-      <FadeInSection fadeDirection="top">
-        <Project
-          key={project}
-          projectId={project}
-          project={projects[project]}
-        />
+      <FadeInSection key={project} fadeDirection="top">
+        <Project projectId={project} project={projects[project]} />
       </FadeInSection>
     )
   }
