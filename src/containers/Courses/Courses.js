@@ -55,6 +55,7 @@ const Courses = props => {
           desc={coursesObject[course].desc}
           cert={coursesObject[course].cert}
           courseLink={coursesObject[course].courseLink}
+          showModal={props.showModal}
         ></Course>
       </FadeInSection>
     )

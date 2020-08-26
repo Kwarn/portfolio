@@ -3,7 +3,7 @@ import classes from './Modal.module.css'
 import Backdrop from '../Backdrop/Backdrop'
 
 const modal = props => {
-  const { show, close, children } = props
+  const { show, close } = props
 
   return (
     <>
@@ -16,7 +16,7 @@ const modal = props => {
         }}
       >
         <div className={classes.Cert}>
-          {children} <button onClick={close}>Close</button>
+          {props.children} <button onClick={close}>Close</button>
         </div>
       </div>
     </>
