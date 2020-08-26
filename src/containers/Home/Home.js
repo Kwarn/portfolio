@@ -15,7 +15,7 @@ const Home = props => {
         <FadeInSection fadeDirection="top">
           <img
             className={classes.OpenDrawIcon}
-            src={imageAssets.scrollDownIcon}
+            src={imageAssets.blackDownArrow}
             alt="openDrawIcon"
           />
         </FadeInSection>

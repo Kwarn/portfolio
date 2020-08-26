@@ -63,7 +63,7 @@ const Draw = props => {
             ? `${classes.OpenDrawIcon} ${classes.ExpandDrawIcon}`
             : classes.CloseDrawIcon
         }
-        src={!isDrawOpen ? imageAssets.openDraw : imageAssets.closeDraw}
+        src={!isDrawOpen ? imageAssets.blackDownArrow : imageAssets.closeDraw}
         alt={!isDrawOpen ? 'openDraw' : 'closeDraw'}
       />
     </div>

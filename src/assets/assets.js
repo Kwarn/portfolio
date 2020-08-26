@@ -9,7 +9,6 @@ const imageAssets = {
   css: require('../assets/css.png'),
   javascriptCertificate: require('../assets/javascriptCertificate.jpg'),
   reactCertificate: require('../assets/reactCertificate.jpg'),
-  openDraw: require('../assets/openDraw.png'),
   closeDraw: require('../assets/closeDraw.png'),
   appBackground: require('../assets/appBackground.jpg'),
   gitHub: require('../assets/gitHub.png'),
@@ -20,7 +19,7 @@ const imageAssets = {
   certificateIcon: require('../assets/certificateIcon.png'),
   linkedIn: require('../assets/linkedIn.png'),
   homeBackgroundImage: require('../assets/homeBackground.jpg'),
-  scrollDownIcon: require('../assets/scrollDownIcon.png')
+  blackDownArrow: require('../assets/blackDownArrow.png')
 }
 
 export default imageAssets
