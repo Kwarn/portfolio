@@ -29,7 +29,7 @@ const Project = props => {
   ))
 
   return (
-    <>
+    <div className={classes.project}>
       <div className={classes.IconsBar}>
         <div className={classes.TechImages}>{images}</div>
         <div className={classes.Links}>
@@ -63,7 +63,7 @@ const Project = props => {
         <p className={classes.ListHeader}>What I learned:</p>
         <ul className={classes.LearnedList}>{lessonsListItems}</ul>
       </div>
-    </>
+    </div>
   )
 }
 
