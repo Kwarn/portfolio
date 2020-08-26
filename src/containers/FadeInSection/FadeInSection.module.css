@@ -1,6 +1,6 @@
 .FadeFromBottomUp {
   opacity: 0;
-  transform: translateY(5vh);
+  transform: translateY(50px);
   visibility: hidden;
   transition: opacity 0.6s ease-out, transform 1.2s ease-out;
   will-change: opacity, visibility;
