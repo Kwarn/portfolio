@@ -1,7 +1,6 @@
 import React from 'react'
 import imageAssets from '../../../assets/assets'
 import Draw from '../../Draw/Draw'
-import Modal from '../../../components/Modal/Modal'
 import classes from './Course.module.css'
 
 const Course = props => {
