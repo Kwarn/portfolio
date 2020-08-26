@@ -3,7 +3,7 @@ import imageAssets from '../../../assets/assets'
 import classes from './Project.module.css'
 
 const Project = props => {
-  const { project } = props
+  const { project, isSelectedContent } = props
 
   const imageTags = project.previewTechStack
     .split(',')
@@ -30,7 +30,7 @@ const Project = props => {
 
   return (
     <div className={classes.Project}>
-      <div className={classes.IconsBar}>
+      <div className={`${classes.IconsBar} ${isSelectedContent ? classes.Highlight : null}`}>
         <div className={classes.TechImages}>{images}</div>
         <div className={classes.Links}>
           <a
@@ -57,7 +57,7 @@ const Project = props => {
           </a>
         </div>
       </div>
-      <div className={classes.ProjectDesc}>
+      <div className={`${classes.ProjectDesc} ${isSelectedContent ? classes.Highlight : null}`}>
         <h2> {project.title}</h2>
         <p className={classes.Desc}>{project.description}</p>
         <p className={classes.ListHeader}>What I learned:</p>

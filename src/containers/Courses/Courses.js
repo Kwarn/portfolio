@@ -7,9 +7,9 @@ import FadeInSection from '../FadeInSection/FadeInSection'
 const Courses = props => {
   const { selectedContentTag } = props
 
-  const [coursesObject] = useState({
+  const [courses] = useState({
     javascriptComplete: {
-      tag: 'javascript', 
+      tag: 'javascript',
       title: 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',
       desc: `A comprehensive course including ES6 features. 
         This course was vital in helping cement my understanding of the 
@@ -21,7 +21,7 @@ const Courses = props => {
       cert: imageAssets.javascriptCertificate,
     },
     reactComplete: {
-      tag: 'javascript', 
+      tag: 'javascript',
       title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
       desc: `Very detailed course demonstrating multiple approaches both new and old to creating react apps.`,
       courseLink:
@@ -29,7 +29,7 @@ const Courses = props => {
       cert: imageAssets.reactCertificate,
     },
     JavascriptFreeCodeCamp: {
-      contentTypeTag: 'javascript', 
+      contentTypeTag: 'javascript',
       title: 'Javascript Algorithms and Data Structures',
       desc:
         'My first detailed introduction to Javascript, left me wanting more!',
@@ -37,7 +37,7 @@ const Courses = props => {
       cert: imageAssets.freeCodeCampCertificate,
     },
     sqlCodeAcademy: {
-      tag: 'general', 
+      tag: 'general',
       title: 'Learn SQL',
       desc:
         'I took this course as I found a need in the fitness app for a database.',
@@ -45,7 +45,7 @@ const Courses = props => {
       cert: imageAssets.sqlCodeAcademyCertificate,
     },
     pythonCodeAcademy: {
-      tag: 'python', 
+      tag: 'python',
       title: 'Learn Python',
       desc:
         'The first online course I completed back in 2017, when I first discovered my love of programming.',
@@ -53,18 +53,16 @@ const Courses = props => {
     },
   })
 
-  
-
-  let courses = []
-  for (let course in coursesObject) {
-    courses.push(
-      <FadeInSection key={coursesObject[course].title} fadeDirection="bottom">
+  let courseElements = []
+  for (let course in courses) {
+    courseElements.push(
+      <FadeInSection key={courses[course].title} fadeDirection="bottom">
         <Course
-          isHighlighted={selectedContentTag === coursesObject[course].tag}
-          title={coursesObject[course].title}
-          desc={coursesObject[course].desc}
-          cert={coursesObject[course].cert}
-          courseLink={coursesObject[course].courseLink}
+          isHighlighted={selectedContentTag === courses[course].tag}
+          title={courses[course].title}
+          desc={courses[course].desc}
+          cert={courses[course].cert}
+          courseLink={courses[course].courseLink}
           showModal={props.showModal}
         ></Course>
       </FadeInSection>
@@ -74,7 +72,7 @@ const Courses = props => {
   return (
     <div className={classes.Courses}>
       <h1 className={classes.SectionTitle}>Courses and Certificates</h1>
-      <div className={classes.CoursesContainer}>{courses}</div>
+      <div className={classes.CoursesContainer}>{courseElements}</div>
     </div>
   )
 }

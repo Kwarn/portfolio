@@ -4,8 +4,11 @@ import classes from './Projects.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 
 const Projects = props => {
+  const { selectedContentTag } = props
+  console.log(selectedContentTag)
   const [projects] = useState({
     burgerBuilder: {
+      tag: 'javascript',
       title: 'Burger Builder',
       liveDemoLink: 'https://react-burger-builder-679aa.web.app/',
       previewTechStack: 'Javascript, React, Redux, Redux-Saga, Firebase, Css',
@@ -21,6 +24,7 @@ const Projects = props => {
         Higher order components, Form validation, Database rules configuration`,
     },
     SquarePlayground: {
+      tag: 'javascript',
       title: 'Square Playground',
       previewTechStack: 'Javascript, React, Redux, Css, Html',
 
@@ -31,6 +35,7 @@ const Projects = props => {
       lessons: 'Fundamentals of state and data management',
     },
     Fitness: {
+      tag: 'python',
       title: 'Fitness',
       previewTechStack: 'Python, Tkinter, SQlite3',
 
@@ -41,7 +46,9 @@ const Projects = props => {
         to a SQlite database along with their calorie information`,
       lessons: 'Database queries',
     },
+
     shutdownTimer: {
+      tag: 'python',
       title: 'Shutdown Timer',
       previewTechStack: 'Python, tkinter',
       gitHubLink: 'placeholder',
@@ -53,9 +60,14 @@ const Projects = props => {
 
   let projectElements = []
   for (let project in projects) {
+    console.log(projects[project].tag, selectedContentTag)
     projectElements.push(
       <FadeInSection key={project} fadeDirection="bottom">
-        <Project projectId={project} project={projects[project]} />
+        <Project
+          isSelectedContent={selectedContentTag === projects[project].tag}
+          projectId={project}
+          project={projects[project]}
+        />
       </FadeInSection>
     )
   }
