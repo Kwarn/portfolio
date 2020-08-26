@@ -16,9 +16,11 @@ function FadeInSection(props) {
 
   return (
     <div
-      className={`${classes.FadeInSection} ${
-        isVisible ? classes.isVisible : ''
-      }`}
+      className={`${
+        fadeDirection === 'top'
+          ? classes.FadeFromTopDown
+          : classes.FadeFromBottomUp
+      } ${isVisible ? classes.isVisible : ''}`}
       ref={domRef}
     >
       {props.children}

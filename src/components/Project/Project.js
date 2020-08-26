@@ -29,7 +29,7 @@ const Project = props => {
   ))
 
   return (
-    <div className={classes.project}>
+    <div className={classes.Project}>
       <div className={classes.IconsBar}>
         <div className={classes.TechImages}>{images}</div>
         <div className={classes.Links}>
