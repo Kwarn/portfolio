@@ -31,7 +31,7 @@ const Course = props => {
         <h1>{title}</h1>
         <div className={classes.Icons}>
           <a href={courseLink} target="_blank" rel="noopener noreferrer">
-            <img src={imageAssets.showDemo} alt="showCourse" />
+            <img src={imageAssets.magnifyingGlass} alt="showCourse" />
           </a>
           {certIcon}
         </div>

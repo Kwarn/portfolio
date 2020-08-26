@@ -22,6 +22,7 @@ const imageAssets = {
   certificateIcon: require('../assets/certificateIcon.png'),
   downArrow: require('../assets/downArrow.png'),
   closeDraw: require('../assets/closeDraw.png'),
+  magnifyingGlass: require('../assets/magnifyingGlass.png')
 }
 
 export default imageAssets

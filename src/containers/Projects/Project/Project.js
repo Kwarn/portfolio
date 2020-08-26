@@ -40,7 +40,7 @@ const Project = props => {
           >
             <img
               className={`${classes.IconImage} ${classes.LiveDemoLink}`}
-              src={imageAssets.showDemo}
+              src={imageAssets.magnifyingGlass}
               alt="liveDemoLink"
             />
           </a>
