@@ -3,7 +3,7 @@ import imageAssets from '../../assets/assets'
 import classes from './Project.module.css'
 
 const Project = props => {
-  const { projectId, project } = props
+  const { project } = props
 
   const imageTags = project.previewTechStack
     .split(',')
