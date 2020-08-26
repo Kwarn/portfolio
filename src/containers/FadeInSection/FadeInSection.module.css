@@ -1,12 +1,13 @@
 .FadeFromBottomUp {
   opacity: 0;
-  transform: translateY(10vh);
+  transform: translateY(5vh);
   visibility: hidden;
   transition: opacity 0.6s ease-out, transform 1.2s ease-out;
   will-change: opacity, visibility;
 }
 
 .FadeFromTopDown {
+  text-align: center;
   opacity: 0;
   transform: translateY(-20vh);
   visibility: hidden;
