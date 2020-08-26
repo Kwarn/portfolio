@@ -1,5 +1,4 @@
 .Home {
-  
 }
 
 .WelcomeTop {
@@ -85,6 +84,7 @@
 @media (min-width: 900px) {
   .ComponentsWrapper {
     display: flex;
+    justify-content: space-evenly;
   }
   .WelcomeElements {
     margin-left: 20vw;

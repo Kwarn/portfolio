@@ -18,7 +18,9 @@ const imageAssets = {
   freeCodeCampCertificate: require('../assets/freeCodeCampCertificate.png'),
   sqlCodeAcademyCertificate: require('../assets/sqlCodeAcademyCertificate.png'),
   certificateIcon: require('../assets/certificateIcon.png'),
-  linkedIn: require('../assets/linkedIn.png')
+  linkedIn: require('../assets/linkedIn.png'),
+  homeBackgroundImage: require('../assets/homeBackground.jpg'),
+  scrollDownIcon: require('../assets/scrollDownIcon.png')
 }
 
 export default imageAssets

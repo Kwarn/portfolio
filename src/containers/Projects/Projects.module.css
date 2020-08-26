@@ -21,8 +21,7 @@
 
 @media (min-width: 900px) {
   .Projects {
-    width: 100%;
-    height: auto;
+    flex:1;
     margin-top: 140px;
   }
 }
