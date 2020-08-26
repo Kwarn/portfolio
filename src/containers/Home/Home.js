@@ -17,7 +17,8 @@ const Home = props => {
 
   const [selectedContent, setSelectedContent] = useState('')
   const selectedContentHandler = selectedContentTag => {
-    setSelectedContent(selectedContentTag)
+    if (selectedContentTag === selectedContent) setSelectedContent('')
+    else setSelectedContent(selectedContentTag)
   }
 
   const showModalHandler = modalContent => {
