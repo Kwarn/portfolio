@@ -21,6 +21,7 @@ const imageAssets = {
   showDemo: require('../assets/showDemo.png'),
   certificateIcon: require('../assets/certificateIcon.png'),
   downArrow: require('../assets/downArrow.png'),
+  upArrow: require('../assets/upArrow.png'),
   closeDraw: require('../assets/closeDraw.png'),
   magnifyingGlass: require('../assets/magnifyingGlass.png'),
   theArtOfReadableCode: require('../assets/theArtOfReadableCode.jpg'),

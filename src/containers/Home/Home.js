@@ -81,7 +81,10 @@ const Home = props => {
           showModal={modalContent => showModalHandler(modalContent)}
         />
       </div>
-      <ExtraInfo firstElementRefs={firstElementRefs} selectedContentTag={selectedContent} />
+      <ExtraInfo
+        firstElementRefs={firstElementRefs}
+        selectedContentTag={selectedContent}
+      />
       <Link to="/contact">
         <div>
           <button className={classes.ContactButton}>Contact</button>
