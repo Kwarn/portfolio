@@ -25,6 +25,9 @@ const imageAssets = {
   magnifyingGlass: require('../assets/magnifyingGlass.png'),
   theArtOfReadableCode: require('../assets/theArtOfReadableCode.jpg'),
   becomingABetterProgrammer: require('../assets/becomingABetterProgrammer.jpg'),
+  edabit: require('../assets/edabit.png'),
+  freeCodeCamp: require('../assets/freeCodeCamp.png'),
+  codeCademy: require('../assets/codeCademy.png'),
 
 }
 
