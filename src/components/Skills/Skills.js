@@ -1,11 +1,11 @@
 import React from 'react'
 import classes from './Skills.module.css'
+import imageAssets from '../../assets/assets'
 
 const Skills = props => {
   const { selectedContentHandler, selectedContentTag, scrollIntoView } = props
 
   const onClickHandler = tag => {
-    console.log(tag)
     selectedContentHandler(tag)
     scrollIntoView(tag)
   }
@@ -19,8 +19,9 @@ const Skills = props => {
             selectedContentTag === 'javascript' ? classes.Highlight : null
           }`}
           onClick={() => onClickHandler('javascript')}
-        >
-          <h2>Javascript</h2>
+        > 
+          <h2>Javascript<img src={imageAssets.clickIcon} alt="clickHere" /></h2>
+          
           <p>
             React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme,
             react-transition-group

@@ -20,6 +20,7 @@ const imageAssets = {
   linkedInCharcoal: require('../assets/linkedInCharcoal.png'),
   showDemo: require('../assets/showDemo.png'),
   certificateIcon: require('../assets/certificateIcon.png'),
+  clickIcon: require('../assets/clickIcon.png'),
   downArrow: require('../assets/downArrow.png'),
   upArrow: require('../assets/upArrow.png'),
   closeDraw: require('../assets/closeDraw.png'),
