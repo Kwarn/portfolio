@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import classes from './Skills.module.css'
-import ExtraInfo from './ExtraInfo/ExtraInfo'
 
 const Skills = props => {
   const { selectedContentHandler, selectedContentTag } = props
@@ -55,8 +54,6 @@ const Skills = props => {
           </div>
         </div>
       </div>
-
-      <ExtraInfo />
     </div>
   )
 }

@@ -8,6 +8,7 @@ import Courses from '../Courses/Courses'
 import FadeInSection from '../FadeInSection/FadeInSection'
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements'
 import Modal from '../../components/Modal/Modal'
+import ExtraInfo from '../../components/ExtraInfo/ExtraInfo'
 
 const Home = props => {
   const [modalControl, setModalControl] = useState({
@@ -59,6 +60,7 @@ const Home = props => {
           showModal={modalContent => showModalHandler(modalContent)}
         />
       </div>
+      <ExtraInfo selectedContentTag={selectedContent} />
       <Link to="/contact">
         <div>
           <button className={classes.ContactButton}>Contact</button>

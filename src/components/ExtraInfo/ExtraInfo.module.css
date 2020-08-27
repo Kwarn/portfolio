@@ -1,26 +1,35 @@
 .ExtraInfo {
-  display: flex;
   padding: 30px 0 30px 0;
+}
+
+.SectionTitle {
+  border-bottom: 6px solid #827a75;
+  margin: 0px 15px 40px 15px;
+  padding: 15px 0px 15px 0px;
+  text-align: center;
+  font-size: x-large;
+  color: #fbf3ee;
 }
 
 .ContentContainer {
   border-radius: 10px 10px 10px 10px;
   background-color: #f9f4ee;
   box-shadow: 0 5px 10px rgb(0, 0, 0);
-  margin: 20px 30px 15px 30px;
+  margin: 25px 30px 15px 30px;
   padding: 15px;
-
-  flex: 1;
-  justify-content: space-evenly;
 }
 
 .ContentContainer h2 {
-  padding: 0 0 20px 0;
+  padding: 20px 0 20px 5px;
 }
 
 .ContentContainer img {
   height: 120px;
   width: auto;
+}
+
+.Highlight {
+  background-color: springgreen;
 }
 
 @media (max-width: 550px) {

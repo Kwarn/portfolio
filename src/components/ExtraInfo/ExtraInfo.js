@@ -1,14 +1,22 @@
 import React from 'react'
-import FadeInSection from '../../../containers/FadeInSection/FadeInSection'
+import FadeInSection from '../../containers/FadeInSection/FadeInSection'
 import classes from './ExtraInfo.module.css'
-import imageAssets from '../../../assets/assets'
+import imageAssets from '../../assets/assets'
 
-const ExtraInfo = prop => {
+const ExtraInfo = props => {
+  const { selectedContentTag } = props
+
   return (
     <FadeInSection>
       <div className={classes.ExtraInfo}>
-        <div className={classes.ContentContainer}>
-          <h2>{`Reading Material & Resources`}</h2>
+        <h1 className={classes.SectionTitle}>Resources</h1>
+        <div
+          className={`${classes.ContentContainer} ${
+            selectedContentTag === 'general' ? classes.Highlight : null
+          }`}
+        >
+          <h2>Reading Materials</h2>
+          <hr></hr>
           <a
             href="https://www.oreilly.com/library/view/the-art-of/9781449318482/"
             target="_blank"
@@ -29,7 +37,15 @@ const ExtraInfo = prop => {
               alt="becomingABetterProgrammeru"
             />
           </a>
-
+          <a
+            href="https://stackoverflow.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={imageAssets.stackOverflow} alt="stackOverflow" />
+          </a>
+          <h2>Profiles</h2>
+          <hr></hr>
           <a
             href="https://edabit.com/user/qgYikiD7WB8JciTdo"
             target="_blank"
@@ -64,13 +80,6 @@ const ExtraInfo = prop => {
             rel="noopener noreferrer"
           >
             <img src={imageAssets.codeCademy} alt="codeCademy" />
-          </a>
-          <a
-            href="https://stackoverflow.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={imageAssets.stackOverflow} alt="stackOverflow" />
           </a>
         </div>
       </div>
