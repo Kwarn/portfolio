@@ -4,9 +4,11 @@ import classes from './Projects.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 
 const Projects = props => {
-  const { selectedContentTag } = props
+  const { selectedContentTag, firstElementRefs } = props
+
   const [projects] = useState({
     burgerBuilder: {
+      isFirstElementOfTag: true,
       tag: 'javascript',
       title: 'Burger Builder',
       liveDemoLink: 'https://react-burger-builder-679aa.web.app/',
@@ -34,6 +36,7 @@ const Projects = props => {
       lessons: 'Fundamentals of state and data management',
     },
     Fitness: {
+      isFirstElementOfTag: true,
       tag: 'python',
       title: 'Fitness',
       previewTechStack: 'Python, Tkinter, SQlite3',
@@ -62,8 +65,12 @@ const Projects = props => {
     projectElements.push(
       <FadeInSection key={project} fadeDirection="bottom">
         <Project
+          firstElementRef={
+            projects[project].isFirstElementOfTag
+              ? firstElementRefs[projects[project].tag]
+              : null
+          }
           isSelectedContent={selectedContentTag === projects[project].tag}
-          projectId={project}
           project={projects[project]}
         />
       </FadeInSection>

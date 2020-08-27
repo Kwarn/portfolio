@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classes from './Skills.module.css'
 
 const Skills = props => {
-  const { selectedContentHandler, selectedContentTag } = props
+  const { selectedContentHandler, selectedContentTag, scrollIntoView } = props
+
+  const onClickHandler = tag => {
+    console.log(tag)
+    selectedContentHandler(tag)
+    scrollIntoView(tag)
+  }
 
   return (
     <div className={classes.Skills}>
@@ -12,7 +18,7 @@ const Skills = props => {
           className={`${classes.TechSubsection} ${
             selectedContentTag === 'javascript' ? classes.Highlight : null
           }`}
-          onClick={() => selectedContentHandler('javascript')}
+          onClick={() => onClickHandler('javascript')}
         >
           <h2>Javascript</h2>
           <p>
@@ -24,7 +30,7 @@ const Skills = props => {
           className={`${classes.TechSubsection} ${
             selectedContentTag === 'python' ? classes.Highlight : null
           }`}
-          onClick={() => selectedContentHandler('python')}
+          onClick={() => onClickHandler('python')}
         >
           <h2>Python</h2>
           <p>TkInter, PyGame, SQLite</p>
@@ -33,7 +39,7 @@ const Skills = props => {
           className={`${classes.TechSubsection} ${
             selectedContentTag === 'general' ? classes.Highlight : null
           }`}
-          onClick={() => selectedContentHandler('general')}
+          onClick={() => onClickHandler('general')}
         >
           <h2>General</h2>
           <p>
@@ -47,7 +53,7 @@ const Skills = props => {
             className={`${classes.TechSubsection} ${
               selectedContentTag === 'environment' ? classes.Highlight : null
             }`}
-            onClick={() => selectedContentHandler('environment')}
+            onClick={() => onClickHandler('environment')}
           >
             <h2>Development Environment</h2>
             <p>Ubuntu 20.04, VSCode, Firefox/Chrome</p>

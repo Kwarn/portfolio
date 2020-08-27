@@ -4,15 +4,15 @@ import classes from './ExtraInfo.module.css'
 import imageAssets from '../../assets/assets'
 
 const ExtraInfo = props => {
-  const { selectedContentTag } = props
+  const { selectedContentTag, firstElementRefs } = props
 
   return (
     <FadeInSection>
-      <div className={classes.ExtraInfo}>
+      <div ref={firstElementRefs.environment} className={classes.ExtraInfo}>
         <h1 className={classes.SectionTitle}>Resources</h1>
         <div
           className={`${classes.ContentContainer} ${
-            selectedContentTag === 'general' ? classes.Highlight : null
+            selectedContentTag === 'environment' ? classes.Highlight : null
           }`}
         >
           <h2>Reading Materials</h2>
@@ -52,20 +52,20 @@ const ExtraInfo = props => {
             rel="noopener noreferrer"
           >
             <img src={imageAssets.edabit} alt="edabit" />
-            <a
-              href="https://codingbat.com/done?user=karlwarner.dev@gmail.com&tag=6083086670"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={imageAssets.codingBat} alt="codingbat" />
-            </a>
-            <a
-              href="https://www.udemy.com/user/karl-warner-5/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={imageAssets.udemy} alt="udemy" />
-            </a>
+          </a>
+          <a
+            href="https://codingbat.com/done?user=karlwarner.dev@gmail.com&tag=6083086670"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={imageAssets.codingBat} alt="codingbat" />
+          </a>
+          <a
+            href="https://www.udemy.com/user/karl-warner-5/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={imageAssets.udemy} alt="udemy" />
           </a>
           <a
             href="https://www.freecodecamp.org/karl_warner"

@@ -5,7 +5,7 @@ import classes from '../../containers/Courses/Courses.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 
 const Courses = props => {
-  const { selectedContentTag } = props
+  const { selectedContentTag, firstElementRefs } = props
 
   const [courses] = useState({
     javascriptComplete: {
@@ -37,6 +37,7 @@ const Courses = props => {
       cert: imageAssets.freeCodeCampCertificate,
     },
     sqlCodeAcademy: {
+      isFirstElementOfTag: true,
       tag: 'general',
       title: 'Learn SQL',
       desc:
@@ -58,6 +59,11 @@ const Courses = props => {
     courseElements.push(
       <FadeInSection key={courses[course].title} fadeDirection="bottom">
         <Course
+          firstElementRef={
+            courses[course].isFirstElementOfTag
+              ? firstElementRefs[courses[course].tag]
+              : null
+          }
           isHighlighted={selectedContentTag === courses[course].tag}
           title={courses[course].title}
           desc={courses[course].desc}

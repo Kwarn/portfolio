@@ -4,7 +4,15 @@ import Draw from '../../Draw/Draw'
 import classes from './Course.module.css'
 
 const Course = props => {
-  const { title, desc, cert, courseLink, showModal, isHighlighted } = props
+  const {
+    title,
+    desc,
+    cert,
+    courseLink,
+    showModal,
+    isHighlighted,
+    firstElementRef,
+  } = props
 
   const certificate = (
     <img className={classes.Image} src={cert} alt={`${title} certificate`} />
@@ -26,8 +34,12 @@ const Course = props => {
   ) : null
 
   return (
-    <>
-      <div className={`${classes.Course} ${isHighlighted ? classes.Highlight : null}`}>
+    <div ref={firstElementRef}>
+      <div
+        className={`${classes.Course} ${
+          isHighlighted ? classes.Highlight : null
+        }`}
+      >
         <h1>{title}</h1>
         <div className={classes.Icons}>
           <a href={courseLink} target="_blank" rel="noopener noreferrer">
@@ -37,7 +49,7 @@ const Course = props => {
         </div>
       </div>
       <Draw contentType="course" drawContentProps={drawContentProps} />
-    </>
+    </div>
   )
 }
 

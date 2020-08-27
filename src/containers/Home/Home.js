@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import classes from './Home.module.css'
 import imageAssets from '../../assets/assets'
@@ -15,8 +15,8 @@ const Home = props => {
     isOpen: false,
     modalContent: null,
   })
-
   const [selectedContent, setSelectedContent] = useState('')
+
   const selectedContentHandler = selectedContentTag => {
     if (selectedContentTag === selectedContent) setSelectedContent('')
     else setSelectedContent(selectedContentTag)
@@ -28,6 +28,21 @@ const Home = props => {
 
   const closeModalHandler = () => {
     setModalControl({ ...modalControl.modalContent, isOpen: false })
+  }
+
+  const firstElementRefs = {
+    javascript: useRef(null),
+    python: useRef(null),
+    general: useRef(null),
+    environment: useRef(null),
+  }
+
+  const scrollIntoView = tag => {
+    firstElementRefs[tag].current.scrollIntoView({
+      block: 'center',
+      inline: 'center',
+      behavior: 'smooth',
+    })
   }
 
   const modal = (
@@ -51,16 +66,22 @@ const Home = props => {
       </div>
       <div className={classes.ComponentsWrapper}>
         <Skills
+          scrollIntoView={tag => scrollIntoView(tag)}
           selectedContentTag={selectedContent}
           selectedContentHandler={tag => selectedContentHandler(tag)}
         />
-        <Projects selectedContentTag={selectedContent} />
+        <Projects
+          firstElementRefs={firstElementRefs}
+          scrollIntoView={tag => scrollIntoView(tag)}
+          selectedContentTag={selectedContent}
+        />
         <Courses
+          firstElementRefs={firstElementRefs}
           selectedContentTag={selectedContent}
           showModal={modalContent => showModalHandler(modalContent)}
         />
       </div>
-      <ExtraInfo selectedContentTag={selectedContent} />
+      <ExtraInfo firstElementRefs={firstElementRefs} selectedContentTag={selectedContent} />
       <Link to="/contact">
         <div>
           <button className={classes.ContactButton}>Contact</button>
