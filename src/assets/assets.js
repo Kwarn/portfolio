@@ -28,7 +28,9 @@ const imageAssets = {
   edabit: require('../assets/edabit.png'),
   freeCodeCamp: require('../assets/freeCodeCamp.png'),
   codeCademy: require('../assets/codeCademy.png'),
-
+  udemy: require('../assets/udemy.png'),
+  codingBat: require('../assets/codingBat.jpg'),
+  stackOverflow: require('../assets/stackOverflow.png'),
 }
 
 export default imageAssets
