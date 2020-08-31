@@ -27,6 +27,7 @@ const Projects = props => {
     SquarePlayground: {
       tag: 'javascript',
       title: 'Square Playground',
+      liveDemoLink: 'https://square-playground.web.app/',
       previewTechStack: 'Javascript, React, Redux, Css, Html',
 
       gitHubLink: 'placeholder',

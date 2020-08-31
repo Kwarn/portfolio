@@ -45,7 +45,7 @@ const Skills = props => {
           <h2>General</h2>
           <p>
             UX/UI design, HTML, CSS modules, GitHub/Git Commands, Unix
-            Command-line, Redux Dev-Tools, Firebase Auth/Database/Hosting,
+            Command-line, React/Redux Dev-Tools, Firebase Auth/Database/Hosting,
             Webpack
           </p>
         </div>

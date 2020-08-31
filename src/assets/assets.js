@@ -7,6 +7,7 @@ const imageAssets = {
   freeCodeCampCertificate: require('../assets/freeCodeCampCertificate.png'),
   sqlCodeAcademyCertificate: require('../assets/sqlCodeAcademyCertificate.png'),
   burgerBuilder: require('../assets/burgerBuilder.png'),
+  squarePlayground: require('../assets/squarePlayground.png'), 
   javascript: require('../assets/javascript.png'),
   python: require('../assets/python.png'),
   react: require('../assets/react.png'),
