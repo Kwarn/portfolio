@@ -3,7 +3,7 @@ import imageAssets from '../../../assets/assets'
 import classes from './Project.module.css'
 
 const Project = props => {
-  const { project, isSelectedContent, firstElementRef} = props
+  const { project, isSelectedContent, firstElementRef } = props
 
   const imageTags = project.previewTechStack
     .split(',')
@@ -28,6 +28,16 @@ const Project = props => {
     </li>
   ))
 
+  const liveDemoLink = project.liveDemoLink ? (
+    <a href={project.liveDemoLink} target="_blank" rel="noopener noreferrer">
+      <img
+        className={`${classes.IconImage} ${classes.LiveDemoLink}`}
+        src={imageAssets.magnifyingGlass}
+        alt="liveDemoLink"
+      />
+    </a>
+  ) : null
+
   return (
     <div ref={firstElementRef} className={classes.Project}>
       <div
@@ -37,17 +47,7 @@ const Project = props => {
       >
         <div className={classes.TechImages}>{images}</div>
         <div className={classes.Links}>
-          <a
-            href={project.liveDemoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              className={`${classes.IconImage} ${classes.LiveDemoLink}`}
-              src={imageAssets.magnifyingGlass}
-              alt="liveDemoLink"
-            />
-          </a>
+          {liveDemoLink}
           <a
             href={project.gitHubLink}
             target="_blank"
