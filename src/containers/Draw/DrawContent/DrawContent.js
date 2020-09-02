@@ -1,23 +1,22 @@
 import React from 'react'
 import classes from './DrawContent.module.css'
 
-const DrawContent = props => {
-  const { isMouseOverDraw } = props
+const DrawContent = ({ isMouseOverDraw, isProject, desc, lessonsListItems }) => {
 
   let content = null
 
-  if (props.isProject) {
+  if (isProject) {
     content = (
       <>
-        <p className={classes.Desc}>{props.desc}</p>
+        <p className={classes.Desc}>{desc}</p>
         <p className={classes.ListHeader}>What I learned:</p>
-        <ul className={classes.LearnedList}>{props.lessonsListItems}</ul>
+        <ul className={classes.LearnedList}>{lessonsListItems}</ul>
       </>
     )
   } else {
     content = (
       <>
-        <p className={classes.Desc}>{props.desc}</p>
+        <p className={classes.Desc}>{desc}</p>
       </>
     )
   }

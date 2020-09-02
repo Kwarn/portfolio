@@ -2,9 +2,7 @@ import React from 'react'
 import classes from './Modal.module.css'
 import Backdrop from '../Backdrop/Backdrop'
 
-const modal = props => {
-  const { show, hide } = props
-
+const modal = ({ show, hide, children }) => {
   return (
     <>
       <Backdrop show={show} hide={hide} />
@@ -15,7 +13,7 @@ const modal = props => {
           opacity: show ? '1' : '0',
         }}
       >
-        <div className={classes.Content}>{props.children}</div>
+        <div className={classes.Content}>{children}</div>
         <button onClick={hide}>Close</button>
       </div>
     </>

@@ -2,9 +2,11 @@ import React from 'react'
 import classes from './Skills.module.css'
 import imageAssets from '../../assets/assets'
 
-const Skills = props => {
-  const { selectedContentHandler, selectedContentTag, scrollIntoView } = props
-
+const Skills = ({
+  selectedContentHandler,
+  selectedContentTag,
+  scrollIntoView,
+}) => {
   const onClickHandler = tag => {
     selectedContentHandler(tag)
     scrollIntoView(tag)
@@ -19,12 +21,15 @@ const Skills = props => {
             selectedContentTag === 'javascript' ? classes.Highlight : null
           }`}
           onClick={() => onClickHandler('javascript')}
-        > 
-          <h2>Javascript<img src={imageAssets.clickIcon} alt="clickHere" /></h2>
-          
+        >
+          <h2>
+            Javascript
+            <img src={imageAssets.clickIcon} alt="clickHere" />
+          </h2>
+
           <p>
-            React, NodeJs, NextJs, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme,
-            react-transition-group
+            React, NodeJs, NextJs, React-Router, Redux, Redux-Saga, Thunk,
+            Axios, Enzyme, react-transition-group
           </p>
         </div>
         <div

@@ -4,9 +4,7 @@ import Course from './Course/Course'
 import classes from '../../containers/Courses/Courses.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 
-const Courses = props => {
-  const { selectedContentTag, firstElementRefs } = props
-
+const Courses = ({ selectedContentTag, firstElementRefs, showModal }) => {
   const [courses] = useState({
     javascriptComplete: {
       tag: 'javascript',
@@ -65,11 +63,8 @@ const Courses = props => {
               : null
           }
           isHighlighted={selectedContentTag === courses[course].tag}
-          title={courses[course].title}
-          desc={courses[course].desc}
-          cert={courses[course].cert}
-          courseLink={courses[course].courseLink}
-          showModal={props.showModal}
+          course={courses[course]}
+          showModal={showModal}
         ></Course>
       </FadeInSection>
     )

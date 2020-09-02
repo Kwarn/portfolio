@@ -4,9 +4,7 @@ import classes from './Projects.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 import imageAssets from '../../assets/assets'
 
-const Projects = props => {
-  const { selectedContentTag, firstElementRefs } = props
-
+const Projects = ({ selectedContentTag, firstElementRefs, showModal }) => {
   const [projects] = useState({
     burgerBuilder: {
       isFirstElementOfTag: true,
@@ -99,7 +97,7 @@ const Projects = props => {
               : null
           }
           isSelectedContent={selectedContentTag === projects[project].tag}
-          showModal={props.showModal}
+          showModal={showModal}
         />
       </FadeInSection>
     )

@@ -3,8 +3,7 @@ import FadeInSection from '../../containers/FadeInSection/FadeInSection'
 import classes from './ExtraInfo.module.css'
 import imageAssets from '../../assets/assets'
 
-const ExtraInfo = props => {
-  const { selectedContentTag, firstElementRefs } = props
+const ExtraInfo = ({ selectedContentTag, firstElementRefs }) => {
 
   return (
     <FadeInSection>

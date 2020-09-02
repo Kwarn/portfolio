@@ -3,20 +3,10 @@ import imageAssets from '../../../assets/assets'
 import Draw from '../../Draw/Draw'
 import classes from './Course.module.css'
 
-const Course = props => {
-  const {
-    title,
-    desc,
-    cert,
-    courseLink,
-    showModal,
-    isHighlighted,
-    firstElementRef,
-  } = props
+const Course = ({ course, showModal, isHighlighted, firstElementRef }) => {
+  const { title, cert, desc, courseLink } = course
 
-  const certificate = (
-    <img src={cert} alt={`${title} certificate`} />
-  )
+  const certificate = <img src={cert} alt={`${title} certificate`} />
 
   const drawContentProps = {
     title: 'More info',

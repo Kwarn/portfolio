@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import classes from './FadeInSection.module.css'
 
-function FadeInSection(props) {
-  const { fadeDirection } = props
+function FadeInSection({ fadeDirection, children }) {
   const [isVisible, setVisible] = useState(false)
   const domRef = useRef()
 
@@ -25,7 +24,7 @@ function FadeInSection(props) {
       } ${isVisible ? classes.isVisible : ''}`}
       ref={domRef}
     >
-      {props.children}
+      {children}
     </div>
   )
 }

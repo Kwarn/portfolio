@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import classes from './GoToTop.module.css'
 import imageAssets from '../../../assets/assets'
 
-const GoToTop = props => {
-  const {scrollToTop} = props
-
+const GoToTop = ({ scrollToTop }) => {
   const [scrollPos, setScrollPos] = useState({
     posY: window.pageYOffset,
     visible: false,

@@ -2,9 +2,12 @@ import React from 'react'
 import imageAssets from '../../../assets/assets'
 import classes from './Project.module.css'
 
-const Project = props => {
-  const { project, isSelectedContent, firstElementRef, showModal } = props
-
+const Project = ({
+  project,
+  isSelectedContent,
+  firstElementRef,
+  showModal,
+}) => {
   const imageTags = project.previewTechStack
     .split(',')
     .map(tag => tag.toLowerCase().trim())

@@ -3,10 +3,9 @@ import imageAssets from '../../assets/assets'
 import DrawContent from './DrawContent/DrawContent'
 import classes from './Draw.module.css'
 
-const Draw = props => {
+const Draw = ({ contentType, drawContentProps } )=> {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
   const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
-  const { contentType, drawContentProps } = props
 
   const toggleDrawhandler = () => {
     setIsDrawOpen(!isDrawOpen)
