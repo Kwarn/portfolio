@@ -28,8 +28,8 @@ const Skills = ({
           </h2>
 
           <p>
-            React, NodeJs, NextJs, React-Router, Redux, Redux-Saga, Thunk,
-            Axios, Enzyme, react-transition-group
+            React, React-Router, Redux, Redux-Saga, Thunk,
+            Axios, Enzyme, react-transition-group, NodeJs, NextJs.
           </p>
         </div>
         <div
@@ -39,7 +39,7 @@ const Skills = ({
           onClick={() => onClickHandler('python')}
         >
           <h2>Python</h2>
-          <p>Django, TkInter, PyGame, SQLite</p>
+          <p>TkInter, PyGame, SQLite, Django.</p>
         </div>
         <div
           className={`${classes.TechSubsection} ${
@@ -51,7 +51,7 @@ const Skills = ({
           <p>
             UX/UI design, SQL, HTML, CSS modules, GitHub/Git Commands, Unix
             Command-line, React/Redux Dev-Tools, Firebase Auth/Database/Hosting,
-            Webpack
+            Webpack, Photoshop, Gimp, Adobe Premiere Pro.
           </p>
         </div>
         <div>
@@ -62,7 +62,10 @@ const Skills = ({
             onClick={() => onClickHandler('environment')}
           >
             <h2>Development Environment</h2>
-            <p>Ubuntu 20.04, VSCode, Firefox/Chrome</p>
+            <p>
+              Portable SSD Ubuntu 20.04 & Terminator, Windows 10 & GitBash,
+              VSCode, Pycharm, Firefox, Chrome.
+            </p>
           </div>
         </div>
       </div>
