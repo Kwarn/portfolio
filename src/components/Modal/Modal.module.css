@@ -9,7 +9,15 @@
   max-height: 800px;
   padding: 16px;
   box-sizing: border-box;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease-in;
+}
+
+.CloseIcon {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  height: 30px;
+  width: auto;
 }
 
 .Content {
