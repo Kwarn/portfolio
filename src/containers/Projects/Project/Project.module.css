@@ -16,6 +16,10 @@
   background-color: springgreen;
 }
 
+.Desc {
+  white-space: pre-wrap;
+}
+
 .TechImages {
   padding: 5px;
   height: 100%;
@@ -33,7 +37,7 @@
   width: 30px;
 }
 
-.ProjectDesc {
+.MainContentWrapper {
   border-radius: 0px 0px 10px 10px;
   background-color: #f9f4ee;
   box-shadow: 0 5px 10px rgb(0, 0, 0);
@@ -41,15 +45,20 @@
   padding: 5px;
 }
 
-.ProjectDesc h2 {
+.MainContentWrapper h2 {
   padding: 10px;
 }
 
-.ProjectDesc p {
+.MainContentWrapper h3 {
   padding: 10px;
 }
 
-.ProjectDesc ul {
+.MainContentWrapper p {
+  white-space: pre-line;
+  padding: 10px;
+}
+
+.MainContentWrapper ul {
   text-align: left;
   padding: 5px 15px 15px 25px;
 }

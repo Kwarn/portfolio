@@ -22,11 +22,13 @@ const Project = props => {
     }
   }
 
-  const lessonsListItems = project.lessons.split(', ').map(lesson => (
-    <li className={classes.ListItem} key={lesson}>
-      {lesson}
-    </li>
-  ))
+  const technicalPractices = project.technicalPractices
+    .split(', ')
+    .map(practice => (
+      <li className={classes.ListItem} key={practice}>
+        {practice}
+      </li>
+    ))
 
   const liveDemoLink = project.liveDemoLink ? (
     <a href={project.liveDemoLink} target="_blank" rel="noopener noreferrer">
@@ -62,14 +64,16 @@ const Project = props => {
         </div>
       </div>
       <div
-        className={`${classes.ProjectDesc} ${
+        className={`${classes.MainContentWrapper} ${
           isSelectedContent ? classes.Highlight : null
         }`}
       >
         <h2> {project.title}</h2>
         <p className={classes.Desc}>{project.description}</p>
-        <p className={classes.ListHeader}>What I learned:</p>
-        <ul className={classes.LearnedList}>{lessonsListItems}</ul>
+        <h3>Key lessons:</h3>
+        <p className={classes.Desc}>{project.whatILearned}</p>
+        <h3>Technical practices:</h3>
+        <ul className={classes.LearnedList}>{technicalPractices}</ul>
       </div>
     </div>
   )

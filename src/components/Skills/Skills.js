@@ -23,7 +23,7 @@ const Skills = props => {
           <h2>Javascript<img src={imageAssets.clickIcon} alt="clickHere" /></h2>
           
           <p>
-            React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme,
+            React, NodeJs, NextJs, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme,
             react-transition-group
           </p>
         </div>
@@ -34,7 +34,7 @@ const Skills = props => {
           onClick={() => onClickHandler('python')}
         >
           <h2>Python</h2>
-          <p>TkInter, PyGame, SQLite</p>
+          <p>Django, TkInter, PyGame, SQLite</p>
         </div>
         <div
           className={`${classes.TechSubsection} ${
@@ -44,7 +44,7 @@ const Skills = props => {
         >
           <h2>General</h2>
           <p>
-            UX/UI design, HTML, CSS modules, GitHub/Git Commands, Unix
+            UX/UI design, SQL, HTML, CSS modules, GitHub/Git Commands, Unix
             Command-line, React/Redux Dev-Tools, Firebase Auth/Database/Hosting,
             Webpack
           </p>
