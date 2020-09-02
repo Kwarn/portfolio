@@ -1,34 +1,31 @@
 .Modal {
-  position: fixed;
   z-index: 500;
-  background-color: white;
-  width: 80%;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 1px black;
-  padding: 16px;
+  position: fixed;
   left: 10%;
   top: 20%;
+  background-color: white;
+  width: 80%;
+  max-width: 800px;
+  max-height: 800px;
+  padding: 16px;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
 
 .Content {
   text-align: center;
-  height: 100%;
   width: auto;
+  height: 100%;
 }
 
 .Content img {
-  /* width: auto;
-  height: auto;
-  max-height: 600px;
-  max-width: auto; */
+  max-height: 500px;
+  max-width: 100%;
+  width: auto;
 }
-
 
 @media (min-width: 1000px) {
   .Modal {
-      width: 800px;
-      left: calc(50% - 350px);
+    left: calc(50% - 350px);
   }
-}  
+}

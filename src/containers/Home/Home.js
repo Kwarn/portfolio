@@ -26,7 +26,7 @@ const Home = props => {
     setModalControl({ modalContent: modalContent, isOpen: true })
   }
 
-  const closeModalHandler = () => {
+  const hideModalHandler = () => {
     setModalControl({ ...modalControl.modalContent, isOpen: false })
   }
 
@@ -46,7 +46,7 @@ const Home = props => {
   }
 
   const modal = (
-    <Modal show={modalControl.isOpen} close={() => closeModalHandler()}>
+    <Modal show={modalControl.isOpen} hide={() => hideModalHandler()}>
       {modalControl.modalContent}
     </Modal>
   )
