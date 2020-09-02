@@ -74,6 +74,7 @@ const Home = props => {
           firstElementRefs={firstElementRefs}
           scrollIntoView={tag => scrollIntoView(tag)}
           selectedContentTag={selectedContent}
+          showModal={modalContent => showModalHandler(modalContent)}
         />
         <Courses
           firstElementRefs={firstElementRefs}

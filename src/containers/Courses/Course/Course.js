@@ -15,7 +15,7 @@ const Course = props => {
   } = props
 
   const certificate = (
-    <img className={classes.Image} src={cert} alt={`${title} certificate`} />
+    <img src={cert} alt={`${title} certificate`} />
   )
 
   const drawContentProps = {

@@ -15,7 +15,7 @@ const modal = props => {
           opacity: show ? '1' : '0',
         }}
       >
-        <div className={classes.Cert}>
+        <div className={classes.Content}>
           {props.children} <button onClick={close}>Close</button>
         </div>
       </div>

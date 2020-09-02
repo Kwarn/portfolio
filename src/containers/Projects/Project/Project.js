@@ -3,7 +3,7 @@ import imageAssets from '../../../assets/assets'
 import classes from './Project.module.css'
 
 const Project = props => {
-  const { project, isSelectedContent, firstElementRef } = props
+  const { project, isSelectedContent, firstElementRef, showModal } = props
 
   const imageTags = project.previewTechStack
     .split(',')
@@ -40,6 +40,10 @@ const Project = props => {
     </a>
   ) : null
 
+  const projectImage = project.image ? (
+    <img src={project.image} alt="projectImage" />
+  ) : null
+
   return (
     <div ref={firstElementRef} className={classes.Project}>
       <div
@@ -68,8 +72,12 @@ const Project = props => {
           isSelectedContent ? classes.Highlight : null
         }`}
       >
-        <h2> {project.title}</h2>
-        <p className={classes.Desc}>{project.description}</p>
+        <h2>{project.title}</h2>
+        <div className={classes.Desc}>
+          <p>{project.description}</p>
+          <div onClick={() => showModal(projectImage)}>{projectImage}</div>
+        </div>
+
         <h3>Key lessons:</h3>
         <p className={classes.Desc}>{project.whatILearned}</p>
         <h3>Technical practices:</h3>

@@ -7,34 +7,28 @@
   box-shadow: 1px 1px 1px black;
   padding: 16px;
   left: 10%;
-  top: 30%;
+  top: 20%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
 
-.Cert {
+.Content {
   text-align: center;
   height: 100%;
   width: auto;
 }
 
-.Cert img {
-  width: auto;
+.Content img {
+  /* width: auto;
   height: auto;
-  max-width: 90%;
-  max-height: 90%;
+  max-height: 600px;
+  max-width: auto; */
 }
 
-@media (min-width: 650px) {
-  .Modal {
-      width: 525px;
-      left: calc(50% - 250px);
-  }
-} 
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .Modal {
       width: 800px;
       left: calc(50% - 350px);
   }
-} 
+}  
