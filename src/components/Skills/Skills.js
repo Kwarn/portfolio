@@ -28,8 +28,8 @@ const Skills = ({
           </h2>
 
           <p>
-            React, React-Router, Redux, Redux-Saga, Thunk,
-            Axios, Enzyme, react-transition-group, NodeJs, NextJs.
+            ES6+, React, React-Router, Redux, Redux-Saga, Thunk,
+            Axios, Enzyme, NodeJs, NextJs.
           </p>
         </div>
         <div
