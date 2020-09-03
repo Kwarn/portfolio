@@ -12,6 +12,7 @@ const imageAssets = {
   python: require('../assets/python.png'),
   react: require('../assets/react.png'),
   redux: require('../assets/redux.png'),
+  saga: require('../assets/redux-saga.png'),
   firebase: require('../assets/firebase.png'),
   sqlite3: require('../assets/sqlite3.png'),
   css: require('../assets/css.png'),
