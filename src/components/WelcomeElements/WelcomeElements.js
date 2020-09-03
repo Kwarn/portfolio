@@ -29,6 +29,7 @@ const WelcomeElements = ({ aboutMe }) => {
             <img src={imageAssets.linkedInCharcoal} alt="linkedInIcon"></img>
           </a>
         </div>
+        <div className={classes.Divider}></div>
       </div>
       <p className={classes.AboutMe}> {aboutMe} </p>
     </div>

@@ -6,16 +6,21 @@
   max-width: 500px;
   opacity: 0.8;
   background-color: #fbf3ee;
-  padding: 30px 30px 80px 30px;
-  border-radius: 90px 90px 90px 90px;
+  padding: 30px 30px 30px 30px;
+  border-radius: 400px 50px 50px 50px;
 }
 
 .TitleGroup {
+  margin: 20px 0px 0px 10px;
   text-align: center;
 }
 
 .LinkIcons {
-  margin: 10px 0px 10px 0;
+  margin: 10px 0px 0px 0;
+}
+
+.Divider {
+  margin: 15px 0 0 0;
   border-bottom: 6px solid #474747;
 }
 
@@ -25,7 +30,7 @@
 }
 
 .AboutMe {
-  margin: 60px 10px 0px 10px;
+  margin: 30px 10px 30px 10px;
   text-align: center;
 }
 

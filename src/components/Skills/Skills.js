@@ -64,7 +64,7 @@ const Skills = ({
           >
             <h2>Development Environment <img src={imageAssets.clickIcon} alt="clickHere" /></h2>
             <p>
-              Portable SSD Ubuntu 20.04 & Terminator, Windows 10 & GitBash,
+              Ubuntu 20.04, Windows 10 & GitBash,
               VSCode, Pycharm, Firefox, Chrome.
             </p>
           </div>

@@ -60,6 +60,20 @@ const Home = props => {
     </Modal>
   )
 
+  const circularText = (txt, radius) => {
+    txt = txt.split('')
+    var deg = 360 / txt.length,
+      origin = 0
+
+    const finaltext = txt.forEach(ea => {
+      ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`
+      origin += deg
+    })
+    return finaltext
+  }
+
+  const text = circularText('testing this text', 360)
+
   return (
     <>
       {modal}
@@ -75,7 +89,7 @@ const Home = props => {
             />
           </FadeInSection>
         </div>
-        <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
+        <p className={classes.SmallDisplaysAboutMe}>{aboutMe} {text}</p>
       </div>
       <div className={classes.ComponentsWrapper}>
         <Skills

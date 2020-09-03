@@ -42,7 +42,7 @@
 .MainContentWrapper {
   border-radius: 0px 0px 10px 10px;
   background-color: #f9f4ee;
-  box-shadow: 0 5px 10px rgb(0, 0, 0);
+  box-shadow: 0 5px 10px #474747;
   margin: 0px 15px 0px 15px;
   padding: 5px;
 }
