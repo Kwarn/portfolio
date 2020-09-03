@@ -9,7 +9,6 @@ const Course = ({ course, showModal, isHighlighted, firstElementRef }) => {
   const certificate = <img src={cert} alt={`${title} certificate`} />
 
   const drawContentProps = {
-    title: 'More info',
     desc: desc,
     isAlwaysShown:
       title === 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',

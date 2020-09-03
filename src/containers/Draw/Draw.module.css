@@ -42,20 +42,6 @@
   height: auto;
 }
 
-/* adding margin-bottom causes last draw element to reduce size of parent div */
 .ExpandDrawIcon {
   top: 5px;
-  /* margin-bottom: -5px; */
-}
-
-.ProjectTitle {
-  text-align: center;
-  font-size: 1.5em;
-  padding: 5px 5px 10px 5px;
-}
-
-.CourseTitle {
-  text-align: center;
-  font-size: larger;
-  padding: 5px 5px 10px 5px;
 }

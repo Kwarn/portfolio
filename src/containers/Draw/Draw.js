@@ -3,7 +3,7 @@ import imageAssets from '../../assets/assets'
 import DrawContent from './DrawContent/DrawContent'
 import classes from './Draw.module.css'
 
-const Draw = ({ contentType, drawContentProps } )=> {
+const Draw = ({ contentType, drawContentProps }) => {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
   const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
 
@@ -15,16 +15,6 @@ const Draw = ({ contentType, drawContentProps } )=> {
   useEffect(() => {
     if (drawContentProps.isAlwaysShown) setIsDrawOpen(true)
   }, [drawContentProps])
-
-  const showTitle = drawContentProps.title ? (
-    <h1
-      className={
-        contentType === 'project' ? classes.ProjectTitle : classes.CourseTitle
-      }
-    >
-      {drawContentProps.title}
-    </h1>
-  ) : null
 
   const drawToggle = (
     <div
@@ -39,7 +29,6 @@ const Draw = ({ contentType, drawContentProps } )=> {
       onMouseLeave={() => setIsMouseOverDraw(false)}
       onClick={() => toggleDrawhandler()}
     >
-      {showTitle}
     </div>
   )
 
