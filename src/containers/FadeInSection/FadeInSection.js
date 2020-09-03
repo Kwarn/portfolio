@@ -3,17 +3,23 @@ import classes from './FadeInSection.module.css'
 
 function FadeInSection({ fadeDirection, children }) {
   const [isVisible, setVisible] = useState(false)
+  const [animationShouldStop, setAnimationShouldStop] = useState(false)
   const domRef = useRef()
 
   useEffect(() => {
-    const domRefCurrent = domRef.current
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setVisible(entry.isIntersecting))
-    })
+    if (!animationShouldStop) {
+      const domRefCurrent = domRef.current
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          setVisible(entry.isIntersecting)
+          if (entry.isIntersecting) setAnimationShouldStop(true)
+        })
+      })
 
-    observer.observe(domRef.current)
-    return () => observer.unobserve(domRefCurrent)
-  }, [])
+      observer.observe(domRef.current)
+      return () => observer.unobserve(domRefCurrent)
+    }
+  }, [animationShouldStop])
 
   return (
     <div
