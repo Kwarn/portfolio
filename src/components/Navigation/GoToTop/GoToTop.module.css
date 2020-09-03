@@ -20,7 +20,7 @@
 }
 
 .GoToTopButton:hover {
-  background-color: springgreen;
+  cursor: pointer;
 }
 
 .GoToTop nav {

@@ -2,7 +2,7 @@ import React from 'react'
 import imageAssets from '../../assets/assets'
 import classes from './WelcomeElements.module.css'
 
-const WelcomeElements = props => {
+const WelcomeElements = ({ aboutMe }) => {
   return (
     <div className={classes.WelcomeElements}>
       <div className={classes.TitleGroup}>
@@ -30,13 +30,7 @@ const WelcomeElements = props => {
           </a>
         </div>
       </div>
-      <p className={classes.AboutMe}>
-        As a technical and mechanical tinkerer from a young age, I've always
-        been drawn to understanding how things work and finding logical
-        solutions to problems. My curiosity has led me to understand a broad
-        range of different technologies and I'd like to continue my journey
-        inside a skilled team that I can learn from and grow with.
-      </p>
+      <p className={classes.AboutMe}> {aboutMe} </p>
     </div>
   )
 }

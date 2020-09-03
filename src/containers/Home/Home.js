@@ -17,6 +17,14 @@ const Home = props => {
   })
   const [selectedContent, setSelectedContent] = useState('')
 
+  const [
+    aboutMe,
+  ] = useState(`As a technical and mechanical tinkerer from a young age, I've always been
+  drawn to understanding how things work and finding logical solutions to
+  problems. My curiosity has led me to understand a broad range of different
+  technologies and I'd like to continue my journey inside a skilled team
+  that I can learn from and grow with.`)
+
   const selectedContentHandler = selectedContentTag => {
     if (selectedContentTag === selectedContent) setSelectedContent('')
     else setSelectedContent(selectedContentTag)
@@ -57,7 +65,7 @@ const Home = props => {
       {modal}
       <div className={classes.Home}>
         <div className={classes.WelcomeContainer}>
-          <WelcomeElements />
+          <WelcomeElements aboutMe={aboutMe} />
           <FadeInSection fadeDirection="top">
             <img
               className={classes.ScrollDownArrow}
@@ -67,6 +75,7 @@ const Home = props => {
             />
           </FadeInSection>
         </div>
+        <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
       </div>
       <div className={classes.ComponentsWrapper}>
         <Skills

@@ -20,7 +20,7 @@
   color: white;
   width: auto;
   height: 30px;
-  margin: 0 0 100px 0;
+  margin: 30px 0 100px 0;
 }
 
 .ScrollDownArrow:hover {
@@ -29,6 +29,18 @@
 
 .ContactButton {
   text-align: center;
+}
+
+.SmallDisplaysAboutMe {
+  text-align: center;
+  margin: 200px 10vw 0 10vw;
+  color: #fbf3ee;
+}
+
+@media (min-height: 830px) {
+  .SmallDisplaysAboutMe {
+    display: none;
+  }
 }
 
 @media (max-width: 700px) {

@@ -39,7 +39,7 @@ const Skills = ({
           }`}
           onClick={() => onClickHandler('python')}
         >
-          <h2>Python</h2>
+          <h2>Python <img src={imageAssets.clickIcon} alt="clickHere" /></h2>
           <p>TkInter, PyGame, SQLite, Django.</p>
         </div>
         <div
@@ -48,7 +48,7 @@ const Skills = ({
           }`}
           onClick={() => onClickHandler('general')}
         >
-          <h2>General</h2>
+          <h2>General <img src={imageAssets.clickIcon} alt="clickHere" /></h2>
           <p>
             UX/UI design, SQL, HTML, CSS modules, GitHub/Git Commands, Unix
             Command-line, React/Redux Dev-Tools, Firebase Auth/Database/Hosting,
@@ -62,7 +62,7 @@ const Skills = ({
             }`}
             onClick={() => onClickHandler('environment')}
           >
-            <h2>Development Environment</h2>
+            <h2>Development Environment <img src={imageAssets.clickIcon} alt="clickHere" /></h2>
             <p>
               Portable SSD Ubuntu 20.04 & Terminator, Windows 10 & GitBash,
               VSCode, Pycharm, Firefox, Chrome.
