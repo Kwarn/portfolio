@@ -17,7 +17,6 @@ const imageAssets = {
   sqlite3: require('../assets/sqlite3.png'),
   css: require('../assets/css.png'),
   gitHub: require('../assets/gitHub.png'),
-  gitHubCharcoal: require('../assets/gitHubCharcoal.png'),
   linkedIn: require('../assets/linkedIn.png'),
   linkedInCharcoal: require('../assets/linkedInCharcoal.png'),
   showDemo: require('../assets/showDemo.png'),

@@ -20,7 +20,7 @@ const WelcomeElements = props => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={imageAssets.gitHubCharcoal} alt="gitHubIcon"></img>
+              <img src={imageAssets.gitHub} alt="gitHubIcon"></img>
             </a>
             <a
               href="https://www.linkedin.com/in/karl-warner-9147661b5/"
@@ -31,8 +31,8 @@ const WelcomeElements = props => {
             </a>
           </div>
         </div>
+        <div className={classes.Divider} />
       </div>
-      <div className={classes.Divider}></div>
       <p className={classes.AboutMe}>
         As a technical and mechanical tinkerer from a young age, I've always
         been drawn to understanding how things work and finding logical

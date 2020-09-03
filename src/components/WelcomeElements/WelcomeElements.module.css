@@ -4,11 +4,7 @@
   padding: 15px 10px 0px 150px;
   border-radius: 90px 0px 0px 90px;
   width: auto;
-}
-
-.Divider {
-  margin-left: 15%;
-  border-bottom: 6px solid black;
+  border-bottom: 6px solid #827A75;
 }
 
 .Title {

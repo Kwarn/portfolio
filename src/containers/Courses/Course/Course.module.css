@@ -5,6 +5,7 @@
   margin: 30px 15px 0px 15px;
   box-shadow: 0 5px 10px rgb(0, 0, 0);
   background-color: #f9f4ee;
+  color: #474747;
   display: flex;
   justify-content: space-between;
 }
