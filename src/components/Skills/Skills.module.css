@@ -4,7 +4,7 @@
 }
 
 .Highlight {
-  background-color: #BFBFDC;
+  background-color: #F59F93;
 }
 
 .SectionTitle {
@@ -46,7 +46,7 @@
 
 .TechSubsection:hover {
   cursor: pointer;
-  background-color: #BFBFDC;
+  background-color: #F59F93;
 }
 
 @media (min-width: 900px) {
