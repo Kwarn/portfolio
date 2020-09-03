@@ -1,4 +1,5 @@
 const imageAssets = {
+  welcomeBackground: require('../assets/welcomeBackground.jpg'),
   appBackground: require('../assets/appBackground.jpg'),
   homeBackgroundImage: require('../assets/homeBackground.jpg'),
   profileImage: require('../assets/profileImage.png'),

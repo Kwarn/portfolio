@@ -3,6 +3,7 @@ import classes from './Skills.module.css'
 import imageAssets from '../../assets/assets'
 
 const Skills = ({
+  scrollToRef,
   selectedContentHandler,
   selectedContentTag,
   scrollIntoView,
@@ -13,7 +14,7 @@ const Skills = ({
   }
 
   return (
-    <div className={classes.Skills}>
+    <div ref={scrollToRef} className={classes.Skills}>
       <h1 className={classes.SectionTitle}>Skills</h1>
       <div className={classes.TechLists}>
         <div
@@ -28,8 +29,8 @@ const Skills = ({
           </h2>
 
           <p>
-            ES6+, React, React-Router, Redux, Redux-Saga, Thunk,
-            Axios, Enzyme, NodeJs, NextJs.
+            ES6+, React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme,
+            NodeJs, NextJs.
           </p>
         </div>
         <div

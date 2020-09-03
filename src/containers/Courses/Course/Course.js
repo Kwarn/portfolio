@@ -14,10 +14,10 @@ const Course = ({ course, showModal, isHighlighted, firstElementRef }) => {
       title === 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',
   }
 
-  const certIcon = cert ? (
+  const certificateImage = cert ? (
     <img
       onClick={() => showModal(certificate)}
-      src={imageAssets.certificateIcon}
+      src={cert}
       alt="certificateIcon"
     />
   ) : null
@@ -29,13 +29,13 @@ const Course = ({ course, showModal, isHighlighted, firstElementRef }) => {
           isHighlighted ? classes.Highlight : null
         }`}
       >
-        <h1>{title}</h1>
-        <div className={classes.Icons}>
+        <h1 className={classes.TitleContainer}>
+          {title}{' '}
           <a href={courseLink} target="_blank" rel="noopener noreferrer">
             <img src={imageAssets.magnifyingGlass} alt="showCourse" />
           </a>
-          {certIcon}
-        </div>
+        </h1>
+        <div className={classes.CertificateContainer}>{certificateImage}</div>
       </div>
       <Draw contentType="course" drawContentProps={drawContentProps} />
     </div>

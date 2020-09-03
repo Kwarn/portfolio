@@ -31,6 +31,7 @@ const Home = props => {
   }
 
   const firstElementRefs = {
+    skills: useRef(null),
     javascript: useRef(null),
     python: useRef(null),
     general: useRef(null),
@@ -55,17 +56,21 @@ const Home = props => {
     <>
       {modal}
       <div className={classes.Home}>
-        <WelcomeElements />
-        <FadeInSection fadeDirection="top">
-          <img
-            className={classes.OpenDrawIcon}
-            src={imageAssets.downArrow}
-            alt="openDrawIcon"
-          />
-        </FadeInSection>
+        <div className={classes.WelcomeContainer}>
+          <WelcomeElements />
+          <FadeInSection fadeDirection="top">
+            <img
+              className={classes.ScrollDownArrow}
+              src={imageAssets.downArrow}
+              alt="openDrawIcon"
+              onClick={() => scrollIntoView('skills')}
+            />
+          </FadeInSection>
+        </div>
       </div>
       <div className={classes.ComponentsWrapper}>
         <Skills
+          scrollToRef={firstElementRefs.skills}
           scrollIntoView={tag => scrollIntoView(tag)}
           selectedContentTag={selectedContent}
           selectedContentHandler={tag => selectedContentHandler(tag)}

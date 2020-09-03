@@ -2,22 +2,37 @@
   margin-top: 15px;
 }
 
+.WelcomeContainer {
+  text-align: center;
+  background: url('../../assets/welcomeBackground.jpg');
+  background-size: cover;
+  padding: 50px;
+  border-bottom: 6px solid #827A75;
+}
+
+
 .ComponentsWrapper {
   margin-top: 30px;
   width: 100%;
   height: auto;
 }
 
-.OpenDrawIcon {
-  margin-top: 40px;
+.ScrollDownArrow {
   color: white;
   width: auto;
   height: 30px;
+  margin: 0 0 100px 0;
 }
 
 .ContactButton {
   text-align: center;
 }
+
+/* @media (max-width: 680px) {
+  .ScrollDownArrow {
+    margin-top: 0px;
+  }
+} */
 
 @media (min-width: 1000px) {
   .ComponentsWrapper {
@@ -25,5 +40,3 @@
     justify-content: space-evenly;
   }
 }
-
-/* 840 divider lines up with pic */
