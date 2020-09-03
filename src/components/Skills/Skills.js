@@ -14,8 +14,8 @@ const Skills = ({
   }
 
   return (
-    <div ref={scrollToRef} className={classes.Skills}>
-      <h1 className={classes.SectionTitle}>Skills</h1>
+    <div className={classes.Skills}>
+      <h1 ref={scrollToRef} className={classes.SectionTitle}>Skills</h1>
       <div className={classes.TechLists}>
         <div
           className={`${classes.TechSubsection} ${
