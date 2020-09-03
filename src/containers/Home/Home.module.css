@@ -6,10 +6,9 @@
   text-align: center;
   background: url('../../assets/welcomeBackground.jpg');
   background-size: cover;
-  padding: 50px;
-  border-bottom: 6px solid #827A75;
+  padding: 100px;
+  border-bottom: 6px solid #827a75;
 }
-
 
 .ComponentsWrapper {
   margin-top: 30px;
@@ -24,15 +23,19 @@
   margin: 0 0 100px 0;
 }
 
+.ScrollDownArrow:hover {
+  cursor: pointer;
+}
+
 .ContactButton {
   text-align: center;
 }
 
-/* @media (max-width: 680px) {
-  .ScrollDownArrow {
-    margin-top: 0px;
+@media (max-width: 700px) {
+  .WelcomeContainer {
+    padding: 100px 30px 100px 30px;
   }
-} */
+}
 
 @media (min-width: 1000px) {
   .ComponentsWrapper {
