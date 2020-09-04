@@ -1,7 +1,6 @@
 .OpenDrawWrapper {
   position: relative;
   cursor: pointer;
-  margin: -5px;
   text-align: center;
 }
 
@@ -16,7 +15,6 @@
 .DrawToggle {
   box-shadow: 0 5px 10px #474747;
   height: auto;
-  margin: 0px 15px 0px 15px;
   background-color: #f9f4ee;
 }
 
