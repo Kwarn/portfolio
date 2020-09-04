@@ -89,15 +89,10 @@ const Home = props => {
           showModal={modalContent => showModalHandler(modalContent)}
         />
       </div>
-      <ExtraInfo
+      {/* <ExtraInfo
         elementRefs={elementRefs}
         selectedContentTag={selectedContent}
-      />
-      <Link to="/contact">
-        <div>
-          <button className={classes.ContactButton}>Contact</button>
-        </div>
-      </Link>
+      /> */}
     </>
   )
 }

@@ -11,11 +11,3 @@
   font-size: x-large;
   color: #474747;
 }
-
-
-@media (min-width: 900px) {
-  .Courses {
-    margin-top: 150px;
-    flex: 1;
-  }
-}

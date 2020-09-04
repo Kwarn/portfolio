@@ -9,9 +9,6 @@
 }
 
 .TechLists {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
   color: #474747;
   background-color: #f9f4ee;
   box-shadow: 0 5px 10px #474747;

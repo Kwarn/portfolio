@@ -3,17 +3,12 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  text-align: center;
   box-sizing: border-box;
   z-index: 100;
   transition: bottom 0.6s;
 }
 
 .GoToTopButton {
-  padding: 1px;
-  display: flex;
   height: 30px;
   width: auto;
   align-items: center;
