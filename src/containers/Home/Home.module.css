@@ -1,14 +1,10 @@
-.Home {
-  /* margin-top: 15px; */
-}
-
 .WelcomeContainer {
   display: flex;
   height: 100vh;
   text-align: center;
   background: url('../../assets/welcomeBackground.jpg');
   background-size: cover;
-  padding: 100px;
+  padding: 0 30px 100px 30px; 
   border-bottom: 6px solid #474747;
 }
 
