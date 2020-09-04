@@ -89,10 +89,10 @@ const Home = props => {
           showModal={modalContent => showModalHandler(modalContent)}
         />
       </div>
-      {/* <ExtraInfo
+      <ExtraInfo
         elementRefs={elementRefs}
         selectedContentTag={selectedContent}
-      /> */}
+      />
     </>
   )
 }
