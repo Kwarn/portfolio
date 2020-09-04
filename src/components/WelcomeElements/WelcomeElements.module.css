@@ -1,13 +1,17 @@
 .WelcomeElements {
-  margin: auto;
+  margin:auto;
   color: #474747;
-  width: auto;
-  height: auto;
   max-width: 500px;
-  opacity: 0.8;
-  background-color: #fbf3ee;
+  background: rgba(251, 243, 238, 0.80);
   padding: 30px 30px 30px 30px;
   border-radius: 400px 50px 50px 50px;
+}
+
+.ProfileImage {
+  z-index: 1;
+  border-radius: 110px;
+  height: 150px;
+  width: auto;
 }
 
 .TitleGroup {
@@ -30,15 +34,29 @@
 }
 
 .AboutMe {
-  margin: 30px 10px 30px 10px;
+  margin: 30px 10px 0px 10px;
   text-align: center;
 }
 
-.ProfileImage {
-  z-index: 1;
-  border-radius: 110px;
-  height: 150px;
+.WelcomeElements button {
+  color: white;
+  background-color: #474747; 
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+  margin: 30px 10px 0px 10px;
+}
+
+.ScrollDownArrow img {
+  margin: -30px 0 0 0;
+  position: relative;
+  top: 200px;
   width: auto;
+  height: 30px;
+}
+
+.ScrollDownArrow:hover {
+  cursor: pointer;
 }
 
 @media (max-height: 830px) {

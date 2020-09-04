@@ -1,14 +1,12 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import classes from './Home.module.css'
-import imageAssets from '../../assets/assets'
 import Skills from '../../components/Skills/Skills'
-import Projects from '../Projects/Projects'
 import Courses from '../Courses/Courses'
-import FadeInSection from '../FadeInSection/FadeInSection'
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements'
 import Modal from '../../components/Modal/Modal'
 import ExtraInfo from '../../components/ExtraInfo/ExtraInfo'
+import Slider from '../Slider/Slider'
 
 const Home = props => {
   const [modalControl, setModalControl] = useState({
@@ -38,16 +36,14 @@ const Home = props => {
     setModalControl({ ...modalControl.modalContent, isOpen: false })
   }
 
-  const firstElementRefs = {
+  const elementRefs = {
     skills: useRef(null),
-    javascript: useRef(null),
-    python: useRef(null),
-    general: useRef(null),
-    environment: useRef(null),
+    projects: useRef(null),
+    courses: useRef(null),
   }
 
   const scrollIntoView = tag => {
-    firstElementRefs[tag].current.scrollIntoView({
+    elementRefs[tag].current.scrollIntoView({
       block: 'center',
       inline: 'center',
       behavior: 'smooth',
@@ -60,58 +56,41 @@ const Home = props => {
     </Modal>
   )
 
-  const circularText = (txt, radius) => {
-    txt = txt.split('')
-    var deg = 360 / txt.length,
-      origin = 0
-
-    const finaltext = txt.forEach(ea => {
-      ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`
-      origin += deg
-    })
-    return finaltext
-  }
-
-  const text = circularText('testing this text', 360)
-
   return (
     <>
       {modal}
       <div className={classes.Home}>
         <div className={classes.WelcomeContainer}>
-          <WelcomeElements aboutMe={aboutMe} />
-          <FadeInSection fadeDirection="top">
-            <img
-              className={classes.ScrollDownArrow}
-              src={imageAssets.downArrow}
-              alt="openDrawIcon"
-              onClick={() => scrollIntoView('skills')}
-            />
-          </FadeInSection>
+          <WelcomeElements
+            scrollIntoView={tag => scrollIntoView(tag)}
+            aboutMe={aboutMe}
+          />
         </div>
-        <p className={classes.SmallDisplaysAboutMe}>{aboutMe} {text}</p>
+        <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
       </div>
-      <div className={classes.ComponentsWrapper}>
+      <div className={classes.SkillsWrapper}>
         <Skills
-          scrollToRef={firstElementRefs.skills}
-          scrollIntoView={tag => scrollIntoView(tag)}
+          elementRef={elementRefs.skills}
           selectedContentTag={selectedContent}
           selectedContentHandler={tag => selectedContentHandler(tag)}
         />
-        <Projects
-          firstElementRefs={firstElementRefs}
-          scrollIntoView={tag => scrollIntoView(tag)}
-          selectedContentTag={selectedContent}
+      </div>
+      <div className={classes.SliderWrapper}>
+        <Slider
           showModal={modalContent => showModalHandler(modalContent)}
+          elementRef={elementRefs.projects}
+          selectedContentTag={selectedContent}
         />
+      </div>
+      <div className={classes.CoursesWrapper}>
         <Courses
-          firstElementRefs={firstElementRefs}
+          elementRef={elementRefs.courses}
           selectedContentTag={selectedContent}
           showModal={modalContent => showModalHandler(modalContent)}
         />
       </div>
       <ExtraInfo
-        firstElementRefs={firstElementRefs}
+        elementRefs={elementRefs}
         selectedContentTag={selectedContent}
       />
       <Link to="/contact">

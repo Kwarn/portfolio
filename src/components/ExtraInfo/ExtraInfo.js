@@ -3,11 +3,11 @@ import FadeInSection from '../../containers/FadeInSection/FadeInSection'
 import classes from './ExtraInfo.module.css'
 import imageAssets from '../../assets/assets'
 
-const ExtraInfo = ({ selectedContentTag, firstElementRefs }) => {
+const ExtraInfo = ({ selectedContentTag, elementRefs }) => {
 
   return (
     <FadeInSection>
-      <div ref={firstElementRefs.environment} className={classes.ExtraInfo}>
+      <div ref={elementRefs.environment} className={classes.ExtraInfo}>
         <h1 className={classes.SectionTitle}>Resources</h1>
         <div
           className={`${classes.ContentContainer} ${

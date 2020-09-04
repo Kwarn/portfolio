@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import Project from './Project/Project'
-import classes from './Projects.module.css'
-import FadeInSection from '../FadeInSection/FadeInSection'
 import imageAssets from '../../assets/assets'
+import Project from '../../components/Project/Project'
+import classes from './Slider.module.css'
 
-const Projects = ({ selectedContentTag, firstElementRefs, showModal }) => {
+const Slider = ({
+  showModal,
+  selectedContentTag,
+  elementRef,
+}) => {
   const [projects] = useState({
     portfolio: {
       isFirstElementOfTag: true,
@@ -98,30 +101,49 @@ const Projects = ({ selectedContentTag, firstElementRefs, showModal }) => {
     },
   })
 
-  let projectElements = []
+  const [x, setX] = useState(0)
+
+  let slidesArr = []
   for (let project in projects) {
-    projectElements.push(
-      <FadeInSection key={project} fadeDirection="bottom">
+    slidesArr.push(
+      <div
+        key={project}
+        className={classes.Slide}
+        style={{ transform: `translateX(${x}%)` }}
+      >
         <Project
           project={projects[project]}
-          firstElementRef={
-            projects[project].isFirstElementOfTag
-              ? firstElementRefs[projects[project].tag]
-              : null
-          }
-          isSelectedContent={selectedContentTag === projects[project].tag}
           showModal={showModal}
+          selectedContentTag={selectedContentTag}
         />
-      </FadeInSection>
+      </div>
     )
   }
 
+  const goLeft = () => {
+    x === 0 ? setX(-100 * (slidesArr.length - 1)) : setX(x + 100)
+  }
+  const goRight = () => {
+    x === -100 * (slidesArr.length - 1) ? setX(0) : setX(x - 100)
+  }
+
   return (
-    <div className={classes.Projects}>
-      <h1 className={classes.SectionTitle}>Projects</h1>
-      <div className={classes.ProjectsContainer}>{projectElements}</div>
+    <div ref={elementRef} className={classes.Slider}>
+      {slidesArr}
+      <div
+        onClick={goLeft}
+        className={`${classes.SliderControl} ${classes.GoLeft}`}
+      >
+        <img src={imageAssets.leftChevron} alt="go left" />
+      </div>
+      <div
+        onClick={goRight}
+        className={`${classes.SliderControl} ${classes.GoRight}`}
+      >
+        <img src={imageAssets.rightChevron} alt="go right" />
+      </div>
     </div>
   )
 }
 
-export default Projects
+export default Slider

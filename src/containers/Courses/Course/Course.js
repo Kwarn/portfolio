@@ -3,7 +3,7 @@ import imageAssets from '../../../assets/assets'
 import Draw from '../../Draw/Draw'
 import classes from './Course.module.css'
 
-const Course = ({ course, showModal, isHighlighted, firstElementRef }) => {
+const Course = ({ course, showModal, isHighlighted, elementRef }) => {
   const { title, cert, desc, courseLink } = course
 
   const certificate = <img src={cert} alt={`${title} certificate`} />
@@ -23,7 +23,7 @@ const Course = ({ course, showModal, isHighlighted, firstElementRef }) => {
   ) : null
 
   return (
-    <div ref={firstElementRef}>
+    <div ref={elementRef}>
       <div
         className={`${classes.Course} ${
           isHighlighted ? classes.Highlight : null

@@ -1,56 +1,37 @@
 .Skills {
-  margin: 150px 0px 0px 0px;
-  padding: 0px 0px 80px 0px;
+  margin: 200px 0px 0px 0px;
+  width: 80%;
+  max-width: 800px;
 }
 
 .Highlight {
   background-color: #F59F93;
 }
 
-.SectionTitle {
-  border-bottom: 6px solid #474747;
-  margin: 0px 15px 0px 15px;
-  padding: 15px 0px 15px 0px;
-  text-align: center;
-  font-size: x-large;
-  color: #474747;
-}
-
 .TechLists {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   color: #474747;
   background-color: #f9f4ee;
   box-shadow: 0 5px 10px #474747;
-  border-bottom: 1px dotted black;
-  height: auto;
-  margin: 40px 30px 15px 30px;
-}
-
-.TechLists p {
-  padding: 5px 15px 10px 15px;
 }
 
 .TechLists h2 {
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px 0px 15px;
 }
 
 .TechSubsection {
-  border-bottom: 1px dotted black;
+  padding: 30px;
 }
+
 .TechSubsection img {
   height: 30px;
   width: auto;
-  text-align: right;
 }
 
 .TechSubsection:hover {
   cursor: pointer;
   background-color: #F59F93;
-}
-
-@media (min-width: 900px) {
-  .Skills {
-    flex: 1;
-  }
 }

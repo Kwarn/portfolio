@@ -1,11 +1,10 @@
 import React from 'react'
-import imageAssets from '../../../assets/assets'
+import imageAssets from '../../assets/assets'
 import classes from './Project.module.css'
 
 const Project = ({
   project,
   isSelectedContent,
-  firstElementRef,
   showModal,
 }) => {
   const imageTags = project.previewTechStack
@@ -48,7 +47,7 @@ const Project = ({
   ) : null
 
   return (
-    <div ref={firstElementRef} className={classes.Project}>
+    <div className={`${classes.Project} ${classes.Slide}`}>
       <div
         className={`${classes.IconsBar} ${
           isSelectedContent ? classes.Highlight : null

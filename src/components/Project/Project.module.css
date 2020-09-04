@@ -1,6 +1,8 @@
 .Project {
-  padding: 30px 0 30px 0;
-  color: #474747
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  color: #474747;
 }
 
 .IconsBar {
@@ -8,13 +10,13 @@
   border-radius: 10px 10px 0px 0px;
   height: auto;
   margin: 0px 15px 0px 15px;
-  background-color: #f9f4ee;
+  background-color: #ecd7cd;
   display: flex;
   justify-content: space-between;
 }
 
 .Highlight {
-  background-color: #F59F93;
+  background-color: #f59f93;
 }
 
 .Desc {
@@ -41,7 +43,7 @@
 
 .MainContentWrapper {
   border-radius: 0px 0px 10px 10px;
-  background-color: #f9f4ee;
+  background: rgba(251, 243, 238, 0.95);
   box-shadow: 0 5px 10px #474747;
   margin: 0px 15px 0px 15px;
   padding: 5px;
@@ -50,14 +52,15 @@
 .MainContentWrapper img {
   height: 150px;
   width: auto;
-  padding: 0px 10px 0px 5px 
+  padding: 15px 10px 0px 5px;
 }
 
-.MainContentWrapper img:hover{
+.MainContentWrapper img:hover {
   cursor: pointer;
 }
 
 .MainContentWrapper h2 {
+  text-align: center;
   padding: 10px;
 }
 
@@ -73,4 +76,11 @@
 .MainContentWrapper ul {
   text-align: left;
   padding: 5px 15px 15px 25px;
+}
+
+
+@media (max-width: 1400px) {
+  .Project {
+    max-width: 80%;
+  }
 }

@@ -4,7 +4,7 @@ import Course from './Course/Course'
 import classes from '../../containers/Courses/Courses.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 
-const Courses = ({ selectedContentTag, firstElementRefs, showModal }) => {
+const Courses = ({ selectedContentTag, elementRef, showModal }) => {
   const [courses] = useState({
     javascriptComplete: {
       tag: 'javascript',
@@ -57,11 +57,6 @@ const Courses = ({ selectedContentTag, firstElementRefs, showModal }) => {
     courseElements.push(
       <FadeInSection key={courses[course].title} fadeDirection="bottom">
         <Course
-          firstElementRef={
-            courses[course].isFirstElementOfTag
-              ? firstElementRefs[courses[course].tag]
-              : null
-          }
           isHighlighted={selectedContentTag === courses[course].tag}
           course={courses[course]}
           showModal={showModal}
@@ -71,9 +66,8 @@ const Courses = ({ selectedContentTag, firstElementRefs, showModal }) => {
   }
 
   return (
-    <div className={classes.Courses}>
-      <h1 className={classes.SectionTitle}>Courses and Certificates</h1>
-      <div className={classes.CoursesContainer}>{courseElements}</div>
+    <div ref={elementRef} className={classes.Courses}>
+      {courseElements}
     </div>
   )
 }
