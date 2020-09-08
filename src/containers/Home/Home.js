@@ -58,13 +58,11 @@ const Home = props => {
   return (
     <>
       {modal}
-      <div className={classes.Home}>
-        <div className={classes.WelcomeContainer}>
-          <WelcomeElements
-            scrollIntoView={tag => scrollIntoView(tag)}
-            aboutMe={aboutMe}
-          />
-        </div>
+      <div className={classes.WelcomeContainer}>
+        <WelcomeElements
+          scrollIntoView={tag => scrollIntoView(tag)}
+          aboutMe={aboutMe}
+        />
         <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
       </div>
       <div className={classes.SkillsWrapper}>
