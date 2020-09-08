@@ -56,6 +56,12 @@
 
 @media (max-width: 1000px) {
   .SliderControl {
-    width: 5%;
+    width: 10%;
+  }
+}
+
+@media (max-height: 768px), (max-width: 500px) {
+  .Slider {
+    background: #474747;
   }
 }
