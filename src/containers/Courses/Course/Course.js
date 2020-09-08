@@ -31,7 +31,12 @@ const Course = ({ course, showModal, isHighlighted, elementRef }) => {
         </h1>
         <div className={classes.CertificateContainer}>{previewCertificate}</div>
       </div>
-      <DrawToggle contentType="course" drawContent={desc} />
+      <DrawToggle
+        isDrawOpenByDefault={
+          title === 'Javascript - The Complete Guide 2020 (Beginner + Advanced)'
+        }
+        drawContent={desc}
+      />
     </div>
   )
 }
