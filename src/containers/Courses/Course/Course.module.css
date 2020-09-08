@@ -1,3 +1,7 @@
+.CourseWrapper {
+  margin: 0px 0 50px 0;
+}
+
 .Course {
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0 5px 10px #474747;

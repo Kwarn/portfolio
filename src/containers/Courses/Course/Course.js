@@ -3,7 +3,7 @@ import imageAssets from '../../../assets/assets'
 import DrawToggle from '../../DrawToggle/DrawControl'
 import classes from './Course.module.css'
 
-const Course = ({ course, showModal, isHighlighted, elementRef }) => {
+const Course = ({ course, showModal, isHighlighted }) => {
   const { title, cert, desc, courseLink } = course
 
   const certificate = <img src={cert} alt={`${title} certificate`} />
@@ -17,7 +17,7 @@ const Course = ({ course, showModal, isHighlighted, elementRef }) => {
   ) : null
 
   return (
-    <div ref={elementRef}>
+    <div className={classes.CourseWrapper}>
       <div
         className={`${classes.Course} ${
           isHighlighted ? classes.Highlight : null
