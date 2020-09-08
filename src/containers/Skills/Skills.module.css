@@ -1,0 +1,26 @@
+.Skills {
+  overflow-x: hidden;
+  max-width: 800px;
+  text-align: center;
+}
+
+.TechLists {
+  box-sizing: border-box;
+  color: #474747;
+}
+
+.TechSubsection {
+  padding: 25px;
+  margin: 100px 0 100px 0;
+}
+
+.TechSubsection h2 {
+  padding: 0 0 10px 0;
+}
+
+.TextAlignRight {
+  text-align: right;
+}
+.TextAlignLeft {
+  text-align: left;
+}

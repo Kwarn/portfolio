@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import classes from './Home.module.css'
-import Skills from '../../components/Skills/Skills'
+import Skills from '..//Skills/Skills'
 import Courses from '../Courses/Courses'
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements'
 import Modal from '../../components/Modal/Modal'
