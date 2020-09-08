@@ -2,7 +2,7 @@
   border-radius: 0px 0px 10px 10px;
   background-color: #ecd7cd;
   box-shadow: 0 5px 10px #474747;
-  animation: openFullProject 0.3s ease-in-out;
+  animation: openFullProject 0.8s ease-in-out;
 }
 
 .OnMouseOverDraw {

@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import imageAssets from '../../assets/assets'
 import Draw from './Draw/Draw'
 import classes from './DrawControl.module.css'
 
-const DrawControl = ({ drawContent }) => {
+const DrawControl = ({ drawContent, isDrawOpenByDefault }) => {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
   const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
+
+  useEffect(() => {
+    if (isDrawOpenByDefault) setIsDrawOpen(true)
+  }, [isDrawOpenByDefault])
 
   const toggleDrawhandler = () => {
     setIsDrawOpen(!isDrawOpen)

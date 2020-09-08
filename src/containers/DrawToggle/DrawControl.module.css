@@ -1,4 +1,5 @@
 .DrawControlWrapper {
+  margin: 0px 0px 20px 0px;
   padding: 5px 0 5px 0;
   cursor: pointer;
   text-align: center;
@@ -9,11 +10,11 @@
 }
 
 .DrawControlWrapper:hover .OpenDrawIcon {
+  position: relative;
   top: 5px;
 }
 
 .OpenDrawIcon {
-  position: relative;
   width: 15px;
   height: auto;
 }

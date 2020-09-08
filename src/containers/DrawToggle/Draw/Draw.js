@@ -4,11 +4,8 @@ import classes from './Draw.module.css'
 const Draw = ({ isMouseOverDraw, content }) => {
   return (
     <div
-      className={
-        isMouseOverDraw
-          ? `${classes.Draw} ${classes.OnMouseOverDraw}`
-          : classes.Draw
-      }
+      className={`${classes.Draw} 
+        ${isMouseOverDraw ? classes.OnMouseOverDraw : ''}`}
     >
       <p className={classes.Content}>{content}</p>
     </div>
