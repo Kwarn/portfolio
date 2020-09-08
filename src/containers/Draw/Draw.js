@@ -3,7 +3,7 @@ import imageAssets from '../../assets/assets'
 import DrawContent from './DrawContent/DrawContent'
 import classes from './Draw.module.css'
 
-const Draw = ({ contentType, drawContentProps }) => {
+const Draw = ({ drawContentProps }) => {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
   const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
 
@@ -36,7 +36,7 @@ const Draw = ({ contentType, drawContentProps }) => {
     <DrawContent isMouseOverDraw={isMouseOverDraw} {...drawContentProps} />
   ) : null
 
-  const drawToggleIconWithWrapper = (
+  const footerDrawToggle = (
     <div
       className={
         !isDrawOpen ? classes.OpenDrawWrapper : classes.CloseDrawWrapper
@@ -61,7 +61,7 @@ const Draw = ({ contentType, drawContentProps }) => {
     <>
       {drawToggle}
       {drawContent}
-      {drawToggleIconWithWrapper}
+      {footerDrawToggle}
     </>
   )
 }
