@@ -4,16 +4,18 @@
   text-align: center;
   background: url('../../assets/welcomeBackground.jpg');
   background-size: cover;
-  padding: 40px 30px 100px 30px; 
+  padding: 100px 10px 100px 10px;
   border-bottom: 6px solid #474747;
 }
 
 .SkillsWrapper {
+  margin: 200px 0 0 0 ;
   display: flex;
   justify-content: center;
 }
 
 .CoursesWrapper {
+  margin: 200px 0 0 0;
   display: flex;
   justify-content: center;
 }
@@ -21,7 +23,7 @@
 .SliderWrapper {
   display: flex;
   justify-content: center;
-  margin: 200px 0 0 0 ;
+  margin: 200px 0 0 0;
 }
 
 .ContactButton {
@@ -39,4 +41,3 @@
     display: none;
   }
 }
-
