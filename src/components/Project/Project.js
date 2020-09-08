@@ -80,9 +80,9 @@ const Project = ({
           <div onClick={() => showModal(projectImage)}>{projectImage}</div>
         </div>
 
-        <h3>Key lessons:</h3>
+        <h3>Key lessons</h3>
         <p className={classes.Desc}>{project.whatILearned}</p>
-        <h3>Technical practices:</h3>
+        <h3>Technical practices</h3>
         <ul className={classes.LearnedList}>{technicalPractices}</ul>
       </div>
     </div>
