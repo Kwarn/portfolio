@@ -38,7 +38,7 @@ const WelcomeElements = ({ aboutMe, scrollIntoView }) => {
         <button onClick={() => scrollIntoView('projects')}>Projects</button>
 
         <div className={classes.ScrollDownArrow}>
-          <FadeInSection fadeDirection="top">
+          <FadeInSection fadeDirection="bottom">
             <img
               src={imageAssets.downArrow}
               alt="openDrawIcon"
