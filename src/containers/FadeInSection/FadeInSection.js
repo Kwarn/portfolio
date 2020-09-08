@@ -21,13 +21,18 @@ function FadeInSection({ fadeDirection, children }) {
     }
   }, [animationShouldStop])
 
+  const fadeDirections = {
+    top: classes.FadeToTop,
+    bottom: classes.FadeToBottom,
+    left: classes.FadeToLeft,
+    right: classes.FadeToRight,
+  }
+
   return (
     <div
-      className={`${
-        fadeDirection === 'top'
-          ? classes.FadeFromTopDown
-          : classes.FadeFromBottomUp
-      } ${isVisible ? classes.isVisible : ''}`}
+      className={`${classes.FadeInSection} ${fadeDirections[fadeDirection]} ${
+        isVisible ? classes.isVisible : ''
+      }`}
       ref={domRef}
     >
       {children}
