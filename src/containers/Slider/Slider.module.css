@@ -1,6 +1,7 @@
 .Slider {
   background: url('../../assets/sliderBackground.jpg');
   background-size: cover;
+  background-position: center;
   position: relative;
   min-width: 100%;
   height: 100vh;
@@ -14,10 +15,11 @@
 }
 
 .Slide {
+  overflow: hidden;
   display: flex;
   justify-content: center;
   min-width: 100%;
-  height: 80%;
+  height: 100%;
   transition: 0.5s;
 }
 
@@ -27,7 +29,7 @@
   background: none;
   top: 50%;
   width: 10%;
-  height: 80%;
+  height: 100%;
   transform: translateY(-50%);
 }
 .SliderControl img {
@@ -54,5 +56,8 @@
 @media (max-width: 1000px) {
   .SliderControl {
     width: 10%;
+  }
+  .SliderControl img {
+    top: 5%;
   }
 }
