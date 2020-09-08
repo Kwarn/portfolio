@@ -1,5 +1,4 @@
 .Project {
-  /* position: relative; */
   max-width: 740px;
   margin: auto;
   color: #474747;
@@ -49,13 +48,10 @@
 }
 
 .MainContentWrapper img {
+  cursor: pointer;
   height: 150px;
   width: auto;
   padding: 10px 10px 0px 5px;
-}
-
-.MainContentWrapper img:hover {
-  cursor: pointer;
 }
 
 .MainContentWrapper h2 {

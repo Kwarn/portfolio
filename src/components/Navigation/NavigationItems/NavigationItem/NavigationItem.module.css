@@ -16,8 +16,13 @@
   border-bottom: 4px solid transparent;
 }
 
-.NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-  border-bottom: 4px solid #F59F93;
+  border-bottom: 4px solid #f59f93;
+}
+
+@media (hover: hover) {
+  .NavigationItem a:hover {
+    border-bottom: 4px solid #f59f93;
+  }
 }

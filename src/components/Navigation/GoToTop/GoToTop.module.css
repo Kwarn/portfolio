@@ -1,4 +1,5 @@
 .GoToTop {
+  cursor: pointer;
   height: 56px;
   position: fixed;
   bottom: 0;
@@ -12,10 +13,6 @@
   height: 30px;
   width: auto;
   align-items: center;
-}
-
-.GoToTopButton:hover {
-  cursor: pointer;
 }
 
 .GoToTop nav {

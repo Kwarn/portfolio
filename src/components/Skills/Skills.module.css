@@ -5,7 +5,7 @@
 }
 
 .Highlight {
-  background-color: #F59F93;
+  background-color: #f59f93;
 }
 
 .TechLists {
@@ -20,6 +20,7 @@
 }
 
 .TechSubsection {
+  cursor: pointer;
   padding: 30px;
 }
 
@@ -28,7 +29,8 @@
   width: auto;
 }
 
-.TechSubsection:hover {
-  cursor: pointer;
-  background-color: #F59F93;
+@media (hover: hover) {
+  .TechSubsection:hover {
+    background-color: #f59f93;
+  }
 }
