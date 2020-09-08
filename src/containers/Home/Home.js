@@ -63,8 +63,8 @@ const Home = props => {
           scrollIntoView={tag => scrollIntoView(tag)}
           aboutMe={aboutMe}
         />
-        <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
       </div>
+      <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
       <div className={classes.SkillsWrapper}>
         <Skills
           elementRef={elementRefs.skills}
