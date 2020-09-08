@@ -1,7 +1,9 @@
 .Project {
+  margin: 0 5px 0 5px;
   max-width: 740px;
   margin: auto;
   color: #474747;
+  max-width: 95%;
 }
 
 .IconsBar {
@@ -73,20 +75,23 @@
   padding: 5px 15px 15px 25px;
 }
 
-@media (max-width: 500px) {
+@media (min-width: 500px) {
   .Project {
-    max-width: 100%;
+    max-width: 80%;
   }
 }
 
 @media (max-height: 768px) {
-  .Project {
-    min-height: 100%;
-  }
   .MainContentWrapper p {
     font-size: 2vh;
   }
   .MainContentWrapper ul {
     font-size: 2vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Project {
+    max-width: 800px;
   }
 }
