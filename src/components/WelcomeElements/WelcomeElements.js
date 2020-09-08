@@ -36,7 +36,6 @@ const WelcomeElements = ({ aboutMe, scrollIntoView }) => {
         <p className={classes.AboutMe}> {aboutMe} </p>
         <button onClick={() => scrollIntoView('skills')}>Skills</button>
         <button onClick={() => scrollIntoView('projects')}>Projects</button>
-        <button onClick={()=> scrollIntoView('courses')}>Education</button>
 
         <div className={classes.ScrollDownArrow}>
           <FadeInSection fadeDirection="top">
