@@ -1,9 +1,8 @@
 .Project {
   margin: 0 5px 0 5px;
-  max-width: 740px;
+  max-width: 95%;
   margin: auto;
   color: #474747;
-  max-width: 95%;
 }
 
 .IconsBar {
@@ -11,7 +10,7 @@
   box-shadow: 0 5px 10px rgb(0, 0, 0);
   border-radius: 10px 10px 0px 0px;
   height: auto;
-  background-color: mediumvioletred;
+  background-color: #f59f93;
   display: flex;
   justify-content: space-between;
 }
@@ -46,7 +45,7 @@
   border-radius: 0px 0px 10px 10px;
   background: rgba(251, 243, 238, 0.95);
   box-shadow: 0 5px 10px #474747;
-  padding: 5px 20px 0px 20px;
+  padding: 15px 20px 15px 20px;
 }
 
 .MainContentWrapper img {
@@ -92,6 +91,6 @@
 
 @media (min-width: 1024px) {
   .Project {
-    max-width: 800px;
+    max-width: 600px;
   }
 }
