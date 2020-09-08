@@ -1,0 +1,24 @@
+.DrawControlWrapper {
+  padding: 5px 0 5px 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.DrawControlWrapper:hover {
+  background: rgba(173, 70, 6, 0.8);
+}
+
+.DrawControlWrapper:hover .OpenDrawIcon {
+  top: 5px;
+}
+
+.OpenDrawIcon {
+  position: relative;
+  width: 15px;
+  height: auto;
+}
+
+.CloseDrawIcon {
+  width: 15px;
+  height: auto;
+}

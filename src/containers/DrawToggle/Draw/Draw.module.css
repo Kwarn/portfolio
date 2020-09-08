@@ -1,0 +1,25 @@
+.Draw {
+  border-radius: 0px 0px 10px 10px;
+  background-color: #ecd7cd;
+  box-shadow: 0 5px 10px #474747;
+  animation: openFullProject 0.3s ease-in-out;
+}
+
+.OnMouseOverDraw {
+  background-color: #eef1ef;
+}
+
+.Content {
+  padding: 15px;
+}
+
+@keyframes openFullProject {
+  0% {
+    opacity: 0;
+    max-height: 0px;
+  }
+  100% {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
