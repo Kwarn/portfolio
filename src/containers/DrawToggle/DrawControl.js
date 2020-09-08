@@ -7,7 +7,7 @@ const DrawControl = ({ drawContent, isDrawOpenByDefault }) => {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
   const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
 
-  useEffect(() => {
+  useEffect(()=> {
     if (isDrawOpenByDefault) setIsDrawOpen(true)
   }, [isDrawOpenByDefault])
 

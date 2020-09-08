@@ -1,11 +1,12 @@
 .Project {
-  position: relative;
-  max-width: 800px;
+  /* position: relative; */
+  max-width: 740px;
   margin: auto;
   color: #474747;
 }
 
 .IconsBar {
+  padding: 0px 20px 0px 20px;
   box-shadow: 0 5px 10px rgb(0, 0, 0);
   border-radius: 10px 10px 0px 0px;
   height: auto;
@@ -44,13 +45,13 @@
   border-radius: 0px 0px 10px 10px;
   background: rgba(251, 243, 238, 0.95);
   box-shadow: 0 5px 10px #474747;
-  padding: 5px;
+  padding: 5px 20px 0px 20px;
 }
 
 .MainContentWrapper img {
   height: 150px;
   width: auto;
-  padding: 15px 10px 0px 5px;
+  padding: 10px 10px 0px 5px;
 }
 
 .MainContentWrapper img:hover {
@@ -83,6 +84,9 @@
 }
 
 @media (max-height: 768px) {
+  .Project {
+    min-height: 100%;
+  }
   .MainContentWrapper p {
     font-size: 2vh;
   }
