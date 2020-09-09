@@ -132,21 +132,19 @@ const Slider = ({ showModal, selectedContentTag, elementRef }) => {
   }
 
   return (
-    <div {...handlers}>
-      <div ref={elementRef} className={classes.Slider}>
-        {slidesArr}
-        <div
-          onClick={goLeft}
-          className={`${classes.SliderControl} ${classes.GoLeft}`}
-        >
-          <img src={imageAssets.leftChevron} alt="go left" />
-        </div>
-        <div
-          onClick={goRight}
-          className={`${classes.SliderControl} ${classes.GoRight}`}
-        >
-          <img src={imageAssets.rightChevron} alt="go right" />
-        </div>
+    <div {...handlers} className={classes.Slider}>
+      {slidesArr}
+      <div
+        onClick={goLeft}
+        className={`${classes.SliderControl} ${classes.GoLeft}`}
+      >
+        <img src={imageAssets.leftChevron} alt="go left" />
+      </div>
+      <div
+        onClick={goRight}
+        className={`${classes.SliderControl} ${classes.GoRight}`}
+      >
+        <img src={imageAssets.rightChevron} alt="go right" />
       </div>
     </div>
   )

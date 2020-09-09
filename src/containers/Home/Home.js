@@ -71,10 +71,9 @@ const Home = props => {
           selectedContentHandler={tag => selectedContentHandler(tag)}
         />
       </div>
-      <div className={classes.SliderWrapper}>
+      <div ref={elementRefs.projects} className={classes.SliderWrapper}>
         <Slider
           showModal={modalContent => showModalHandler(modalContent)}
-          elementRef={elementRefs.projects}
           selectedContentTag={selectedContent}
         />
       </div>
