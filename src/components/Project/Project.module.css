@@ -1,6 +1,5 @@
 .Project {
   margin: 0 5px 0 5px;
-  max-width: 600px;
   margin: auto;
   color: #474747;
 }
@@ -74,12 +73,6 @@
   padding: 5px 15px 15px 25px;
 }
 
-@media (min-width: 1024px) {
-  .Project {
-    max-width: 600px;
-  }
-}
-
 @media (max-height: 768px), (max-width: 400px) {
   .MainContentWrapper p {
     font-size: 0.8em;
@@ -99,8 +92,18 @@
   .MainContentWrapper img {
     height: 120px;
   }
+  .Project {
+    max-width: 80%;
+  }
 }
-@media (max-height: 601px), (max-width: 400px) {
+
+@media (min-width: 769px) {
+  .Project {
+    max-width: 600px;
+  }
+}
+
+@media (max-height: 601px), (max-width: 500px) {
   .MainContentWrapper p {
     padding: 2px 10px 2px 10px;
     font-size: 0.8em;
@@ -125,16 +128,13 @@
   .MainContentWrapper {
     padding: 0px 10px 0px 10px;
   }
+  .Project {
+    max-width: 95%;
+  }
 }
 
 @media (max-height: 600px), (max-width: 399px) {
   .MainContentWrapper h2 {
     padding: 5px 15px 5px 15px;
-  }
-}
-
-@media (max-width: 400px) {
-  .Project {
-    max-width: 95%;
   }
 }
