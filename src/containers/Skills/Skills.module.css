@@ -1,31 +1,32 @@
 .Skills {
   overflow-x: hidden;
-  max-width: 600px;
-  text-align: center;
-}
-
-.TechLists {
-  box-sizing: border-box;
-  color: #474747;
+  width: 100%;
+  padding: 0 25% 0 25%;
 }
 
 .TechSubsection {
-  padding: 25px;
-  margin: 100px 0 100px 0;
+  display: inline-flex;
+  margin: 50px 0 50px 0;
 }
 
 .TechSubsection img {
-  width: 50px;
-  height: auto;
+  padding: 0 5px 0 5px;
+  height: 60px;
+  width: auto;
 }
 
 .TechSubsection h2 {
-  padding: 0 0 10px 0;
+  padding: 0 0 2px 0;
 }
 
-.TextAlignRight {
-  text-align: right;
+@media (max-width: 1200px) {
+  .Skills {
+    padding: 0 10% 0 10%;
+  }
 }
-.TextAlignLeft {
-  text-align: left;
+
+@media (max-width: 768px) {
+  .Skills {
+    padding: 0 5% 0 5%;
+  }
 }
