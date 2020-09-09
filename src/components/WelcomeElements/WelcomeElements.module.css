@@ -4,8 +4,9 @@
   max-width: 500px;
   max-height: 800px;
   background: rgba(251, 243, 238, 0.80);
+  /* background: linear-gradient(to left, white, transparent 95%); */
   padding: 30px 30px 30px 30px;
-  border-radius: 400px 50px 50px 50px;
+  /* border-radius: 400px 50px 50px 50px; */
 }
 
 .ProfileImage {
