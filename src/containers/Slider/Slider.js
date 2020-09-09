@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
+import { useSwipeable } from 'react-swipeable'
 import imageAssets from '../../assets/assets'
 import Project from '../../components/Project/Project'
 import classes from './Slider.module.css'
 
-const Slider = ({
-  showModal,
-  selectedContentTag,
-  elementRef,
-}) => {
+const Slider = ({ showModal, selectedContentTag, elementRef }) => {
   const [projects] = useState({
     portfolio: {
       isFirstElementOfTag: true,
@@ -103,6 +100,13 @@ const Slider = ({
 
   const [x, setX] = useState(0)
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => goRight(),
+    onSwipedRight: () => goLeft(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  })
+
   let slidesArr = []
   for (let project in projects) {
     slidesArr.push(
@@ -128,19 +132,21 @@ const Slider = ({
   }
 
   return (
-    <div ref={elementRef} className={classes.Slider}>
-      {slidesArr}
-      <div
-        onClick={goLeft}
-        className={`${classes.SliderControl} ${classes.GoLeft}`}
-      >
-        <img src={imageAssets.leftChevron} alt="go left" />
-      </div>
-      <div
-        onClick={goRight}
-        className={`${classes.SliderControl} ${classes.GoRight}`}
-      >
-        <img src={imageAssets.rightChevron} alt="go right" />
+    <div {...handlers}>
+      <div ref={elementRef} className={classes.Slider}>
+        {slidesArr}
+        <div
+          onClick={goLeft}
+          className={`${classes.SliderControl} ${classes.GoLeft}`}
+        >
+          <img src={imageAssets.leftChevron} alt="go left" />
+        </div>
+        <div
+          onClick={goRight}
+          className={`${classes.SliderControl} ${classes.GoRight}`}
+        >
+          <img src={imageAssets.rightChevron} alt="go right" />
+        </div>
       </div>
     </div>
   )
