@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import classes from './Skills.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
+import imageAssets from '../../assets/assets'
 
 const Skills = ({ selectedContentHandler, selectedContentTag, elementRef }) => {
   const [skills] = useState({
@@ -8,12 +9,14 @@ const Skills = ({ selectedContentHandler, selectedContentTag, elementRef }) => {
       title: 'Javascript',
       content: `ES6+, React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme,
     NodeJs, NextJs.`,
+      image: imageAssets.javascript,
       fadeDirection: 'left',
       textAlign: classes.TextAlignLeft,
     },
     python: {
       title: 'Python',
-      content: `TkInter, PyGame, SQLite, Django.`,
+      content: `TkInter, Django, SQLite, PyGame`,
+      image: imageAssets.python,
       fadeDirection: 'right',
       textAlign: classes.TextAlignRight,
     },
@@ -22,6 +25,7 @@ const Skills = ({ selectedContentHandler, selectedContentTag, elementRef }) => {
       content: `UX/UI design, SQL, HTML, CSS modules, GitHub/Git Commands, Unix
       Command-line, React/Redux Dev-Tools, Firebase Auth/Database/Hosting,
       Webpack, Photoshop, Gimp, Adobe Premiere Pro..`,
+      image: imageAssets.uiUx,
       fadeDirection: 'left',
       textAlign: classes.TextAlignLeft,
     },
@@ -29,6 +33,7 @@ const Skills = ({ selectedContentHandler, selectedContentTag, elementRef }) => {
       title: 'Development Environment',
       content: `Ubuntu 20.04, Windows 10 with GitBash, VSCode, Pycharm, Firefox,
       Chrome.`,
+      image: imageAssets.visualStudioCode,
       fadeDirection: 'right',
       textAlign: classes.TextAlignRight,
     },
@@ -39,7 +44,9 @@ const Skills = ({ selectedContentHandler, selectedContentTag, elementRef }) => {
     skillSections.push(
       <FadeInSection fadeDirection={skills[skill].fadeDirection}>
         <div className={`${classes.TechSubsection} ${skills[skill].textAlign}`}>
+          <img src={skills[skill].image} alt={skills[skill].title} />
           <h2>{skills[skill].title}</h2>
+
           <p>{skills[skill].content}</p>
         </div>
       </FadeInSection>

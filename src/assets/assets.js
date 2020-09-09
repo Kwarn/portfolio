@@ -34,6 +34,8 @@ const imageAssets = {
   udemy: require('../assets/udemy.png'),
   codingBat: require('../assets/codingBat.jpg'),
   stackOverflow: require('../assets/stackOverflow.png'),
+  uiUx: require('../assets/uiux.png'),
+  visualStudioCode: require('../assets/visualStudioCode.jpg')
 }
 
 export default imageAssets

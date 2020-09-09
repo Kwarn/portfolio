@@ -14,6 +14,11 @@
   margin: 100px 0 100px 0;
 }
 
+.TechSubsection img {
+  width: 50px;
+  height: auto;
+}
+
 .TechSubsection h2 {
   padding: 0 0 10px 0;
 }
