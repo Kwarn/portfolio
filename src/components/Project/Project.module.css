@@ -1,6 +1,6 @@
 .Project {
   margin: 0 5px 0 5px;
-  max-width: 95%;
+  max-width: 600px;
   margin: auto;
   color: #474747;
 }
@@ -133,8 +133,8 @@
   }
 }
 
-@media (min-width: 400px) {
+@media (max-width: 400px) {
   .Project {
-    max-width: 80%;
+    max-width: 95%;
   }
 }
