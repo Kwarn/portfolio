@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import classes from './FadeInSection.module.css'
 
-function FadeInSection({ fadeDirection, children }) {
+function FadeInSection({ fadeDirection, childAlignDirection, children }) {
   const [isVisible, setVisible] = useState(false)
   const [animationShouldStop, setAnimationShouldStop] = useState(false)
   const domRef = useRef()
@@ -28,11 +28,17 @@ function FadeInSection({ fadeDirection, children }) {
     right: classes.FadeToRight,
   }
 
+  const alignChildDirection = {
+    left: classes.AlignChildLeft,
+    right: classes.AlignChildRight,
+    center: classes.AlignChildCenter,
+  }
+
   return (
     <div
       className={`${classes.FadeInSection} ${fadeDirections[fadeDirection]} ${
-        isVisible ? classes.isVisible : ''
-      }`}
+        alignChildDirection[childAlignDirection]
+      } ${isVisible ? classes.isVisible : ''}`}
       ref={domRef}
     >
       {children}
