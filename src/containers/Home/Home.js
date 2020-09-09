@@ -65,9 +65,8 @@ const Home = props => {
         />
       </div>
       <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
-      <div className={classes.SkillsWrapper}>
+      <div ref={elementRefs.skills} className={classes.SkillsWrapper}>
         <Skills
-          elementRef={elementRefs.skills}
           selectedContentTag={selectedContent}
           selectedContentHandler={tag => selectedContentHandler(tag)}
         />
