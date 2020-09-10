@@ -33,14 +33,10 @@ const Skills = ({ selectedContentHandler, selectedContentTag }) => {
 
   const skillSections = []
   for (let skill in skills) {
-    const image = (
-      <img
-        src={skills[skill].image}
-        alt={skills[skill].title}
-      />
-    )
+    const image = <img src={skills[skill].image} alt={skills[skill].title} />
     skillSections.push(
       <FadeInSection
+        key={skills[skill].title}
         fadeDirection={skills[skill].fadeInAndAlignDirection}
         childAlignDirection={skills[skill].fadeInAndAlignDirection}
       >
