@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import imageAssets from '../../assets/assets'
 import Project from '../../components/Project/Project'
-import classes from './Slider.module.css'
+import classes from './ProjectSlider.module.css'
 
-const Slider = ({ showModal, selectedContentTag, elementRef }) => {
-  const [projects] = useState({
+const Slider = ({ showModal, selectedContentTag }) => {
+  const [projectSlides] = useState({
     portfolio: {
       isFirstElementOfTag: true,
       tag: 'javascript',
@@ -108,7 +108,7 @@ const Slider = ({ showModal, selectedContentTag, elementRef }) => {
   })
 
   let slidesArr = []
-  for (let project in projects) {
+  for (let project in projectSlides) {
     slidesArr.push(
       <div
         key={project}
@@ -116,7 +116,7 @@ const Slider = ({ showModal, selectedContentTag, elementRef }) => {
         style={{ transform: `translateX(${x}%)` }}
       >
         <Project
-          project={projects[project]}
+          project={projectSlides[project]}
           showModal={showModal}
           selectedContentTag={selectedContentTag}
         />

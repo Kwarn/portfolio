@@ -5,7 +5,7 @@ import Courses from '../Courses/Courses'
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements'
 import Modal from '../../components/Modal/Modal'
 import ExtraInfo from '../../components/ExtraInfo/ExtraInfo'
-import Slider from '../Slider/Slider'
+import Slider from '../ProjectSlider/ProjectSlider'
 
 const Home = props => {
   const [modalControl, setModalControl] = useState({
