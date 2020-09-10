@@ -1,12 +1,11 @@
 .WelcomeElements {
-  margin:auto;
+  margin: auto;
   color: #474747;
-  max-width: 500px;
-  max-height: 800px;
-  background: rgba(251, 243, 238, 0.80);
-  /* background: linear-gradient(to left, white, transparent 95%); */
-  padding: 30px 30px 30px 30px;
-  /* border-radius: 400px 50px 50px 50px; */
+  max-width: 350px;
+  background: rgba(251, 243, 238, 0.8);
+  padding: 30px 10px 10px 10px;
+  border-radius: 300px 50px 300px 50px;
+  width: 100%;
 }
 
 .ProfileImage {
@@ -17,7 +16,7 @@
 }
 
 .TitleGroup {
-  margin: 20px 0px 0px 10px;
+  margin: 20px 0px 0px 0px;
   text-align: center;
 }
 
@@ -25,44 +24,39 @@
   margin: 10px 0px 0px 0;
 }
 
-.Divider {
-  margin: 15px 0 0 0;
-  border-bottom: 6px solid #474747;
-}
-
 .LinkIcons img {
   height: 40px;
   width: auto;
-  padding: 5px 10px 5px 10px;
-}
-
-.AboutMe {
-  margin: 30px 10px 0px 10px;
-  text-align: center;
+  padding: 5px 10px 15px 10px;
 }
 
 .WelcomeElements button {
+  font-size: large;
   color: white;
-  background-color: #474747; 
+  background-color: #474747;
   height: 50px;
   width: 100px;
   padding: 10px;
   margin: 30px 10px 0px 10px;
 }
 
-.ScrollDownArrow img {
+.ScrollDownArrow {
   cursor: pointer;
   position: relative;
-  top: 200px;
+  top: 75px;
   width: auto;
   height: 30px;
 }
 
-@media (max-height: 830px) {
-  .AboutMe {
-    display: none;
+
+@media (max-height: 760px), (max-width: 500px) {
+  .ScrollDownArrow {
+    top: 50px;
   }
-  .ScrollDownArrow img{
-    top: 100px
+}
+
+@media (min-height: 900px) {
+  .ScrollDownArrow {
+    top: 150px;
   }
 }

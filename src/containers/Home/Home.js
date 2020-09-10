@@ -36,6 +36,7 @@ const Home = props => {
   }
 
   const elementRefs = {
+    aboutMe: useRef(null),
     skills: useRef(null),
     projects: useRef(null),
     courses: useRef(null),
@@ -59,12 +60,11 @@ const Home = props => {
     <>
       {modal}
       <div className={classes.WelcomeContainer}>
-        <WelcomeElements
-          scrollIntoView={tag => scrollIntoView(tag)}
-          aboutMe={aboutMe}
-        />
+        <WelcomeElements scrollIntoView={tag => scrollIntoView(tag)} />
       </div>
-      <p className={classes.SmallDisplaysAboutMe}>{aboutMe}</p>
+      <div ref={elementRefs.aboutMe} className={classes.AboutMeWrapper}>
+        <p className={classes.AboutMe}>{aboutMe}</p>
+      </div>
       <div ref={elementRefs.skills} className={classes.SkillsWrapper}>
         <Skills
           selectedContentTag={selectedContent}
