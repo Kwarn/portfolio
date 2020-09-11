@@ -1,23 +1,15 @@
-.CourseWrapper {
-  margin: 0px 0 50px 0;
-}
-
 .Course {
+  margin: 30px 0 0 0;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0 5px 10px #474747;
-  background-color: #f59f93;
+  background: rgba(251, 243, 238, 0.8);
   color: #474747;
   display: flex;
   justify-content: space-between;
 }
 
-.Highlight {
-  background-color: #f59f93;
-}
-
-.Course h1 {
-  font-size: larger;
-  padding: 15px;
+.Course h3 {
+  padding: 15px 0 15px 15px;
 }
 
 .TitleContainer img {
@@ -29,6 +21,6 @@
 .CertificateContainer img {
   padding: 10px;
   width: auto;
-  height: 70px;
+  height: 100px;
   cursor: pointer;
 }
