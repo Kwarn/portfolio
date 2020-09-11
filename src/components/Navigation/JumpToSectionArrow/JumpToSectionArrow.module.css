@@ -1,0 +1,8 @@
+.ScrollDownArrow {
+  width: auto;
+  height: 30px;
+}
+
+.Clickable {
+  cursor: pointer;
+}
