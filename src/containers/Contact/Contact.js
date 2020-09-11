@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import * as emailjs from 'emailjs-com'
 import { validateInput } from '../../shared/validation'
 import { updateObject } from '../../shared/Utility'
-import Spinner from '../../components/Spinner/Spinner'
+import Spinner from '../../components/UI/Spinner/Spinner'
 import classes from './Contact.module.css'
 
 const Contact = props => {
