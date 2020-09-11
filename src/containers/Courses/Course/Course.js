@@ -4,7 +4,7 @@ import DrawToggle from '../../DrawToggle/DrawControl'
 import classes from './Course.module.css'
 
 const Course = ({ course, showModal, isHighlighted }) => {
-  const { title, cert, desc, courseLink } = course
+  const { title, cert, desc, courseLink, isOpenByDefault } = course
 
   const certificate = <img src={cert} alt={`${title} certificate`} />
 
@@ -17,27 +17,22 @@ const Course = ({ course, showModal, isHighlighted }) => {
   ) : null
 
   return (
-    <div className={classes.CourseWrapper}>
+    <>
       <div
         className={`${classes.Course} ${
           isHighlighted ? classes.Highlight : null
         }`}
       >
-        <h1 className={classes.TitleContainer}>
+        <h3 className={classes.TitleContainer}>
           {title}
           <a href={courseLink} target="_blank" rel="noopener noreferrer">
             <img src={imageAssets.magnifyingGlass} alt="showCourse" />
           </a>
-        </h1>
+        </h3>
         <div className={classes.CertificateContainer}>{previewCertificate}</div>
       </div>
-      <DrawToggle
-        isDrawOpenByDefault={
-          title === 'Javascript - The Complete Guide 2020 (Beginner + Advanced)'
-        }
-        drawContent={desc}
-      />
-    </div>
+      <DrawToggle isDrawOpenByDefault={isOpenByDefault} drawContent={desc} />
+    </>
   )
 }
 
