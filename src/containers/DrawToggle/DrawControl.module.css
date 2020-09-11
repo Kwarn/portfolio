@@ -1,5 +1,4 @@
 .DrawControlWrapper {
-  margin: 0px 0px 20px 0px;
   padding: 5px 0 5px 0;
   cursor: pointer;
   text-align: center;
@@ -15,13 +14,25 @@
   height: auto;
 }
 
-@media (hover: hover) {
-  .DrawControlWrapper:hover {
-    background: rgba(173, 70, 6, 0.8);
-  }
+.DrawCloseHighlight {
+  background: rgba(199, 62, 29, 0.5);
+}
 
+.DrawOpenHighlight {
+  background-color: #9cb380;
+}
+
+@media (hover: hover) {
   .DrawControlWrapper:hover .OpenDrawIcon {
     position: relative;
+    width: 20px;
     top: 5px;
+  }
+  .DrawControlWrapper:hover .CloseDrawIcon {
+    position: relative;
+    width: 20px;
+  }
+  .DrawControlWrapper:hover {
+    padding: 0 0 5px 0;
   }
 }
