@@ -1,12 +1,14 @@
 .Skills {
+  margin: auto;
+  color: rgba(251, 243, 238);
   overflow-x: hidden;
-  width: 100%;
   padding: 0 25% 0 25%;
+  height: 100%;
 }
 
 .TechSubsection {
   display: inline-flex;
-  margin: 80px 0 80px 0;
+  padding: 5% 0 10% 0;
 }
 
 .TechSubsection img {
@@ -19,14 +21,27 @@
   padding: 0 0 2px 0;
 }
 
+.JumpToSectionArrowWrapper {
+  text-align: center;
+}
+
 @media (max-width: 1200px) {
   .Skills {
-    padding: 0 10% 0 10%;
+    padding: 0 15% 0 15%;
+  }
+  .TechSubsection img {
+    height: 40px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .Skills {
     padding: 0 5% 0 5%;
+  }
+  .Skills p {
+    font-size: small;
+  }
+  .Skills h2 {
+    font-size: larger;
   }
 }
