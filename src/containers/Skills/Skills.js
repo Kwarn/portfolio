@@ -3,7 +3,7 @@ import classes from './Skills.module.css'
 import FadeInSection from '../FadeInSection/FadeInSection'
 import imageAssets from '../../assets/assets'
 
-const Skills = ({ selectedContentHandler, selectedContentTag }) => {
+const Skills = () => {
   const [skills] = useState({
     javascript: {
       title: 'Javascript',
