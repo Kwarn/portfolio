@@ -1,9 +1,8 @@
 import React from 'react'
 import imageAssets from '../../assets/assets'
-import FadeInSection from '../../containers/FadeInSection/FadeInSection'
 import classes from './WelcomeElements.module.css'
 
-const WelcomeElements = ({ scrollIntoView }) => {
+const WelcomeElements = () => {
   return (
     <>
       <div className={classes.WelcomeElements}>
@@ -37,17 +36,6 @@ const WelcomeElements = ({ scrollIntoView }) => {
             </div>
           </div>
         </div>
-        {/* <button onClick={() => scrollIntoView('skills')}>Skills</button>
-        <button onClick={() => scrollIntoView('projects')}>Projects</button> */}
-
-        <FadeInSection fadeDirection="bottom">
-          <img
-            className={classes.ScrollDownArrow}
-            src={imageAssets.downArrow}
-            alt="openDrawIcon"
-            onClick={() => scrollIntoView('aboutMe')}
-          />
-        </FadeInSection>
       </div>
     </>
   )
