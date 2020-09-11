@@ -7,13 +7,12 @@ const DrawControl = ({ drawContent, isDrawOpenByDefault }) => {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
   const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
 
-  useEffect(()=> {
+  useEffect(() => {
     if (isDrawOpenByDefault) setIsDrawOpen(true)
   }, [isDrawOpenByDefault])
 
   const toggleDrawhandler = () => {
     setIsDrawOpen(!isDrawOpen)
-    setIsMouseOverDraw(false)
   }
 
   const draw = isDrawOpen ? (
@@ -22,15 +21,19 @@ const DrawControl = ({ drawContent, isDrawOpenByDefault }) => {
 
   const control = (
     <div
-      className={classes.DrawControlWrapper}
+      className={`${classes.DrawControlWrapper} ${
+        isMouseOverDraw ? (isDrawOpen ? '' : classes.DrawOpenHighlight) : ''
+      }`}
       onClick={() => toggleDrawhandler()}
       onMouseEnter={() => setIsMouseOverDraw(true)}
       onMouseLeave={() => setIsMouseOverDraw(false)}
     >
       <img
         className={isDrawOpen ? classes.CloseDrawIcon : classes.OpenDrawIcon}
-        src={!isDrawOpen ? imageAssets.downArrow : imageAssets.closeDraw}
-        alt={!isDrawOpen ? 'openDraw' : 'closeDraw'}
+        src={
+          isDrawOpen ? imageAssets.charcoalCross : imageAssets.charcoalDownArrow
+        }
+        alt={isDrawOpen ? 'closeDraw' : 'openDraw'}
       />
     </div>
   )
