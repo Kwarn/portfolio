@@ -20,11 +20,14 @@ const imageAssets = {
   showDemo: require('../assets/showDemo.png'),
   certificateIcon: require('../assets/certificateIcon.png'),
   clickIcon: require('../assets/clickIcon.png'),
-  downArrow: require('../assets/downArrow.png'),
-  upArrow: require('../assets/upArrow.png'),
+  whiteDownArrow: require('../assets/whiteDownArrow.png'),
+  whiteUpArrow: require('../assets/whiteUpArrow.png'),
+  charcoalDownArrow: require('../assets/charcoalDownArrow.png'),
+  charcoalUpArrow: require('../assets/charcoalUpArrow.png'),
   leftChevron: require('../assets/leftChevron.png'),
   rightChevron: require('../assets/rightChevron.png'),
-  closeDraw: require('../assets/closeDraw.png'),
+  whiteCross: require('../assets/whiteCross.png'),
+  charcoalCross: require('../assets/charcoalCross.png'),
   magnifyingGlass: require('../assets/magnifyingGlass.png'),
   theArtOfReadableCode: require('../assets/theArtOfReadableCode.jpg'),
   becomingABetterProgrammer: require('../assets/becomingABetterProgrammer.jpg'),
@@ -35,7 +38,7 @@ const imageAssets = {
   codingBat: require('../assets/codingBat.jpg'),
   stackOverflow: require('../assets/stackOverflow.png'),
   uiUx: require('../assets/uiux.png'),
-  visualStudioCode: require('../assets/visualStudioCode.png')
+  visualStudioCode: require('../assets/visualStudioCode.png'),
 }
 
 export default imageAssets
