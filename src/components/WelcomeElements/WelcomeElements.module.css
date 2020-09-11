@@ -3,7 +3,7 @@
   color: #474747;
   max-width: 350px;
   background: rgba(251, 243, 238, 0.8);
-  padding: 30px 10px 10px 10px;
+  padding: 40px 10px 40px 10px;
   border-radius: 300px 50px 300px 50px;
   width: 100%;
 }
@@ -29,25 +29,6 @@
   width: auto;
   padding: 5px 10px 15px 10px;
 }
-
-.WelcomeElements button {
-  font-size: large;
-  color: white;
-  background-color: #474747;
-  height: 50px;
-  width: 100px;
-  padding: 10px;
-  margin: 30px 10px 0px 10px;
-}
-
-.ScrollDownArrow {
-  cursor: pointer;
-  position: relative;
-  top: 75px;
-  width: auto;
-  height: 30px;
-}
-
 
 @media (max-height: 760px), (max-width: 500px) {
   .ScrollDownArrow {
