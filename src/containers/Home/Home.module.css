@@ -1,48 +1,55 @@
 .WelcomeContainer {
-  margin: -100px 0 0 0;
+  position: relative;
   display: flex;
-  height: 100vh;
-  text-align: center;
+  margin: 56px 0 0 0;
+  justify-content: center;
+  min-height: 100vh;
   background: url('../../assets/welcomeBackground.jpg');
   background-size: cover;
-  padding: 100px 10px 100px 10px;
   border-bottom: 6px solid #474747;
 }
 
 .AboutMeWrapper {
-  height: 100vh;
-  width: auto;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
 }
 
 .AboutMe {
-  padding: 50vh 20px 0 20px;
+  padding: 40vh 20px 0 20px;
   text-align: center;
   max-width: 700px;
   color: #474747;
 }
 
-.SkillsWrapper {
-  margin: 200px 0 200px 0;
-  display: flex;
-  justify-content: center;
+.JumpToSectionArrowWrapper {
+  position: absolute;
+  text-align: center;
+  bottom: 40px;
 }
 
-.CoursesWrapper {
-  margin: 200px 0 0 0;
+.SkillsWrapper {
+  position: relative;
+  background-color: rgba(71, 71, 71);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
 }
 
 .SliderWrapper {
+  position: relative;
   display: flex;
   justify-content: center;
-  margin: 200px 0 0 0;
+}
+
+.CoursesWrapper {
+  padding: 15px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .ContactButton {
   text-align: center;
 }
-
-
