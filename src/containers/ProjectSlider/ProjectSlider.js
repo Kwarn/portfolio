@@ -5,12 +5,9 @@ import Project from './Project/Project'
 import classes from './ProjectSlider.module.css'
 
 const Slider = ({ showModal, selectedContentTag }) => {
-  const [projectSlides] = useState({
-    portfolio: {
-      isFirstElementOfTag: true,
-      tag: 'javascript',
+  const [projectSlides] = useState([
+    {
       title: 'Portfolio',
-      image: null,
       previewTechStack: 'Javascript, React, Firebase, CSS',
       gitHubLink: 'https://github.com/Kwarn/portfolio',
       description: `The portfolio has seen many diffrent design ideas and has served as a live enviroment to recieve feedback on and consider many different perspectives.`,
@@ -20,8 +17,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
       I learned the importance of giving up on a bad idea as early as possible so not too waste developement time.`,
       technicalPractices: 'Css',
     },
-    burgerBuilder: {
-      tag: 'javascript',
+    {
       title: 'Burger Builder',
       image: imageAssets.burgerBuilder,
       liveDemoLink: 'https://react-burger-builder-679aa.web.app/',
@@ -39,8 +35,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
         and lifecycle hooks, Functional components and react hooks, 
         Higher order components, Database rules configuration`,
     },
-    squarePlayground: {
-      tag: 'javascript',
+    {
       title: 'Square Playground',
       image: imageAssets.squarePlayground,
       liveDemoLink: 'https://square-playground.web.app/',
@@ -55,8 +50,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
       An early build of this project was experiencing performance issues caused by large image file sizes and complicated logic. While in pursuit of a solution to the complicated logic, I was introduced to Big O notation which helped me to understand why and how to refactor the code.`,
       technicalPractices: 'Fundamentals of state and data management',
     },
-    fizzyLookup: {
-      tag: 'python',
+    {
       title: 'Fizzy-Lookup',
       image: null,
       previewTechStack: 'Python, tkinter',
@@ -72,9 +66,8 @@ const Slider = ({ showModal, selectedContentTag }) => {
         didn't waste development time.`,
       technicalPractices: 'System process access',
     },
-    fitness: {
+    {
       isFirstElementOfTag: true,
-      tag: 'python',
       title: 'Fitness',
       image: null,
       previewTechStack: 'Python, Tkinter, SQlite3',
@@ -87,8 +80,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
       I learned the importance of looking for a cleaner, established solution before implementing my own.`,
       technicalPractices: 'Database queries',
     },
-    shutdownTimer: {
-      tag: 'python',
+    {
       title: 'Shutdown Timer',
       previewTechStack: 'Python, tkinter',
       gitHubLink: 'https://github.com/Kwarn/Fizzy-Lookup',
@@ -96,7 +88,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
         'Desktop Application for converting pdf to searchable object',
       technicalPractices: 'System process access',
     },
-  })
+  ])
 
   const [x, setX] = useState(0)
 
@@ -107,33 +99,30 @@ const Slider = ({ showModal, selectedContentTag }) => {
     trackMouse: true,
   })
 
-  let slidesArr = []
-  for (let project in projectSlides) {
-    slidesArr.push(
-      <div
-        key={project}
-        className={classes.Slide}
-        style={{ transform: `translateX(${x}%)` }}
-      >
-        <Project
-          project={projectSlides[project]}
-          showModal={showModal}
-          selectedContentTag={selectedContentTag}
-        />
-      </div>
-    )
-  }
+  const slides = projectSlides.map(project => (
+    <div
+      key={project.title}
+      className={classes.Slide}
+      style={{ transform: `translateX(${x}%)` }}
+    >
+      <Project
+        project={project}
+        showModal={showModal}
+        selectedContentTag={selectedContentTag}
+      />
+    </div>
+  ))
 
   const goLeft = () => {
-    x === 0 ? setX(-100 * (slidesArr.length - 1)) : setX(x + 100)
+    x === 0 ? setX(-100 * (slides.length - 1)) : setX(x + 100)
   }
   const goRight = () => {
-    x === -100 * (slidesArr.length - 1) ? setX(0) : setX(x - 100)
+    x === -100 * (slides.length - 1) ? setX(0) : setX(x - 100)
   }
 
   return (
     <div {...handlers} className={classes.Slider}>
-      {slidesArr}
+      {slides}
       <div
         onClick={goLeft}
         className={`${classes.SliderControl} ${classes.GoLeft}`}
