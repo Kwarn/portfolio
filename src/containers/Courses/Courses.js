@@ -2,22 +2,9 @@ import React, { useState } from 'react'
 import imageAssets from '../../assets/assets'
 import Course from './Course/Course'
 import classes from '../../containers/Courses/Courses.module.css'
-import FadeInSection from '../FadeInSection/FadeInSection'
 
-const Courses = ({ selectedContentTag, elementRef, showModal }) => {
+const Courses = ({ showModal }) => {
   const [courses] = useState({
-    javascriptComplete: {
-      isOpenByDefault: true,
-      title: 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',
-      desc: `A comprehensive course including ES6 features. 
-        This course was vital in helping cement my understanding of the 
-        underlying ways in which Javascript works.`,
-      quote:
-        'This is the most comprehensive and modern course you can find on JavaScript - Maximilian Schwarzmüller',
-      courseLink:
-        'https://www.udemy.com/course/javascript-the-complete-guide-2020-beginner-advanced/',
-      cert: imageAssets.javascriptCertificate,
-    },
     reactComplete: {
       isOpenByDefault: true,
       title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
@@ -25,6 +12,15 @@ const Courses = ({ selectedContentTag, elementRef, showModal }) => {
       courseLink:
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
       cert: imageAssets.reactCertificate,
+    },
+    javascriptComplete: {
+      title: 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',
+      desc: `A comprehensive course including ES6 features. 
+        This course was vital in helping cement my understanding of the 
+        underlying ways in which Javascript works.`,
+      courseLink:
+        'https://www.udemy.com/course/javascript-the-complete-guide-2020-beginner-advanced/',
+      cert: imageAssets.javascriptCertificate,
     },
     JavascriptFreeCodeCamp: {
       title: 'Javascript Algorithms and Data Structures',
@@ -52,21 +48,14 @@ const Courses = ({ selectedContentTag, elementRef, showModal }) => {
   let courseElements = []
   for (let course in courses) {
     courseElements.push(
-      <FadeInSection key={courses[course].title} fadeDirection="bottom">
-        <Course
-          isHighlighted={selectedContentTag === courses[course].tag}
-          course={courses[course]}
-          showModal={showModal}
-        ></Course>
-      </FadeInSection>
+      <Course
+        course={courses[course]}
+        showModal={showModal}
+      />
     )
   }
 
-  return (
-    <div ref={elementRef} className={classes.Courses}>
-      {courseElements}
-    </div>
-  )
+  return <div className={classes.Courses}>{courseElements}</div>
 }
 
 export default Courses

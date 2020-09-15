@@ -1,3 +1,5 @@
 .Courses {
-  max-width: 740px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
