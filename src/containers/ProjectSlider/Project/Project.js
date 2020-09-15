@@ -2,27 +2,21 @@ import React from 'react'
 import imageAssets from '../../../assets/assets'
 import classes from './Project.module.css'
 
-const Project = ({
-  project,
-  isSelectedContent,
-  showModal,
-}) => {
+const Project = ({ project, isSelectedContent, showModal }) => {
   const imageTags = project.previewTechStack
     .split(',')
     .map(tag => tag.toLowerCase().trim())
-  let images = []
-  for (let tag of imageTags) {
-    if (tag in imageAssets) {
-      images.push(
-        <img
-          className={classes.IconImage}
-          src={imageAssets[tag]}
-          key={tag}
-          alt={tag}
-        />
-      )
-    }
-  }
+
+  const images = imageTags.map(tag =>
+    imageAssets[tag] ? (
+      <img
+        className={classes.IconImage}
+        src={imageAssets[tag]}
+        key={tag}
+        alt={tag}
+      />
+    ) : null
+  )
 
   const technicalPractices = project.technicalPractices
     .split(', ')
