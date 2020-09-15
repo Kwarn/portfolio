@@ -3,11 +3,22 @@ import FadeInSection from '../../../containers/FadeInSection/FadeInSection'
 import imageAssets from '../../../assets/assets'
 import classes from './JumpToSectionArrow.module.css'
 
+import PropTypes from 'prop-types'
+
+/**
+ * @param {string} arrowColor 'light' or 'dark' - default is dark
+ * @param {string} arrowDirection 'up' or 'down' - default is down
+ * @param {string} arrowText accompanying text - color and position adjusts with arrowColor & arrowDirection
+ * @param {boolean} shouldFadeIn controls whether arrow fades in or not - default true
+ * @param {func} scrollIntoViewFn A function callback for onClick scrolling an element into view - not required
+ */
+
 const JumpToSectionArrow = ({
-  arrowColor,
-  arrowDirection,
+  arrowColor = 'dark',
+  arrowDirection = 'down',
+  arrowText,
   scrollIntoViewFn,
-  scrollTarget,
+  shouldFadeIn = true,
 }) => {
   const arrowImages = {
     light: {
@@ -20,27 +31,62 @@ const JumpToSectionArrow = ({
     },
   }
 
-  const arrowImage = arrowImages[arrowColor || 'dark'][arrowDirection || 'down']
+  const arrowImage = arrowImages[arrowColor][arrowDirection]
+
+  const arrow = (
+    <img
+      className={`
+      ${
+        arrowDirection === 'top'
+          ? classes.ScrollUpArrow
+          : classes.ScrollDownArrow
+      } `}
+      src={arrowImage}
+      alt={`arrow ${arrowDirection}`}
+    />
+  )
+  const textElement = arrowText ? (
+    <div
+      className={`${classes.ArrowText} ${
+        arrowColor === 'light' ? classes.LightArrowText : classes.DarkArrowText
+      }`}
+    >
+      {arrowText}
+    </div>
+  ) : null
+
+  const finalArrow = shouldFadeIn ? (
+    <FadeInSection fadeDirection={arrowDirection === 'up' ? 'top' : 'bottom'}>
+      {arrowDirection === 'down' ? textElement : null}
+      {arrow}
+      {arrowDirection === 'up' ? textElement : null}
+    </FadeInSection>
+  ) : (
+    <>
+      {arrowDirection === 'down' ? textElement : null}
+      {arrow}
+      {arrowDirection === 'up' ? textElement : null}
+    </>
+  )
 
   return (
-    <FadeInSection fadeDirection={arrowDirection === 'up' ? 'top' : 'bottom'}>
-      <img
-        className={`
-          ${
-            arrowDirection === 'top'
-              ? classes.ScrollUpArrow
-              : classes.ScrollDownArrow
-          } ${scrollIntoViewFn && scrollTarget ? classes.Clickable : ''}`}
-        src={arrowImage}
-        alt="openDrawIcon"
-        onClick={
-          scrollIntoViewFn && scrollTarget
-            ? () => scrollIntoViewFn(scrollTarget)
-            : null
-        }
-      />
-    </FadeInSection>
+    <div
+      className={`${classes.Wrapper} ${
+        scrollIntoViewFn ? classes.Clickable : ''
+      }`}
+      onClick={scrollIntoViewFn}
+    >
+      {finalArrow}
+    </div>
   )
 }
 
 export default JumpToSectionArrow
+
+JumpToSectionArrow.propTypes = {
+  arrowColor: PropTypes.string,
+  arrowDirection: PropTypes.string,
+  arrowText: PropTypes.string,
+  shouldFadeIn: PropTypes.bool,
+  scrollIntoViewFn: PropTypes.func,
+}
