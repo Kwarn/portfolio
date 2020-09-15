@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import imageAssets from '../../assets/assets'
-import Project from '../../components/Project/Project'
+import Project from './Project/Project'
 import classes from './ProjectSlider.module.css'
 
 const Slider = ({ showModal, selectedContentTag }) => {

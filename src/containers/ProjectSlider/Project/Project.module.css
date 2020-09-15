@@ -1,0 +1,136 @@
+.Project {
+  margin: 0 5px 0 5px;
+  margin: auto;
+  color: #474747;
+}
+
+.IconsBar {
+  padding: 0px 20px 0px 20px;
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
+  border-radius: 10px 10px 0px 0px;
+  height: auto;
+  background-color: #ecd7cd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Desc {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.TechImages {
+  padding: 5px;
+  height: 100%;
+  width: auto;
+  text-align: right;
+}
+
+.Links {
+  padding: 5px;
+}
+
+.IconImage {
+  padding: 5px;
+  height: auto;
+  width: 30px;
+}
+
+.MainContentWrapper {
+  border-radius: 0px 0px 10px 10px;
+  background: rgba(251, 243, 238, 0.85);
+  box-shadow: 0 5px 10px #474747;
+  padding: 15px 20px 15px 20px;
+}
+
+.MainContentWrapper img {
+  cursor: pointer;
+  height: 150px;
+  width: auto;
+  padding: 10px 10px 0px 5px;
+}
+
+.MainContentWrapper h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+.MainContentWrapper h3 {
+  padding: 10px;
+}
+
+.MainContentWrapper p {
+  white-space: pre-line;
+  padding: 10px;
+}
+
+.MainContentWrapper ul {
+  text-align: left;
+  padding: 5px 15px 15px 25px;
+}
+
+@media (max-height: 768px), (max-width: 400px) {
+  .MainContentWrapper p {
+    font-size: 0.8em;
+  }
+  .MainContentWrapper ul {
+    font-size: 0.8em;
+  }
+  .MainContentWrapper h2 {
+    font-size: 1.2em;
+  }
+  .MainContentWrapper h3 {
+    font-size: 1em;
+  }
+  .IconImage {
+    width: 20px;
+  }
+  .MainContentWrapper img {
+    height: 120px;
+  }
+  .Project {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 769px) {
+  .Project {
+    max-width: 600px;
+  }
+}
+
+@media (max-height: 601px), (max-width: 500px) {
+  .MainContentWrapper p {
+    padding: 2px 10px 2px 10px;
+    font-size: 0.8em;
+  }
+  .MainContentWrapper ul {
+    font-size: 0.8em;
+  }
+  .MainContentWrapper h2 {
+    padding: 10px 15px 10px 15px;
+    font-size: 1.2em;
+  }
+  .MainContentWrapper h3 {
+    padding: 2px 10px 2px 10px;
+    font-size: 1em;
+  }
+  .IconImage {
+    width: 20px;
+  }
+  .MainContentWrapper img {
+    height: 100px;
+  }
+  .MainContentWrapper {
+    padding: 0px 10px 0px 10px;
+  }
+  .Project {
+    max-width: 95%;
+  }
+}
+
+@media (max-height: 600px), (max-width: 399px) {
+  .MainContentWrapper h2 {
+    padding: 5px 15px 5px 15px;
+  }
+}
