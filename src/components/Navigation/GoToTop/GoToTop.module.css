@@ -4,7 +4,6 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  box-sizing: border-box;
   z-index: 100;
   transition: bottom 0.6s;
 }
@@ -15,14 +14,10 @@
   align-items: center;
 }
 
-.GoToTop nav {
-  height: 100%;
-}
-
 .GoToTopHidden {
   bottom: -56px;
 }
 
 .GoToTopShown {
-  bottom: 0
+  bottom: -10px
 }

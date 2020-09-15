@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import classes from './GoToTop.module.css'
-import imageAssets from '../../../assets/assets'
+import JumpToSectionArrow from '../JumpToSectionArrow/JumpToSectionArrow'
 
 const GoToTop = ({ scrollToTop }) => {
   const [scrollPos, setScrollPos] = useState({
@@ -32,11 +32,11 @@ const GoToTop = ({ scrollToTop }) => {
           : `${classes.GoToTop} ${classes.GoToTopShown}`
       }
     >
-      <img
-        onClick={scrollToTop}
-        className={classes.GoToTopButton}
-        src={imageAssets.upArrow}
-        alt="GoToTop"
+      <JumpToSectionArrow
+        arrowDirection="up"
+        arrowText="Back To Top"
+        shouldFadeIn={false}
+        scrollIntoViewFn={scrollToTop}
       />
     </footer>
   )
