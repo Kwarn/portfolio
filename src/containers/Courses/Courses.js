@@ -4,8 +4,8 @@ import Course from './Course/Course'
 import classes from '../../containers/Courses/Courses.module.css'
 
 const Courses = ({ showModal }) => {
-  const [courses] = useState({
-    reactComplete: {
+  const [courses] = useState([
+    {
       isOpenByDefault: true,
       title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
       desc: `Very detailed course demonstrating multiple approaches both new and old to creating react apps.`,
@@ -13,7 +13,7 @@ const Courses = ({ showModal }) => {
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
       cert: imageAssets.reactCertificate,
     },
-    javascriptComplete: {
+    {
       title: 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',
       desc: `A comprehensive course including ES6 features. 
         This course was vital in helping cement my understanding of the 
@@ -22,14 +22,14 @@ const Courses = ({ showModal }) => {
         'https://www.udemy.com/course/javascript-the-complete-guide-2020-beginner-advanced/',
       cert: imageAssets.javascriptCertificate,
     },
-    JavascriptFreeCodeCamp: {
+    {
       title: 'Javascript Algorithms and Data Structures',
       desc:
         'My first detailed introduction to Javascript, left me wanting more!',
       courseLink: 'https://www.freecodecamp.org/karl_warner',
       cert: imageAssets.freeCodeCampCertificate,
     },
-    sqlCodeAcademy: {
+    {
       isFirstElementOfTag: true,
       title: 'Learn SQL',
       desc:
@@ -37,23 +37,17 @@ const Courses = ({ showModal }) => {
       courseLink: 'https://www.codecademy.com/learn/learn-sql',
       cert: imageAssets.sqlCodeAcademyCertificate,
     },
-    pythonCodeAcademy: {
+    {
       title: 'Learn Python',
       desc:
         'The first online course I completed back in 2017, when I first discovered my love of programming.',
       courseLink: 'https://www.codecademy.com/learn/learn-python-3',
     },
-  })
+  ])
 
-  let courseElements = []
-  for (let course in courses) {
-    courseElements.push(
-      <Course
-        course={courses[course]}
-        showModal={showModal}
-      />
-    )
-  }
+  let courseElements = courses.map(course => (
+    <Course course={course} showModal={showModal} />
+  ))
 
   return <div className={classes.Courses}>{courseElements}</div>
 }
