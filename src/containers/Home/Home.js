@@ -13,7 +13,6 @@ const Home = props => {
     isOpen: false,
     modalContent: null,
   })
-  const [selectedContent, setSelectedContent] = useState('')
 
   const [
     aboutMe,
@@ -22,11 +21,6 @@ const Home = props => {
   problems. My curiosity has led me to understand a broad range of different
   technologies and I'd like to continue my journey inside a skilled team
   that I can learn from and grow with.`)
-
-  const selectedContentHandler = selectedContentTag => {
-    if (selectedContentTag === selectedContent) setSelectedContent('')
-    else setSelectedContent(selectedContentTag)
-  }
 
   const showModalHandler = modalContent => {
     setModalControl({ modalContent: modalContent, isOpen: true })
@@ -65,8 +59,8 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
-            scrollIntoViewFn={tag => scrollIntoView(tag)}
-            scrollTarget="aboutMe"
+            arrowText="Continue"
+            scrollIntoViewFn={() => scrollIntoView('aboutMe')}
           />
         </div>
       </div>
@@ -75,48 +69,32 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="dark"
-            scrollIntoViewFn={tag => scrollIntoView(tag)}
-            scrollTarget="skills"
+            scrollIntoViewFn={() => scrollIntoView('skills')}
           />
         </div>
       </div>
       <div ref={elementRefs.skills} className={classes.SkillsWrapper}>
-        <Skills
-          scrollIntoView={tag => scrollIntoView(tag)}
-          selectedContentTag={selectedContent}
-          selectedContentHandler={tag => selectedContentHandler(tag)}
-        />
-        <div className={classes.JumpToSectionArrowWrapper}>
+        <Skills />
+        <div className={classes.SkillsJumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
-            scrollIntoViewFn={scrollIntoView}
-            scrollTarget="projects"
+            scrollIntoViewFn={() => scrollIntoView('projects')}
           />
         </div>
       </div>
       <div ref={elementRefs.projects} className={classes.SliderWrapper}>
-        <Slider
-          showModal={modalContent => showModalHandler(modalContent)}
-          selectedContentTag={selectedContent}
-        />
+        <Slider showModal={modalContent => showModalHandler(modalContent)} />
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
-            scrollIntoViewFn={tag => scrollIntoView(tag)}
-            scrollTarget="courses"
+            scrollIntoViewFn={() => scrollIntoView('courses')}
           />
         </div>
       </div>
       <div ref={elementRefs.courses} className={classes.CoursesWrapper}>
-        <Courses
-          selectedContentTag={selectedContent}
-          showModal={modalContent => showModalHandler(modalContent)}
-        />
+        <Courses showModal={modalContent => showModalHandler(modalContent)} />
       </div>
-      <ExtraInfo
-        elementRefs={elementRefs}
-        selectedContentTag={selectedContent}
-      />
+      <ExtraInfo elementRefs={elementRefs} />
     </>
   )
 }
