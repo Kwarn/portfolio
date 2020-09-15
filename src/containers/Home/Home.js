@@ -59,7 +59,7 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
-            arrowText="Continue"
+            arrowText="click arrows to navigate!"
             scrollIntoViewFn={() => scrollIntoView('aboutMe')}
           />
         </div>
