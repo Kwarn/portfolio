@@ -34,7 +34,6 @@ const GoToTop = ({ scrollToTop }) => {
     >
       <JumpToSectionArrow
         arrowDirection="up"
-        arrowText="Back To Top"
         shouldFadeIn={false}
         scrollIntoViewFn={scrollToTop}
       />
