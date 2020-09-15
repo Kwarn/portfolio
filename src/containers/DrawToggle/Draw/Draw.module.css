@@ -1,7 +1,11 @@
 .Draw {
+  width: 100%;
+  max-width: 600px;
+  width: inherit;
   background-color: #ecd7cd;
   box-shadow: 0 2px 10px #474747;
   animation: openFullProject 0.8s ease-in-out;
+  margin: auto;
 }
 
 .OnMouseOverDraw {
