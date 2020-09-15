@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import classes from './Skills.module.css'
-import FadeInSection from '../FadeInSection/FadeInSection'
+import Skill from './Skill/Skill'
 import imageAssets from '../../assets/assets'
+import classes from './Skills.module.css'
 
 const Skills = () => {
   const [skills] = useState({
@@ -32,24 +32,15 @@ const Skills = () => {
   })
 
   const skillSections = []
+  let delay = 0
   for (let skill in skills) {
-    const image = <img src={skills[skill].image} alt={skills[skill].title} />
     skillSections.push(
-      <FadeInSection
-        key={skills[skill].title}
-        fadeDirection={skills[skill].fadeInAndAlignDirection}
-        childAlignDirection={skills[skill].fadeInAndAlignDirection}
-      >
-        <div className={classes.TechSubsection}>
-          {skills[skill].fadeInAndAlignDirection === 'left' ? image : null}
-          <div>
-            <h2>{skills[skill].title}</h2>
-            <p>{skills[skill].content}</p>
-          </div>
-          {skills[skill].fadeInAndAlignDirection === 'right' ? image : null}
-        </div>
-      </FadeInSection>
+      <Skill
+        {...skills[skill]}
+        delayRenderDuration={delay}
+      />
     )
+    delay += 500
   }
 
   return <div className={classes.Skills}>{skillSections}</div>

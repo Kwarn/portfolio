@@ -1,0 +1,32 @@
+.Skill {
+  padding: 0 40px 0 40px;
+  margin: 80px 0 80px 0;
+}
+
+.TechSubsection {
+  display: inline-flex;
+}
+
+.TechSubsection img {
+  padding: 0 5px 0 5px;
+  height: 60px;
+  width: auto;
+}
+
+.TechSubsection h2 {
+  padding: 0 0 2px 0;
+}
+
+.Hidden {
+  display: hidden;
+}
+
+.Visible {
+  visibility: visible;
+}
+
+@media (min-width: 1024px) {
+  .Skill {
+    padding: 0 20% 0 20%;
+  }
+}

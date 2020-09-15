@@ -1,47 +1,19 @@
 .Skills {
-  margin: auto;
   color: rgba(251, 243, 238);
   overflow-x: hidden;
-  padding: 0 25% 0 25%;
-  height: 100%;
-}
-
-.TechSubsection {
-  display: inline-flex;
-  padding: 5% 0 10% 0;
-}
-
-.TechSubsection img {
-  padding: 0 5px 0 5px;
-  height: 60px;
-  width: auto;
-}
-
-.TechSubsection h2 {
-  padding: 0 0 2px 0;
-}
-
-.JumpToSectionArrowWrapper {
-  text-align: center;
-}
-
-@media (max-width: 1200px) {
-  .Skills {
-    padding: 0 15% 0 15%;
-  }
-  .TechSubsection img {
-    height: 40px;
-  }
 }
 
 @media (max-width: 760px) {
-  .Skills {
-    padding: 0 5% 0 5%;
-  }
   .Skills p {
     font-size: small;
   }
   .Skills h2 {
     font-size: larger;
+  }
+}
+
+@media (min-width: 1025px){
+  .Skills {
+    padding: 50px
   }
 }
