@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
 import classes from './FadeInSection.module.css'
 
-function FadeInSection({ fadeDirection, childAlignDirection, children }) {
+function FadeInSection({
+  fadeDirection,
+  childAlignDirection,
+  children,
+  delayRenderDuration,
+}) {
   const [isVisible, setVisible] = useState(false)
   const [animationShouldStop, setAnimationShouldStop] = useState(false)
   const domRef = useRef()
@@ -11,7 +16,9 @@ function FadeInSection({ fadeDirection, childAlignDirection, children }) {
       const domRefCurrent = domRef.current
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          setVisible(entry.isIntersecting)
+          setTimeout(() => {
+            setVisible(entry.isIntersecting)
+          }, delayRenderDuration)
           if (entry.isIntersecting) setAnimationShouldStop(true)
         })
       })
@@ -19,7 +26,7 @@ function FadeInSection({ fadeDirection, childAlignDirection, children }) {
       observer.observe(domRef.current)
       return () => observer.unobserve(domRefCurrent)
     }
-  }, [animationShouldStop])
+  }, [delayRenderDuration, animationShouldStop])
 
   const fadeDirections = {
     top: classes.FadeToTop,
