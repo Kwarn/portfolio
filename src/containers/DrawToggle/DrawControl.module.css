@@ -1,41 +1,51 @@
 .DrawControlWrapper {
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-  padding: 5px 0 5px 0;
+  position: absolute;
+  right: 0;
   cursor: pointer;
-  text-align: center;
+  display: block;
+  justify-items: center;
 }
 
 .OpenDrawIcon {
-  width: 15px;
+  margin: 6px 6px 0 0;
+  border-radius: 50%;
+  transform: scale(1);
+	animation: pulse 5s infinite;
+  justify-self: center;
+  width: 20px;
   height: auto;
 }
 
 .CloseDrawIcon {
+  padding:10px;
   width: 15px;
   height: auto;
-}
-
-.DrawCloseHighlight {
-  background: rgba(199, 62, 29, 0.5);
-}
-
-.DrawOpenHighlight {
-  background-color: #9cb380;
 }
 
 @media (hover: hover) {
   .DrawControlWrapper:hover .OpenDrawIcon {
     position: relative;
-    width: 20px;
-    top: 5px;
+    width: 25px;
   }
   .DrawControlWrapper:hover .CloseDrawIcon {
     position: relative;
     width: 20px;
   }
-  .DrawControlWrapper:hover {
-    padding: 0 0 5px 0;
-  }
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.99);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.99);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }

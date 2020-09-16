@@ -21,18 +21,14 @@ const DrawControl = ({ drawContent, isDrawOpenByDefault }) => {
 
   const control = (
     <div
-      className={`${classes.DrawControlWrapper} ${
-        isMouseOverDraw ? (isDrawOpen ? '' : classes.DrawOpenHighlight) : ''
-      }`}
+      className={classes.DrawControlWrapper}
       onClick={() => toggleDrawhandler()}
       onMouseEnter={() => setIsMouseOverDraw(true)}
       onMouseLeave={() => setIsMouseOverDraw(false)}
     >
       <img
         className={isDrawOpen ? classes.CloseDrawIcon : classes.OpenDrawIcon}
-        src={
-          isDrawOpen ? imageAssets.charcoalCross : imageAssets.charcoalDownArrow
-        }
+        src={isDrawOpen ? imageAssets.charcoalCross : imageAssets.infoIcon}
         alt={isDrawOpen ? 'closeDraw' : 'openDraw'}
       />
     </div>
