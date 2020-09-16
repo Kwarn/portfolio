@@ -19,7 +19,7 @@ const GoToTop = ({ scrollToTop }) => {
     const newScrollPos = window.pageYOffset
 
     if (newScrollPos > 300) {
-      const visible = scrollPos.posY < newScrollPos
+      const visible = scrollPos.posY > newScrollPos
       setScrollPos({ posY: newScrollPos, visible: visible })
     }
   }
@@ -33,8 +33,10 @@ const GoToTop = ({ scrollToTop }) => {
       }
     >
       <JumpToSectionArrow
+        arrowText='Back to top'
         arrowDirection="up"
         shouldFadeIn={false}
+        shouldPulse={false}
         scrollIntoViewFn={scrollToTop}
       />
     </footer>
