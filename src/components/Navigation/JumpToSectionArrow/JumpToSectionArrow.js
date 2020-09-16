@@ -10,6 +10,8 @@ import PropTypes from 'prop-types'
  * @param {string} arrowDirection 'up' or 'down' - default is down
  * @param {string} arrowText accompanying text - color and position adjusts with arrowColor & arrowDirection
  * @param {boolean} shouldFadeIn controls whether arrow fades in or not - default true
+ * @param {boolean} shouldPulse controls whether arrow pulses or not - default true
+
  * @param {func} scrollIntoViewFn A function callback for onClick scrolling an element into view - not required
  */
 
@@ -19,6 +21,7 @@ const JumpToSectionArrow = ({
   arrowText,
   scrollIntoViewFn,
   shouldFadeIn = true,
+  shouldPulse = true,
 }) => {
   const arrowImages = {
     light: {
@@ -36,11 +39,14 @@ const JumpToSectionArrow = ({
   const arrow = (
     <img
       className={`
-      ${
-        arrowDirection === 'top'
-          ? classes.ScrollUpArrow
-          : classes.ScrollDownArrow
-      } `}
+      ${classes.Arrow}
+          ${
+            shouldPulse
+              ? arrowColor === 'dark'
+                ? classes.DarkPulseAnimation
+                : classes.LightPulseAnimation
+              : ''
+          } `}
       src={arrowImage}
       alt={`arrow ${arrowDirection}`}
     />
