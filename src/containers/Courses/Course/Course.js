@@ -1,10 +1,9 @@
 import React from 'react'
-import imageAssets from '../../../assets/assets'
 import DrawToggle from '../../DrawToggle/DrawControl'
 import classes from './Course.module.css'
 
-const Course = ({ course, showModal, isHighlighted }) => {
-  const { title, cert, desc, courseLink, isOpenByDefault } = course
+const Course = ({ course, showModal }) => {
+  const { title, cert, desc, courseLink } = course
 
   const certificate = <img src={cert} alt={`${title} certificate`} />
 
@@ -18,20 +17,15 @@ const Course = ({ course, showModal, isHighlighted }) => {
 
   return (
     <>
-      <div
-        className={`${classes.Course} ${
-          isHighlighted ? classes.Highlight : null
-        }`}
-      >
+      <div className={classes.Course}>
+        <div className={classes.CertificateContainer}>{previewCertificate}</div>
         <h3 className={classes.TitleContainer}>
-          {title}
           <a href={courseLink} target="_blank" rel="noopener noreferrer">
-            <img src={imageAssets.magnifyingGlass} alt="showCourse" />
+            {title}
           </a>
         </h3>
-        <div className={classes.CertificateContainer}>{previewCertificate}</div>
+        <DrawToggle drawContent={desc} />
       </div>
-      <DrawToggle isDrawOpenByDefault={isOpenByDefault} drawContent={desc} />
     </>
   )
 }

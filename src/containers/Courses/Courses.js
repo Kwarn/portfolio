@@ -6,7 +6,6 @@ import classes from '../../containers/Courses/Courses.module.css'
 const Courses = ({ showModal }) => {
   const [courses] = useState([
     {
-      isOpenByDefault: true,
       title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
       desc: `Very detailed course demonstrating multiple approaches both new and old to creating react apps.`,
       courseLink:
