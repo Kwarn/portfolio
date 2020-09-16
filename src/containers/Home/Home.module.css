@@ -25,22 +25,15 @@
 
 .JumpToSectionArrowWrapper {
   position: absolute;
-  justify-content: center;
-  text-align: center;
-  bottom: 40px;
+  bottom: 50px;
 }
 
 .SkillsWrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
   background-color: rgba(71, 71, 71);
   min-height: 100vh;
-}
-
-.SkillsJumpToSectionArrowWrapper {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  margin-left: -20px;
 }
 
 .SliderWrapper {
@@ -50,10 +43,18 @@
 }
 
 .CoursesWrapper {
-  background: rgba(251, 243, 238, 1);
-  overflow-y: hidden;
-  padding: 100px 15px 0 15px;
+  position: relative;
+  background-color: rgba(71, 71, 71);
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.ExtraInfoWrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .ContactButton {

@@ -14,13 +14,11 @@ const Home = props => {
     modalContent: null,
   })
 
-  const [
-    aboutMe,
-  ] = useState(`As a technical and mechanical tinkerer from a young age, I've always been
+  const aboutMe = `As a technical and mechanical tinkerer from a young age, I've always been
   drawn to understanding how things work and finding logical solutions to
   problems. My curiosity has led me to understand a broad range of different
   technologies and I'd like to continue my journey inside a skilled team
-  that I can learn from and grow with.`)
+  that I can learn from and grow with.`
 
   const showModalHandler = modalContent => {
     setModalControl({ modalContent: modalContent, isOpen: true })
@@ -35,6 +33,7 @@ const Home = props => {
     skills: useRef(null),
     projects: useRef(null),
     courses: useRef(null),
+    extraInfo: useRef(null),
   }
 
   const scrollIntoView = tag => {
@@ -59,7 +58,6 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
-            arrowText="click arrows to navigate!"
             scrollIntoViewFn={() => scrollIntoView('aboutMe')}
           />
         </div>
@@ -75,7 +73,7 @@ const Home = props => {
       </div>
       <div ref={elementRefs.skills} className={classes.SkillsWrapper}>
         <Skills />
-        <div className={classes.SkillsJumpToSectionArrowWrapper}>
+        <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
             scrollIntoViewFn={() => scrollIntoView('projects')}
@@ -93,8 +91,16 @@ const Home = props => {
       </div>
       <div ref={elementRefs.courses} className={classes.CoursesWrapper}>
         <Courses showModal={modalContent => showModalHandler(modalContent)} />
+        <div className={classes.JumpToSectionArrowWrapper}>
+          <JumpToSectionArrow
+            arrowColor="light"
+            scrollIntoViewFn={() => scrollIntoView('extraInfo')}
+          />
+        </div>
       </div>
-      <ExtraInfo elementRefs={elementRefs} />
+      <div ref={elementRefs.extraInfo} className={classes.ExtraInfoWrapper}>
+        <ExtraInfo elementRefs={elementRefs} />
+      </div>
     </>
   )
 }
