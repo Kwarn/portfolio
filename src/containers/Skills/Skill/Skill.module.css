@@ -1,6 +1,6 @@
 .Skill {
-  padding: 0 40px 0 40px;
-  margin: 80px 0 80px 0;
+  margin: auto;
+  padding: 5%;
 }
 
 .TechSubsection {
@@ -23,10 +23,4 @@
 
 .Visible {
   visibility: visible;
-}
-
-@media (min-width: 1024px) {
-  .Skill {
-    padding: 0 20% 0 20%;
-  }
 }

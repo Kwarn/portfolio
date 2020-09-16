@@ -1,6 +1,9 @@
 .Skills {
+  margin: auto;
   color: rgba(251, 243, 238);
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 760px) {
