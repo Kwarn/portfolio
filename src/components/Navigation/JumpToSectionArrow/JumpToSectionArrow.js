@@ -94,5 +94,6 @@ JumpToSectionArrow.propTypes = {
   arrowDirection: PropTypes.string,
   arrowText: PropTypes.string,
   shouldFadeIn: PropTypes.bool,
+  shouldPulse: PropTypes.bool,
   scrollIntoViewFn: PropTypes.func,
 }
