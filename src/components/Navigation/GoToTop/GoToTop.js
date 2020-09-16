@@ -17,10 +17,11 @@ const GoToTop = ({ scrollToTop }) => {
 
   const scrollHandler = () => {
     const newScrollPos = window.pageYOffset
-
     if (newScrollPos > 300) {
       const visible = scrollPos.posY > newScrollPos
       setScrollPos({ posY: newScrollPos, visible: visible })
+    } else {
+      setScrollPos({ posY: newScrollPos, visible: false })
     }
   }
 
@@ -33,7 +34,7 @@ const GoToTop = ({ scrollToTop }) => {
       }
     >
       <JumpToSectionArrow
-        arrowText='Back to top'
+        arrowText="Back to top"
         arrowDirection="up"
         shouldFadeIn={false}
         shouldPulse={false}
