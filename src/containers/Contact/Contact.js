@@ -5,7 +5,7 @@ import { updateObject } from '../../shared/Utility'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import classes from './Contact.module.css'
 
-const Contact = props => {
+const Contact = () => {
   const [nameElement, setNameElement] = useState({
     validation: {
       required: true,
@@ -13,6 +13,7 @@ const Contact = props => {
     },
     wasTouched: false,
     isValid: false,
+    invalidFormErrorMessage: 'Name must be atleast 2 characters',
     value: '',
   })
   const [emailElement, setEmailElement] = useState({
@@ -22,6 +23,7 @@ const Contact = props => {
     },
     wasTouched: false,
     isValid: false,
+    invalidFormErrorMessage: 'Please enter a vaild email address',
     value: '',
   })
   const [subjectElement, setSubjectElement] = useState({
@@ -39,6 +41,7 @@ const Contact = props => {
     },
     wasTouched: false,
     isValid: false,
+    invalidFormErrorMessage: 'Message must be atleast 10 characters',
     value: '',
   })
   const [isFormValid, setIsFormValid] = useState(false)
@@ -46,6 +49,8 @@ const Contact = props => {
     isSending: false,
     isSuccess: false,
   })
+
+  const [invalidFormErrorMessages, setInvalidFormErrorMessages] = useState([])
 
   useEffect(() => {
     if (nameElement.isValid && emailElement.isValid && textBoxElement.isValid)
@@ -72,6 +77,12 @@ const Contact = props => {
         .catch(error => {
           setEmailHandler({ isSending: false, isSuccess: false })
         })
+    } else {
+      setInvalidFormErrorMessages([
+        !nameElement.isValid ? nameElement.invalidFormErrorMessage : null,
+        !emailElement.isValid ? emailElement.invalidFormErrorMessage : null,
+        !textBoxElement.isValid ? textBoxElement.invalidFormErrorMessage : null,
+      ])
     }
   }
 
@@ -104,7 +115,17 @@ const Contact = props => {
     )
   }
 
-  let formOrSpinner = emailHandler.isSending ? (
+  const formSuccess = (
+    <div className={classes.FormSuccess}>
+      <h1>Success!</h1>
+      <p>Thank you for your interest, I will get back to you shortly!</p>
+      <p>For urgent matters you can contact me directly on 07989148953.</p>
+    </div>
+  )
+
+  let content = emailHandler.isSuccess ? (
+    formSuccess
+  ) : emailHandler.isSending ? (
     <Spinner />
   ) : (
     <form
@@ -112,6 +133,9 @@ const Contact = props => {
       className={classes.ContactForm}
       onSubmit={submitHandler}
     >
+      {invalidFormErrorMessages.map(message => (
+        <p className={classes.InvalidFormErrorMessage}>{message}</p>
+      ))}
       <h2>Name</h2>
       <input
         className={
@@ -137,6 +161,7 @@ const Contact = props => {
       <h2>Subject</h2>
       <input
         name="subject"
+        placeholder="(optional)"
         onChange={event => inputChangedHandler(event.target.value, 'subject')}
         value={subjectElement.value}
       />
@@ -152,15 +177,19 @@ const Contact = props => {
         value={textBoxElement.value}
       />
       <button onSubmit={event => submitHandler(event)}>Submit</button>
+      <p className={classes.Disclaimer}>
+        Any information provided will only be used to reply
+      </p>
     </form>
   )
 
   // conditionally render spinner or form on "emailHandler.isSending"
 
   return (
-    <div className={classes.Contact}>
-      <h1 className={classes.SectionTitle}> Contact Me!</h1>
-      {formOrSpinner}
+    <div className={classes.ContactWrapper}>
+      <div className={classes.Contact}>
+        {content}
+      </div>
     </div>
   )
 }
