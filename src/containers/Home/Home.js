@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import classes from './Home.module.css'
 import Skills from '..//Skills/Skills'
 import Courses from '../Courses/Courses'
@@ -67,6 +68,7 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="dark"
+            shouldFadeIn={false}
             scrollIntoViewFn={() => scrollIntoView('skills')}
           />
         </div>
@@ -76,6 +78,7 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
+            shouldFadeIn={false}
             scrollIntoViewFn={() => scrollIntoView('projects')}
           />
         </div>
@@ -85,6 +88,7 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
+            shouldFadeIn={false}
             scrollIntoViewFn={() => scrollIntoView('courses')}
           />
         </div>
@@ -94,12 +98,19 @@ const Home = props => {
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
+            shouldFadeIn={false}
             scrollIntoViewFn={() => scrollIntoView('extraInfo')}
           />
         </div>
       </div>
       <div ref={elementRefs.extraInfo} className={classes.ExtraInfoWrapper}>
         <ExtraInfo elementRefs={elementRefs} />
+
+        <button className={classes.ContactMe}>
+          <Link to="/contact">
+            Contact Me
+          </Link>
+        </button>
       </div>
     </>
   )
