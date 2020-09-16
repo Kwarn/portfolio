@@ -6,12 +6,13 @@ const WelcomeElements = () => {
   return (
     <>
       <div className={classes.WelcomeElements}>
+        <div className={classes.Background}/>
+        <img
+          className={classes.ProfileImage}
+          src={imageAssets.profileImage}
+          alt="profileImage"
+        />
         <div className={classes.TitleGroup}>
-          <img
-            className={classes.ProfileImage}
-            src={imageAssets.profileImage}
-            alt="profileImage"
-          />
           <div>
             <h1>Karl Warner</h1>
             <p>{`</> Software Developer`}</p>

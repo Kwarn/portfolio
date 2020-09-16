@@ -1,23 +1,34 @@
 .WelcomeElements {
-  margin: auto;
+  position: relative;
+  margin: 30vh auto auto auto;
   color: #474747;
-  max-width: 350px;
-  background: rgba(251, 243, 238, 0.8);
-  padding: 40px 10px 40px 10px;
-  border-radius: 300px 50px 300px 50px;
-  width: 100%;
+  max-width: 400px;
+  border-radius: 20%;
+  display: inline-flex;
+  text-align: center;
+}
+
+.Background {
+  position: absolute;
+  border-radius: 50px 20px 50px 50px;
+  margin: 10px 0 0 30px;
+  width: 380px;
+  height: 130px;
+  min-width: 100px;
+  background: rgba(251, 243, 238, 0.5);
 }
 
 .ProfileImage {
+  margin: auto;
   z-index: 1;
-  border-radius: 110px;
-  height: 150px;
-  width: auto;
+  border-radius: 50%;
+  width: 150px;
+  height: auto;
 }
 
 .TitleGroup {
-  margin: 20px 0px 0px 0px;
-  text-align: center;
+  z-index: 2;
+  padding: 20px 0 0 20px;
 }
 
 .LinkIcons {
@@ -30,14 +41,18 @@
   padding: 5px 10px 15px 10px;
 }
 
-@media (max-height: 760px), (max-width: 500px) {
-  .ScrollDownArrow {
-    top: 50px;
-  }
-}
 
-@media (min-height: 900px) {
-  .ScrollDownArrow {
-    top: 150px;
+@media (max-width: 500px) {
+  .WelcomeElements {
+    margin: 20vh auto auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Background {
+    height: 350px;
+    width: 250px;
+    border-radius: 20px 50px 20px 50px;
+    right: -25px;
   }
 }
