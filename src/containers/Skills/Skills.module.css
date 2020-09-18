@@ -4,6 +4,11 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  padding: 0 0 100px 0;
+}
+
+.Skills p {
+  font-size: 1em;
 }
 
 @media (max-width: 760px) {
@@ -12,11 +17,5 @@
   }
   .Skills h2 {
     font-size: larger;
-  }
-}
-
-@media (min-width: 1025px){
-  .Skills {
-    padding: 50px
   }
 }
