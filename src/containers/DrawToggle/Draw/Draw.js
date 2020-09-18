@@ -7,7 +7,7 @@ const Draw = ({ isMouseOverDraw, content }) => {
       className={`${classes.Draw} 
         ${isMouseOverDraw ? classes.OnMouseOverDraw : ''}`}
     >
-      <p className={classes.Content}>{content}</p>
+      <div className={classes.Content}>{content}</div>
     </div>
   )
 }
