@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import classes from './Home.module.css'
 import Skills from '..//Skills/Skills'
 import Courses from '../Courses/Courses'
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements'
 import Modal from '../../components/UI/Modal/Modal'
 import ExtraInfo from '../../components/ExtraInfo/ExtraInfo'
+import Contact from '../Contact/Contact'
 import Slider from '../ProjectSlider/ProjectSlider'
 import JumpToSectionArrow from '../../components/Navigation/JumpToSectionArrow/JumpToSectionArrow'
 
@@ -35,6 +35,7 @@ const Home = props => {
     projects: useRef(null),
     courses: useRef(null),
     extraInfo: useRef(null),
+    contact: useRef(null),
   }
 
   const scrollIntoView = tag => {
@@ -105,12 +106,16 @@ const Home = props => {
       </div>
       <div ref={elementRefs.extraInfo} className={classes.ExtraInfoWrapper}>
         <ExtraInfo elementRefs={elementRefs} />
-
-        <button className={classes.ContactMe}>
-          <Link to="/contact">
-            Contact Me
-          </Link>
-        </button>
+        <div className={classes.JumpToSectionArrowWrapper}>
+          <JumpToSectionArrow
+            arrowColor="dark"
+            shouldFadeIn={false}
+            scrollIntoViewFn={() => scrollIntoView('contact')}
+          />
+        </div>
+      </div>
+      <div ref={elementRefs.contact}>
+        <Contact isOnHomePage={true} />
       </div>
     </>
   )
