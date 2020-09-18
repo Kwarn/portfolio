@@ -1,21 +1,10 @@
 .ExtraInfo {
-  padding: 35px 0 35px 0;
-}
-
-.SectionTitle {
-  border-bottom: 6px solid #827a75;
-  /* margin: 0px 15px 40px 15px; */
-  padding: 15px 0px 15px 0px;
-  text-align: center;
-  font-size: x-large;
-  color: #fbf3ee;
+  margin: auto 15px auto 15px;
 }
 
 .ContentContainer {
   border-radius: 10px 10px 10px 10px;
-  background-color: #ECD7CD;
   box-shadow: 0 5px 10px rgb(0, 0, 0);
-  margin: 25px 30px 15px 30px;
   padding: 15px;
 }
 
@@ -24,16 +13,13 @@
 }
 
 .ContentContainer img {
-  height: 120px;
+  padding: 5px;
+  height: 100px;
   width: auto;
 }
 
-.Highlight {
-  background-color: #F59F93;
-}
-
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .ContentContainer img {
-    height: 100px;
+    height: 60px;
   }
 }
