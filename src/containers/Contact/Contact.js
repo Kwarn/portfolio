@@ -5,7 +5,7 @@ import { updateObject } from '../../shared/Utility'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import classes from './Contact.module.css'
 
-const Contact = () => {
+const Contact = ({ isOnHomePage }) => {
   const [nameElement, setNameElement] = useState({
     validation: {
       required: true,
@@ -186,10 +186,12 @@ const Contact = () => {
   // conditionally render spinner or form on "emailHandler.isSending"
 
   return (
-    <div className={classes.ContactWrapper}>
-      <div className={classes.Contact}>
-        {content}
-      </div>
+    <div
+      className={`${classes.ContactWrapper} ${
+        isOnHomePage ? classes.RemoveTopMargin : ''
+      }`}
+    >
+      <div className={classes.Contact}>{content}</div>
     </div>
   )
 }
