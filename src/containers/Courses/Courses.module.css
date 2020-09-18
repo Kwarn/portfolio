@@ -1,6 +1,11 @@
 .Courses {
-  padding: 15px;
-  margin: auto;
+  margin: auto 15px auto 15px;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 500px) {
+  .Courses {
+    margin: auto 15px 30% 15px;
+  }
 }
