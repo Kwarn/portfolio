@@ -9,6 +9,7 @@
 }
 
 .Background {
+  border-bottom: 4px solid #474747;
   position: absolute;
   border-radius: 50px 20px 50px 50px;
   margin: 10px 0 0 30px;
@@ -41,7 +42,6 @@
   padding: 5px 10px 15px 10px;
 }
 
-
 @media (max-width: 500px) {
   .WelcomeElements {
     margin: 20vh auto auto auto;
@@ -50,9 +50,10 @@
     justify-content: center;
   }
   .Background {
-    height: 350px;
+    height: 340px;
     width: 250px;
     border-radius: 20px 50px 20px 50px;
-    right: -25px;
+    right: -30px;
+    margin: 0 0 10px 0;
   }
 }
