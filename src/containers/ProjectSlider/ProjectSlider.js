@@ -8,6 +8,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
   const [projectSlides] = useState([
     {
       title: 'Portfolio',
+      image: imageAssets.portfolio,
       previewTechStack: 'Javascript, React, Firebase, CSS',
       gitHubLink: 'https://github.com/Kwarn/portfolio',
       description: `The portfolio has seen many diffrent design ideas and has served as a live enviroment to recieve feedback on and consider many different perspectives.`,
@@ -30,10 +31,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
        Functionalities include form validation, authentication, database management, automatic login and preservation of the users session.`,
       whatILearned: `This project was instrumental in developing an effective & efficient approach to learning new concepts. 
       By using a compartmentalizing approach to the more difficult parts of the project, I would guide myself with the map of the user's experience and learn each required technique in digestible chunks. Often taking notes and using the rubber duck technique to reinforce my learnings`,
-      technicalPractices: `Multiple approaches to handling State, Authentication tokens 
-        and localStorage, Asynchronous actions, Class-based components 
-        and lifecycle hooks, Functional components and react hooks, 
-        Higher order components, Database rules configuration`,
+      technicalPractices: `Multiple approaches to handling State, Authentication tokens and localStorage, Asynchronous actions, Class-based components and lifecycle hooks, Functional components and react hooks, Higher order components, Database rules configuration`,
     },
     {
       title: 'Square Playground',

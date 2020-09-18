@@ -1,8 +1,9 @@
 import React from 'react'
+import DrawToggle from '../../DrawToggle/DrawControl'
 import imageAssets from '../../../assets/assets'
 import classes from './Project.module.css'
 
-const Project = ({ project, isSelectedContent, showModal }) => {
+const Project = ({ project, showModal }) => {
   const imageTags = project.previewTechStack
     .split(',')
     .map(tag => tag.toLowerCase().trim())
@@ -36,48 +37,58 @@ const Project = ({ project, isSelectedContent, showModal }) => {
     </a>
   ) : null
 
+  const gitHubLink = project.gitHubLink ? (
+    <a href={project.gitHubLink} target="_blank" rel="noopener noreferrer">
+      <img
+        className={classes.IconImage}
+        src={imageAssets.gitHub}
+        alt="gitHub"
+      />
+    </a>
+  ) : null
+
   const projectImage = project.image ? (
     <img src={project.image} alt="projectImage" />
   ) : null
 
   return (
     <div className={`${classes.Project} ${classes.Slide}`}>
-      <div
-        className={`${classes.IconsBar} ${
-          isSelectedContent ? classes.Highlight : null
-        }`}
-      >
+      <div className={classes.IconsBar}>
         <div className={classes.TechImages}>{images}</div>
-        <div className={classes.Links}>
-          {liveDemoLink}
-          <a
-            href={project.gitHubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              className={classes.IconImage}
-              src={imageAssets.gitHub}
-              alt="gitHub"
-            />
-          </a>
-        </div>
       </div>
-      <div
-        className={`${classes.MainContentWrapper} ${
-          isSelectedContent ? classes.Highlight : null
-        }`}
-      >
-        <h2>{project.title}</h2>
-        <div className={classes.Desc}>
-          <p>{project.description}</p>
-          <div onClick={() => showModal(projectImage)}>{projectImage}</div>
-        </div>
+      <div className={classes.MainContentWrapper}>
+        <DrawToggle
+          iconLocation="bottom"
+          iconOnly={false}
+          drawContent={
+            <div>
+              <h3>Technical practices</h3>
+              <ul className={classes.LearnedList}>{technicalPractices}</ul>
+            </div>
+          }
+        />
+        <div className={classes.MainContent}>
+          <div className={classes.TitleWrapper}>
+            <h2>{project.title}</h2>
+            <div className={classes.Links}>
+              {liveDemoLink}
+              {gitHubLink}
+            </div>
+          </div>
 
-        <h3>Key lessons</h3>
-        <p className={classes.Desc}>{project.whatILearned}</p>
-        <h3>Technical practices</h3>
-        <ul className={classes.LearnedList}>{technicalPractices}</ul>
+          <div className={classes.Desc}>
+            <p>{project.description}</p>
+            <div
+              className={classes.ProjectImage}
+              onClick={() => showModal(projectImage)}
+            >
+              {projectImage}
+            </div>
+          </div>
+
+          <h3>Key lessons</h3>
+          <p className={classes.Desc}>{project.whatILearned}</p>
+        </div>
       </div>
     </div>
   )

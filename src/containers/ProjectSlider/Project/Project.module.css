@@ -1,11 +1,11 @@
 .Project {
-  margin: 0 5px 0 5px;
   margin: auto;
   color: #474747;
+  padding: 0 10% 0 10%;
+  max-width: 600px;
 }
 
 .IconsBar {
-  padding: 0px 20px 0px 20px;
   box-shadow: 0 5px 10px rgb(0, 0, 0);
   border-radius: 10px 10px 0px 0px;
   height: auto;
@@ -27,6 +27,7 @@
 }
 
 .Links {
+  text-align: center;
   padding: 5px;
 }
 
@@ -37,13 +38,22 @@
 }
 
 .MainContentWrapper {
+  position: relative;
+}
+
+.MainContent {
+  padding: 15px;
   border-radius: 0px 0px 10px 10px;
   background: rgba(251, 243, 238, 0.85);
   box-shadow: 0 5px 10px #474747;
-  padding: 15px 20px 15px 20px;
 }
 
-.MainContentWrapper img {
+.TitleWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.ProjectImage img {
   cursor: pointer;
   height: 150px;
   width: auto;
@@ -56,12 +66,12 @@
 }
 
 .MainContentWrapper h3 {
-  padding: 10px;
+  padding: 5px 0 5px 0;
 }
 
 .MainContentWrapper p {
   white-space: pre-line;
-  padding: 10px;
+  padding: 10px 0 10px;
 }
 
 .MainContentWrapper ul {
@@ -76,61 +86,20 @@
   .MainContentWrapper ul {
     font-size: 0.8em;
   }
-  .MainContentWrapper h2 {
-    font-size: 1.2em;
-  }
   .MainContentWrapper h3 {
     font-size: 1em;
   }
-  .IconImage {
-    width: 20px;
-  }
-  .MainContentWrapper img {
+  .ProjectImage img {
     height: 120px;
-  }
-  .Project {
-    max-width: 80%;
-  }
-}
-
-@media (min-width: 769px) {
-  .Project {
-    max-width: 600px;
   }
 }
 
 @media (max-height: 601px), (max-width: 500px) {
-  .MainContentWrapper p {
-    padding: 2px 10px 2px 10px;
-    font-size: 0.8em;
-  }
-  .MainContentWrapper ul {
-    font-size: 0.8em;
-  }
-  .MainContentWrapper h2 {
-    padding: 10px 15px 10px 15px;
-    font-size: 1.2em;
-  }
   .MainContentWrapper h3 {
-    padding: 2px 10px 2px 10px;
-    font-size: 1em;
+    padding: 0;
+    font-size: 0.8em;
   }
-  .IconImage {
-    width: 20px;
-  }
-  .MainContentWrapper img {
+  .ProjectImage img {
     height: 100px;
-  }
-  .MainContentWrapper {
-    padding: 0px 10px 0px 10px;
-  }
-  .Project {
-    max-width: 95%;
-  }
-}
-
-@media (max-height: 600px), (max-width: 399px) {
-  .MainContentWrapper h2 {
-    padding: 5px 15px 5px 15px;
   }
 }
