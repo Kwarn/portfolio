@@ -60,6 +60,7 @@ const Project = ({ project, showModal }) => {
         <DrawToggle
           iconLocation="bottom"
           iconOnly={false}
+          shouldAnimate={false}
           drawContent={
             <div>
               <h3>Technical practices</h3>
