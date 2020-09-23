@@ -1,15 +1,10 @@
-.ContactWrapper {
-  margin: 56px 0 0 0;
+.ConditionalContactWrapper {
+  margin-top: 56px;
+  min-height: 100vh;
   background: url('../../assets/contactBackground.jpg');
   background-size: cover;
-  min-height: 100vh;
-  width: 100%;
   display: flex;
   justify-content: space-between;
-}
-
-.RemoveTopMargin .ContactWrapper {
-  margin: 0;
 }
 
 .Contact {

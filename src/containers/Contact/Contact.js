@@ -5,7 +5,7 @@ import { updateObject } from '../../shared/Utility'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import classes from './Contact.module.css'
 
-const Contact = ({ isOnHomePage }) => {
+const Contact = ({ hasOwnWrapper = false }) => {
   const [nameElement, setNameElement] = useState({
     validation: {
       required: true,
@@ -61,7 +61,6 @@ const Contact = ({ isOnHomePage }) => {
   const submitHandler = event => {
     event.preventDefault()
 
-    // provide else case to display "fill-out form correctly error"
     if (isFormValid) {
       setEmailHandler({ isSending: true, isSuccess: false })
       emailjs
@@ -134,7 +133,9 @@ const Contact = ({ isOnHomePage }) => {
       onSubmit={submitHandler}
     >
       {invalidFormErrorMessages.map(message => (
-        <p className={classes.InvalidFormErrorMessage}>{message}</p>
+        <p key={message} className={classes.InvalidFormErrorMessage}>
+          {message}
+        </p>
       ))}
       <h2>Name</h2>
       <input
@@ -183,17 +184,15 @@ const Contact = ({ isOnHomePage }) => {
     </form>
   )
 
-  // conditionally render spinner or form on "emailHandler.isSending"
-
-  return (
-    <div
-      className={`${classes.ContactWrapper} ${
-        isOnHomePage ? classes.RemoveTopMargin : ''
-      }`}
-    >
+  const final = hasOwnWrapper ? (
+    <div className={classes.ConditionalContactWrapper}>
       <div className={classes.Contact}>{content}</div>
     </div>
+  ) : (
+    <div className={classes.Contact}>{content}</div>
   )
+
+  return final
 }
 
 export default Contact
