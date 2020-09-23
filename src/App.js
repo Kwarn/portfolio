@@ -5,9 +5,8 @@ import Home from './containers/Home/Home'
 import Layout from './Hoc/Layout/Layout'
 import classes from './App.module.css'
 
-// const Projects = React.lazy(() => import('./containers/Projects/Projects'))
-// const Skills = React.lazy(() => import('./components/Skills/Skills'))
-const Contact = React.lazy(() => import('./containers/Contact/Contact'))
+
+const Contact= React.lazy(() => import('./containers/Contact/Contact'))
 
 const App = props => {
   let routes = (
@@ -16,7 +15,7 @@ const App = props => {
         path="/contact"
         render={() => (
           <Suspense fallback={<div>Something Went Wrong...</div>}>
-            <Contact />
+            <Contact hasOwnWrapper={true}/>
           </Suspense>
         )}
       />
