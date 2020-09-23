@@ -5,7 +5,7 @@ const Draw = ({ isMouseOverDraw, content }) => {
   return (
     <div
       className={`${classes.Draw} 
-        ${isMouseOverDraw ? classes.OnMouseOverDraw : ''}`}
+        ${isMouseOverDraw ? classes.HoverHighlight : ''}`}
     >
       <div className={classes.Content}>{content}</div>
     </div>
