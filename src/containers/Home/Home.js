@@ -1,25 +1,32 @@
-import React, { useState, useRef } from 'react'
-import classes from './Home.module.css'
-import Skills from '..//Skills/Skills'
-import Courses from '../Courses/Courses'
+import React, { useState, useRef, Suspense } from 'react'
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements'
 import Modal from '../../components/UI/Modal/Modal'
 import ExtraInfo from '../../components/ExtraInfo/ExtraInfo'
-import Contact from '../Contact/Contact'
-import Slider from '../ProjectSlider/ProjectSlider'
 import JumpToSectionArrow from '../../components/Navigation/JumpToSectionArrow/JumpToSectionArrow'
+import ObserveIntersection from '../../Hoc/ObserveIntersection/ObserveIntersection'
+import Spinner from '../../components/UI/Spinner/Spinner'
+import classes from './Home.module.css'
 
-const Home = props => {
+const Skills = React.lazy(() => import('../Skills/Skills'))
+const ProjectSlider = React.lazy(() => import('../ProjectSlider/ProjectSlider'))
+const Courses = React.lazy(() => import('../Courses/Courses'))
+const Contact = React.lazy(() => import('../../containers/Contact/Contact'))
+
+const Home = () => {
   const [modalControl, setModalControl] = useState({
     isOpen: false,
     modalContent: null,
   })
 
-  const aboutMe = `As a technical and mechanical tinkerer from a young age, I've always been
-  drawn to understanding how things work and finding logical solutions to
-  problems. My curiosity has led me to understand a broad range of different
-  technologies and I'd like to continue my journey inside a skilled team
-  that I can learn from and grow with.`
+  const aboutMe = (
+    <div className={classes.AboutMe}>
+      As a technical and mechanical tinkerer from a young age, I've always been
+      drawn to understanding how things work and finding logical solutions to
+      problems. My curiosity has led me to understand a broad range of different
+      technologies and I'd like to continue my journey inside a skilled team
+      that I can learn from and grow with
+    </div>
+  )
 
   const showModalHandler = modalContent => {
     setModalControl({ modalContent: modalContent, isOpen: true })
@@ -65,7 +72,7 @@ const Home = props => {
         </div>
       </div>
       <div ref={elementRefs.aboutMe} className={classes.AboutMeWrapper}>
-        <div className={classes.AboutMe}>{aboutMe}</div>
+        {aboutMe}
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="dark"
@@ -75,7 +82,11 @@ const Home = props => {
         </div>
       </div>
       <div ref={elementRefs.skills} className={classes.SkillsWrapper}>
-        <Skills />
+        <ObserveIntersection targetRef={elementRefs.aboutMe}>
+          <Suspense fallback={<Spinner />}>
+            <Skills />
+          </Suspense>
+        </ObserveIntersection>
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
@@ -85,7 +96,13 @@ const Home = props => {
         </div>
       </div>
       <div ref={elementRefs.projects} className={classes.SliderWrapper}>
-        <Slider showModal={modalContent => showModalHandler(modalContent)} />
+        <ObserveIntersection targetRef={elementRefs.skills}>
+          <Suspense fallback={<Spinner />}>
+            <ProjectSlider
+              showModal={modalContent => showModalHandler(modalContent)}
+            />
+          </Suspense>
+        </ObserveIntersection>
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
@@ -95,7 +112,14 @@ const Home = props => {
         </div>
       </div>
       <div ref={elementRefs.courses} className={classes.CoursesWrapper}>
-        <Courses showModal={modalContent => showModalHandler(modalContent)} />
+        <ObserveIntersection targetRef={elementRefs.projects}>
+          <Suspense fallback={<Spinner />}>
+            <Courses
+              showModal={modalContent => showModalHandler(modalContent)}
+            />
+          </Suspense>
+        </ObserveIntersection>
+
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="light"
@@ -105,7 +129,11 @@ const Home = props => {
         </div>
       </div>
       <div ref={elementRefs.extraInfo} className={classes.ExtraInfoWrapper}>
-        <ExtraInfo elementRefs={elementRefs} />
+        <ObserveIntersection targetRef={elementRefs.courses}>
+          <Suspense fallback={<Spinner />}>
+            <ExtraInfo elementRefs={elementRefs} />
+          </Suspense>
+        </ObserveIntersection>
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
             arrowColor="dark"
@@ -114,8 +142,12 @@ const Home = props => {
           />
         </div>
       </div>
-      <div ref={elementRefs.contact}>
-        <Contact isOnHomePage={true} />
+      <div className={classes.ContactWrapper} ref={elementRefs.contact}>
+        <ObserveIntersection targetRef={elementRefs.contact}>
+          <Suspense fallback={<Spinner />}>
+            <Contact />
+          </Suspense>
+        </ObserveIntersection>
       </div>
     </>
   )

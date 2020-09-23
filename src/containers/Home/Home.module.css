@@ -38,9 +38,13 @@
 }
 
 .SliderWrapper {
+  background: url('../../assets/sliderBackground.jpg');
+  background-size: cover;
+  background-position: center;
   position: relative;
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 }
 
 .CoursesWrapper {
@@ -56,4 +60,12 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
+}
+
+.ContactWrapper {
+  min-height: 100vh;
+  background: url('../../assets/contactBackground.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
 }
