@@ -41,11 +41,12 @@ const Courses = ({ showModal }) => {
       desc:
         'The first online course I completed back in 2017, when I first discovered my love of programming.',
       courseLink: 'https://www.codecademy.com/learn/learn-python-3',
+      certAlt: imageAssets.python,
     },
   ])
 
   let courseElements = courses.map(course => (
-    <Course course={course} showModal={showModal} />
+    <Course key={course.title} course={course} showModal={showModal} />
   ))
 
   return <div className={classes.Courses}>{courseElements}</div>
