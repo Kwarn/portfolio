@@ -4,7 +4,7 @@ import imageAssets from '../../assets/assets'
 import Project from './Project/Project'
 import classes from './ProjectSlider.module.css'
 
-const Slider = ({ showModal, selectedContentTag }) => {
+const ProjectSlider = ({ showModal }) => {
   const [projectSlides] = useState([
     {
       title: 'Portfolio',
@@ -50,7 +50,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
     },
     {
       title: 'Fizzy-Lookup',
-      image: null,
+      image: imageAssets.fizzyLookup,
       previewTechStack: 'Python, tkinter',
       gitHubLink: 'placeholder',
       description: `Desktop App which allows easier searching of excel data.
@@ -62,6 +62,7 @@ const Slider = ({ showModal, selectedContentTag }) => {
       whatILearned: `The importance of accurately communicating a description 
         of the clients needs so that unnecessary or miscommunicated functionality
         didn't waste development time.`,
+
       technicalPractices: 'System process access',
     },
     {
@@ -78,14 +79,6 @@ const Slider = ({ showModal, selectedContentTag }) => {
       I learned the importance of looking for a cleaner, established solution before implementing my own.`,
       technicalPractices: 'Database queries',
     },
-    {
-      title: 'Shutdown Timer',
-      previewTechStack: 'Python, tkinter',
-      gitHubLink: 'https://github.com/Kwarn/Fizzy-Lookup',
-      description:
-        'Desktop Application for converting pdf to searchable object',
-      technicalPractices: 'System process access',
-    },
   ])
 
   const [x, setX] = useState(0)
@@ -97,19 +90,20 @@ const Slider = ({ showModal, selectedContentTag }) => {
     trackMouse: true,
   })
 
-  const slides = projectSlides.map(project => (
-    <div
-      key={project.title}
-      className={classes.Slide}
-      style={{ transform: `translateX(${x}%)` }}
-    >
-      <Project
-        project={project}
-        showModal={showModal}
-        selectedContentTag={selectedContentTag}
-      />
-    </div>
-  ))
+  const slides = projectSlides.map(project => {
+    return (
+      <div
+        key={project.title}
+        className={classes.Slide}
+        style={{ transform: `translateX(${x}%)` }}
+      >
+        <Project
+          project={project}
+          showModal={showModal}
+        />
+      </div>
+    )
+  })
 
   const goLeft = () => {
     x === 0 ? setX(-100 * (slides.length - 1)) : setX(x + 100)
@@ -137,4 +131,4 @@ const Slider = ({ showModal, selectedContentTag }) => {
   )
 }
 
-export default Slider
+export default ProjectSlider
