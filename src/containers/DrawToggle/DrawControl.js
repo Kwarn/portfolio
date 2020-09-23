@@ -19,6 +19,7 @@ const DrawControl = ({
 
   const toggleDrawhandler = () => {
     setIsDrawOpen(!isDrawOpen)
+    setIsMouseOverDraw(false)
   }
 
   const draw = isDrawOpen ? (
@@ -38,7 +39,6 @@ const DrawControl = ({
           <div className={classes.MoreInfo}>More info</div>
         ) : null
       ) : null}
-
       <img
         className={`${
           isDrawOpen ? classes.CloseDrawIcon : classes.OpenDrawIcon

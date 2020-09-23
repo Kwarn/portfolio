@@ -1,4 +1,5 @@
 .DrawControl {
+  z-index: 100;
   position: absolute;
   cursor: pointer;
   display: flex;
