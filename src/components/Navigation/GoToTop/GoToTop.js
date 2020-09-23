@@ -17,11 +17,15 @@ const GoToTop = ({ scrollToTop }) => {
 
   const scrollHandler = () => {
     const newScrollPos = window.pageYOffset
-    if (newScrollPos > 300) {
-      const visible = scrollPos.posY > newScrollPos
-      setScrollPos({ posY: newScrollPos, visible: visible })
+    if (Math.abs(document.body.scrollHeight - window.pageYOffset) < 1000) {
+      setScrollPos({ posY: newScrollPos, visible: true })
     } else {
-      setScrollPos({ posY: newScrollPos, visible: false })
+      if (newScrollPos > 300) {
+        const visible = scrollPos.posY > newScrollPos
+        setScrollPos({ posY: newScrollPos, visible: visible })
+      } else {
+        setScrollPos({ posY: newScrollPos, visible: false })
+      }
     }
   }
 
