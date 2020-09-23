@@ -11,13 +11,40 @@ const Project = ({ project, showModal }) => {
   const images = imageTags.map(tag =>
     imageAssets[tag] ? (
       <img
-        className={classes.IconImage}
+        className={classes.TechIconImage}
         src={imageAssets[tag]}
         key={tag}
         alt={tag}
       />
     ) : null
   )
+
+  const externalLinks = (
+    <div className={classes.ExternalLinks}>
+      {project.liveDemoLink ? (
+        <a
+          href={project.liveDemoLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Demo
+        </a>
+      ) : null}
+      {project.gitHubLink ? (
+        <a href={project.gitHubLink} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      ) : null}
+    </div>
+  )
+
+  const projectImage = project.image ? (
+    <img src={project.image} alt="projectImage" />
+  ) : null
+
+  const projectImageMagGlass = project.image ? (
+    <img src={imageAssets.magnifyingGlass} alt="click to view" />
+  ) : null
 
   const technicalPractices = project.technicalPractices
     .split(', ')
@@ -27,34 +54,11 @@ const Project = ({ project, showModal }) => {
       </li>
     ))
 
-  const liveDemoLink = project.liveDemoLink ? (
-    <a href={project.liveDemoLink} target="_blank" rel="noopener noreferrer">
-      <img
-        className={`${classes.IconImage} ${classes.LiveDemoLink}`}
-        src={imageAssets.magnifyingGlass}
-        alt="liveDemoLink"
-      />
-    </a>
-  ) : null
-
-  const gitHubLink = project.gitHubLink ? (
-    <a href={project.gitHubLink} target="_blank" rel="noopener noreferrer">
-      <img
-        className={classes.IconImage}
-        src={imageAssets.gitHub}
-        alt="gitHub"
-      />
-    </a>
-  ) : null
-
-  const projectImage = project.image ? (
-    <img src={project.image} alt="projectImage" />
-  ) : null
-
   return (
     <div className={`${classes.Project} ${classes.Slide}`}>
       <div className={classes.IconsBar}>
-        <div className={classes.TechImages}>{images}</div>
+        <div className={classes.TechImagesWrapper}>{images}</div>
+        {externalLinks}
       </div>
       <div className={classes.MainContentWrapper}>
         <DrawToggle
@@ -71,19 +75,16 @@ const Project = ({ project, showModal }) => {
         <div className={classes.MainContent}>
           <div className={classes.TitleWrapper}>
             <h2>{project.title}</h2>
-            <div className={classes.Links}>
-              {liveDemoLink}
-              {gitHubLink}
-            </div>
           </div>
 
           <div className={classes.Desc}>
             <p>{project.description}</p>
             <div
-              className={classes.ProjectImage}
+              className={classes.ProjectImageWrapper}
               onClick={() => showModal(projectImage)}
             >
               {projectImage}
+              {projectImageMagGlass}
             </div>
           </div>
 

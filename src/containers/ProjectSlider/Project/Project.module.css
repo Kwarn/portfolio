@@ -6,35 +6,33 @@
 }
 
 .IconsBar {
-  box-shadow: 0 5px 10px rgb(0, 0, 0);
-  border-radius: 10px 10px 0px 0px;
-  height: auto;
-  background-color: #ecd7cd;
   display: flex;
   justify-content: space-between;
+  height: auto;
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
+  border-radius: 10px 10px 0px 0px;
+  background-color: #ecd7cd;
 }
 
-.Desc {
-  display: inline-flex;
-  justify-content: space-between;
-}
-
-.TechImages {
+.TechImagesWrapper {
   padding: 5px;
   height: 100%;
   width: auto;
-  text-align: right;
 }
 
-.Links {
-  text-align: center;
-  padding: 5px;
-}
-
-.IconImage {
+.TechIconImage {
   padding: 5px;
   height: auto;
   width: 30px;
+}
+
+.ExternalLinks {
+  margin: auto 15px auto 0px;
+}
+
+.ExternalLinks a {
+  color: inherit;
+  margin: 5px;
 }
 
 .MainContentWrapper {
@@ -42,7 +40,7 @@
 }
 
 .MainContent {
-  padding: 15px;
+  padding: 15px 15px 30px 15px;
   border-radius: 0px 0px 10px 10px;
   background: rgba(251, 243, 238, 0.85);
   box-shadow: 0 5px 10px #474747;
@@ -50,14 +48,34 @@
 
 .TitleWrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
-.ProjectImage img {
+.Desc {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.ProjectImageWrapper {
+  height: 150px;
   cursor: pointer;
+  position: relative;
+}
+
+.ProjectImageWrapper img:first-child {
   height: 150px;
   width: auto;
-  padding: 10px 10px 0px 5px;
+  padding: 10px 0px 0px 0px;
+}
+
+.ProjectImageWrapper img:nth-child(2) {
+  background-color: rgba(251, 243, 238, 0.8);
+  padding: 5px;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  height: 50px;
+  width: auto;
 }
 
 .MainContentWrapper h2 {
