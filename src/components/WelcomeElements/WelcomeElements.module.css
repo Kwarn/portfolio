@@ -23,6 +23,8 @@
   margin: auto;
   z-index: 1;
   border-radius: 50%;
+  border-right: 4px solid #474747;
+  border-bottom: 4px solid #474747;
   width: 150px;
   height: auto;
 }
