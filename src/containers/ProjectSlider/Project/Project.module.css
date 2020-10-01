@@ -113,11 +113,34 @@
 }
 
 @media (max-height: 601px), (max-width: 500px) {
+  .TechIconImage {
+    width: 20px;
+  }
+  .MainContentWrapper h2 {
+    font-size: medium;
+    padding: 0;
+    text-decoration: underline;
+  }
   .MainContentWrapper h3 {
     padding: 0;
     font-size: 0.8em;
   }
-  .ProjectImage img {
+  .ProjectImageWrapper {
     height: 100px;
+  }
+  .ProjectImageWrapper img:first-child {
+    height: 100px;
+  }
+  .ProjectImageWrapper img:nth-child(2) {
+    height: 20px;
+  }
+  .ExternalLinks a {
+    font-size: small;
+  }
+}
+
+@media (max-width: 360px) {
+  .Project {
+    padding: 0 2% 0 2%;
   }
 }
