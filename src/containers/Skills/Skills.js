@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Skill from './Skill/Skill'
 import imageAssets from '../../assets/assets'
 import classes from './Skills.module.css'
