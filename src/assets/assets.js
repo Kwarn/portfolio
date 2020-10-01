@@ -8,6 +8,7 @@ const imageAssets = {
   burgerBuilder: require('../assets/burgerBuilder.png'),
   squarePlayground: require('../assets/squarePlayground.png'),
   fizzyLookup: require('../assets/fizzyLookup.png'),
+  fitness: require('../assets/fitness.png'),
   javascript: require('../assets/javascript.png'),
   python: require('../assets/python.png'),
   react: require('../assets/react.png'),
