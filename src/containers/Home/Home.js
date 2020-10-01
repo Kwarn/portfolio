@@ -131,7 +131,9 @@ const Home = () => {
       <div ref={elementRefs.extraInfo} className={classes.ExtraInfoWrapper}>
         <ObserveIntersection targetRef={elementRefs.courses}>
           <Suspense fallback={<Spinner />}>
-            <ExtraInfo elementRefs={elementRefs} />
+            <ExtraInfo
+              showModal={modalContent => showModalHandler(modalContent)}
+            />
           </Suspense>
         </ObserveIntersection>
         <div className={classes.JumpToSectionArrowWrapper}>
