@@ -12,12 +12,12 @@ const ProjectSlider = ({ showModal }) => {
       previewTechStack: 'Javascript, React, Firebase, CSS',
       gitHubLink: 'https://github.com/Kwarn/portfolio',
       description: `Serving as a live environment to create and tinker with components, the portfolio has been an invaluable resource allowing me to practise a variety of design approaches, receive feedback and consider different perspectives.`,
-      whatILearned: `I learned the importance of remaining objective to prevent the over implementation of a feature I was proud of having detrimental effects to user’s experience and their time constraints.
+      whatILearned: `I learned the importance of remaining objective to prevent the over implementation of a feature having detrimental effects to user’s experience and their time constraints.
 
-      Early on in the project I used the creation of the ‘Draw/More Info’ component (bottom right) to challenge my theoretical implementation and restrain from referring to google. Success served to reinforce my technical understanding and boost my confidence.
-      However, I realised the user experience would suffer when being forced to click most elements to view high priority information, I was able to redesign and reimplement the component in a less prominent but more practical way.`,
+      Early on in the project I used the creation of the ‘Draw/More Info’ component (bottom right) to challenge my theoretical implementation before resorting to google. Success served to reinforce my technical understanding and came with a boost of confidence.
+      However, I realised with the over implimented approach I was taking the user experience would suffer when being forced to click most elements to view high priority information, I was able to redesign and reimplement the component in a less prominent but more practical way.`,
       technicalPractices:
-        'IntersectionObserver API for LazyLoading & scroll to navigation, EmailJS API allowing direct messaging from browser to inbox, File-saver libary for direct downloading of CV from react, Carousel with UseSwipable hook to allow swiping between slides, Form validation with invalid form error handling, Various CSS layout/positioning examples, CSS failsafes to prevent sticky hover effects on mobile',
+        'IntersectionObserver API for LazyLoading & scroll to navigation, EmailJS API allowing direct messaging from browser to inbox, File-saver libary for direct downloading of CV from react, Carousel with UseSwipable hook to allow swiping between slides, Form validation with invalid form error message handling, Various CSS layout/positioning examples, CSS failsafes to prevent sticky hover effects on mobile, Fully responsive design catering from 4k users to 320x568 iPhone 5 users',
     },
     {
       title: 'Burger Builder',
@@ -29,12 +29,12 @@ const ProjectSlider = ({ showModal }) => {
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
       description: `Built alongside React The Complete Guide, This app allows users to create and order their own customized burger.
 
-      The project was an invaluable tool which helped cement my understanding of the varying differences and nuances in approach when developing responsive react applications.`,
+      The project was an invaluable tool which helped cement my understanding of the differences and nuances in approach when developing responsive react applications.`,
 
       whatILearned: `The difference between class-based vs functional components, lifecycle hooks and React hooks. 
 
       One of the final practices of this project was to convert the app from mostly older class-based components using lifecycle hooks (componentDidMount) to newer functional components using React Hooks (useEffect).  This played a vital role in reaffirming my overall understanding of React.`,
-      technicalPractices: `Multiple approaches to handling State, Authentication tokens and localStorage, Preservation of user's session, Promises & Asynchronous actions with Thunk/Sagas & Fetch/Axios, Class-based components and lifecycle hooks, Functional components and react hooks, Higher order components, Database rules configuration`,
+      technicalPractices: `Multiple approaches to handling State, Authentication tokens and localStorage, Preservation of user's session, Promises & Asynchronous actions with Thunk/Sagas & Fetch/Axios, Class-based components and lifecycle hooks, Functional components and react hooks, Higher order components, React.Memo and performance tweaks, Database rules configuration`,
     },
     {
       title: 'Square Playground',
@@ -68,16 +68,15 @@ const ProjectSlider = ({ showModal }) => {
       technicalPractices: 'Importing and reading XML files with Pandas, Tkinter scrollable canvas frames, Multiple uses of widgets, Grid place & pack layout management, Commutative search algorithm',
     },
     {
-      isFirstElementOfTag: true,
       title: 'Fitness',
-      image: null,
+      image: imageAssets.fitness,
       previewTechStack: 'Python, Tkinter, SQlite3',
 
       gitHubLink: 'https://github.com/Kwarn/fitness',
       description: `A light-weight MyFitnessPal clone, this app allows users to save their meal history and add new meals with their ingredients and caloric information to a SQlite database.`,
       whatILearned: `I learned the importance of looking for a cleaner, established solution before implementing my own.
 
-      My initial approach to storing data used the file system to read/write to a .txt file. I found this approach to be extremely cumbersome. In my search for a better solution I took the time to weight up the different options and settled on using SQLite database.`,
+      My initial approach to storing data used the file system to read/write to a text file. I found this approach to be extremely cumbersome. In my search for a better solution I took the time to weight up the different options and settled on using SQLite database.`,
       technicalPractices: 'Storing user input, Database management, Tkinter widgets,  Grid place & pack layout management',
     },
   ])
