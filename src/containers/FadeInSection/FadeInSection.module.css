@@ -14,11 +14,11 @@
 }
 
 .FadeToLeft {
-  transform: translateX(20vw);
+  transform: translateX(10vw);
 }
 
 .FadeToRight {
-  transform: translateX(-20vw);
+  transform: translateX(-10vw);
 }
 
 .isVisible {
