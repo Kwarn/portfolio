@@ -15,7 +15,7 @@ const ProjectSlider = ({ showModal }) => {
       whatILearned: `I learned the importance of remaining objective to prevent the over implementation of a feature having detrimental effects to user’s experience and their time constraints.
 
       Early on in the project I used the creation of the ‘Draw/More Info’ component (bottom right) to challenge my theoretical implementation before resorting to google. Success served to reinforce my technical understanding and came with a boost of confidence.
-      However, I realised with the over implimented approach I was taking the user experience would suffer when being forced to click most elements to view high priority information, I was able to redesign and reimplement the component in a less prominent but more practical way.`,
+      However, I realised with the over implimented approach I was taking; the user experience would suffer when being forced to click most elements to view high priority information, I was able to redesign and reimplement the component in a less prominent but more practical way.`,
       technicalPractices:
         'IntersectionObserver API for LazyLoading & scroll to navigation, EmailJS API allowing direct messaging from browser to inbox, File-saver libary for direct downloading of CV from react, Carousel with UseSwipable hook to allow swiping between slides, Form validation with invalid form error message handling, Various CSS layout/positioning examples, CSS failsafes to prevent sticky hover effects on mobile, Fully responsive design catering from 4k users to 320x568 iPhone 5 users',
     },
