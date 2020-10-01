@@ -50,3 +50,9 @@
     background-color: seashell;
   }
 }
+
+@media (max-width: 360px) {
+  .SliderControl {
+    width: 5%;
+  }
+}
