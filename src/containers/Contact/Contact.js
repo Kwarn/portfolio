@@ -179,7 +179,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
       />
       <button onSubmit={event => submitHandler(event)}>Submit</button>
       <p className={classes.Disclaimer}>
-        Any information provided will only be used to reply
+        Personal information provided is confidential and will not be shared.
       </p>
     </form>
   )
