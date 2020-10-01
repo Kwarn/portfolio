@@ -36,7 +36,7 @@ const DrawControl = ({
     >
       {!iconOnly ? (
         !isDrawOpen ? (
-          <div className={classes.MoreInfo}>More info</div>
+          <div className={classes.MoreInfo}>Technical Info</div>
         ) : null
       ) : null}
       <img

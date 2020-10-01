@@ -17,6 +17,17 @@
   padding: 10px 30px 10px 10px;
 }
 
+.Content h3 {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+
+.Content li {
+  text-align: center;
+  list-style-type: none;
+  padding: 5px 0 5px 0;
+}
+
 @keyframes openFullProject {
   0% {
     opacity: 0;
