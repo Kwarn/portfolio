@@ -20,7 +20,7 @@ const Skills = () => {
       delayRenderDuration: 400,
     },
     {
-      title: 'General',
+      title: 'Software & Practices',
       content: `UI/UX design, SQL, HTML, CSS, GitHub, Unix Commands, Dev-Tools, Firebase, Webpack, Photoshop, Gimp, Adobe Premiere Pro..`,
       image: imageAssets.uiUx,
       fadeInAndAlignDirection: 'left',
