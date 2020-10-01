@@ -7,14 +7,14 @@ const Courses = ({ showModal }) => {
   const [courses] = useState([
     {
       title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
-      desc: `Very detailed course demonstrating multiple approaches both new and old to creating react apps.`,
+      desc: `A comprehensive course demonstrating multiple approaches both new and old to creating responsive react apps.`,
       courseLink:
         'https://www.udemy.com/course/react-the-complete-guide-incl-redux/',
       cert: imageAssets.reactCertificate,
     },
     {
       title: 'Javascript - The Complete Guide 2020 (Beginner + Advanced)',
-      desc: `A comprehensive course including ES6 features. 
+      desc: `A comprehensive course including ES6+ features. 
         This course was vital in helping cement my understanding of the 
         underlying ways in which Javascript works.`,
       courseLink:
@@ -32,7 +32,7 @@ const Courses = ({ showModal }) => {
       isFirstElementOfTag: true,
       title: 'Learn SQL',
       desc:
-        'I took this course as I found a need in the fitness app for a database.',
+        'Using SQlite3 in the fitness project prompted me to brush up on my SQL knowledge.',
       courseLink: 'https://www.codecademy.com/learn/learn-sql',
       cert: imageAssets.sqlCodeAcademyCertificate,
     },
