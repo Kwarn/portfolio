@@ -10,6 +10,15 @@
 }
 
 .DownloadCV {
+  display: flex;
+  justify-content: space-between;
   color: #fbf3ee;
-  margin: 0 15px 4px 0;
+  margin: -5px 10px 0 0;
+}
+.DownloadCV p {
+  padding-top: 5px;
+}
+.DownloadCV img {
+  height: 25px;
+  width: auto;
 }
