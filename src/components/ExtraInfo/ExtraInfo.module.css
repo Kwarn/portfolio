@@ -1,25 +1,38 @@
 .ExtraInfo {
   margin: auto 15px auto 15px;
+  text-align: center;
 }
 
-.ContentContainer {
-  border-radius: 10px 10px 10px 10px;
-  box-shadow: 0 5px 10px rgb(0, 0, 0);
-  padding: 15px;
+.ExtraInfo h2 {
+  text-align: center;
+  padding: 10px 0 0 0;
 }
 
-.ContentContainer h2 {
-  padding: 20px 0 20px 5px;
+.ExtraInfo p {
+  max-width: 800px;
+  text-align: center;
+  padding: 10px 0 10px 0;
 }
 
-.ContentContainer img {
-  padding: 5px;
-  height: 100px;
+.ExtraInfo img {
+  cursor: pointer;
+  height: 80px;
   width: auto;
+  padding: 20px 5px 10px 5px;
 }
 
 @media (max-width: 500px) {
-  .ContentContainer img {
+  .ExtraInfo img {
     height: 60px;
+  }
+  .ExtraInfo p {
+    font-size: small;
+  }
+}
+
+@media (max-width: 360px) {
+  .ExtraInfo img {
+    padding: 5px;
+    height: 40px;
   }
 }
