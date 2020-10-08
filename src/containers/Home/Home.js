@@ -21,10 +21,9 @@ const Home = () => {
   const aboutMe = (
     <div className={classes.AboutMe}>
       As a technical and mechanical tinkerer from a young age, I've always been
-      drawn to understanding how things work and finding logical solutions to
-      problems. My curiosity has led me to understand a broad range of different
-      technologies and I'd like to continue my journey inside a skilled team
-      that I can learn from and grow with
+      drawn to understanding how things work and the pursuit of solutions to problems.
+      Curiosity has led me to understand a broad range of technologies and 
+      I'd like to continue my journey inside a skilled team that I can learn from and grow with.
     </div>
   )
 
