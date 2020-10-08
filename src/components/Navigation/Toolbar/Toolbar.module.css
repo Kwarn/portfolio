@@ -4,12 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #474747;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
+  background-color:rgba(71, 71, 71, 0.6);
   z-index: 100;
   transition: top 0.6s;
 }
@@ -20,8 +15,9 @@
 
 .ToolbarHidden {
   top: -56px;
+  opacity: 0.8;
 }
 
 .ToolbarShown {
-  top: 0
+  top: 0;
 }

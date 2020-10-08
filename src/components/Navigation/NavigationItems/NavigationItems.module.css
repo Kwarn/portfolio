@@ -1,0 +1,27 @@
+.NavItems {
+  display: flex;
+  justify-content: space-between;
+}
+
+.DownloadCV {
+  cursor: pointer;
+  display: inline-flex;
+  padding: 10px;
+}
+
+.DownloadCV p {
+  color: #fbf3ee;
+  padding-top: 7px;
+}
+
+.DownloadCV img {
+  height: 25px;
+  width: auto;
+}
+
+@media (hover: hover) {
+  .DownloadCV:hover {
+    padding-bottom: 12px;
+    border-bottom: 4px solid #f59f93;
+  }
+}

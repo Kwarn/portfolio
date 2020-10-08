@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import NavigationItemsLeft from '../NavigationItems/NavigationItemsLeft/NavigationItemsLeft'
-import NavigationItemsRight from '../NavigationItems/NavigationItemsRight/NavigationItemsRight'
+import NavigationItems from '../NavigationItems/NavigationItems'
 import classes from './Toolbar.module.css'
 
 const Toolbar = props => {
@@ -31,10 +30,7 @@ const Toolbar = props => {
       }
     >
       <nav>
-        <NavigationItemsLeft />
-      </nav>
-      <nav>
-        <NavigationItemsRight />
+        <NavigationItems />
       </nav>
     </header>
   )
