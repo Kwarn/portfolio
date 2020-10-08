@@ -21,18 +21,33 @@
   padding: 20px 5px 10px 5px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 760px) {
   .ExtraInfo img {
     height: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ExtraInfo img {
+    height: 50px;
   }
   .ExtraInfo p {
     font-size: small;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 375px) {
+  .ExtraInfo p {
+    font-size: small;
+  }
   .ExtraInfo img {
     padding: 5px;
-    height: 40px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 350px) {
+  .ExtraInfo p {
+    font-size: x-small;
   }
 }

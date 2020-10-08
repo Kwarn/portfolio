@@ -21,9 +21,9 @@ const ExtraInfo = ({ showModal }) => {
     return image
   }
 
-  const description = `Code challenges have become a hobby and are responsible for vastly improving my problem solving skills. They have been crucial in exposing me to the available language features with their correct and nuanced usage. I love the pursuit of the solution, from researching and challenging my knowledge, to testing solutions in a sandbox environment and discovering the language's inner workings.
+  const description = `Code challenges have quickly become a new hobby, playing a pivotal role in improving my problem solving skills and exposing me to the correct situational usage of the language features available. I love the pursuit of the solution, from discovering new helpful resources, to testing solutions in an isolated environment and organically discovering the language's inner workings.  
   
-  Through approaching problems from multiple angles, I'm constantly challenging myself to not just solve the problem but to find and understand the most elegant solutions. So far, I've completed all challenges on CodingBat, earned 1800 XP on Edabit solving primarily medium-hard difficulty problems and am currently working through certification on HackerRank.`
+  I'm constantly challenging myself by not just solving the problem but also searching for and understanding the most elegant solutions. So far, I've completed all challenges on CodingBat, earned 1800 XP on Edabit solving primarily medium-hard difficulty problems and am currently working through certification on HackerRank.`
 
   return (
     <div className={classes.ExtraInfo}>
