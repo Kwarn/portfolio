@@ -11,12 +11,11 @@ const ProjectSlider = ({ showModal }) => {
       image: imageAssets.portfolio,
       previewTechStack: 'Javascript, React, Firebase, CSS',
       gitHubLink: 'https://github.com/Kwarn/portfolio',
-      description: `Serving as a live environment to create and tinker with components, the portfolio has been an invaluable resource allowing me to practise a variety of design approaches, receive feedback and consider different perspectives.
-      
+      description: `The portfolio has been an invaluable resource allowing me to practise a variety of design approaches, receive feedback and consider different perspectives.
       Throughout the project I’ve challenged myself to implement components & features from the ground up, with the goal of achieving a strong grasp of how popular components work.`,
-      whatILearned: `How to debug effectively, finding and adapting solutions to my specific case. 
-      With many of these challenges being untrodden ground, learning how to debug efficiently has been crucial to maintaining positivity, progress and keeping to my deadlines.
-      My understanding and accuracy when predicting where and why bugs are likely to occur has dramatically improved through practice. I’ve learned multiple techniques for locating the source of issues and thrive on the process of weeding out bad solutions and honing in on the best solutions for my case.`,
+      whatILearned: `How to debug effectively while finding and adapting solutions to my specific case. 
+      Learning how to debug efficiently has been crucial to maintaining positivity, progress and keeping to my deadlines.
+      Predicting why and where bugs are likely to occur has dramatically improved through practice. I’ve learned multiple techniques for locating the source of issues and thrive on the process of weeding out bad solutions and honing in on the best solutions for my case.`,
       technicalPractices:
         'IntersectionObserver API for LazyLoading & scroll to navigation, EmailJS API allowing direct messaging from browser to inbox, File-saver libary for direct downloading of CV from react, Carousel with UseSwipable hook to allow swiping between slides, Form validation with invalid form error message handling, Various CSS layout/positioning examples, CSS failsafes to prevent sticky hover effects on mobile, Fully responsive design catering from 4k users to 320x568 iPhone 5 users',
     },
@@ -47,9 +46,7 @@ const ProjectSlider = ({ showModal }) => {
       description: `A slot machine game based on Math.random() logic. This was one of my first practice apps diving into the world of JavaScript and React. 
 
       Built on a lot of guess work and trial and error the experience inspired my love for programming and the reward for overcoming challenges, it taught me to persevere when difficult unknown technical concepts seemed insurmountable.`,
-      whatILearned: `This project taught me patience and an eye for detail. Being one of my first javascript apps, I found myself often chasing solutions to problems stemming from what I would now consider a trivial or silly source. The experience provided me a better gauge as to when it was acceptable to ask for help.
-
-      An early build of this project was experiencing performance issues caused by large image file sizes and complicated logic. While in pursuit of a solution to the complicated logic, I was introduced to Big O notation which helped me to understand why and how to refactor the code.`,
+      whatILearned: `This project taught me patience and an eye for detail. Being one of my first javascript apps, I found myself often chasing solutions to problems stemming from what I would now consider a trivial or silly source. The experience provided me a better gauge as to when it was acceptable to ask for help.`,
       technicalPractices:
         'Fundamentals of state and data management, Redux & Immer working with immutable state, Bootstrap with React',
     },
@@ -59,7 +56,6 @@ const ProjectSlider = ({ showModal }) => {
       previewTechStack: 'Python, tkinter',
       gitHubLink: 'https://github.com/Kwarn/Fizzy-Lookup',
       description: `Desktop App which allows easier searching of excel data.
-
       Built for the head of lettings for a boutique serviced apartments company, this project allowed me demonstrate and practice a real world use-case for what I had learned with Python.
       
       The app uses pandas (data analysis library) to convert an excel spread-sheet to columns and rows displayed by tkinter (GUI library). The user can accurately search the data using a combination of 7 drop-down menus.`,
