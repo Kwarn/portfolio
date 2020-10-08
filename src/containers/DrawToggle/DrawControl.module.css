@@ -5,8 +5,15 @@
   display: flex;
 }
 
-.BottomRight {
-  right: 5px;
+.BottomCenter {
+  left: 50%;
+  margin-left: -85px;
+  bottom: 5px;
+}
+
+.BottomCenterWhenDrawOpen {
+  left: 50%;
+  margin-left: -14px;
   bottom: 5px;
 }
 
@@ -16,25 +23,31 @@
 }
 
 .MoreInfo {
-  width: 100px;
-  position: absolute;
-  right: 25px;
-  bottom: 0px;
+  text-decoration: underline;
+  font-size: 1em;
+  margin: 5px 5px 0 0;
 }
 
 .OpenDrawIcon {
   border-radius: 50%;
-  height: 20px;
+  height: 25px;
   width: auto;
 }
 
 .CloseDrawIcon {
-  height: 20px;
+  height: 25px;
   width: auto;
 }
+
 .AnimateOpenIcon.OpenDrawIcon {
   transform: scale(1);
   animation: pulse 2s infinite;
+}
+
+@media (hover: hover) {
+  .DrawControl:hover {
+    animation: hoverPulse 0.3s ease-in-out;
+  }
 }
 
 @keyframes pulse {
@@ -51,5 +64,19 @@
   100% {
     transform: scale(0.8);
     box-shadow: 0 0 0 0 rgba(71, 71, 71, 0);
+  }
+}
+
+@keyframes hoverPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

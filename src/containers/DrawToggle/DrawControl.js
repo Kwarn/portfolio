@@ -8,6 +8,7 @@ const DrawControl = ({
   isDrawOpenByDefault,
   iconLocation = 'top',
   iconOnly = true,
+  icon = 'info',
   shouldAnimate = true,
 }) => {
   const [isDrawOpen, setIsDrawOpen] = useState(false)
@@ -29,21 +30,33 @@ const DrawControl = ({
   const control = (
     <div
       className={`${classes.DrawControl} 
-        ${iconLocation === 'top' ? classes.TopRight : classes.BottomRight}`}
+        ${
+          iconLocation === 'top'
+            ? classes.TopRight
+            : isDrawOpen
+            ? classes.BottomCenterWhenDrawOpen
+            : classes.BottomCenter
+        }`}
       onClick={() => toggleDrawhandler()}
       onMouseEnter={() => setIsMouseOverDraw(true)}
       onMouseLeave={() => setIsMouseOverDraw(false)}
     >
       {!iconOnly ? (
         !isDrawOpen ? (
-          <div className={classes.MoreInfo}>Technical Info</div>
+          <div className={classes.MoreInfo}>Show Technical Info </div>
         ) : null
       ) : null}
       <img
         className={`${
           isDrawOpen ? classes.CloseDrawIcon : classes.OpenDrawIcon
         } ${shouldAnimate ? classes.AnimateOpenIcon : ''}`}
-        src={isDrawOpen ? imageAssets.charcoalCross : imageAssets.infoIcon}
+        src={
+          isDrawOpen
+            ? imageAssets.charcoalCross
+            : icon === 'info'
+            ? imageAssets.infoIcon
+            : imageAssets.clickIcon
+        }
         alt={isDrawOpen ? 'closeDraw' : 'openDraw'}
       />
     </div>
