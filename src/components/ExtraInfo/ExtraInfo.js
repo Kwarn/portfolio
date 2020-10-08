@@ -21,31 +21,30 @@ const ExtraInfo = ({ showModal }) => {
     return image
   }
 
+  const description = `Code challenges have become a hobby and are responsible for vastly improving my problem solving skills. They have been crucial in exposing me to the available language features with their correct and nuanced usage. I love the pursuit of the solution, from researching and challenging my knowledge, to testing solutions in a sandbox environment and discovering the language's inner workings.
+  
+  Through approaching problems from multiple angles, I'm constantly challenging myself to not just solve the problem but to find and understand the most elegant solutions. So far, I've completed all challenges on CodingBat, earned 1800 XP on Edabit solving primarily medium-hard difficulty problems and am currently working through certification on HackerRank.`
+
   return (
     <div className={classes.ExtraInfo}>
       <h2>Code Challenges</h2>
-      <p>
-        Code challenges have been one of the best methods of learning which
-        language features are available and their correct application.
-        I've completed all challenges on CodingBat, earned 1800 XP on Edabit
-        solving primarily medium-hard difficulty problems and am currently
-        working through certification on HackerRank.
-      </p>
+      <p>{description}</p>
       <hr />
+      <h2>Profiles & Resources</h2>
       {imageWithLink(
         imageAssets.hackerRank,
         'hackerRank',
         'https://www.hackerrank.com/karlwarner_dev'
       )}
       {imageWithLink(
-        imageAssets.codingBat,
-        'codingbat',
-        'https://codingbat.com/done?user=karlwarner.dev@gmail.com&tag=6083086670'
-      )}
-      {imageWithLink(
         imageAssets.edabit,
         'edabit',
         'https://edabit.com/user/qgYikiD7WB8JciTdo'
+      )}
+      {imageWithLink(
+        imageAssets.codingBat,
+        'codingbat',
+        'https://codingbat.com/done?user=karlwarner.dev@gmail.com&tag=6083086670'
       )}
       {imageWithLink(
         imageAssets.udemy,
@@ -62,16 +61,10 @@ const ExtraInfo = ({ showModal }) => {
         'codecademy',
         'https://www.codecademy.com/profiles/Xeptic'
       )}
-      <h2>Reading Material</h2>
       <hr />
       <div className={classes.Resources}></div>
       {imageWithModal(imageAssets.theArtOfReadableCode)}
       {imageWithModal(imageAssets.becomingABetterProgrammer)}
-      {imageWithLink(
-        imageAssets.stackOverflow,
-        'stackOverflow',
-        'https://stackoverflow.com'
-      )}
     </div>
   )
 }
