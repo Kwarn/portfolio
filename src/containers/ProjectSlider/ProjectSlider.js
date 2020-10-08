@@ -60,12 +60,10 @@ const ProjectSlider = ({ showModal }) => {
       gitHubLink: 'https://github.com/Kwarn/Fizzy-Lookup',
       description: `Desktop App which allows easier searching of excel data.
 
-      Built for the head of lettings for a boutique serviced apartments company, this project allowed me demonstrate and practice a real world use-case of what I had learned with Python.
+      Built for the head of lettings for a boutique serviced apartments company, this project allowed me demonstrate and practice a real world use-case for what I had learned with Python.
       
       The app uses pandas (data analysis library) to convert an excel spread-sheet to columns and rows displayed by tkinter (GUI library). The user can accurately search the data using a combination of 7 drop-down menus.`,
-      whatILearned: `The importance of accurately communicating a description 
-        of the clients needs so that unnecessary or miscommunicated functionality
-        didn't waste development time.`,
+      whatILearned: `The importance of accurately communicating a description of the clients needs so that unnecessary or miscommunicated functionality didn't waste development time.`,
 
       technicalPractices:
         'Importing and reading XML files with Pandas, Tkinter scrollable canvas frames, Multiple uses of widgets, Grid place & pack layout management, Commutative search algorithm',
