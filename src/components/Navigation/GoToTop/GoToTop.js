@@ -38,7 +38,7 @@ const GoToTop = ({ scrollToTop }) => {
       }
     >
       <JumpToSectionArrow
-        arrowText="Back to top"
+        arrowColor='light'
         arrowDirection="up"
         shouldFadeIn={false}
         shouldPulse={false}
