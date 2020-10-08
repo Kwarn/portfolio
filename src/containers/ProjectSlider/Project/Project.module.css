@@ -40,7 +40,7 @@
 }
 
 .MainContent {
-  padding: 15px 15px 30px 15px;
+  padding: 15px 15px 35px 15px;
   border-radius: 0px 0px 10px 10px;
   background: rgba(251, 243, 238, 0.85);
   box-shadow: 0 5px 10px #474747;
@@ -54,6 +54,10 @@
 .Desc {
   display: inline-flex;
   justify-content: space-between;
+}
+
+.Desc p {
+  margin-right: 5px;
 }
 
 .ProjectImageWrapper {
@@ -89,7 +93,7 @@
 
 .MainContentWrapper p {
   white-space: pre-line;
-  padding: 10px 0 10px;
+  padding: 10px 0px 10px 0;
 }
 
 .MainContentWrapper ul {
@@ -97,7 +101,7 @@
   padding: 5px 15px 15px 25px;
 }
 
-@media (max-height: 760px), (max-width: 400px) {
+@media (max-width: 700px) {
   .MainContentWrapper p {
     font-size: 0.8em;
   }
@@ -139,14 +143,16 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-height: 700px), (max-width: 450px) {
   .Project {
+    margin: 30% auto auto auto;
     padding: 0 5% 0 5%;
   }
 }
 
 @media (max-width: 360px) {
   .Project {
-    padding: 0 2% 0 2%;
+    margin: 5% auto auto auto;
+    padding: 0 0 0 0;
   }
 }

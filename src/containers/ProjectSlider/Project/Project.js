@@ -64,6 +64,7 @@ const Project = ({ project, showModal }) => {
         <DrawToggle
           iconLocation="bottom"
           iconOnly={false}
+          icon='click'
           shouldAnimate={false}
           drawContent={
             <div>
