@@ -22,8 +22,9 @@ const Home = () => {
     <div className={classes.AboutMe}>
       As a technical and mechanical tinkerer from a young age, I've always been
       drawn to understanding how things work and pursuing solutions to problems.
-      Curiosity has led me to understand a broad range of technologies and 
-      I'd like to continue my journey inside a skilled team that I can learn from and grow with.
+      Curiosity has led me to understand a broad range of technologies and I'd
+      like to continue my journey inside a skilled team that I can learn from
+      and grow with.
     </div>
   )
 
@@ -106,12 +107,28 @@ const Home = () => {
           <JumpToSectionArrow
             arrowColor="light"
             shouldFadeIn={false}
+            scrollIntoViewFn={() => scrollIntoView('extraInfo')}
+          />
+        </div>
+      </div>
+      <div ref={elementRefs.extraInfo} className={classes.ExtraInfoWrapper}>
+        <ObserveIntersection targetRef={elementRefs.projects}>
+          <Suspense fallback={<Spinner />}>
+            <ExtraInfo
+              showModal={modalContent => showModalHandler(modalContent)}
+            />
+          </Suspense>
+        </ObserveIntersection>
+        <div className={classes.JumpToSectionArrowWrapper}>
+          <JumpToSectionArrow
+            arrowColor="dark"
+            shouldFadeIn={false}
             scrollIntoViewFn={() => scrollIntoView('courses')}
           />
         </div>
       </div>
       <div ref={elementRefs.courses} className={classes.CoursesWrapper}>
-        <ObserveIntersection targetRef={elementRefs.projects}>
+        <ObserveIntersection targetRef={elementRefs.extraInfo}>
           <Suspense fallback={<Spinner />}>
             <Courses
               showModal={modalContent => showModalHandler(modalContent)}
@@ -123,28 +140,12 @@ const Home = () => {
           <JumpToSectionArrow
             arrowColor="light"
             shouldFadeIn={false}
-            scrollIntoViewFn={() => scrollIntoView('extraInfo')}
-          />
-        </div>
-      </div>
-      <div ref={elementRefs.extraInfo} className={classes.ExtraInfoWrapper}>
-        <ObserveIntersection targetRef={elementRefs.courses}>
-          <Suspense fallback={<Spinner />}>
-            <ExtraInfo
-              showModal={modalContent => showModalHandler(modalContent)}
-            />
-          </Suspense>
-        </ObserveIntersection>
-        <div className={classes.JumpToSectionArrowWrapper}>
-          <JumpToSectionArrow
-            arrowColor="dark"
-            shouldFadeIn={false}
             scrollIntoViewFn={() => scrollIntoView('contact')}
           />
         </div>
       </div>
       <div className={classes.ContactWrapper} ref={elementRefs.contact}>
-        <ObserveIntersection targetRef={elementRefs.contact}>
+        <ObserveIntersection targetRef={elementRefs.courses}>
           <Suspense fallback={<Spinner />}>
             <Contact />
           </Suspense>
