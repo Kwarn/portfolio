@@ -3,10 +3,9 @@
   height: 50px;
   position: fixed;
   bottom: 0;
-  right: 5px;
+  right: 10px;
   z-index: 100;
   transition: bottom 0.6s;
-  background-color:rgba(71, 71, 71, 0.6);
   padding: 5px
 }
 
@@ -21,5 +20,5 @@
 }
 
 .GoToTopShown {
-  bottom: -10px;
+  bottom: 0px;
 }

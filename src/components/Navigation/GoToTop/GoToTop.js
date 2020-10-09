@@ -38,10 +38,10 @@ const GoToTop = ({ scrollToTop }) => {
       }
     >
       <JumpToSectionArrow
-        arrowColor='light'
+        arrowColor='dark'
         arrowDirection="up"
         shouldFadeIn={false}
-        shouldPulse={false}
+        shouldPulse={true}
         scrollIntoViewFn={scrollToTop}
       />
     </footer>
