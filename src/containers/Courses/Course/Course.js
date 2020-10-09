@@ -16,6 +16,7 @@ const Course = ({ course, showModal }) => {
     <img src={imageAssets.magnifyingGlass} alt="click to view" />
   ) : null
 
+  const description = <p>{desc}</p>
   return (
     <>
       <div className={classes.Course}>
@@ -33,7 +34,7 @@ const Course = ({ course, showModal }) => {
             {title}
           </a>
         </h3>
-        <DrawToggle drawContent={desc} />
+        <DrawToggle drawContent={description} />
       </div>
     </>
   )
