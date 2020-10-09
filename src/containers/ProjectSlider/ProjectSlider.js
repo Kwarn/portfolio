@@ -13,9 +13,9 @@ const ProjectSlider = ({ showModal }) => {
       gitHubLink: 'https://github.com/Kwarn/portfolio',
       description: `The portfolio has been an invaluable resource allowing me to practise a variety of design approaches, receive feedback and consider different perspectives.
       Throughout the project I’ve challenged myself to implement components & features from the ground up, with the goal of achieving a strong grasp of how popular components work.`,
-      whatILearned: `How to debug effectively while finding and adapting solutions to my specific case. 
-      Learning how to debug efficiently has been crucial to maintaining positivity, progress and keeping to my deadlines.
-      Predicting why and where bugs are likely to occur has dramatically improved through practice. I’ve learned multiple techniques for locating the source of issues and thrive on the process of weeding out bad solutions and honing in on the best solutions for my case.`,
+      whatILearned: `Effective debugging, finding and adapting solutions to my specific case. 
+      Debugging efficiently has been crucial to maintaining positivity, progress and keeping to my deadlines.
+      My abilty to predict why and where bugs are likely to occur has dramatically improved through practice. I’ve learned multiple techniques for locating the source of issues and thrive on the process of honing in on the best solutions.`,
       technicalPractices:
         'IntersectionObserver API for LazyLoading & scroll to navigation, EmailJS API allowing direct messaging from browser to inbox, File-saver libary for direct downloading of CV from react, Carousel with UseSwipable hook to allow swiping between slides, Form validation with invalid form error message handling, Various CSS layout/positioning examples, CSS failsafes to prevent sticky hover effects on mobile, Fully responsive design catering from 4k users to 320x568 iPhone 5 users',
     },
@@ -31,9 +31,9 @@ const ProjectSlider = ({ showModal }) => {
 
       The project greatly helped cement my understanding of React, Redux and the differences and nuances in approach when developing responsive react applications.`,
 
-      whatILearned: `The difference between new and old approaches.
-
-      My final practice in this project was to convert the app from mostly older class-based components using lifecycle hooks (componentDidMount) to newer functional components using React Hooks (useEffect).  This played a vital role in reaffirming my overall understanding of React.`,
+      whatILearned: `Asynchronous actions with Async-Await, Promises & Axios. Functional vs class based components.
+      Through practising multiple popular approaches to asynchronous actions I've gained a solid understanding of how they fit into the larger React Ecosystem.
+      I found one of the most impactful practice in this project was to convert the app from mostly older class-based components using lifecycle hooks (componentDidMount) to newer functional components using React Hooks (useEffect).`,
       technicalPractices: `Multiple approaches to handling State, Preservation of user's session with Authentication tokens and localStorage, Promises & Asynchronous actions with Thunk/Sagas & Fetch/Axios, Class-based components and Functional components, Higher order components, React.Memo and performance tweaks, Database rules configuration`,
     },
     {
