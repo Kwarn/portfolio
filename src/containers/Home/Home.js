@@ -1,4 +1,4 @@
-import React, { useState, useRef, Suspense } from 'react'
+import React, { useState, useEffect, useRef, Suspense } from 'react'
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements'
 import Modal from '../../components/UI/Modal/Modal'
 import ExtraInfo from '../../components/ExtraInfo/ExtraInfo'
@@ -17,6 +17,24 @@ const Home = () => {
     isOpen: false,
     modalContent: null,
   })
+
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  })
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWindowDimensions)
+    return () => {
+      window.removeEventListener('resize', updateWindowDimensions)
+    }
+  }, [])
+
+  const updateWindowDimensions = () =>
+    setWindowDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    })
 
   const aboutMe = (
     <div className={classes.AboutMe}>
@@ -66,7 +84,7 @@ const Home = () => {
         <WelcomeElements />
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
-            arrowColor="light"
+            arrowColor={windowDimensions.width < 1024 ? 'light' : 'dark'}
             scrollIntoViewFn={() => scrollIntoView('aboutMe')}
           />
         </div>
@@ -105,7 +123,7 @@ const Home = () => {
         </ObserveIntersection>
         <div className={classes.JumpToSectionArrowWrapper}>
           <JumpToSectionArrow
-            arrowColor="light"
+            arrowColor="dark"
             shouldFadeIn={false}
             scrollIntoViewFn={() => scrollIntoView('extraInfo')}
           />
