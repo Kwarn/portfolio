@@ -143,14 +143,21 @@
   }
 }
 
-@media (max-height: 700px), (max-width: 450px) {
+@media (max-width: 450px) {
   .Project {
     margin: 30% auto auto auto;
     padding: 0 5% 0 5%;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
+  .Project {
+    margin: 20% auto auto auto;
+    padding: 0 5% 0 5%;
+  }
+}
+
+@media (max-width: 340px) {
   .Project {
     margin: 5% auto auto auto;
     padding: 0 0 0 0;
