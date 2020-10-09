@@ -5,7 +5,7 @@ import classes from './NavigationItems.module.css'
 import imageAssets from '../../../assets/assets'
 
 const saveFile = () =>
-  FileSaver.saveAs(process.env.PUBLIC_URL + '/resource/test.jpg', 'test.jpg')
+  FileSaver.saveAs(process.env.PUBLIC_URL + '/resource/Karl_Warner_CV.pdf', 'Karl_Warner_CV.pdf')
 
 const NavigationItems = () => {
   return (
