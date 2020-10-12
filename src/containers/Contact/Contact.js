@@ -13,7 +13,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
     },
     wasTouched: false,
     isValid: false,
-    invalidFormErrorMessage: 'Name must be atleast 2 characters',
+    invalidFormErrorMessage: 'Name must be at least 2 characters.',
     value: '',
   })
   const [emailElement, setEmailElement] = useState({
@@ -23,7 +23,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
     },
     wasTouched: false,
     isValid: false,
-    invalidFormErrorMessage: 'Please enter a vaild email address',
+    invalidFormErrorMessage: 'Please enter a valid email address.',
     value: '',
   })
   const [subjectElement, setSubjectElement] = useState({
@@ -41,7 +41,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
     },
     wasTouched: false,
     isValid: false,
-    invalidFormErrorMessage: 'Message must be atleast 10 characters',
+    invalidFormErrorMessage: 'Message must be at least 10 characters.',
     value: '',
   })
   const [isFormValid, setIsFormValid] = useState(false)
