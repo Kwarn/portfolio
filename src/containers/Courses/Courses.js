@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
-import imageAssets from '../../assets/assets'
-import Course from './Course/Course'
-import classes from '../../containers/Courses/Courses.module.css'
+import React, { useState } from 'react';
+import imageAssets from '../../assets/assets';
+import Course from './Course/Course';
+import classes from '../../containers/Courses/Courses.module.css';
 
 const Courses = ({ showModal }) => {
   const [courses] = useState([
+    {
+      title: 'Understanding TypeScript - 2020 Edition',
+      desc: `Complete guide to TypeScript including using TypeScript with React/Redux/Node/Express/Next, decorators, interfaces, types, namespaces and more..`,
+      courseLink: 'https://www.udemy.com/course/understanding-typescript/',
+      cert: imageAssets.typescriptCertificate,
+    },
     {
       title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
       desc: `A comprehensive course demonstrating multiple approaches both new and old to creating responsive react apps.`,
@@ -36,18 +42,18 @@ const Courses = ({ showModal }) => {
       courseLink: 'https://www.codecademy.com/learn/learn-sql',
       cert: imageAssets.sqlCodeAcademyCertificate,
     },
-  ])
+  ]);
 
   let courseElements = courses.map(course => (
     <Course key={course.title} course={course} showModal={showModal} />
-  ))
+  ));
 
   return (
     <div className={classes.Courses}>
       <h2>Courses & Certificates</h2>
       {courseElements}
     </div>
-  )
-}
+  );
+};
 
-export default Courses
+export default Courses;

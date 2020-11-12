@@ -6,7 +6,7 @@ import classes from './Skills.module.css'
 const Skills = () => {
   const [skills] = useState([
     {
-      title: 'Javascript',
+      title: 'TypeScript / Javascript',
       content: `ES6+, React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme, NodeJs, NextJs.`,
       image: imageAssets.javascript,
       fadeInAndAlignDirection: 'left',

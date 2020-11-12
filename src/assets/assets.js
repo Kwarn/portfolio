@@ -1,5 +1,6 @@
 const imageAssets = {
   profileImage: require('../assets/profileImage.png'),
+  typescriptCertificate: require('../assets/typescriptCertificate.jpg'),
   javascriptCertificate: require('../assets/javascriptCertificate.jpg'),
   reactCertificate: require('../assets/reactCertificate.jpg'),
   freeCodeCampCertificate: require('../assets/freeCodeCampCertificate.png'),
@@ -44,6 +45,6 @@ const imageAssets = {
   stackOverflow: require('../assets/stackOverflow.png'),
   uiUx: require('../assets/uiux.png'),
   visualStudioCode: require('../assets/visualStudioCode.png'),
-}
+};
 
-export default imageAssets
+export default imageAssets;
