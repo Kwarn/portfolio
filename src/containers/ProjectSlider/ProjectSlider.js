@@ -1,11 +1,29 @@
-import React, { useState } from 'react'
-import { useSwipeable } from 'react-swipeable'
-import imageAssets from '../../assets/assets'
-import Project from './Project/Project'
-import classes from './ProjectSlider.module.css'
+import React, { useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
+import imageAssets from '../../assets/assets';
+import Project from './Project/Project';
+import classes from './ProjectSlider.module.css';
 
 const ProjectSlider = ({ showModal }) => {
   const [projectSlides] = useState([
+    {
+      title: 'E-Commerce site - Work In Progress',
+      image: imageAssets.ecommerce,
+      liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
+      previewTechStack: 'Javascript, React, Firebase, CSS',
+      gitHubLink: 'https://github.com/Kwarn/e-commerce',
+      description: `My current project being developed mobile-first. Please view on mobile!
+      
+      This single page app is being built complimentary (from the ground up!) on behalf of Twelve Oaks as a way to practice my development and client communication skills while gaining a production build to include in my portfolio.
+
+      Using a competitors site as inspiration I have gained a better understanding of how popular design principles are implemented.
+
+      I am particularly proud of the fully functioning contact form, menu & sidebar.`,
+      whatILearned:
+        'The advantages of the styled-components libary, improved file/folder structure, use of React Hooks to speed-up development time.',
+      technicalPractices:
+        'React, React-router-dom, Redux-ducks, CSS - Styled Components, EmailJs libary for direct E-mail messaging from React',
+    },
     {
       title: 'Portfolio',
       image: imageAssets.portfolio,
@@ -70,23 +88,23 @@ const ProjectSlider = ({ showModal }) => {
       previewTechStack: 'Python, Tkinter, SQlite3',
 
       gitHubLink: 'https://github.com/Kwarn/fitness',
-      description: `A light-weight MyFitnessPal clone, this was my first python project. This app allows users to save their meal history and add new meals with their ingredients and caloric information to a SQlite database.`,
+      description: `A light-weight My Fitness Pal clone, this was my first python project. This app allows users to save their meal history and add new meals with their ingredients and caloric information to a SQlite database.`,
       whatILearned: `I learned the importance of looking for a cleaner, established solution before implementing my own.
 
       My initial approach to storing data used the file system to read/write to a text file. I found this approach to be extremely cumbersome. In my search for a better solution I took the time to weight up the different options and settled on using SQLite database.`,
       technicalPractices:
         'Storing user input, Database management, Tkinter widgets,  Grid place & pack layout management',
     },
-  ])
+  ]);
 
-  const [x, setX] = useState(0)
+  const [x, setX] = useState(0);
 
   const handlers = useSwipeable({
     onSwipedLeft: () => goRight(),
     onSwipedRight: () => goLeft(),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
-  })
+  });
 
   const slides = projectSlides.map(project => {
     return (
@@ -97,15 +115,15 @@ const ProjectSlider = ({ showModal }) => {
       >
         <Project project={project} showModal={showModal} />
       </div>
-    )
-  })
+    );
+  });
 
   const goLeft = () => {
-    x === 0 ? setX(-100 * (slides.length - 1)) : setX(x + 100)
-  }
+    x === 0 ? setX(-100 * (slides.length - 1)) : setX(x + 100);
+  };
   const goRight = () => {
-    x === -100 * (slides.length - 1) ? setX(0) : setX(x - 100)
-  }
+    x === -100 * (slides.length - 1) ? setX(0) : setX(x - 100);
+  };
 
   return (
     <div {...handlers} className={classes.Slider}>
@@ -123,7 +141,7 @@ const ProjectSlider = ({ showModal }) => {
         <img src={imageAssets.rightChevron} alt="go right" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectSlider
+export default ProjectSlider;
