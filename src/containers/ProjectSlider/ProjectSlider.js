@@ -14,9 +14,9 @@ const ProjectSlider = ({ showModal }) => {
       gitHubLink: 'https://github.com/Kwarn/e-commerce',
       description: `My current project being developed mobile-first. Please view on mobile!
       
-      This single page app is being built complimentary (from the ground up!) on behalf of Twelve Oaks as a way to practice my development and client communication skills while gaining a production build to include in my portfolio.
+      This single page app is being built complimentary from the ground up on behalf of Twelve Oaks as a way to practice my development and client communication skills while gaining a production build to include in my portfolio.
 
-      Using a competitors site as inspiration I have gained a better understanding of how popular design principles are implemented.
+      Using a competitors site as inspiration; I have gained a better understanding of how popular design principles are implemented.
 
       I am particularly proud of the fully functioning contact form, menu & sidebar.`,
       whatILearned:
