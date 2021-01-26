@@ -12,7 +12,7 @@ const ProjectSlider = ({ showModal }) => {
       liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
       previewTechStack: 'Javascript, React, Firebase, CSS',
       gitHubLink: 'https://github.com/Kwarn/e-commerce',
-      description: `My current project being developed mobile-first. Please view on mobile!
+      description: `My current project being developed mobile-first.
       
       This single page app is being built complimentary from the ground up on behalf of Twelve Oaks as a way to practice my development and client communication skills while gaining a production build to include in my portfolio.
 
