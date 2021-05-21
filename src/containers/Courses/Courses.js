@@ -6,7 +6,7 @@ import classes from '../../containers/Courses/Courses.module.css';
 const Courses = ({ showModal }) => {
   const [courses] = useState([
     {
-      title: 'WIP: NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)',
+      title: 'WiP: NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)',
       desc: `A comprehensive guide to NodeJs & surrounding libaries. 
         Projects include a server side rendered e-commerce API, RESTful API & Graphql API while following best practices.`,
       courseLink: 'https://www.udemy.com/course/nodejs-the-complete-guide/',

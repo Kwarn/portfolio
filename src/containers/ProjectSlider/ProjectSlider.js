@@ -7,6 +7,36 @@ import classes from './ProjectSlider.module.css';
 const ProjectSlider = ({ showModal }) => {
   const [projectSlides] = useState([
     {
+      title: 'NodeJs/Express Projects',
+      image: imageAssets.serverSideRendered,
+      liveDemoLink: 'https://node-the-complete-guide.herokuapp.com/',
+      previewTechStack: 'Node, graphql, mongodb',
+      gitHubLink: 'https://github.com/Kwarn/node-the-complete-guide',
+      projectLinks: {
+        serverSideRendered: {
+          link: 'https://github.com/Kwarn/node-the-complete-guide',
+          description:
+            'E-Commerce - Server-side rendering (demo link top right)',
+        },
+        graphQl: {
+          link: 'https://github.com/Kwarn/blog-REST-API/',
+          description: 'GraphQl Blog API - Recently converted from RESTful API',
+        },
+        frontend: {
+          link: 'https://github.com/Kwarn/blog-frontend',
+          description: 'GraphQl Blog API - Paired Front-End',
+        },
+      },
+      description: `
+        These projects were built from the ground up demonstrating multiple approaches to building an API.
+
+        The goal has been to understand the situational usages and to provide a greater knowledge base from which to decide how to proceed with my current project's backend (Twelve Oaks E-commerce site).
+      `,
+      whatILearned: `How API's work. Detailed understanding of common practices & design patterns.`,
+      technicalPractices:
+        'Authentication - validation - sessions & csrf tokens, Security - environment variables & encryption, File system - uploads/downloads & compression, Middleware - routes & pagination, Request Logging, Error handling & HTTP status codes, Payments - Stripe, Sending emails - signup confirmation & reset password process, Preparing for and Deploying - Heroku/firebase, SQL & noSQL - Schemas - MongoDB/Mongoose & mySQL',
+    },
+    {
       title: 'E-Commerce site - Work In Progress',
       image: imageAssets.ecommerce,
       liveDemoLink: 'https://e-commerce-d1b62.web.app/home',

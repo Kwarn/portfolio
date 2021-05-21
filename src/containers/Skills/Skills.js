@@ -7,7 +7,7 @@ const Skills = () => {
   const [skills] = useState([
     {
       title: 'TypeScript / JavaScript',
-      content: `ES6+, React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme, NodeJs, NextJs.`,
+      content: `ES6+, NodeJs, ExpressJs, GraphQL, React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme.`,
       image: imageAssets.javascript,
       fadeInAndAlignDirection: 'left',
       delayRenderDuration: 0,

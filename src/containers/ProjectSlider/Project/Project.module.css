@@ -82,6 +82,14 @@
   width: auto;
 }
 
+.projectLinks {
+  margin: 5px;
+}
+
+.projectLink a {
+  color: inherit;
+}
+
 .MainContentWrapper h2 {
   text-align: center;
   padding: 10px;
@@ -110,6 +118,9 @@
   }
   .MainContentWrapper h3 {
     font-size: 1em;
+  }
+  .MainContentWrapper a {
+    font-size: 0.8em;
   }
   .ProjectImage img {
     height: 120px;

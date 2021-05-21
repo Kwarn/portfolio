@@ -1,12 +1,12 @@
-import React from 'react'
-import DrawToggle from '../../DrawToggle/DrawControl'
-import imageAssets from '../../../assets/assets'
-import classes from './Project.module.css'
+import React from 'react';
+import DrawToggle from '../../DrawToggle/DrawControl';
+import imageAssets from '../../../assets/assets';
+import classes from './Project.module.css';
 
 const Project = ({ project, showModal }) => {
   const imageTags = project.previewTechStack
     .split(',')
-    .map(tag => tag.toLowerCase().trim())
+    .map(tag => tag.toLowerCase().trim());
 
   const images = imageTags.map(tag =>
     imageAssets[tag] ? (
@@ -17,7 +17,7 @@ const Project = ({ project, showModal }) => {
         alt={tag}
       />
     ) : null
-  )
+  );
 
   const externalLinks = (
     <div className={classes.ExternalLinks}>
@@ -36,15 +36,15 @@ const Project = ({ project, showModal }) => {
         </a>
       ) : null}
     </div>
-  )
+  );
 
   const projectImage = project.image ? (
     <img src={project.image} alt="projectImage" />
-  ) : null
+  ) : null;
 
   const projectImageMagGlass = project.image ? (
     <img src={imageAssets.magnifyingGlass} alt="click to view" />
-  ) : null
+  ) : null;
 
   const technicalPractices = project.technicalPractices
     .split(', ')
@@ -52,7 +52,19 @@ const Project = ({ project, showModal }) => {
       <li className={classes.ListItem} key={practice}>
         {practice}
       </li>
-    ))
+    ));
+
+  const pLinks = [];
+  if (project.projectLinks) {
+    for (let projectTitle in project.projectLinks)
+      pLinks.push(
+        <div key={projectTitle} className={classes.projectLink}>
+          <a href={project.projectLinks[projectTitle].link}>
+            {project.projectLinks[projectTitle].description}
+          </a>
+        </div>
+      );
+  }
 
   return (
     <div className={`${classes.Project} ${classes.Slide}`}>
@@ -64,7 +76,7 @@ const Project = ({ project, showModal }) => {
         <DrawToggle
           iconLocation="bottom"
           iconOnly={false}
-          icon='click'
+          icon="click"
           shouldAnimate={false}
           drawContent={
             <div>
@@ -77,9 +89,16 @@ const Project = ({ project, showModal }) => {
           <div className={classes.TitleWrapper}>
             <h2>{project.title}</h2>
           </div>
+          {pLinks.length > 0 ? (
+            <div className={classes.projectLinks}>
+              <h3>Git-Repo Links</h3>
+              {pLinks}
+            </div>
+          ) : null}
 
           <div className={classes.Desc}>
             <p>{project.description}</p>
+            <div className={classes.projectLinks}></div>
             <div
               className={classes.ProjectImageWrapper}
               onClick={() => showModal(projectImage)}
@@ -94,7 +113,7 @@ const Project = ({ project, showModal }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
