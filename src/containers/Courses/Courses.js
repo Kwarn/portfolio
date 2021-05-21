@@ -6,6 +6,13 @@ import classes from '../../containers/Courses/Courses.module.css';
 const Courses = ({ showModal }) => {
   const [courses] = useState([
     {
+      title: 'WIP: NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)',
+      desc: `A comprehensive guide to NodeJs & surrounding libaries. 
+        Projects include a server side rendered e-commerce API, RESTful API & Graphql API while following best practices.`,
+      courseLink: 'https://www.udemy.com/course/nodejs-the-complete-guide/',
+      cert: imageAssets.workInProgressCertificate,
+    },
+    {
       title: 'Understanding TypeScript - 2020 Edition',
       desc: `Complete guide to TypeScript including using TypeScript with React/Redux/Node/Express/Next, decorators, interfaces, types, namespaces and more..`,
       courseLink: 'https://www.udemy.com/course/understanding-typescript/',
@@ -29,16 +36,13 @@ const Courses = ({ showModal }) => {
     },
     {
       title: 'Javascript Algorithms and Data Structures',
-      desc:
-        'My first detailed introduction to Javascript, left me wanting more!',
+      desc: 'My first detailed introduction to Javascript, left me wanting more!',
       courseLink: 'https://www.freecodecamp.org/karl_warner',
       cert: imageAssets.freeCodeCampCertificate,
     },
     {
-      isFirstElementOfTag: true,
       title: 'Learn SQL',
-      desc:
-        'Using SQlite3 in the fitness project prompted me to brush up on my SQL knowledge.',
+      desc: 'Using SQlite3 in the fitness project prompted me to brush up on my SQL knowledge.',
       courseLink: 'https://www.codecademy.com/learn/learn-sql',
       cert: imageAssets.sqlCodeAcademyCertificate,
     },

@@ -51,6 +51,7 @@
   position: relative;
   background-color: rgba(71, 71, 71);
   min-height: 100vh;
+  padding: 20px;
   display: flex;
   justify-content: center;
 }
