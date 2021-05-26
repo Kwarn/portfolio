@@ -30,8 +30,8 @@ const ProjectSlider = ({ showModal }) => {
       (Demo's coming soon!)
 
       Built from the ground up, these projects demonstrate multiple approaches to creating APIs.
-      
-      The goal has been to understand the different situational usages and to provide me with a greater knowledge base on which to decide how to proceed with my current project's backend (Twelve Oaks E-commerce site).
+
+      The goal has been to gain greater knowledge base from which to decide how to proceed with my current project's backend.
       `,
       whatILearned: `How API's work. Detailed understanding of common practices & design patterns.`,
       technicalPractices:
@@ -43,13 +43,12 @@ const ProjectSlider = ({ showModal }) => {
       liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
       previewTechStack: 'Javascript, React, Firebase, CSS',
       gitHubLink: 'https://github.com/Kwarn/e-commerce',
-      description: `My current project being developed mobile-first.
-      
-      This single page app is being built complimentary from the ground up on behalf of Twelve Oaks as a way to practice my development and client communication skills while gaining a production build to include in my portfolio.
+      description: `
+      This React app is being built on behalf of Twelve Oaks (flooring retailer) to further practice my development and client development/communication skills.
 
       Using a competitors site as inspiration; I have gained a better understanding of how popular design principles are implemented.
 
-      I am particularly proud of the fully functioning contact form, menu & sidebar.`,
+      I am particularly proud of the fully functioning contact form.`,
       whatILearned:
         'The advantages of the styled-components libary, improved file/folder structure, use of React Hooks to speed-up development time.',
       technicalPractices:
