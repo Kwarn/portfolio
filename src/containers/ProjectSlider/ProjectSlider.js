@@ -9,28 +9,29 @@ const ProjectSlider = ({ showModal }) => {
     {
       title: 'NodeJs/Express Projects',
       image: imageAssets.serverSideRendered,
-      liveDemoLink: 'https://node-the-complete-guide.herokuapp.com/',
+      liveDemoLink: '',
       previewTechStack: 'Node, graphql, mongodb',
       gitHubLink: 'https://github.com/Kwarn/node-the-complete-guide',
       projectLinks: {
         serverSideRendered: {
           link: 'https://github.com/Kwarn/node-the-complete-guide',
-          description:
-            'E-Commerce - Server-side rendering (demo link top right)',
+          description: 'E-Commerce - ExpressJs server-side rendering',
         },
         graphQl: {
           link: 'https://github.com/Kwarn/blog-REST-API/',
-          description: 'GraphQl Blog API - Recently converted from RESTful API',
+          description: 'Blog - GraphQl API',
         },
         frontend: {
           link: 'https://github.com/Kwarn/blog-frontend',
-          description: 'GraphQl Blog API - Paired Front-End',
+          description: 'Blog - Front-End',
         },
       },
       description: `
-        These projects were built from the ground up demonstrating multiple approaches to building an API.
+      (Demo's coming soon!)
 
-        The goal has been to understand the situational usages and to provide a greater knowledge base from which to decide how to proceed with my current project's backend (Twelve Oaks E-commerce site).
+      Built from the ground up, these projects demonstrate multiple approaches to creating APIs.
+      
+      The goal has been to understand the different situational usages and to provide me with a greater knowledge base on which to decide how to proceed with my current project's backend (Twelve Oaks E-commerce site).
       `,
       whatILearned: `How API's work. Detailed understanding of common practices & design patterns.`,
       technicalPractices:
