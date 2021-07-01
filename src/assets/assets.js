@@ -1,6 +1,6 @@
 const imageAssets = {
   profileImage: require('../assets/profileImage.png'),
-  workInProgressCertificate: require('../assets/workInProgress.jpg'),
+  nodeCertificate: require('../assets/nodeCertificate.jpg'),
   typescriptCertificate: require('../assets/typescriptCertificate.jpg'),
   javascriptCertificate: require('../assets/javascriptCertificate.jpg'),
   reactCertificate: require('../assets/reactCertificate.jpg'),
