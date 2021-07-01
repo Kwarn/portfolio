@@ -1,6 +1,6 @@
 .WelcomeElements {
   position: relative;
-  margin: 40vh auto auto auto;
+  margin: 30vh auto auto auto;
   color: #474747;
   max-width: 400px;
   border-radius: 20%;
@@ -32,6 +32,10 @@
 .TitleGroup {
   z-index: 2;
   padding: 20px 0 0 20px;
+}
+
+.AboutMe {
+  margin: auto;
 }
 
 .LinkIcons {

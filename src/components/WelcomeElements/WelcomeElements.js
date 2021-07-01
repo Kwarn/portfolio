@@ -1,12 +1,12 @@
-import React from 'react'
-import imageAssets from '../../assets/assets'
-import classes from './WelcomeElements.module.css'
+import React from 'react';
+import imageAssets from '../../assets/assets';
+import classes from './WelcomeElements.module.css';
 
 const WelcomeElements = () => {
   return (
     <>
       <div className={classes.WelcomeElements}>
-        <div className={classes.Background}/>
+        <div className={classes.Background} />
         <img
           className={classes.ProfileImage}
           src={imageAssets.profileImage}
@@ -39,7 +39,7 @@ const WelcomeElements = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default WelcomeElements
+export default WelcomeElements;

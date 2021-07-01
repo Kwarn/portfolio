@@ -7,37 +7,63 @@
   background: url('../../assets/welcomeBackground.jpg');
   background-size: cover;
   border-bottom: 6px solid #474747;
+  flex-direction: column;
 }
 
 .AboutMeWrapper {
-  font-size: 1.2em;
-  position: relative;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
+  margin: -50px auto auto auto;
 }
 
 .AboutMe {
-  margin: auto 20px auto 20px;
-  text-align: center;
+  font-size: 1.2em;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  white-space: pre-line;
+  background: rgba(251, 243, 238, 0.5);
+  border-bottom: 3px solid #474747;
+  border-radius: 30px 0 30px 30px;
+  text-align: left;
   max-width: 720px;
   color: #474747;
+  padding: 20px;
+}
+
+.AboutMeTitle {
+  font-size: 1em;
+  margin: 5px auto 15px auto;
+}
+
+.ProjectsSectionTitleWrapper {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  background: #474747;
+}
+
+.ProjectsSectionTitle {
+  margin: auto;
+  color: white;
+  text-align: center;
 }
 
 .JumpToSectionArrowWrapper {
-  position: absolute;
-  bottom: 55px;
+  margin: auto;
 }
 
 .SkillsWrapper {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: rgba(71, 71, 71);
+  /* background-color: rgba(71, 71, 71); */
   min-height: 100vh;
+  flex-direction: column;
 }
 
-.SliderWrapper {
+.ProjectsWrapper {
   background: url('../../assets/sliderBackground.jpg');
   background-size: cover;
   background-position: center;
@@ -45,6 +71,7 @@
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 .CoursesWrapper {
@@ -54,6 +81,7 @@
   padding: 20px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .ExtraInfoWrapper {
@@ -61,6 +89,7 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .ContactWrapper {
@@ -69,10 +98,12 @@
   background-size: cover;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
-@media (max-width: 360px) {
+/* @media (max-width: 360px) {
   .JumpToSectionArrowWrapper {
+    position: absolute;
     bottom: 5px;
   }
-}
+} */

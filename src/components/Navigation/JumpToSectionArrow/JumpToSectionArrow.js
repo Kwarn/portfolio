@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
 const JumpToSectionArrow = ({
   arrowColor = 'dark',
   arrowDirection = 'down',
-  arrowText,
+  arrowText = '',
   scrollIntoViewFn,
   shouldFadeIn = true,
   shouldPulse = true,

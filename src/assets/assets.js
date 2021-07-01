@@ -40,6 +40,8 @@ const imageAssets = {
   magnifyingGlass: require('../assets/magnifyingGlass.png'),
   infoIcon: require('../assets/infoIcon.png'),
   downloadIcon: require('../assets/downloadIcon.png'),
+  closeIcon: require('../assets/closeIcon.png'),
+  swipeIcon: require('../assets/swipeIcon.png'),
   theArtOfReadableCode: require('../assets/theArtOfReadableCode.jpg'),
   becomingABetterProgrammer: require('../assets/becomingABetterProgrammer.jpg'),
   hackerRank: require('../assets/hackerRank.png'),

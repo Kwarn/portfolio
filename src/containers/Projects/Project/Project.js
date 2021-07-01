@@ -3,7 +3,7 @@ import DrawToggle from '../../DrawToggle/DrawControl';
 import imageAssets from '../../../assets/assets';
 import classes from './Project.module.css';
 
-const Project = ({ project, showModal }) => {
+const Project = ({ project, showModalCb, closeModalCb }) => {
   const imageTags = project.previewTechStack
     .split(',')
     .map(tag => tag.toLowerCase().trim());
@@ -67,50 +67,62 @@ const Project = ({ project, showModal }) => {
   }
 
   return (
-    <div className={`${classes.Project} ${classes.Slide}`}>
-      <div className={classes.IconsBar}>
-        <div className={classes.TechImagesWrapper}>{images}</div>
-        {externalLinks}
+    <div className={classes.ProjectWrapper}>
+      <div className={classes.ProjectLinksWrapper}>
+        <div className={classes.ProjectLinks}>Project links</div>
       </div>
-      <div className={classes.MainContentWrapper}>
-        <DrawToggle
-          iconLocation="bottom"
-          iconOnly={false}
-          icon="click"
-          shouldAnimate={false}
-          drawContent={
-            <div>
-              <h3>Technical practices</h3>
-              <ul className={classes.LearnedList}>{technicalPractices}</ul>
-            </div>
-          }
-        />
-        <div className={classes.MainContent}>
-          <div className={classes.TitleWrapper}>
-            <h2>{project.title}</h2>
-          </div>
-          {pLinks.length > 0 ? (
-            <div className={classes.projectLinks}>
-              <h3>Git-Repo Links</h3>
-              {pLinks}
-            </div>
-          ) : null}
-
-          <div className={classes.Desc}>
-            <p>{project.description}</p>
-            <div className={classes.projectLinks}></div>
+      <div className={`${classes.Project}`}>
+        <div className={classes.ProjectBlock}>Info</div>
+        <div className={classes.ProjectBlock}>Info</div>
+        <div className={classes.ProjectBlock}>Info</div>
+        {/* <div className={classes.IconsBar}>
+          <div className={classes.TechImagesWrapper}>{images}</div>
+          {externalLinks}
+        </div>
+        <div className={classes.MainContentWrapper}>
+          <DrawToggle
+            iconLocation="bottom"
+            iconOnly={false}
+            icon="click"
+            shouldAnimate={false}
+            drawContent={
+              <div>
+                <h3>Technical practices</h3>
+                <ul className={classes.LearnedList}>{technicalPractices}</ul>
+              </div>
+            }
+          />
+          <div className={classes.MainContent}>
+            {pLinks.length > 0 ? (
+              <div className={classes.projectLinks}>
+                <h3>Git-Repo Links</h3>
+                {pLinks}
+              </div>
+            ) : null}
             <div
               className={classes.ProjectImageWrapper}
-              onClick={() => showModal(projectImage)}
+              onClick={() =>
+                showModalCb({
+                  isShown: true,
+                  content: [
+                    project.image,
+                    imageAssets.codeCademy,
+                    imageAssets.burgerBuilder,
+                  ],
+                })
+              }
             >
               {projectImage}
               {projectImageMagGlass}
             </div>
-          </div>
 
-          <h3>Key lessons</h3>
-          <p className={classes.Desc}>{project.whatILearned}</p>
-        </div>
+            <div className={classes.Desc}></div>
+            <p>{project.description}</p>
+
+            <h3>Key lessons</h3>
+            <p className={classes.Desc}>{project.whatILearned}</p>
+          </div>
+        </div> */}
       </div>
     </div>
   );
