@@ -2,11 +2,7 @@ import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import classes from './Home.module.css';
 import Dashboard from '../Dashboard/Dashboard';
-
-const Skills = React.lazy(() => import('../Skills/Skills'));
-
-const Courses = React.lazy(() => import('../Courses/Courses'));
-const Contact = React.lazy(() => import('../../containers/Contact/Contact'));
+import WebFont from 'webfontloader';
 
 const Home = () => {
   const [modalControl, setModalControl] = useState({
@@ -21,6 +17,11 @@ const Home = () => {
 
   useEffect(() => {
     window.addEventListener('resize', updateWindowDimensions);
+    WebFont.load({
+      google: {
+        families: ['Teko'],
+      },
+    });
     return () => {
       window.removeEventListener('resize', updateWindowDimensions);
     };

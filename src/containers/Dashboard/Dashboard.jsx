@@ -8,6 +8,7 @@ import WelcomeElements from '../../components/WelcomeElements/WelcomeElements';
 import Skills from '../Skills/Skills';
 import imageAssets from '../../assets/assets';
 import Courses from '../Courses/Courses';
+import { useSwipeable } from 'react-swipeable';
 
 /*
 
@@ -41,6 +42,22 @@ import Courses from '../Courses/Courses';
 */
 
 export default function Dashboard({ showModal }) {
+  // allows swiping up and down to cycle through menu and main content.
+  const config = { trackMouse: true, preventDefault: true };
+  const handlers = useSwipeable({
+    onSwipedDown: eventData =>
+      setActiveContentIndex(prev => {
+        if (prev === 0) return currentIndex - 1;
+        return prev - 1;
+      }),
+    onSwipedUp: eventData =>
+      setActiveContentIndex(prev => {
+        if (prev === currentIndex - 1) return 0;
+        return prev + 1;
+      }),
+    ...config,
+  });
+
   // when isShown && content are true the modal is displayed.
   const [modalStatus, setModalStatus] = useState({
     isShown: false,
@@ -166,34 +183,8 @@ export default function Dashboard({ showModal }) {
     </div>
   );
 
-  MenuItems.unshift(
-    <div
-      onClick={() =>
-        setActiveContentIndex(prev => {
-          if (prev === 0) return currentIndex - 1;
-          return prev - 1;
-        })
-      }
-    >
-      Up
-    </div>
-  );
-
-  MenuItems.push(
-    <div
-      onClick={() =>
-        setActiveContentIndex(prev => {
-          if (prev === currentIndex - 1) return 0;
-          return prev + 1;
-        })
-      }
-    >
-      Down
-    </div>
-  );
-
   return (
-    <div className={classes.DashboardWrapper}>
+    <div className={classes.DashboardWrapper} {...handlers}>
       <Modal
         isVisible={modalStatus.isShown && modalStatus.content}
         closeFn={() => closeModalHandler()}
