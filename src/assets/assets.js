@@ -27,6 +27,7 @@ const imageAssets = {
   gitHub: require('../assets/gitHub.png'),
   linkedIn: require('../assets/linkedIn.png'),
   linkedInCharcoal: require('../assets/linkedInCharcoal.png'),
+  menuPointer: require('../assets/menuPointer.png'),
   clickIcon: require('../assets/clickIcon.png'),
   whiteDownArrow: require('../assets/whiteDownArrow.png'),
   whiteUpArrow: require('../assets/whiteUpArrow.png'),

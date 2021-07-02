@@ -6,6 +6,7 @@ import projectData from './ProjectData';
 import WebFont from 'webfontloader';
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements';
 import Skills from '../Skills/Skills';
+import imageAssets from '../../assets/assets';
 
 export default function Dashboard({ showModal }) {
   // when isShown && content are true the modal is displayed.
@@ -34,6 +35,14 @@ export default function Dashboard({ showModal }) {
     </div>,
   ];
 
+  const menuPointer = (
+    <img
+      src={imageAssets.menuPointer}
+      alt="menuPointer"
+      className={classes.MenuPointer}
+    />
+  );
+
   const mainContentSelectors = {};
 
   const menuItemData = { Welcome: <WelcomeElements />, Skills: <Skills /> };
@@ -47,6 +56,7 @@ export default function Dashboard({ showModal }) {
           activeContentKey === menuItem ? classes.Focus : ''
         }`}
       >
+        {activeContentKey === menuItem ? menuPointer : null}
         <h2 className={classes.MenuItemTitle}>{menuItem}</h2>
       </div>
     );
@@ -69,6 +79,7 @@ export default function Dashboard({ showModal }) {
         }`}
       >
         <h2 className={classes.MenuItemTitle}>{p.title}</h2>
+        {activeContentKey === p.title ? menuPointer : null}
       </div>
     );
 
