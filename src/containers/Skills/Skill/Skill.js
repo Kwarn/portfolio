@@ -1,22 +1,22 @@
-import React from 'react'
-import FadeInSection from '../../FadeInSection/FadeInSection'
-import classes from './Skill.module.css'
+import React from 'react';
+import FadeInSection from '../../FadeInSection/FadeInSection';
+import classes from './Skill.module.css';
 
 const Skill = ({
   title,
   fadeInAndAlignDirection,
   image,
   content,
-  delayRenderDuration,
+  renderDelayDuration,
 }) => {
-  const img = <img src={image} alt={title} />
+  const img = <img src={image} alt={title} />;
   return (
     <div className={classes.Skill}>
       <FadeInSection
         key={title}
         fadeDirection={fadeInAndAlignDirection}
         childAlignDirection={fadeInAndAlignDirection}
-        delayRenderDuration={delayRenderDuration}
+        renderDelayDuration={renderDelayDuration}
       >
         <div className={classes.TechSubsection}>
           {fadeInAndAlignDirection === 'left' ? img : null}
@@ -28,7 +28,7 @@ const Skill = ({
         </div>
       </FadeInSection>
     </div>
-  )
-}
+  );
+};
 
-export default Skill
+export default Skill;

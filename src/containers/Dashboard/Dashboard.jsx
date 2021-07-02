@@ -7,6 +7,7 @@ import WebFont from 'webfontloader';
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements';
 import Skills from '../Skills/Skills';
 import imageAssets from '../../assets/assets';
+import Courses from '../Courses/Courses';
 
 export default function Dashboard({ showModal }) {
   // when isShown && content are true the modal is displayed.
@@ -35,6 +36,8 @@ export default function Dashboard({ showModal }) {
     </div>,
   ];
 
+  const SubMenuItems = [];
+
   const menuPointer = (
     <img
       src={imageAssets.menuPointer}
@@ -45,7 +48,11 @@ export default function Dashboard({ showModal }) {
 
   const mainContentSelectors = {};
 
-  const menuItemData = { Welcome: <WelcomeElements />, Skills: <Skills /> };
+  const menuItemData = {
+    Welcome: <WelcomeElements />,
+    Skills: <Skills />,
+    Education: <Courses />,
+  };
 
   for (const menuItem in menuItemData) {
     MenuItems.push(
@@ -63,14 +70,8 @@ export default function Dashboard({ showModal }) {
     mainContentSelectors[menuItem] = menuItemData[menuItem];
   }
 
-  MenuItems.push(
-    <div key="Projects Header" className={classes.MenuHeader}>
-      Projects
-    </div>
-  );
-
   projectData.forEach(p => {
-    MenuItems.push(
+    SubMenuItems.push(
       <div
         key={p.title}
         onClick={() => setActiveContentKey(p.title)}
@@ -94,6 +95,19 @@ export default function Dashboard({ showModal }) {
     );
   });
 
+  MenuItems.splice(
+    3,
+    0,
+    <div key="Projects Header" className={classes.MenuSubHeader}>
+      Projects
+    </div>
+  );
+  MenuItems.splice(
+    4,
+    0,
+    <div className={classes.SubMenuItemsContainer}>{SubMenuItems}</div>
+  );
+
   // stores a project.title (String) which is used as a key to access and display FullProjects.
 
   // creates and pushes projectMenuItem Elements to array,
@@ -107,8 +121,8 @@ export default function Dashboard({ showModal }) {
       >
         {modalStatus.content}
       </Modal>
-      <div className={`${classes.DashboardMenuItemsWrapper} ${classes.Font}`}>
-        <div className={classes.DashboardMenuItemsContainer}>{MenuItems}</div>
+      <div className={`${classes.MenuItemsWrapper} ${classes.Font}`}>
+        <div className={classes.MenuItemsContainer}>{MenuItems}</div>
       </div>
 
       <div className={classes.MainContentWrapper}>

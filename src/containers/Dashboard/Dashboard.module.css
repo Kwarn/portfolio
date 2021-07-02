@@ -11,13 +11,13 @@
 
 /************************ MENU *************************/
 
-.DashboardMenuItemsWrapper {
+.MenuItemsWrapper {
   display: flex;
   margin: auto;
   flex-direction: column;
 }
 
-.DashboardMenuItemsContainer {
+.MenuItemsContainer {
   min-height: 100vh;
   max-height: 100vh;
   margin: auto;
@@ -28,11 +28,22 @@
   width: 15vw;
 }
 
+.SubMenuItemsContainer {
+  margin: 0 auto auto auto;
+  width: 100%;
+}
+
 .MenuHeader {
   font-size: 2em;
   color: #66fcf1;
   /* margin: 0 auto auto auto; */
   margin: auto;
+}
+
+.MenuSubHeader {
+  font-size: 2em;
+  color: #66fcf1;
+  margin: 10px auto auto auto;
 }
 
 .DashboardMenuItem {
@@ -51,8 +62,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  margin: 10px auto auto auto;
-  /* margin: auto; */
+  margin: auto;
   background: #1f2833;
   cursor: pointer;
   display: flex;
@@ -61,12 +71,12 @@
 
 .MenuPointer {
   width: 40px;
-  height: 200%;
+  height: 180%;
   position: absolute;
   animation-name: menuPointerAnimation;
   animation-duration: 1s;
   right: -40px;
-  top: calc(50% - 100%);
+  top: calc(50% - 90%);
 }
 
 .MenuItemTitle {

@@ -2,8 +2,8 @@ import imageAssets from '../../assets/assets';
 
 const projects = [
   {
-    title: 'E-Commerce site - Work In Progress',
-    image: imageAssets.ecommerce,
+    title: 'E-Commerce',
+    images: [[imageAssets.ecommerce]],
     liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
     previewTechStack: 'Javascript, React, Firebase, CSS',
     gitHubLink: 'https://github.com/Kwarn/e-commerce',
@@ -25,7 +25,7 @@ const projects = [
   },
   {
     title: 'NodeJs/Express Projects',
-    image: imageAssets.serverSideRendered,
+    images: [imageAssets.serverSideRendered],
     liveDemoLink: '',
     previewTechStack: 'Node, graphql, mongodb',
     gitHubLink: 'https://github.com/Kwarn/node-the-complete-guide',
@@ -56,7 +56,7 @@ const projects = [
   },
   {
     title: 'Portfolio',
-    image: imageAssets.portfolio,
+    images: [imageAssets.portfolio],
     previewTechStack: 'Javascript, React, Firebase, CSS',
     gitHubLink: 'https://github.com/Kwarn/portfolio',
     description: `The portfolio has been an invaluable resource allowing me to practise a variety of design approaches, receive feedback and consider different perspectives.
@@ -69,7 +69,7 @@ const projects = [
   },
   {
     title: 'Burger Builder',
-    image: imageAssets.burgerBuilder,
+    images: [imageAssets.burgerBuilder],
     liveDemoLink: 'https://react-burger-builder-679aa.web.app/',
     previewTechStack: 'Javascript, React, Redux, Redux-Saga, Firebase, CSS',
     gitHubLink: 'https://github.com/Kwarn/burger-builder',
@@ -86,7 +86,7 @@ const projects = [
   },
   {
     title: 'Square Playground',
-    image: imageAssets.squarePlayground,
+    images: [imageAssets.squarePlayground],
     liveDemoLink: 'https://square-playground.web.app/',
     previewTechStack: 'Javascript, React, Redux, Css, Html',
 
@@ -100,7 +100,7 @@ const projects = [
   },
   {
     title: 'Fizzy-Lookup',
-    image: imageAssets.fizzyLookup,
+    images: [imageAssets.fizzyLookup],
     previewTechStack: 'Python, tkinter',
     gitHubLink: 'https://github.com/Kwarn/Fizzy-Lookup',
     description: `Desktop App which allows easier searching of excel data.
@@ -114,7 +114,7 @@ const projects = [
   },
   {
     title: 'Fitness',
-    image: imageAssets.fitness,
+    images: [imageAssets.fitness],
     previewTechStack: 'Python, Tkinter, SQlite3',
 
     gitHubLink: 'https://github.com/Kwarn/fitness',
@@ -127,4 +127,4 @@ const projects = [
   },
 ];
 
-export default projects
+export default projects;

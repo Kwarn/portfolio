@@ -5,7 +5,7 @@ function FadeInSection({
   fadeDirection,
   childAlignDirection,
   children,
-  delayRenderDuration,
+  renderDelayDuration,
 }) {
   const [isVisible, setVisible] = useState(false);
   const [animationShouldStop, setAnimationShouldStop] = useState(false);
@@ -14,8 +14,8 @@ function FadeInSection({
   useEffect(() => {
     setTimeout(() => {
       return setVisible(true);
-    }, 100);
-  }, [delayRenderDuration, animationShouldStop]);
+    }, renderDelayDuration);
+  }, [renderDelayDuration]);
 
   const fadeDirections = {
     top: classes.FadeToTop,
