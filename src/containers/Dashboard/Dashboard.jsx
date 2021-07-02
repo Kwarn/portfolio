@@ -9,34 +9,76 @@ import Skills from '../Skills/Skills';
 import imageAssets from '../../assets/assets';
 import Courses from '../Courses/Courses';
 
+/*
+
+
+
+
+
+
+
+ TO DO:
+ 
+ make menu scrollable
+
+ complete index-key mapping for use in accessing menu items/main content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
 export default function Dashboard({ showModal }) {
   // when isShown && content are true the modal is displayed.
   const [modalStatus, setModalStatus] = useState({
     isShown: false,
     content: null,
   });
+
   // resets isShown but preserves last content to improve repeat performance.
   const closeModalHandler = () => {
     setModalStatus({ isShown: false, content: { ...modalStatus.content } });
   };
 
+  // targets the index of the currently selected Content.
+  const [activeContentIndex, setActiveContentIndex] = useState(0);
+
+  // keys are Menu Item titles, accessed with activeContentKey contains MainContent elements.
+  const mainContentSelectors = {};
+
+  const indexKeyMap = {};
+  const createIndexKeyMap = (index, key) => {
+    indexKeyMap[index] = key;
+  };
+  // key (String) is used to access mainContentSelectors which contains respective Elements.
+  const [activeContentKey, setActiveContentKey] = useState(
+    indexKeyMap[activeContentIndex]
+  );
+  // loads font on initial render.
   useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ['Teko'],
-      },
-    });
-  }, []);
+    setActiveContentKey(indexKeyMap[activeContentIndex]);
+  });
 
-  const [activeContentKey, setActiveContentKey] = useState('Welcome');
+  // MenuItem (Element) are pushed and spliced to create correct Menu order.
+  const MenuItems = [];
 
-  const MenuItems = [
-    <div key="menuHeader" className={classes.MenuHeader}>
-      Menu
-    </div>,
-  ];
-
+  // used to tightly group Project MenuItems -> Later spliced into MenuItems.
   const SubMenuItems = [];
+
+  // tracks the order of element creation for use to map index to contentKeys.
+  let currentIndex = 0;
 
   const menuPointer = (
     <img
@@ -46,19 +88,22 @@ export default function Dashboard({ showModal }) {
     />
   );
 
-  const mainContentSelectors = {};
-
   const menuItemData = {
     Welcome: <WelcomeElements />,
     Skills: <Skills />,
     Education: <Courses />,
   };
 
+  // creates MenuItems and maps MainContent Elements to their respective MenuItem titles.
   for (const menuItem in menuItemData) {
+    const index = currentIndex;
     MenuItems.push(
       <div
         key={menuItem}
-        onClick={() => setActiveContentKey(menuItem)}
+        onClick={() => {
+          setActiveContentKey(menuItem);
+          setActiveContentIndex(index);
+        }}
         className={`${classes.DashboardMenuItem} ${
           activeContentKey === menuItem ? classes.Focus : ''
         }`}
@@ -68,13 +113,19 @@ export default function Dashboard({ showModal }) {
       </div>
     );
     mainContentSelectors[menuItem] = menuItemData[menuItem];
+    createIndexKeyMap(currentIndex, menuItem);
+    currentIndex++;
   }
 
   projectData.forEach(p => {
+    const index = currentIndex;
     SubMenuItems.push(
       <div
         key={p.title}
-        onClick={() => setActiveContentKey(p.title)}
+        onClick={() => {
+          setActiveContentKey(p.title);
+          setActiveContentIndex(index);
+        }}
         className={`${classes.SubMenuItem} ${
           activeContentKey === p.title ? classes.Focus : ''
         }`}
@@ -93,8 +144,11 @@ export default function Dashboard({ showModal }) {
         />
       </div>
     );
+    createIndexKeyMap(currentIndex, p.title);
+    currentIndex++;
   });
 
+  // places "Projects" header above project menu items
   MenuItems.splice(
     3,
     0,
@@ -102,16 +156,41 @@ export default function Dashboard({ showModal }) {
       Projects
     </div>
   );
+
+  // wraps SubMenuItems in their container and places them after "Projects" header.
   MenuItems.splice(
     4,
     0,
-    <div className={classes.SubMenuItemsContainer}>{SubMenuItems}</div>
+    <div key="SubMenuItemsContainer" className={classes.SubMenuItemsContainer}>
+      {SubMenuItems}
+    </div>
   );
 
-  // stores a project.title (String) which is used as a key to access and display FullProjects.
+  MenuItems.unshift(
+    <div
+      onClick={() =>
+        setActiveContentIndex(prev => {
+          if (prev === 0) return currentIndex - 1;
+          return prev - 1;
+        })
+      }
+    >
+      Up
+    </div>
+  );
 
-  // creates and pushes projectMenuItem Elements to array,
-  // creates FullProject elements, maps them by title to properties in mainContentSelectors (object)
+  MenuItems.push(
+    <div
+      onClick={() =>
+        setActiveContentIndex(prev => {
+          if (prev === currentIndex - 1) return 0;
+          return prev + 1;
+        })
+      }
+    >
+      Down
+    </div>
+  );
 
   return (
     <div className={classes.DashboardWrapper}>

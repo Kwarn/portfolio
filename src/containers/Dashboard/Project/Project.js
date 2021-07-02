@@ -10,8 +10,8 @@ const Project = ({ project, showModalCb, closeModalCb }) => {
 
   const techIcons = imageTags.map(tag =>
     imageAssets[tag] ? (
-      <div>
-        <img src={imageAssets[tag]} key={tag} alt={tag} />
+      <div key={tag}>
+        <img src={imageAssets[tag]} alt={tag} />
       </div>
     ) : null
   );

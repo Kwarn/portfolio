@@ -36,7 +36,6 @@
 .MenuHeader {
   font-size: 2em;
   color: #66fcf1;
-  /* margin: 0 auto auto auto; */
   margin: auto;
 }
 
@@ -50,7 +49,6 @@
   position: relative;
   width: 100%;
   height: 5vh;
-  /* margin: 10px auto 10px 0; */
   margin: auto;
   background: #1f2833;
   cursor: pointer;
@@ -61,7 +59,7 @@
 .SubMenuItem {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 3vh;
   margin: auto;
   background: #1f2833;
   cursor: pointer;
@@ -74,15 +72,15 @@
   height: 180%;
   position: absolute;
   animation-name: menuPointerAnimation;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   right: -40px;
   top: calc(50% - 90%);
 }
 
 .MenuItemTitle {
-  margin: 10px auto 10px auto;
+  margin: auto;
   color: #c5c6c7;
-  font-size: 1.2em;
+  font-size: 1.4em;
   bottom: 0;
   text-align: center;
 }
@@ -96,15 +94,12 @@
 }
 
 .MainContentContainer {
-  color: #474747;
+  /* color: #474747; */
   margin: auto;
   height: 100%;
   background: #0b0c10;
   display: flex;
   justify-content: center;
-}
-
-.MainContent {
 }
 
 /************************ ANIMATIONS *************************/
@@ -131,8 +126,10 @@
 @keyframes menuPointerAnimation {
   from {
     opacity: 0;
+    /* transform: translateX(-5vw); */
   }
   to {
     opacity: 1;
+    /* transform: translateX(0); */
   }
 }
