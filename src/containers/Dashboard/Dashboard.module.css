@@ -1,0 +1,93 @@
+.Font {
+  font-family: 'Teko';
+}
+
+.DashboardWrapper {
+  display: flex;
+  flex-direction: row;
+  max-height: 100vh;
+  background-color: #0b0c10;
+}
+
+.DashboardMenuItemsWrapper {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.DashboardMenuItemsContainer {
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #1f2833;
+  width: 15vw;
+}
+
+.MenuHeader {
+  font-size: 2em;
+  color: #66fcf1;
+  margin: auto;
+}
+
+.DashboardMenuItem {
+  width: 15vw;
+  height: 100%;
+  /* margin: 10px auto 10px 0; */
+  margin: auto;
+  background: #1f2833;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.BackgroundImage {
+  width: 80%;
+  height: 10vh;
+  object-fit: cover;
+}
+
+.Focus {
+  background: #45a29e;
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+.Focus > h2 {
+  color: #0b0c10;
+}
+
+.MenuItemTitle {
+  margin: auto;
+  color: #45a29e;
+  font-size: 1.2em;
+  bottom: 0;
+  text-align: center;
+}
+
+.MainContentWrapper {
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+}
+
+.MainContentContainer {
+  color: #474747;
+  margin: auto;
+  height: 100%;
+  background: #0b0c10;
+}
+
+.MainContent {
+}
+
+@keyframes example {
+  from {
+    background-color: #0b0c10;
+  }
+  to {
+    background-color: #45a29e;
+  }
+}

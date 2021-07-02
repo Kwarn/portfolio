@@ -18,7 +18,7 @@ const projects = [
       The current work on the site is focused around fleshing out administrator functionality to allow all CRUD operations via the back-end, which will give autonomy to the client.
       
       I am particularly proud of the progress I am making regarding architecture and design choices.`,
-    whatILearned:
+    lessons:
       'The advantages of the styled-components libary, improved file/folder structure, use of React Hooks to speed-up development time.',
     technicalPractices:
       'React, React-router-dom, Redux-ducks, CSS - Styled Components, EmailJs libary for direct E-mail messaging from React',
@@ -50,7 +50,7 @@ const projects = [
       
       The goal has been to gain greater knowledge base from which to decide how to proceed with my current project's backend.
       `,
-    whatILearned: `How API's work. Detailed understanding of common practices & design patterns.`,
+    lessons: `How API's work. Detailed understanding of common practices & design patterns.`,
     technicalPractices:
       'Authentication - validation - sessions & csrf tokens, Security - environment variables & encryption, File system - uploads/downloads & compression, Middleware - routes & pagination, Request Logging, Error handling & HTTP status codes, Payments - Stripe, Sending emails - signup confirmation & reset password process, Preparing for and Deploying - Heroku/firebase, SQL & noSQL - Schemas - MongoDB/Mongoose & mySQL',
   },
@@ -61,7 +61,7 @@ const projects = [
     gitHubLink: 'https://github.com/Kwarn/portfolio',
     description: `The portfolio has been an invaluable resource allowing me to practise a variety of design approaches, receive feedback and consider different perspectives.
       Throughout the project I’ve challenged myself to implement components & features from the ground up, with the goal of achieving a strong grasp of how popular components work.`,
-    whatILearned: `Effective debugging, finding and adapting solutions to my specific case. 
+    lessons: `Effective debugging, finding and adapting solutions to my specific case. 
       Debugging efficiently has been crucial to maintaining positivity, progress and keeping to my deadlines.
       My abilty to predict why and where bugs are likely to occur has dramatically improved through practice. I’ve learned multiple techniques for locating the source of issues and thrive on the process of honing in on the best solutions.`,
     technicalPractices:
@@ -79,7 +79,7 @@ const projects = [
       
       The project greatly helped cement my understanding of React, Redux and the differences and nuances in approach when developing responsive react applications.`,
 
-    whatILearned: `Asynchronous actions with Async-Await, Promises & Axios. Functional vs class based components.
+    lessons: `Asynchronous actions with Async-Await, Promises & Axios. Functional vs class based components.
       Through practising multiple popular approaches to asynchronous actions I've gained a solid understanding of how they fit into the larger React Ecosystem.
       I found one of the most impactful practice in this project was to convert the app from mostly older class-based components using lifecycle hooks (componentDidMount) to newer functional components using React Hooks (useEffect).`,
     technicalPractices: `Multiple approaches to handling State, Preservation of user's session with Authentication tokens and localStorage, Promises & Asynchronous actions with Thunk/Sagas & Fetch/Axios, Class-based components and Functional components, Higher order components, React.Memo and performance tweaks, Database rules configuration`,
@@ -94,7 +94,7 @@ const projects = [
     description: `A slot machine game based on Math.random() logic. This was one of my first practice apps diving into the world of JavaScript and React. 
       
       Built on a lot of guess work and trial and error the experience inspired my love for programming and the reward for overcoming challenges, it taught me to persevere when difficult unknown technical concepts seemed insurmountable.`,
-    whatILearned: `This project taught me patience and an eye for detail. Being one of my first javascript apps, I found myself often chasing solutions to problems stemming from what I would now consider a trivial or silly source. The experience provided me a better gauge as to when it was acceptable to ask for help.`,
+    lessons: `This project taught me patience and an eye for detail. Being one of my first javascript apps, I found myself often chasing solutions to problems stemming from what I would now consider a trivial or silly source. The experience provided me a better gauge as to when it was acceptable to ask for help.`,
     technicalPractices:
       'Fundamentals of state and data management, Redux & Immer working with immutable state, Bootstrap with React',
   },
@@ -107,7 +107,7 @@ const projects = [
       Built for the head of lettings for a boutique serviced apartments company, this project allowed me demonstrate and practice a real world use-case for what I had learned with Python.
       
       The app uses pandas (data analysis library) to convert an excel spread-sheet to columns and rows displayed by tkinter (GUI library). The user can accurately search the data using a combination of 7 drop-down menus.`,
-    whatILearned: `The importance of accurately communicating a description of the clients needs so that unnecessary or miscommunicated functionality didn't waste development time.`,
+    lessons: `The importance of accurately communicating a description of the clients needs so that unnecessary or miscommunicated functionality didn't waste development time.`,
 
     technicalPractices:
       'Importing and reading XML files with Pandas, Tkinter scrollable canvas frames, Multiple uses of widgets, Grid place & pack layout management, Commutative search algorithm',
@@ -119,7 +119,7 @@ const projects = [
 
     gitHubLink: 'https://github.com/Kwarn/fitness',
     description: `A light-weight My Fitness Pal clone, this was my first python project. This app allows users to save their meal history and add new meals with their ingredients and caloric information to a SQlite database.`,
-    whatILearned: `I learned the importance of looking for a cleaner, established solution before implementing my own.
+    lessons: `I learned the importance of looking for a cleaner, established solution before implementing my own.
       
       My initial approach to storing data used the file system to read/write to a text file. I found this approach to be extremely cumbersome. In my search for a better solution I took the time to weight up the different options and settled on using SQLite database.`,
     technicalPractices:

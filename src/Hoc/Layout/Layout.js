@@ -15,10 +15,10 @@ const Layout = ({ children }) => {
 
   return (
     <div className={classes.LayoutWrapper}>
-      <Toolbar />
+      {/* <Toolbar /> */}
       <div ref={ref}></div>
       <main className={classes.Content}>{children}</main>
-      <GoToTop scrollToTop={scrollToTop} />
+      {/* <GoToTop scrollToTop={scrollToTop} /> */}
     </div>
   )
 }
