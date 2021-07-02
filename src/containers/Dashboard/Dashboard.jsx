@@ -5,8 +5,19 @@ import Modal from '../../components/UI/Modal/Modal';
 import projectData from './ProjectData';
 import WebFont from 'webfontloader';
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements';
+import Skills from '../Skills/Skills';
 
 export default function Dashboard({ showModal }) {
+  // when isShown && content are true the modal is displayed.
+  const [modalStatus, setModalStatus] = useState({
+    isShown: false,
+    content: null,
+  });
+  // resets isShown but preserves last content to improve repeat performance.
+  const closeModalHandler = () => {
+    setModalStatus({ isShown: false, content: { ...modalStatus.content } });
+  };
+
   useEffect(() => {
     WebFont.load({
       google: {
@@ -15,60 +26,54 @@ export default function Dashboard({ showModal }) {
     });
   }, []);
 
-  // stores a project.title (String) which is used as a key to access and display FullProjects.
-  const [mainContent, setMainContent] = useState(projectData[0].title);
+  const [activeContentKey, setActiveContentKey] = useState('Welcome');
 
-  const switchMainContentHandler = projectTitle => {
-    setMainContent(projectTitle);
-  };
+  const MenuItems = [
+    <div key="menuHeader" className={classes.MenuHeader}>
+      Menu
+    </div>,
+  ];
 
-  // when isShown && content are true the modal is displayed.
-  const [modalStatus, setModalStatus] = useState({
-    isShown: false,
-    content: null,
-  });
+  const mainContentSelectors = {};
 
-  // resets isShown but preserves last content to improve repeat performance.
-  const closeModalHandler = () => {
-    setModalStatus({ isShown: false, content: { ...modalStatus.content } });
-  };
+  const menuItemData = { Welcome: <WelcomeElements />, Skills: <Skills /> };
 
-  const MenuIemData = { Welcome: WelcomeElements };
-
-  // used to contain an array of projectMenuItem Elements
-  const MenuItems = [<div className={classes.MenuHeader}>Menu</div>];
-  const mainContentMap = {};
-
-  for (const menuItem in MenuIemData) {
+  for (const menuItem in menuItemData) {
     MenuItems.push(
       <div
         key={menuItem}
-        onClick={() => switchMainContentHandler(menuItem)}
+        onClick={() => setActiveContentKey(menuItem)}
         className={`${classes.DashboardMenuItem} ${
-          mainContent === menuItem ? classes.Focus : ''
+          activeContentKey === menuItem ? classes.Focus : ''
         }`}
       >
         <h2 className={classes.MenuItemTitle}>{menuItem}</h2>
       </div>
     );
+    mainContentSelectors[menuItem] = menuItemData[menuItem];
   }
 
-  // creates and pushes projectMenuItem Elements to array,
-  // creates FullProject elements, maps them by title to properties in mainContentMap (object)
+  MenuItems.push(
+    <div key="Projects Header" className={classes.MenuHeader}>
+      Projects
+    </div>
+  );
+
   projectData.forEach(p => {
     MenuItems.push(
       <div
         key={p.title}
-        onClick={() => switchMainContentHandler(p.title)}
-        className={`${classes.DashboardMenuItem} ${
-          mainContent === p.title ? classes.Focus : ''
+        onClick={() => setActiveContentKey(p.title)}
+        className={`${classes.SubMenuItem} ${
+          activeContentKey === p.title ? classes.Focus : ''
         }`}
       >
         <h2 className={classes.MenuItemTitle}>{p.title}</h2>
       </div>
     );
-    mainContentMap[p.title] = (
-      <div className={classes.FullProject}>
+
+    mainContentSelectors[p.title] = (
+      <div key={p.title} className={classes.FullProject}>
         <Project
           project={p}
           showModalCb={content => setModalStatus(content)}
@@ -77,6 +82,11 @@ export default function Dashboard({ showModal }) {
       </div>
     );
   });
+
+  // stores a project.title (String) which is used as a key to access and display FullProjects.
+
+  // creates and pushes projectMenuItem Elements to array,
+  // creates FullProject elements, maps them by title to properties in mainContentSelectors (object)
 
   return (
     <div className={classes.DashboardWrapper}>
@@ -87,13 +97,12 @@ export default function Dashboard({ showModal }) {
         {modalStatus.content}
       </Modal>
       <div className={`${classes.DashboardMenuItemsWrapper} ${classes.Font}`}>
-        {/* <h2 className={classes.MenuTitle}>Menu</h2> */}
         <div className={classes.DashboardMenuItemsContainer}>{MenuItems}</div>
       </div>
 
       <div className={classes.MainContentWrapper}>
         <div className={classes.MainContentContainer}>
-          {mainContentMap[mainContent]}
+          {mainContentSelectors[activeContentKey]}
         </div>
       </div>
     </div>

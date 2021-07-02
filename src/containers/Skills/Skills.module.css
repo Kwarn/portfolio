@@ -1,6 +1,7 @@
 .Skills {
+  /* font-family: 'Teko'; */
   margin: auto;
-  color: #474747;
+  color: #66fcf1;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
