@@ -10,28 +10,28 @@ const Skills = () => {
       content: `ES6+, NodeJs, ExpressJs, GraphQL, React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme.`,
       image: imageAssets.javascript,
       fadeInAndAlignDirection: 'left',
-      renderDelayDuration: 0,
+      renderDelayDuration: 200,
     },
     {
       title: 'Python',
       content: `TkInter, Django, SQLite, PyGame`,
       image: imageAssets.python,
       fadeInAndAlignDirection: 'right',
-      renderDelayDuration: 200,
+      renderDelayDuration: 400,
     },
     {
       title: 'Software & Practices',
       content: `UI/UX design, SQL, HTML, CSS, GitHub, Unix Commands, Dev-Tools, Firebase, Webpack, Photoshop, Gimp, Adobe Premiere Pro..`,
       image: imageAssets.uiUx,
       fadeInAndAlignDirection: 'left',
-      renderDelayDuration: 400,
+      renderDelayDuration: 600,
     },
     {
       title: 'Dev Environment',
       content: `Ubuntu 20.04, Windows 10 with GitBash, VSCode, Pycharm, Firefox, Chrome.`,
       image: imageAssets.visualStudioCode,
       fadeInAndAlignDirection: 'right',
-      renderDelayDuration: 600,
+      renderDelayDuration: 800,
     },
   ]);
 
