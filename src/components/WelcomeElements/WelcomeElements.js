@@ -15,7 +15,7 @@ const WelcomeElements = () => {
         <div className={classes.TitleGroup}>
           <div>
             <h1>Karl Warner</h1>
-            <p>{`</> Software Developer`}</p>
+            <p>{`</> Full-Stack Web Developer`}</p>
             <div className={classes.LinkIcons}>
               <a
                 href="https://github.com/Kwarn/"

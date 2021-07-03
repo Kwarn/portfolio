@@ -3,7 +3,7 @@ import classes from './Dashboard.module.css';
 import Project from './Project/Project';
 import Modal from '../../components/UI/Modal/Modal';
 import projectData from './ProjectData';
-import WebFont from 'webfontloader';
+import FileSaver from 'file-saver';
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements';
 import Skills from '../Skills/Skills';
 import imageAssets from '../../assets/assets';
@@ -42,19 +42,34 @@ import { useSwipeable } from 'react-swipeable';
 */
 
 export default function Dashboard({ showModal }) {
+  const incrementActiveIndexHandler = () => {
+    setActiveContentIndex(prev => {
+      if (prev === currentIndex - 1) return 0;
+      return prev + 1;
+    });
+  };
+  const decrementActiveIndexHandler = () => {
+    setActiveContentIndex(prev => {
+      if (prev === 0) return currentIndex - 1;
+      return prev - 1;
+    });
+  };
+
+  const scrollHandler = e => {
+    if (e.wheelDelta > 0) decrementActiveIndexHandler();
+    else incrementActiveIndexHandler();
+  };
+
+  useEffect(() => {
+    window.addEventListener('wheel', e => scrollHandler(e));
+    return window.removeEventListener('scroll', scrollHandler);
+  }, [window]);
+
   // allows swiping up and down to cycle through menu and main content.
   const config = { trackMouse: true, preventDefault: true };
   const handlers = useSwipeable({
-    onSwipedDown: eventData =>
-      setActiveContentIndex(prev => {
-        if (prev === 0) return currentIndex - 1;
-        return prev - 1;
-      }),
-    onSwipedUp: eventData =>
-      setActiveContentIndex(prev => {
-        if (prev === currentIndex - 1) return 0;
-        return prev + 1;
-      }),
+    onSwipedDown: eventData => decrementActiveIndexHandler(),
+    onSwipedUp: eventData => incrementActiveIndexHandler(),
     ...config,
   });
 
@@ -69,20 +84,23 @@ export default function Dashboard({ showModal }) {
     setModalStatus({ isShown: false, content: { ...modalStatus.content } });
   };
 
-  // targets the index of the currently selected Content.
+  // index of the currently selected Content used to access indexKeyMan
   const [activeContentIndex, setActiveContentIndex] = useState(0);
 
   // keys are Menu Item titles, accessed with activeContentKey contains MainContent elements.
   const mainContentSelectors = {};
 
+  // creates index:menuitemkey
   const indexKeyMap = {};
   const createIndexKeyMap = (index, key) => {
     indexKeyMap[index] = key;
   };
+
   // key (String) is used to access mainContentSelectors which contains respective Elements.
   const [activeContentKey, setActiveContentKey] = useState(
     indexKeyMap[activeContentIndex]
   );
+
   // loads font on initial render.
   useEffect(() => {
     setActiveContentKey(indexKeyMap[activeContentIndex]);
@@ -105,6 +123,36 @@ export default function Dashboard({ showModal }) {
     />
   );
 
+  const saveFile = () =>
+    FileSaver.saveAs(
+      process.env.PUBLIC_URL + '/resource/Karl_Warner_CV.pdf',
+      'Karl_Warner_CV.pdf'
+    );
+
+  const ProfileLinks = (
+    <div className={classes.ProfileLinks}>
+      <a
+        href="https://github.com/Kwarn/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={imageAssets.gitHubLight} alt="gitHubIcon"></img>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/karl-warner-9147661b5/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={imageAssets.linkedInLight} alt="linkedInIcon"></img>
+      </a>
+      <div className={classes.DownloadCV} onClick={saveFile}>
+        <img src={imageAssets.cvIcon} alt="download CV" />
+      </div>
+    </div>
+  );
+
+  MenuItems.push(ProfileLinks);
+
   const menuItemData = {
     Welcome: <WelcomeElements />,
     Skills: <Skills />,
@@ -121,7 +169,7 @@ export default function Dashboard({ showModal }) {
           setActiveContentKey(menuItem);
           setActiveContentIndex(index);
         }}
-        className={`${classes.DashboardMenuItem} ${
+        className={`${classes.MenuItem} ${
           activeContentKey === menuItem ? classes.Focus : ''
         }`}
       >
@@ -167,16 +215,16 @@ export default function Dashboard({ showModal }) {
 
   // places "Projects" header above project menu items
   MenuItems.splice(
-    3,
+    4,
     0,
     <div key="Projects Header" className={classes.MenuSubHeader}>
       Projects
     </div>
   );
 
-  // wraps SubMenuItems in their container and places them after "Projects" header.
+  // SubMenuItems placed in their container and spliced into MenuItems after "Projects" header.
   MenuItems.splice(
-    4,
+    5,
     0,
     <div key="SubMenuItemsContainer" className={classes.SubMenuItemsContainer}>
       {SubMenuItems}
