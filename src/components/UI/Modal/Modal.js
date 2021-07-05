@@ -43,13 +43,19 @@ const StyledContent = styled.div`
 
 const StyledMainImageWrapper = styled.div`
   position: relative;
-  margin: auto;
+  height: 100%;
   width: 100%;
-  max-width: 90%;
-  height: 90%;
+  text-align: center;
+`;
+
+const StyledMainImage = styled.div`
   background-image: url(${({ background }) => background});
   background-size: contain;
-  background-repeat: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: auto;
+  /* border: 3px solid #474747 */
 `;
 
 const StyledThumbnailWrapper = styled.div`
@@ -68,7 +74,7 @@ const StyledThumbnail = styled.img`
 
 const StyledSwipeIcon = styled.img`
   position: absolute;
-  bottom: 0px;
+  bottom: 50px;
   left: calc(50% - 35px);
   width: 70px;
   height: 70px;
@@ -142,7 +148,8 @@ const Modal = ({ isVisible, closeFn, children }) => {
           alt="close modal"
         />
         <StyledContent>
-          <StyledMainImageWrapper background={images[mainImageIndex]}>
+          <StyledMainImageWrapper>
+            <StyledMainImage background={images[mainImageIndex]} />
             <StyledSwipeIcon src={imageAssets.swipeIcon} alt="Swipe" />
           </StyledMainImageWrapper>
           {thumbnails ? (
