@@ -20,7 +20,7 @@
 .MenuItemsContainer {
   min-height: 100vh;
   max-height: 100vh;
-  margin: 0 0 0 auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   background-color: #1f2833;
@@ -32,11 +32,34 @@
   width: 100%;
 }
 
+.WelcomeElementsWrapper {
+  margin: auto;
+}
+
 .ProfileLinks {
   width: 100%;
-  margin: auto;
+  margin: 0 auto 10px auto;
   display: flex;
   justify-content: space-evenly;
+  border-bottom: 4px solid #c5c6c7;
+}
+
+.ProfileLinks > div {
+  border: 3px solid transparent;
+}
+
+.ProfileLinks > a {
+  border: 3px solid transparent;
+}
+
+.ProfileLinks > div:hover {
+  animation-name: profileLinksHoverAnimation;
+  animation-duration: 1s;
+}
+
+.ProfileLinks > a:hover {
+  animation-name: profileLinksHoverAnimation;
+  animation-duration: 1s;
 }
 
 .ProfileLinks > a > img {
@@ -51,14 +74,14 @@
 .MenuSubHeader {
   font-size: 2em;
   color: #66fcf1;
-  margin: 10px auto auto auto;
+  margin: auto auto 0 auto;
 }
 
 .MenuItem {
   position: relative;
   width: 100%;
   height: 5vh;
-  margin: auto;
+  margin: auto auto 0 auto;
   background: #1f2833;
   cursor: pointer;
   display: flex;
@@ -140,5 +163,17 @@
   to {
     opacity: 1;
     /* transform: translateX(0); */
+  }
+}
+
+@keyframes profileLinksHoverAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
