@@ -1,8 +1,8 @@
 .WelcomeElements {
   position: relative;
-  margin: auto auto auto auto;
+  margin: auto;
   color: #474747;
-  max-width: 400px;
+  max-width: 300px;
   border-radius: 20%;
   display: inline-flex;
   text-align: center;
@@ -13,10 +13,12 @@
   position: absolute;
   border-radius: 50px 20px 50px 50px;
   margin: 10px 0 0 30px;
-  width: 350px;
+  width: 300px;
   height: 130px;
   min-width: 100px;
-  background: rgba(251, 243, 238, 0.5);
+  background: #c5c6c7;
+  display: flex;
+  justify-content: center;
 }
 
 .ProfileImage {
@@ -30,12 +32,15 @@
 }
 
 .TitleGroup {
+  font-size: 1em;
   z-index: 2;
-  padding: 20px 0 0 5px;
+  margin: auto;
+  min-width: 100%;
+  /* position: absolute; */
 }
 
-.AboutMe {
-  margin: auto;
+.TitleGroup > div {
+  margin: auto auto auto -60px;
 }
 
 .LinkIcons {
