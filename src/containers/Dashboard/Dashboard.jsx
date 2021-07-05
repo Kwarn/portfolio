@@ -3,66 +3,58 @@ import classes from './Dashboard.module.css';
 import Project from './Project/Project';
 import Modal from '../../components/UI/Modal/Modal';
 import projectData from './ProjectData';
-import FileSaver from 'file-saver';
-import WelcomeElements from '../../components/WelcomeElements/WelcomeElements';
+import WelcomeElements from './WelcomeElements/WelcomeElements';
 import Skills from '../Skills/Skills';
 import imageAssets from '../../assets/assets';
 import Courses from './Courses/Courses';
 import { useSwipeable } from 'react-swipeable';
 import AboutMe from './AboutMe/AboutMe';
 import ExtraInfo from './ExtraInfo/ExtraInfo';
-
-/*
-
-
-
-
-
-
-
- TO DO:
- 
-  Add menu Footer -> build & design by karlwarner
-
-
-
-
-
-
-*/
+import ProfileLinks from './ProfileLinks/ProfileLinks';
 
 export default function Dashboard({ showModal }) {
-  // ensures activeIndex is set to a valid index when cycling.
+  // ensures activeContentIndex is set to a valid index when scroll/swipe cycling through Menu.
   const incrementActiveIndexHandler = () => {
     setActiveContentIndex(prev => {
-      if (prev === currentIndex - 1) return 0;
+      if (prev === MenuLinks.length - 1) return 0;
       return prev + 1;
     });
   };
   const decrementActiveIndexHandler = () => {
     setActiveContentIndex(prev => {
-      if (prev === 0) return currentIndex - 1;
+      if (prev === 0) return MenuLinks.length - 1;
       return prev - 1;
     });
   };
 
   const scrollHandler = e => {
-    // wheelDelta -> Chrome
-    // deltaY -> Firefox
+    // wheelDelta -> Chrome | deltaY -> Firefox.
     if (e.wheelDelta > 0 || e.deltaY < 0) decrementActiveIndexHandler();
     else incrementActiveIndexHandler();
   };
 
+  // ************ LOGIC CONTROLS **********
+
+  // {Index:Element}: Index is derived from element creation order.
+  const contentController = {};
+
+  // Int: used to access contentController
+  const [activeContentIndex, setActiveContentIndex] = useState(0);
+
+  // Element Array
+  const MenuLinks = [];
+
+  // adds event listener to window which allows scrolling through menu items.
   useEffect(() => {
     window.addEventListener('wheel', e => scrollHandler(e));
     return window.removeEventListener('scroll', scrollHandler);
   }, [window]);
 
-  // allows swiping up and down to cycle through menu and main content.
+  // react-swipeable setup: allows swiping up and down to cycle through menu and main content.
   const config = { trackMouse: true, preventDefault: true };
   const handlers = useSwipeable({
-    onSwipedDown: eventData => decrementActiveIndexHandler(),
-    onSwipedUp: eventData => incrementActiveIndexHandler(),
+    onSwipedDown: () => decrementActiveIndexHandler(),
+    onSwipedUp: () => incrementActiveIndexHandler(),
     ...config,
   });
 
@@ -72,80 +64,12 @@ export default function Dashboard({ showModal }) {
     content: null,
   });
 
-  // resets isShown but preserves last content to improve repeat performance.
+  // resets isShown but preserves last content to improve repeat modal opening performance.
   const closeModalHandler = () => {
     setModalStatus({ isShown: false, content: { ...modalStatus.content } });
   };
 
-  // index of the currently selected Content used to access indexKeyMan
-  const [activeContentIndex, setActiveContentIndex] = useState(0);
-
-  // keys are Menu Item titles, accessed with activeContentKey contains MainContent elements.
-  const mainContentSelectors = {};
-
-  // creates index:menuitemkey
-  const indexKeyMap = {};
-  const createIndexKeyMap = (index, key) => {
-    indexKeyMap[index] = key;
-  };
-
-  // key (String) is used to access mainContentSelectors which contains respective Elements.
-  const [activeContentKey, setActiveContentKey] = useState(
-    indexKeyMap[activeContentIndex]
-  );
-
-  // loads font on initial render.
-  useEffect(() => {
-    setActiveContentKey(indexKeyMap[activeContentIndex]);
-  });
-
-  // MenuItem (Element) are pushed and spliced to create correct Menu order.
-  const MenuItems = [];
-
-  // used to tightly group Project MenuItems -> Later spliced into MenuItems.
-  const SubMenuItems = [];
-
-  // tracks the order of element creation for use to map index to contentKeys.
-  let currentIndex = 0;
-
-  const WelcomeElementsWithWrapper = (
-    <div key="welcomeElements" className={classes.WelcomeElementsWrapper}>
-      <WelcomeElements />
-    </div>
-  );
-  MenuItems.push(WelcomeElementsWithWrapper);
-
-  const saveFile = () =>
-    FileSaver.saveAs(
-      process.env.PUBLIC_URL + '/resource/Karl_Warner_CV.pdf',
-      'Karl_Warner_CV.pdf'
-    );
-
-  const ProfileLinks = (
-    <div className={classes.ProfileLinks}>
-      <a
-        href="https://github.com/Kwarn/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src={imageAssets.gitHubLight} alt="gitHubIcon"></img>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/karl-warner-9147661b5/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src={imageAssets.linkedInLight} alt="linkedInIcon"></img>
-      </a>
-      <div className={classes.DownloadCV} onClick={saveFile}>
-        <img src={imageAssets.cvIcon} alt="download CV" />
-      </div>
-    </div>
-  );
-
-  MenuItems.push(ProfileLinks);
-
-  const menuItemData = {
+  const contentData = {
     Welcome: <AboutMe />,
     Skills: <Skills />,
     Education: <Courses />,
@@ -160,77 +84,74 @@ export default function Dashboard({ showModal }) {
     />
   );
 
-  // creates MenuItems and maps MainContent Elements to their respective MenuItem titles.
-  for (const menuItem in menuItemData) {
-    const index = currentIndex;
-    MenuItems.push(
-      <div
-        key={menuItem}
-        onClick={() => {
-          setActiveContentKey(menuItem);
-          setActiveContentIndex(index);
-        }}
-        className={`${classes.MenuItem} ${
-          activeContentKey === menuItem ? classes.Focus : ''
-        }`}
-      >
-        {activeContentKey === menuItem ? menuPointer : null}
-        <h2 className={classes.MenuItemTitle}>{menuItem}</h2>
-      </div>
-    );
-    mainContentSelectors[menuItem] = menuItemData[menuItem];
-    createIndexKeyMap(currentIndex, menuItem);
-    currentIndex++;
-  }
-
-  projectData.forEach(p => {
-    const index = currentIndex;
-    SubMenuItems.push(
-      <div
-        key={p.title}
-        onClick={() => {
-          setActiveContentKey(p.title);
-          setActiveContentIndex(index);
-        }}
-        className={`${classes.SubMenuItem} ${
-          activeContentKey === p.title ? classes.Focus : ''
-        }`}
-      >
-        <h2 className={classes.MenuItemTitle}>{p.title}</h2>
-        {activeContentKey === p.title ? menuPointer : null}
-      </div>
-    );
-
-    mainContentSelectors[p.title] = (
-      <div key={p.title} className={classes.FullProject}>
-        <Project
-          project={p}
-          showModalCb={content => setModalStatus(content)}
-          closeModalCb={closeModalHandler}
-        />
-      </div>
-    );
-    createIndexKeyMap(currentIndex, p.title);
-    currentIndex++;
-  });
-
-  // places "Projects" header above project menu items
-  MenuItems.splice(
-    6,
-    0,
+  const ProjectsHeader = (
     <div key="Projects Header" className={classes.MenuSubHeader}>
       Projects
     </div>
   );
 
-  // SubMenuItems placed in their container and spliced into MenuItems after "Projects" header.
-  MenuItems.splice(
-    7,
-    0,
-    <div key="SubMenuItemsContainer" className={classes.SubMenuItemsContainer}>
-      {SubMenuItems}
-    </div>
-  );
+  // index:element used to display content using activeContentKey
+  const createContentControl = (index, element) => {
+    contentController[index] = element;
+  };
+
+  // returns JSX Main Content element
+  const createProjectElement = project => {
+    return (
+      <div key={project.title}>
+        <Project
+          project={project}
+          showModalCb={content => setModalStatus(content)}
+          closeModalCb={closeModalHandler}
+        />
+      </div>
+    );
+  };
+
+  // returns JSX MenuLink element with correct css Class
+  const createMenuLink = (key, cssPrefix = '') => {
+    const cssClass = `${cssPrefix}MenuLink`;
+    const index = MenuLinks.length || 0;
+    return (
+      <div
+        key={key}
+        onClick={() => {
+          setActiveContentIndex(index);
+        }}
+        className={`${classes[cssClass]} ${
+          activeContentIndex === index ? classes.Focus : ''
+        }`}
+      >
+        <h2 className={classes.MenuItemTitle}>{key}</h2>
+        {activeContentIndex === index ? menuPointer : null}
+      </div>
+    );
+  };
+
+  const createElementsFromContentData = key => {
+    const MenuLink = createMenuLink(key);
+    const element = contentData[key];
+
+    MenuLinks.push(MenuLink);
+    createContentControl(MenuLinks.length - 1, element);
+  };
+
+  // begins creation and ordering of MenuLinks
+
+  createElementsFromContentData('Welcome');
+  createElementsFromContentData('Skills');
+
+  projectData.forEach(project => {
+    const key = project.title;
+    const element = createProjectElement(project);
+    const MenuLink = createMenuLink(key, 'Small');
+
+    MenuLinks.push(MenuLink);
+    createContentControl(MenuLinks.length - 1, element);
+  });
+
+  createElementsFromContentData('Education');
+  createElementsFromContentData('Code Challenges');
 
   return (
     <div className={classes.DashboardWrapper} {...handlers}>
@@ -240,13 +161,17 @@ export default function Dashboard({ showModal }) {
       >
         {modalStatus.content}
       </Modal>
-      <div className={`${classes.MenuItemsWrapper} ${classes.Font}`}>
-        <div className={classes.MenuItemsContainer}>{MenuItems}</div>
+      <div className={`${classes.MenuWrapper} ${classes.Font}`}>
+        <div className={classes.MenuHeaderItems}>
+          <WelcomeElements />
+          <ProfileLinks />
+        </div>
+        <div className={classes.MenuLinkContainer}>{MenuLinks}</div>
       </div>
 
       <div className={classes.MainContentWrapper}>
         <div className={classes.MainContentContainer}>
-          {mainContentSelectors[activeContentKey]}
+          {contentController[activeContentIndex]}
         </div>
       </div>
     </div>
