@@ -3,7 +3,7 @@ import imageAssets from '../../assets/assets';
 const projects = [
   {
     title: 'E-Commerce',
-    images: [[imageAssets.ecommerce]],
+    images: [imageAssets.ecommerce, imageAssets.ecommerceImage2],
     liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
     previewTechStack: 'Javascript, React, Firebase, CSS',
     gitHubLink: 'https://github.com/Kwarn/e-commerce',
