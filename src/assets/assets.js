@@ -8,6 +8,7 @@ const imageAssets = {
   sqlCodeAcademyCertificate: require('../assets/sqlCodeAcademyCertificate.png'),
   serverSideRendered: require('../assets/serverSideRendered.png'),
   ecommerce: require('../assets/ecommerce1.png'),
+  ecommerceImage2: require('../assets/e-commerceImage2.png'),
   portfolio: require('../assets/portfolioProject.png'),
   burgerBuilder: require('../assets/burgerBuilder.png'),
   squarePlayground: require('../assets/squarePlayground.png'),
