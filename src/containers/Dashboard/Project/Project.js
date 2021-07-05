@@ -1,7 +1,6 @@
 import React from 'react';
 import imageAssets from '../../../assets/assets';
 import classes from './Project.module.css';
-import ImageSlider from '../../Slider/ImageSlider';
 
 const Project = ({ project, showModalCb, closeModalCb }) => {
   const imageTags = project.previewTechStack
@@ -9,11 +8,7 @@ const Project = ({ project, showModalCb, closeModalCb }) => {
     .map(tag => tag.toLowerCase().trim());
 
   const techIcons = imageTags.map(tag =>
-    imageAssets[tag] ? (
-      <div key={tag}>
-        <img src={imageAssets[tag]} alt={tag} />
-      </div>
-    ) : null
+    imageAssets[tag] ? <img key={tag} src={imageAssets[tag]} alt={tag} /> : null
   );
 
   const externalLinks = (
@@ -29,7 +24,7 @@ const Project = ({ project, showModalCb, closeModalCb }) => {
       ) : null}
       {project.gitHubLink ? (
         <a href={project.gitHubLink} target="_blank" rel="noopener noreferrer">
-          GitHub
+          GitHub Repo
         </a>
       ) : null}
     </div>
@@ -50,18 +45,19 @@ const Project = ({ project, showModalCb, closeModalCb }) => {
           <div>{techIcons}</div>
         </div>
         <div className={classes.ExternalLinksBlock}>
+          <h1>{project.title}</h1>
           <div className={classes.ExternalLinksWrapper}>{externalLinks}</div>
         </div>
         <div className={classes.DescriptionsBlock}>
-          <h2>{project.title}</h2>
-          <p>{project.description}</p>
-          <h2>Lessons</h2>
-          <p>{project.lessons}</p>
+          <div>
+            <p>{project.description}</p>
+            <p>{project.lessons}</p>
+          </div>
         </div>
         <div className={classes.TechnicalBlock}>
           <div className={classes.TechnicalMainContent}>
             <div className={classes.TechnicalHeader}>
-              <h1>The Technical Stuff..</h1>
+              <h2>The Technical Stuff..</h2>
             </div>
             <ul className={classes.TechnicalPracticesList}>
               {technicalPractices}
@@ -73,13 +69,13 @@ const Project = ({ project, showModalCb, closeModalCb }) => {
           onClick={() =>
             showModalCb({
               isShown: true,
-              content: [project.image, project.image, project.image],
+              content: project.images,
             })
           }
         >
           <div className={classes.FadeEffect} />
           <h2 className={classes.ViewImages}>View images</h2>
-          <ImageSlider images={[project.images]} />
+          <img src={project.images[0]} alt="project" />
         </div>
       </div>
     </div>
