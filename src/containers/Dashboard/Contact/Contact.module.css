@@ -1,0 +1,75 @@
+.ConditionalContactWrapper {
+  margin-top: 56px;
+  min-height: 100vh;
+  background: url('../../assets/contactBackground.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Contact {
+  width: 100%;
+  margin: auto;
+  color: #474747;
+  max-width: 600px;
+}
+
+.ContactForm {
+  border-radius: 15px;
+  background-color: rgba(251, 243, 238);
+  padding: 25px;
+  margin: 56px 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactForm h2 {
+  font-size: larger;
+  padding: 0px 0px 5px 0px;
+}
+
+.ContactForm input {
+  font-size: larger;
+  padding: 5px 0px 5px 5px;
+  margin-bottom: 5px;
+}
+
+.ContactForm textarea {
+  resize: none;
+  padding: 5px;
+  font-size: larger;
+  text-align: left;
+  min-height: 150px;
+  margin: 0 0 25px 0;
+}
+
+.ContactForm button {
+  font-size: larger;
+  padding: 5px 0px 5px 0px;
+}
+
+.Disclaimer {
+  text-align: center;
+  padding: 25px 0 0 0;
+}
+
+.FormNotValid {
+  background-color: #ecd7cd;
+}
+
+.InvalidFormErrorMessage {
+  padding: 2px;
+  text-align: center;
+  color: red;
+}
+
+.FormSuccess {
+  border-radius: 5%;
+  background-color: rgba(251, 243, 238);
+  padding: 25px;
+  margin: 56px 15px 0 15px;
+}
+
+.FormSuccess p {
+  padding: 10px 0 5px 0;
+}
