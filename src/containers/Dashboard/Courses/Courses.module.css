@@ -1,0 +1,23 @@
+.Courses {
+  color: #474747;
+  margin: auto 15px auto 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Courses h2 {
+  text-align: center;
+  box-shadow: 0 2px 10px rgb(251, 243, 238);
+  background: rgba(251, 243, 238, 1);
+  color: #474747;
+  padding: 15px 0 15px 0;
+}
+
+@media (max-width: 500px) {
+  .Courses {
+    margin: auto 15px auto 15px;
+  }
+  .Courses h2 {
+    font-size: medium;
+  }
+}
