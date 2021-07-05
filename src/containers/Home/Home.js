@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import classes from './Home.module.css';
 import Dashboard from '../Dashboard/Dashboard';
@@ -41,29 +41,14 @@ const Home = () => {
     setModalControl({ ...modalControl.modalContent, isOpen: false });
   };
 
-  const elementRefs = {
-    skills: useRef(null),
-    dashboard: useRef(null),
-    courses: useRef(null),
-    extraInfo: useRef(null),
-    contact: useRef(null),
-  };
-
   const modal = (
     <Modal show={modalControl.isOpen} hide={() => hideModalHandler()}>
       {modalControl.modalContent}
     </Modal>
   );
-  // <p>
-  //   A devout learner experienced in Full-stack development with a
-  //   focus on front-end systems, utilizing popular modern frameworks &
-  //   libraries whilst practising the latest generation of architecture
-  //   and design principles to create responsive, scaleable, and
-  //   initiative web solutions.
-  // </p>
 
   return (
-    <div ref={elementRefs.dashboard} className={classes.DashboardWrapper}>
+    <div className={classes.DashboardWrapper}>
       <Dashboard showModal={modalContent => showModalHandler(modalContent)} />
     </div>
   );
