@@ -1,0 +1,46 @@
+.ProfileLinks {
+  width: 100%;
+  margin: 0 auto 10px auto;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 4px solid #c5c6c7;
+}
+
+.ProfileLinks > div {
+  border: 3px solid transparent;
+}
+
+.ProfileLinks > a {
+  border: 3px solid transparent;
+}
+
+.ProfileLinks > div:hover {
+  animation-name: profileLinksHoverAnimation;
+  animation-duration: 1s;
+}
+
+.ProfileLinks > a:hover {
+  animation-name: profileLinksHoverAnimation;
+  animation-duration: 1s;
+}
+
+.ProfileLinks > a > img {
+  width: 40px;
+}
+
+.ProfileLinks > div > img {
+  width: 30px;
+  cursor: pointer;
+}
+
+@keyframes profileLinksHoverAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
