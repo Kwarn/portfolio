@@ -2,29 +2,25 @@ import imageAssets from '../../assets/assets';
 
 const projects = [
   {
-    title: 'E-Commerce',
+    title: 'E-Commerce Project',
     images: [imageAssets.ecommerce, imageAssets.ecommerceImage2],
     liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
     previewTechStack: 'Javascript, React, Firebase, CSS',
     gitHubLink: 'https://github.com/Kwarn/e-commerce',
     description: `
-      This project is being built on behalf of Q&Y who are currently a wholesaler with the future goal of entering the online retail market.
-      The project has provided me a great opportunity to practise both wholesale & retail approaches to e-commerce UX/UI design and to further practice my development and client communication skills.
-      
       The front-end is hosted on Heroku, using React with styled-components and Apollo Client for it’s state management & GraphQL interface.
       
       The back-end is comprised of a NodeJs Express server which uses GraphQL for handling requests with the exception of storing images which uses a RESTful endpoint & Multer-s3 to post images to AWS s3.
       
       The current work on the site is focused around fleshing out administrator functionality to allow all CRUD operations via the back-end, which will give autonomy to the client.
-      
-      I am particularly proud of the progress I am making regarding architecture and design choices.`,
+      `,
     lessons:
-      'The advantages of the styled-components libary, improved file/folder structure, use of React Hooks to speed-up development time.',
+      'I am particularly proud of the progress I am making regarding architecture and design choices.',
     technicalPractices:
       'React, React-router-dom, Redux-ducks, CSS - Styled Components, EmailJs libary for direct E-mail messaging from React',
   },
   {
-    title: 'NodeJs/Express Projects',
+    title: 'Node Projects',
     images: [imageAssets.serverSideRendered],
     liveDemoLink: '',
     previewTechStack: 'Node, graphql, mongodb',
@@ -44,8 +40,6 @@ const projects = [
       },
     },
     description: `
-      (Demo's coming soon!)
-      
       Built from the ground up, these projects demonstrate multiple approaches to creating APIs.
       
       The goal has been to gain greater knowledge base from which to decide how to proceed with my current project's backend.
@@ -55,7 +49,7 @@ const projects = [
       'Authentication - validation - sessions & csrf tokens, Security - environment variables & encryption, File system - uploads/downloads & compression, Middleware - routes & pagination, Request Logging, Error handling & HTTP status codes, Payments - Stripe, Sending emails - signup confirmation & reset password process, Preparing for and Deploying - Heroku/firebase, SQL & noSQL - Schemas - MongoDB/Mongoose & mySQL',
   },
   {
-    title: 'Portfolio',
+    title: 'Portfolio v1',
     images: [imageAssets.portfolio],
     previewTechStack: 'Javascript, React, Firebase, CSS',
     gitHubLink: 'https://github.com/Kwarn/portfolio',
