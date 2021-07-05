@@ -9,14 +9,16 @@
   margin: auto;
   display: flex;
   justify-content: center;
+  /* animation-name: contentLoadAnimation; */
+  animation-duration: 2s;
 }
 
 .BlocksWrapper {
-  margin: 80px;
+  margin: 120px;
   width: 100%;
   display: grid;
-  grid-template-columns: 30% 30% 1fr;
-  grid-template-rows: 150px 150px 150px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 25px 15px;
 }
 
@@ -25,8 +27,8 @@
 .TechIconsBlock {
   width: 100%;
   height: 100%;
-  grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
   border-radius: 15px;
@@ -37,20 +39,19 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* background: #45a29e; */
   flex-wrap: wrap;
 }
 
 .TechIconsBlock div > img {
-  margin: auto auto 0 auto;
+  margin: auto auto auto auto;
   width: 20%;
 }
 
 /* PROJECT LINKS SECTION */
 
 .ExternalLinksBlock {
-  grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 5;
   grid-row-start: 2;
   grid-row-end: 3;
   border-radius: 15px;
@@ -86,8 +87,8 @@
 
 .TechnicalBlock {
   grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
   grid-row-end: 6;
   border-radius: 15px 15px 15px 15px;
   background: #c5c6c7;
@@ -97,13 +98,14 @@
 }
 
 .TechnicalHeader {
-  margin: auto;
+  margin: 15px auto 15px auto;
   display: flex;
   justify-content: center;
-  height: 100px;
+  height: 50px;
 }
+
 .TechnicalHeader > h2 {
-  margin: auto;
+  margin: 0 0 0 0;
   text-align: center;
 }
 
@@ -113,21 +115,24 @@
 }
 
 .TechnicalPracticesList {
-  margin: auto;
+  margin: auto auto auto 30px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .TechnicalPractice {
+  font-size: 1em;
   height: 100%;
-  margin: 0 auto 5px 30px;
+  text-align: left;;
+  margin: 0;
 }
 
 /* DESCRIPTIONS SECTION */
 
 .DescriptionsBlock {
-  grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 6;
   background: #c5c6c7;
@@ -136,6 +141,8 @@
   flex-direction: column;
   justify-content: center;
   max-width: 100%;
+  white-space: pre-line;
+  line-height: 0.8em;
 }
 
 .DescriptionsBlock > div {
@@ -157,8 +164,8 @@
   z-index: 0;
   height: 100%;
   border-radius: 15px;
-  grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-start: 5;
+  grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 3;
   cursor: pointer;
@@ -189,12 +196,17 @@
 }
 
 @keyframes contentLoadAnimation {
-  from {
+  0% {
     /* transform: translateY(-10%); */
-    opacity: 0;
+    opacity: 0.1;
+    transform: translateX(-10vw);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-2vw);
   }
   to {
-    /* transform: translateY(0); */
+    transform: translateY(0);
     opacity: 1;
   }
 }
