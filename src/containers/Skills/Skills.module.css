@@ -1,11 +1,9 @@
 .Skills {
-  /* font-family: 'Teko'; */
-  margin: auto;
-  color: #C5C6C7;
-  overflow-x: hidden;
+  margin: 30vh auto 20vh auto;
+  color: #c5c6c7;
   display: flex;
   flex-direction: column;
-  padding: 0 0 100px 0;
+  justify-content: center;
 }
 
 .Skills p {

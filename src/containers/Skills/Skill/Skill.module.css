@@ -1,6 +1,6 @@
 .Skill {
-  margin: auto;
-  padding: 5% 20px 5% 20px;
+  height: 100%;
+  margin: 5vh auto 5vh auto;
 }
 
 .Skills p {
