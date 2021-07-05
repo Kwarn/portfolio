@@ -7,8 +7,10 @@ import FileSaver from 'file-saver';
 import WelcomeElements from '../../components/WelcomeElements/WelcomeElements';
 import Skills from '../Skills/Skills';
 import imageAssets from '../../assets/assets';
-import Courses from '../Courses/Courses';
+import Courses from './Courses/Courses';
 import { useSwipeable } from 'react-swipeable';
+import AboutMe from './AboutMe/AboutMe';
+import ExtraInfo from './ExtraInfo/ExtraInfo';
 
 /*
 
@@ -20,19 +22,7 @@ import { useSwipeable } from 'react-swipeable';
 
  TO DO:
  
- make menu scrollable
-
- complete index-key mapping for use in accessing menu items/main content
-
-
-
-
-
-
-
-
-
-
+  Add menu Footer -> build & design by karlwarner
 
 
 
@@ -42,6 +32,7 @@ import { useSwipeable } from 'react-swipeable';
 */
 
 export default function Dashboard({ showModal }) {
+  // ensures activeIndex is set to a valid index when cycling.
   const incrementActiveIndexHandler = () => {
     setActiveContentIndex(prev => {
       if (prev === currentIndex - 1) return 0;
@@ -56,7 +47,9 @@ export default function Dashboard({ showModal }) {
   };
 
   const scrollHandler = e => {
-    if (e.wheelDelta > 0) decrementActiveIndexHandler();
+    // wheelDelta -> Chrome
+    // deltaY -> Firefox
+    if (e.wheelDelta > 0 || e.deltaY < 0) decrementActiveIndexHandler();
     else incrementActiveIndexHandler();
   };
 
@@ -115,13 +108,12 @@ export default function Dashboard({ showModal }) {
   // tracks the order of element creation for use to map index to contentKeys.
   let currentIndex = 0;
 
-  const menuPointer = (
-    <img
-      src={imageAssets.menuPointer}
-      alt="menuPointer"
-      className={classes.MenuPointer}
-    />
+  const WelcomeElementsWithWrapper = (
+    <div key="welcomeElements" className={classes.WelcomeElementsWrapper}>
+      <WelcomeElements />
+    </div>
   );
+  MenuItems.push(WelcomeElementsWithWrapper);
 
   const saveFile = () =>
     FileSaver.saveAs(
@@ -154,10 +146,19 @@ export default function Dashboard({ showModal }) {
   MenuItems.push(ProfileLinks);
 
   const menuItemData = {
-    Welcome: <WelcomeElements />,
+    Welcome: <AboutMe />,
     Skills: <Skills />,
     Education: <Courses />,
+    'Code Challenges': <ExtraInfo />,
   };
+
+  const menuPointer = (
+    <img
+      src={imageAssets.menuPointer}
+      alt="menuPointer"
+      className={classes.MenuPointer}
+    />
+  );
 
   // creates MenuItems and maps MainContent Elements to their respective MenuItem titles.
   for (const menuItem in menuItemData) {
@@ -215,7 +216,7 @@ export default function Dashboard({ showModal }) {
 
   // places "Projects" header above project menu items
   MenuItems.splice(
-    4,
+    6,
     0,
     <div key="Projects Header" className={classes.MenuSubHeader}>
       Projects
@@ -224,7 +225,7 @@ export default function Dashboard({ showModal }) {
 
   // SubMenuItems placed in their container and spliced into MenuItems after "Projects" header.
   MenuItems.splice(
-    5,
+    7,
     0,
     <div key="SubMenuItemsContainer" className={classes.SubMenuItemsContainer}>
       {SubMenuItems}
