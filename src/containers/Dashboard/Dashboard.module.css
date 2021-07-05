@@ -5,70 +5,33 @@
 .DashboardWrapper {
   display: flex;
   flex-direction: row;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   background-color: #0b0c10;
 }
 
 /************************ MENU *************************/
 
-.MenuItemsWrapper {
+.MenuWrapper {
   display: flex;
   margin: auto;
   flex-direction: column;
-}
-
-.MenuItemsContainer {
   min-height: 100vh;
   max-height: 100vh;
+  min-width: 200px;
+  height: 100%;
+  width: 15vw;
+  background-color: #1f2833;
+}
+
+.MenuHeaderItems {
   margin: auto;
+}
+
+.MenuLinkContainer {
+  width: 100%;
+  margin: 0 auto auto auto;
   display: flex;
   flex-direction: column;
-  background-color: #1f2833;
-  width: 15vw;
-}
-
-.SubMenuItemsContainer {
-  margin: 0 auto auto auto;
-  width: 100%;
-}
-
-.WelcomeElementsWrapper {
-  margin: auto;
-}
-
-.ProfileLinks {
-  width: 100%;
-  margin: 0 auto 10px auto;
-  display: flex;
-  justify-content: space-evenly;
-  border-bottom: 4px solid #c5c6c7;
-}
-
-.ProfileLinks > div {
-  border: 3px solid transparent;
-}
-
-.ProfileLinks > a {
-  border: 3px solid transparent;
-}
-
-.ProfileLinks > div:hover {
-  animation-name: profileLinksHoverAnimation;
-  animation-duration: 1s;
-}
-
-.ProfileLinks > a:hover {
-  animation-name: profileLinksHoverAnimation;
-  animation-duration: 1s;
-}
-
-.ProfileLinks > a > img {
-  width: 40px;
-}
-
-.ProfileLinks > div > img {
-  width: 30px;
-  cursor: pointer;
 }
 
 .MenuSubHeader {
@@ -77,22 +40,22 @@
   margin: auto auto 0 auto;
 }
 
-.MenuItem {
+.MenuLink {
   position: relative;
   width: 100%;
   height: 5vh;
-  margin: auto auto 0 auto;
+  margin: 2vh auto 2vh auto;
   background: #1f2833;
   cursor: pointer;
   display: flex;
   justify-content: center;
 }
 
-.SubMenuItem {
+.SmallMenuLink {
   position: relative;
   width: 100%;
   height: 3vh;
-  margin: auto;
+  margin: 0;
   background: #1f2833;
   cursor: pointer;
   display: flex;
@@ -104,7 +67,7 @@
   height: 180%;
   position: absolute;
   animation-name: menuPointerAnimation;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   right: -40px;
   top: calc(50% - 90%);
 }
@@ -126,7 +89,6 @@
 }
 
 .MainContentContainer {
-  /* color: #474747; */
   margin: auto;
   height: 100%;
   background: #0b0c10;
@@ -158,22 +120,8 @@
 @keyframes menuPointerAnimation {
   from {
     opacity: 0;
-    /* transform: translateX(-5vw); */
   }
   to {
     opacity: 1;
-    /* transform: translateX(0); */
-  }
-}
-
-@keyframes profileLinksHoverAnimation {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
