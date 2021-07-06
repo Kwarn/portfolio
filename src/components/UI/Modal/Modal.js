@@ -84,6 +84,11 @@ const Modal = ({ isVisible, closeFn, children }) => {
   const [mainImageIndex, setMainImageIndex] = useState(0);
   let images = [];
   let thumbnails = [];
+  const isMultipleImages = children
+    ? Object.keys(children).length > 1
+      ? true
+      : false
+    : false;
 
   // probably shouldn't do this, feels hacky.
   if (isVisible) {
@@ -150,10 +155,16 @@ const Modal = ({ isVisible, closeFn, children }) => {
         <StyledContent>
           <StyledMainImageWrapper>
             <StyledMainImage background={images[mainImageIndex]} />
-            <StyledSwipeIcon src={imageAssets.swipeIcon} alt="Swipe" />
+            {isMultipleImages ? (
+              <StyledSwipeIcon src={imageAssets.swipeIcon} alt="Swipe" />
+            ) : (
+              ''
+            )}
           </StyledMainImageWrapper>
-          {thumbnails ? (
-            <StyledThumbnailWrapper>{thumbnails}</StyledThumbnailWrapper>
+          {isMultipleImages ? (
+            thumbnails ? (
+              <StyledThumbnailWrapper>{thumbnails}</StyledThumbnailWrapper>
+            ) : null
           ) : null}
         </StyledContent>
       </StyledModal>

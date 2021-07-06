@@ -1,25 +1,131 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
 import imageAssets from '../../../assets/assets';
-import classes from './WelcomeElements.module.css';
+import Spinner from '../../../components/UI/Spinner/Spinner';
 
-const WelcomeElements = () => {
-  return (
-    <div className={classes.WelcomeElementsWrapper}>
-      <div className={classes.WelcomeElements}>
-        <div className={classes.Background} />
-        <img
-          className={classes.ProfileImage}
-          src={imageAssets.profileImage}
-          alt="profileImage"
-        />
-        <div className={classes.TitleGroup}>
-          <div>
-            <h1>Karl Warner</h1>
-            <p>{`</> Full-Stack Web Developer`}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+const drawClose = keyframes`
+  0%{
+    width: 300px;
+  }100%{
+    width: 0;
+  } 
+`;
+
+const drawOpen = keyframes`
+0% {
+  width: 0;
+}100%{
+  width: 300px;
+}
+`;
+
+const StyledWrapper = styled.div`
+  margin: 0 auto 3vh auto;
+`;
+
+const StyledWelcomeElementsContainer = styled.div`
+  position: relative;
+  margin: auto;
+  color: #474747;
+  height: 100%;
+  width: 100%;
+  border-radius: 20%;
+  display: inline-flex;
+  text-align: center;
+`;
+
+const StyledDraw = styled.div`
+  animation: ${props =>
+    props.isDrawOpen
+      ? css`
+          ${drawOpen} 1s
+        `
+      : css`
+          ${drawClose} 1s
+        `};
+  position: absolute;
+  left: 25px;
+  top: 12px;
+  width: ${props => (props.isDrawOpen ? '300px' : '0')};
+  border-bottom: 4px solid #474747;
+  position: absolute;
+  border-radius: 50px 20px 50px 50px;
+  height: 130px;
+  min-width: 100px;
+  background: #c5c6c7;
+  display: flex;
+`;
+
+const StyledProfileImage = styled.img`
+  margin: auto;
+  z-index: 1;
+  border-radius: 50%;
+  border-right: 4px solid #474747;
+  border-bottom: 4px solid #474747;
+  width: 150px;
+  height: auto;
+`;
+
+const StyledSpinnerWrapper = styled.div`
+  margin: auto;
+  z-index: 1;
+  width: 158px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledTextGroup = styled.div`
+  font-size: 1em;
+  margin: auto 15px auto auto;
+`;
+
+const StyledName = styled.h1``;
+
+const StyledTagline = styled.p``;
+
+const WelcomeElements = ({ isDrawOpen }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   setIsLoading(false);
+  // }, );
+
+  const imageLoadedHandler = () => {
+    setIsLoading(false);
+  };
+
+  const profileImage = (
+    <StyledProfileImage
+      onLoad={imageLoadedHandler}
+      src={imageAssets.profileImage}
+      alt="profileImage"
+    />
+  );
+
+  // this is magic. even though img isn't in the render it still triggers its on-load.
+  // react must be loading the image without rendering causing imageLoadedHander to be fired
+  // as the image passed to both instances of img is the same, the loading time must be accurate?
+  const img = document.createElement('img');
+  img.src = imageAssets.profileImage;
+  img.alt = 'profilepic';
+  img.onload = imageLoadedHandler;
+
+  return isLoading ? (
+    <StyledSpinnerWrapper>
+      <Spinner />
+    </StyledSpinnerWrapper>
+  ) : (
+    <StyledWrapper>
+      <StyledWelcomeElementsContainer>
+        <StyledDraw isDrawOpen={isDrawOpen}>
+          <StyledTextGroup>
+            <StyledName>Karl Warner</StyledName>
+            <StyledTagline>{`</> Full-Stack Web Developer`}</StyledTagline>
+          </StyledTextGroup>
+        </StyledDraw>
+        {profileImage}
+      </StyledWelcomeElementsContainer>
+    </StyledWrapper>
   );
 };
 

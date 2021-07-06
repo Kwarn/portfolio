@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import classes from './Dashboard.module.css';
 import Project from './Project/Project';
 import Modal from '../../components/UI/Modal/Modal';
 import projectData from './ProjectData';
@@ -11,8 +10,126 @@ import { useSwipeable } from 'react-swipeable';
 import AboutMe from './AboutMe/AboutMe';
 import ExtraInfo from './ExtraInfo/ExtraInfo';
 import ProfileLinks from './ProfileLinks/ProfileLinks';
+import styled, { css, keyframes } from 'styled-components';
+
+/************************ ANIMATIONS *************************/
+
+const menuPointerAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const menuLinkClick = keyframes`
+  0% {
+  background-color: #1f2833;
+  }
+  100% {
+    background-color: #c5c6c7;
+  }
+  `;
+
+const StyledProfileLinksWrapper = styled.div`
+  height: 10vh;
+`;
+
+const StyledDashBoardWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: #0b0c10;
+  overflow: hidden;
+`;
+const StyledMenuWrapper = styled.div`
+  font-family: 'Teko';
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  min-width: 200px;
+  height: 100%;
+  width: 15vw;
+  background-color: #1f2833;
+`;
+
+const StyledMenuHeaderItems = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  /* width: 200px; */
+`;
+
+const StyledMenuLinksContainer = styled.div`
+  width: 100%;
+  margin: 0 auto auto auto;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledMenuLink = styled.div`
+  width: 100%;
+  height: ${props => (props.isSmallMenuItem ? '2vh' : '4vh')};
+  margin: ${props =>
+    props.isSmallMenuItem ? '0.5vh auto 0.5vh auto' : '2vh auto 2vh auto'};
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledMenuLinkTitle = styled.h2`
+  position: relative;
+  width: 100%;
+  animation: ${props =>
+    props.isFocus
+      ? css`
+          ${menuLinkClick} 0.8s
+        `
+      : ''};
+  background: ${props => (props.isFocus ? '#c5c6c7' : '#1f2833')};
+  color: ${props => (props.isFocus ? '#474747' : '#c5c6c7')};
+  margin: auto;
+  font-size: 1.4em;
+  bottom: 0;
+  text-align: center;
+`;
+
+const StyledMenuPointer = styled.img`
+  width: 30px;
+  height: 180%;
+  position: absolute;
+  animation-name: ${menuPointerAnimation};
+  animation-duration: 1s;
+  right: -30px;
+  top: calc(50% - 90%);
+`;
+
+/************************ MAIN CONTENT *************************/
+
+const StyledMainContentWrapper = styled.div`
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+`;
+
+const StyledMainContentContainer = styled.div`
+  margin: auto;
+  height: 100%;
+  background: #0b0c10;
+  display: flex;
+  justify-content: center;
+`;
 
 export default function Dashboard({ showModal }) {
+  const [isLoadingMenu, setIsLoadingMenu] = useState(true);
+
+  const startLoad = () => setIsLoadingMenu(true);
+  const stopLoad = () => setIsLoadingMenu(false);
+
   // ensures activeContentIndex is set to a valid index when scroll/swipe cycling through Menu.
   const incrementActiveIndexHandler = () => {
     setActiveContentIndex(prev => {
@@ -73,21 +190,13 @@ export default function Dashboard({ showModal }) {
     Welcome: <AboutMe />,
     Skills: <Skills />,
     Education: <Courses />,
-    'Code Challenges': <ExtraInfo />,
+    'Code Challenges': (
+      <ExtraInfo showModal={content => setModalStatus(content)} />
+    ),
   };
 
   const menuPointer = (
-    <img
-      src={imageAssets.menuPointer}
-      alt="menuPointer"
-      className={classes.MenuPointer}
-    />
-  );
-
-  const ProjectsHeader = (
-    <div key="Projects Header" className={classes.MenuSubHeader}>
-      Projects
-    </div>
+    <StyledMenuPointer src={imageAssets.menuPointer} alt="menuPointer" />
   );
 
   // index:element used to display content using activeContentKey
@@ -109,22 +218,22 @@ export default function Dashboard({ showModal }) {
   };
 
   // returns JSX MenuLink element with correct css Class
-  const createMenuLink = (key, cssPrefix = '') => {
-    const cssClass = `${cssPrefix}MenuLink`;
+  const createMenuLink = (key, size = 'large') => {
     const index = MenuLinks.length || 0;
     return (
-      <div
+      <StyledMenuLink
+        isSmallMenuItem={size === 'small'}
+        isFocus={activeContentIndex === index}
         key={key}
         onClick={() => {
           setActiveContentIndex(index);
         }}
-        className={`${classes[cssClass]} ${
-          activeContentIndex === index ? classes.Focus : ''
-        }`}
       >
-        <h2 className={classes.MenuItemTitle}>{key}</h2>
-        {activeContentIndex === index ? menuPointer : null}
-      </div>
+        <StyledMenuLinkTitle isFocus={activeContentIndex === index}>
+          {key}
+          {activeContentIndex === index ? menuPointer : null}
+        </StyledMenuLinkTitle>
+      </StyledMenuLink>
     );
   };
 
@@ -144,7 +253,7 @@ export default function Dashboard({ showModal }) {
   projectData.forEach(project => {
     const key = project.title;
     const element = createProjectElement(project);
-    const MenuLink = createMenuLink(key, 'Small');
+    const MenuLink = createMenuLink(key, 'small');
 
     MenuLinks.push(MenuLink);
     createContentControl(MenuLinks.length - 1, element);
@@ -154,26 +263,31 @@ export default function Dashboard({ showModal }) {
   createElementsFromContentData('Code Challenges');
 
   return (
-    <div className={classes.DashboardWrapper} {...handlers}>
+    <StyledDashBoardWrapper {...handlers}>
       <Modal
         isVisible={modalStatus.isShown && modalStatus.content}
         closeFn={() => closeModalHandler()}
       >
         {modalStatus.content}
       </Modal>
-      <div className={`${classes.MenuWrapper} ${classes.Font}`}>
-        <div className={classes.MenuHeaderItems}>
-          <WelcomeElements />
-          <ProfileLinks />
-        </div>
-        <div className={classes.MenuLinkContainer}>{MenuLinks}</div>
-      </div>
+      <StyledMenuWrapper>
+        <StyledMenuHeaderItems>
+          <WelcomeElements
+            isDrawOpen={activeContentIndex === 0}
+            loadingFinishedHandler={stopLoad}
+          />
+          <StyledProfileLinksWrapper>
+            <ProfileLinks />
+          </StyledProfileLinksWrapper>
+        </StyledMenuHeaderItems>
+        <StyledMenuLinksContainer>{MenuLinks}</StyledMenuLinksContainer>
+      </StyledMenuWrapper>
 
-      <div className={classes.MainContentWrapper}>
-        <div className={classes.MainContentContainer}>
+      <StyledMainContentWrapper>
+        <StyledMainContentContainer>
           {contentController[activeContentIndex]}
-        </div>
-      </div>
-    </div>
+        </StyledMainContentContainer>
+      </StyledMainContentWrapper>
+    </StyledDashBoardWrapper>
   );
 }

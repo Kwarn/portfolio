@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import imageAssets from '../../../assets/assets';
+import LayoutsContext from '../../../Layout/LayoutsContext';
 import classes from './Project.module.css';
 
 const Project = ({ project, showModalCb, closeModalCb }) => {
+  const layouts = useContext(LayoutsContext);
   const imageTags = project.previewTechStack
     .split(',')
     .map(tag => tag.toLowerCase().trim());

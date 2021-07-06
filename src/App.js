@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './containers/Home/Home';
-import Layout from './Hoc/Layout/Layout';
+import Layout from './Layout/Layout';
 import classes from './App.module.css';
 
 const App = props => {

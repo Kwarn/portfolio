@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import LayoutsContext from '../../../Layout/LayoutsContext';
 import FadeInSection from '../../FadeInSection/FadeInSection';
-import classes from './Skill.module.css';
+
+const StyledSkill = styled.div`
+  height: 100%;
+  max-width: ${props => (props.isDesktop ? '80%' : '90%')};
+  margin: auto;
+`;
+
+const StyledTextSections = styled.div`
+  font-size: 1.2em;
+  display: inline-flex;
+  img {
+    padding: 0 5px 0 5px;
+    height: 100px;
+    width: auto;
+  }
+`;
 
 const Skill = ({
   title,
@@ -9,25 +26,26 @@ const Skill = ({
   content,
   renderDelayDuration,
 }) => {
+  const layouts = useContext(LayoutsContext);
   const img = <img src={image} alt={title} />;
   return (
-    <div className={classes.Skill}>
+    <StyledSkill {...layouts}>
       <FadeInSection
         key={title}
         fadeDirection={fadeInAndAlignDirection}
         childAlignDirection={fadeInAndAlignDirection}
         renderDelayDuration={renderDelayDuration}
       >
-        <div className={classes.TechSubsection}>
+        <StyledTextSections>
           {fadeInAndAlignDirection === 'left' ? img : null}
           <div>
             <h2>{title}</h2>
             <p>{content}</p>
           </div>
           {fadeInAndAlignDirection === 'right' ? img : null}
-        </div>
+        </StyledTextSections>
       </FadeInSection>
-    </div>
+    </StyledSkill>
   );
 };
 

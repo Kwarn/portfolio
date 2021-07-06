@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import imageAssets from '../../../assets/assets';
 
 const StyledAboutMeContainer = styled.div`
   height: 100%;
@@ -21,7 +22,7 @@ const StyledText = styled.p`
 `;
 
 const StyledHeader = styled.h1`
-  font-size: 15em;
+  font-size: 15vw;
   margin-left: 5vw;
 `;
 
