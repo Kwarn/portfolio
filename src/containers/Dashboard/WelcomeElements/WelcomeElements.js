@@ -13,20 +13,21 @@ const drawClose = keyframes`
 
 const drawOpen = keyframes`
 0% {
-  width: 0;
+  width: 100px;
 }100%{
   width: 300px;
 }
 `;
 
 const StyledWrapper = styled.div`
-  margin: 0 auto 3vh auto;
+  margin: 0 auto 0 auto;
+  height: 100%;
 `;
 
 const StyledWelcomeElementsContainer = styled.div`
   position: relative;
-  margin: auto;
-  color: #474747;
+  margin: 0 auto 0 auto;
+  color: white;
   height: 100%;
   width: 100%;
   border-radius: 20%;
@@ -45,9 +46,11 @@ const StyledDraw = styled.div`
         `};
   position: absolute;
   left: 25px;
-  top: 12px;
+  top: 40px;
   width: ${props => (props.isDrawOpen ? '300px' : '0')};
-  border-bottom: 4px solid #474747;
+  border-bottom: 4px solid #0b0c10;
+  border-top: 4px solid #0b0c10;
+
   position: absolute;
   border-radius: 50px 20px 50px 50px;
   height: 130px;
@@ -60,10 +63,12 @@ const StyledProfileImage = styled.img`
   margin: auto;
   z-index: 1;
   border-radius: 50%;
-  border-right: 4px solid #474747;
-  border-bottom: 4px solid #474747;
-  width: 150px;
-  height: auto;
+  /* border-right: 4px solid #474747;
+  border-bottom: 4px solid #474747; */
+  border: ${props =>
+    props.isDrawOpen ? '4px solid #0b0c10' : '4px solid #c5c6c7'};
+  height: 158px;
+  width: auto;
 `;
 
 const StyledSpinnerWrapper = styled.div`
@@ -76,6 +81,7 @@ const StyledSpinnerWrapper = styled.div`
 `;
 
 const StyledTextGroup = styled.div`
+  mix-blend-mode: difference;
   font-size: 1em;
   margin: auto 15px auto auto;
 `;
@@ -86,9 +92,6 @@ const StyledTagline = styled.p``;
 
 const WelcomeElements = ({ isDrawOpen }) => {
   const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   setIsLoading(false);
-  // }, );
 
   const imageLoadedHandler = () => {
     setIsLoading(false);
@@ -96,6 +99,7 @@ const WelcomeElements = ({ isDrawOpen }) => {
 
   const profileImage = (
     <StyledProfileImage
+      isDrawOpen={isDrawOpen}
       onLoad={imageLoadedHandler}
       src={imageAssets.profileImage}
       alt="profileImage"

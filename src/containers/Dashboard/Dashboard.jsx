@@ -25,7 +25,7 @@ const menuPointerAnimation = keyframes`
 
 const menuLinkClick = keyframes`
   0% {
-  background-color: #1f2833;
+  background-color: #474747;
   }
   100% {
     background-color: #c5c6c7;
@@ -33,16 +33,16 @@ const menuLinkClick = keyframes`
   `;
 
 const StyledProfileLinksWrapper = styled.div`
-  height: 10vh;
+  height: fit-content;
 `;
 
 const StyledDashBoardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #0b0c10;
   overflow: hidden;
 `;
 const StyledMenuWrapper = styled.div`
+  z-index: 100;
   font-family: 'Teko';
   display: flex;
   margin: auto;
@@ -60,18 +60,22 @@ const StyledMenuHeaderItems = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  margin: auto;
-  /* width: 200px; */
+  margin: 0 auto 0 auto;
+  height: 300px;
+  background-color: #0b0c10;
+  box-sizing: border-box;
 `;
 
 const StyledMenuLinksContainer = styled.div`
   width: 100%;
-  margin: 0 auto auto auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
+  background-color: #1f2833;
 `;
 
 const StyledMenuLink = styled.div`
+  background-color: #1f2833;
   width: 100%;
   height: ${props => (props.isSmallMenuItem ? '2vh' : '4vh')};
   margin: ${props =>
@@ -82,6 +86,7 @@ const StyledMenuLink = styled.div`
 `;
 
 const StyledMenuLinkTitle = styled.h2`
+  background-color: #0b0c10;
   position: relative;
   width: 100%;
   animation: ${props =>
@@ -119,7 +124,8 @@ const StyledMainContentWrapper = styled.div`
 const StyledMainContentContainer = styled.div`
   margin: auto;
   height: 100%;
-  background: #0b0c10;
+  /* background: #0b0c10; */
+  background-color: #c5c6c7;
   display: flex;
   justify-content: center;
 `;
@@ -195,9 +201,14 @@ export default function Dashboard({ showModal }) {
     ),
   };
 
-  const menuPointer = (
-    <StyledMenuPointer src={imageAssets.menuPointer} alt="menuPointer" />
-  );
+  const menuPointers = {
+    light: (
+      <StyledMenuPointer src={imageAssets.menuPointerLight} alt="menuPointer" />
+    ),
+    dark: (
+      <StyledMenuPointer src={imageAssets.menuPointerDark} alt="menuPointer" />
+    ),
+  };
 
   // index:element used to display content using activeContentKey
   const createContentControl = (index, element) => {
@@ -218,7 +229,7 @@ export default function Dashboard({ showModal }) {
   };
 
   // returns JSX MenuLink element with correct css Class
-  const createMenuLink = (key, size = 'large') => {
+  const createMenuLink = (key, pointerColor, size = 'large') => {
     const index = MenuLinks.length || 0;
     return (
       <StyledMenuLink
@@ -231,14 +242,14 @@ export default function Dashboard({ showModal }) {
       >
         <StyledMenuLinkTitle isFocus={activeContentIndex === index}>
           {key}
-          {activeContentIndex === index ? menuPointer : null}
+          {activeContentIndex === index ? menuPointers[pointerColor] : null}
         </StyledMenuLinkTitle>
       </StyledMenuLink>
     );
   };
 
-  const createElementsFromContentData = key => {
-    const MenuLink = createMenuLink(key);
+  const createElementsFromContentData = (key, pointerColor, MenuLinkSize) => {
+    const MenuLink = createMenuLink(key, pointerColor, MenuLinkSize);
     const element = contentData[key];
 
     MenuLinks.push(MenuLink);
@@ -247,20 +258,20 @@ export default function Dashboard({ showModal }) {
 
   // begins creation and ordering of MenuLinks
 
-  createElementsFromContentData('Welcome');
-  createElementsFromContentData('Skills');
+  createElementsFromContentData('Welcome', 'dark', 'large');
+  createElementsFromContentData('Skills', 'light', 'large');
 
   projectData.forEach(project => {
     const key = project.title;
     const element = createProjectElement(project);
-    const MenuLink = createMenuLink(key, 'small');
+    const MenuLink = createMenuLink(key, 'dark', 'small');
 
     MenuLinks.push(MenuLink);
     createContentControl(MenuLinks.length - 1, element);
   });
 
-  createElementsFromContentData('Education');
-  createElementsFromContentData('Code Challenges');
+  createElementsFromContentData('Education', 'dark', 'large');
+  createElementsFromContentData('Code Challenges', 'dark', 'large');
 
   return (
     <StyledDashBoardWrapper {...handlers}>

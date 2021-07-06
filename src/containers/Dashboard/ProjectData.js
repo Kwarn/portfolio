@@ -12,7 +12,7 @@ const projects = [
       
       The back-end is comprised of a NodeJs Express server which uses GraphQL for handling requests with the exception of storing images which uses a RESTful endpoint & Multer-s3 to post images to AWS s3.
       
-      The current work on the site is focused around fleshing out administrator functionality to allow all CRUD operations via the back-end, which will give autonomy to the client.
+      The current work on the site is focused around fleshing out administrator functionality to allow all CRUD operations via the back-end.
       `,
     lessons:
       'I am particularly proud of the progress I am making regarding architecture and design choices.',

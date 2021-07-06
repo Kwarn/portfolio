@@ -3,7 +3,7 @@
   margin: 0 auto 10px auto;
   display: flex;
   justify-content: space-evenly;
-  border-bottom: 4px solid #c5c6c7;
+  /* border-bottom: 4px solid #c5c6c7; */
 }
 
 .ProfileLinks > div {
