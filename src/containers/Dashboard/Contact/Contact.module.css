@@ -1,7 +1,7 @@
 .ConditionalContactWrapper {
   margin-top: 56px;
   min-height: 100vh;
-  background: url('../../assets/contactBackground.jpg');
+  /* background: url('../../assets/contactBackground.jpg'); */
   background-size: cover;
   display: flex;
   justify-content: space-between;
