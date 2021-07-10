@@ -1,105 +1,217 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import imageAssets from '../../../assets/assets';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import LayoutsContext from '../../../Layout/LayoutsContext';
 
 const drawClose = keyframes`
   0%{
-    width: 300px;
-  }100%{
-    width: 0;
-  } 
+    width: 400px;
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    width: 30px;
+  }
 `;
 
 const drawOpen = keyframes`
-0% {
-  width: 100px;
-}100%{
-  width: 300px;
-}
+  0% {
+    width: 30px;
+    opacity: 0;
+  }
+  50% {
+    opacity:1;
+  }
+  100%{
+    width: 400px;
+  }
+`;
+
+const drawCloseMobile = keyframes`
+  0%{
+    width: 85vw;
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    width: 30px;
+  }
+`;
+
+const drawOpenMobile = keyframes`
+  0% {
+    width: 30px;
+    opacity: 0;
+  }
+  50% {
+    opacity:1;
+  }
+  100%{
+    width: 85vw;
+  }
+`;
+
+const drawCloseTextAnimation = keyframes`
+  0%{
+    opacity: 1;
+    font-size: 3vh;
+  }
+  50%{
+    font-size: 0em;
+  }
+  100%{
+    opacity: 0;
+  }
+`;
+
+const drawOpenTextAnimation = keyframes`
+  0% {
+    opacity: 0;
+    font-size: 0em;
+  }
+  50% {
+    opacity:1;
+  }
+  100% {
+    font-size: 3vh;
+  }
 `;
 
 const StyledWrapper = styled.div`
-  margin: 0 auto 0 auto;
-  height: 100%;
+  position: absolute;
+  top: 3vw;
+  transition: left 0.5s;
+  left: ${props => (props.isMenuOpen ? 'calc(50% - 7vh)' : '5vw')};
 `;
 
 const StyledWelcomeElementsContainer = styled.div`
-  position: relative;
   margin: 0 auto 0 auto;
   color: white;
   height: 100%;
   width: 100%;
   border-radius: 20%;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   text-align: center;
 `;
 
-const StyledDraw = styled.div`
-  animation: ${props =>
-    props.isDrawOpen
-      ? css`
-          ${drawOpen} 1s
-        `
-      : css`
-          ${drawClose} 1s
-        `};
-  position: absolute;
-  left: 25px;
-  top: 40px;
-  width: ${props => (props.isDrawOpen ? '300px' : '0')};
-  border-bottom: 4px solid #0b0c10;
-  border-top: 4px solid #0b0c10;
-
-  position: absolute;
-  border-radius: 50px 20px 50px 50px;
-  height: 130px;
-  min-width: 100px;
-  background: #c5c6c7;
-  display: flex;
-`;
-
 const StyledProfileImage = styled.img`
-  margin: auto;
+  position: relative;
+  margin: 0;
   z-index: 1;
   border-radius: 50%;
-  /* border-right: 4px solid #474747;
-  border-bottom: 4px solid #474747; */
-  border: ${props =>
-    props.isDrawOpen ? '4px solid #0b0c10' : '4px solid #c5c6c7'};
-  height: 158px;
+  border-right: 4px solid #0b0c10;
+  border-bottom: 4px solid #0b0c10;
+  height: ${props =>
+    props.isMenuOpen ? '15vh' : props.isWelcomePage ? '15vh' : '10vh'};
+  transition: height 0.5s;
   width: auto;
 `;
 
+// isMobile ? isDrawOpen ? drawOpenMobile : drawCloseMobile : isDrawOpen ? drawOpen : drawClose
+
+const StyledDraw = styled.div`
+  display: flex;
+  animation: ${props =>
+    props.isMobile
+      ? props.isDrawOpen
+        ? css`
+            ${drawOpenMobile} 0.5s
+          `
+        : css`
+            ${drawCloseMobile} 0.5s
+          `
+      : props.isDrawOpen
+      ? css`
+          ${drawOpen} 0.5s
+        `
+      : css`
+          ${drawClose} 0.5s
+        `};
+  left: 2vw;
+  top: 8px;
+  width: ${props =>
+    props.isDrawOpen ? (props.isMobile ? '85vw' : '400px') : '0px'};
+  opacity: ${props => (props.isDrawOpen ? '1' : '0')};
+  border-bottom: 4px solid #0b0c10;
+  border-top: 4px solid #0b0c10;
+  border-right: 2px solid #0b0c10;
+  position: absolute;
+  border-radius: 50px 20px 50px 50px;
+  height: ${props => (props.isDrawOpen ? '12vh' : '8vh')};
+  transition: height 0.4s;
+  min-width: 100px;
+  background: #c5c6c7;
+  /* width: 85vw; // Testing mobile */
+`;
+
 const StyledSpinnerWrapper = styled.div`
-  margin: auto;
+  margin: 5vh auto auto auto;
   z-index: 1;
-  width: 158px;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
 `;
 
-const StyledTextGroup = styled.div`
-  mix-blend-mode: difference;
-  font-size: 1em;
-  margin: auto 15px auto auto;
+const StyledImageToTextSpacer = styled.div`
+  width: 5.5vw;
+  min-width: 120px;
+  height: 100%;
 `;
 
-const StyledName = styled.h1``;
+const StyledTextGroup = styled.div`
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin-top: -2vh;
+    padding: 0;
+  }
 
-const StyledTagline = styled.p``;
+  font-size: ${props => (props.isDrawOpen ? '3vh' : '0em')};
+  mix-blend-mode: difference;
+  margin: auto;
+  animation: ${props =>
+    props.isDrawOpen
+      ? css`
+          ${drawOpenTextAnimation} 1s
+        `
+      : css`
+          ${drawCloseTextAnimation} 1s
+        `};
+`;
 
-const WelcomeElements = ({ isDrawOpen }) => {
+const WelcomeElements = ({ isMenuOpen, isWelcomePage }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isDrawOpen, setIsDrawOpen] = useState(isWelcomePage);
+  const layouts = useContext(LayoutsContext);
+
+  useEffect(() => {
+    setIsDrawOpen(isWelcomePage);
+  }, [isWelcomePage]);
 
   const imageLoadedHandler = () => {
     setIsLoading(false);
   };
 
+  const drawHandler = (e, shouldOpen) => {
+    e.stopPropagation();
+    setIsDrawOpen(shouldOpen);
+  };
+
   const profileImage = (
     <StyledProfileImage
-      isDrawOpen={isDrawOpen}
+      onMouseEnter={e => drawHandler(e, true)}
+      onMouseLeave={e => drawHandler(e, isWelcomePage)}
+      isMenuOpen={isMenuOpen}
+      isWelcomePage={isWelcomePage}
       onLoad={imageLoadedHandler}
       src={imageAssets.profileImage}
       alt="profileImage"
@@ -119,12 +231,13 @@ const WelcomeElements = ({ isDrawOpen }) => {
       <Spinner />
     </StyledSpinnerWrapper>
   ) : (
-    <StyledWrapper>
+    <StyledWrapper isMenuOpen={isMenuOpen}>
       <StyledWelcomeElementsContainer>
-        <StyledDraw isDrawOpen={isDrawOpen}>
-          <StyledTextGroup>
-            <StyledName>Karl Warner</StyledName>
-            <StyledTagline>{`</> Full-Stack Web Developer`}</StyledTagline>
+        <StyledDraw {...layouts} isDrawOpen={isDrawOpen}>
+          <StyledImageToTextSpacer />
+          <StyledTextGroup isDrawOpen={isDrawOpen}>
+            <h1>Hi I'm Karl,</h1>
+            <p>A Full-Stack Web Developer</p>
           </StyledTextGroup>
         </StyledDraw>
         {profileImage}
