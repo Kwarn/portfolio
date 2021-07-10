@@ -13,18 +13,19 @@ const StyledAboutMeContainer = styled.div`
   color: #c5c6c7;
   overflow: hidden;
 `;
+// add wrapper so text can be absolute and pushed below Draw when open.
 
-const StyledQuote = styled.p`
-  font-size: 1.2em;
-  mix-blend-mode: exclusion;
-  margin: auto auto auto 25vw;
-  width: 60%;
+const StyledQuoteWrapper = styled.div`
+  margin: auto;
+  width: 100%;
+  position: relative;
 `;
 
-const StyledAboutMeText = styled.p`
-  font-size: 1.5em;
-  mix-blend-mode: difference;
-  z-index: 1;
+const StyledQuote = styled.p`
+  position: absolute;
+  top: 4vw;
+  font-size: 2vh;
+  mix-blend-mode: exclusion;
   margin: auto auto auto 25vw;
   width: 60%;
 `;
@@ -55,8 +56,17 @@ const StyledUpArrow = styled.img`
 `;
 
 const StyledScrollText = styled.h1`
+  font-size: 3vh;
   color: #0b0c10;
   margin: auto;
+`;
+
+const StyledAboutMeText = styled.p`
+  font-size: 2.5vh;
+  mix-blend-mode: difference;
+  z-index: 1;
+  margin: auto auto auto 25vw;
+  width: 60%;
 `;
 
 const StyledBackground = styled.div`
@@ -75,17 +85,18 @@ export default function AboutMe() {
   return (
     <StyledAboutMeContainer>
       <StyledBackground {...layouts} />
-      <StyledQuote>
-        "A good programmer is someone who always looks both ways before crossing
-        a one-way street.” - Some bloke
-      </StyledQuote>
+      <StyledQuoteWrapper>
+        <StyledQuote>
+          "A good programmer is someone who always looks both ways before
+          crossing a one-way street.” - Some bloke
+        </StyledQuote>
+      </StyledQuoteWrapper>
       <StyledHeader>HELLO</StyledHeader>
       <StyledAboutMeText>
-        A devout learner experienced in Full-stack development with a focus on
-        front-end systems, utilizing popular modern frameworks & libraries
-        whilst practising the latest generation of architecture and design
-        principles to create responsive, scaleable, and initiative web
-        solutions.
+        I'm an enthusiastic learner experienced in full-stack development, able
+        to utilize popular modern languages, frameworks, libraries and design
+        principles to create the latest generation of responsive, scalable, and
+        innovative web solutions.
       </StyledAboutMeText>
       <StyledSwipeScrollElements>
         {layouts.isDesktop ? <StyledScrollText>SCROLL</StyledScrollText> : ''}
