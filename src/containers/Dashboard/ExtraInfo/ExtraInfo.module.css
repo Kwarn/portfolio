@@ -1,0 +1,54 @@
+.ExtraInfo {
+  color: #0b0c10;
+  margin: auto 15px auto 15px;
+  text-align: center;
+}
+
+.ExtraInfo h2 {
+  text-align: center;
+  padding: 10px 0 0 0;
+}
+
+.ExtraInfo p {
+  white-space: pre-line;
+  max-width: 800px;
+  padding: 10px 0 10px 0;
+}
+
+.ExtraInfo img {
+  cursor: pointer;
+  height: 80px;
+  width: auto;
+  padding: 20px 5px 10px 5px;
+}
+
+@media (max-width: 760px) {
+  .ExtraInfo img {
+    height: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ExtraInfo img {
+    height: 50px;
+  }
+  .ExtraInfo p {
+    font-size: small;
+  }
+}
+
+@media (max-width: 375px) {
+  .ExtraInfo p {
+    font-size: small;
+  }
+  .ExtraInfo img {
+    padding: 5px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 350px) {
+  .ExtraInfo p {
+    font-size: x-small;
+  }
+}

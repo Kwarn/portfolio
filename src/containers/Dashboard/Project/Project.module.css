@@ -1,0 +1,280 @@
+.Font {
+  font-family: 'teko';
+  font-size: 3vh;
+}
+
+.Project {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  animation-duration: 2s;
+  /* background-color: #474747; */
+  overflow: hidden;
+}
+
+.BlocksWrapper {
+  margin: 120px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 45px 35px;
+}
+
+/* TECH ICONS SECTION */
+
+.TechIconsBlock {
+  width: 100%;
+  height: 100%;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border-radius: 15px;
+}
+
+.TechIconsBlock > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.TechIconsBlock div > img {
+  margin: auto auto auto auto;
+  width: 20%;
+}
+
+/* PROJECT LINKS SECTION */
+
+.ExternalLinksBlock {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  /* border-radius: 15px; */
+  background: #c5c6c7;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ExternalLinksBlock > h1 {
+  margin: auto;
+}
+
+.ExternalLinksWrapper {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.ExternalLinks {
+  width: auto;
+  height: auto;
+}
+
+.ExternalLinks > a {
+  font-size: 3vh;
+  text-decoration: none;
+  margin: auto 30px auto 30px;
+}
+
+/* TECHNICAL SECTION */
+
+.TechnicalBlock {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  border-radius: 15px 15px 15px 15px;
+  background: #c5c6c7;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.TechnicalHeader {
+  margin: 10px auto 12px auto;
+  display: flex;
+  justify-content: right;
+  height: 50px;
+}
+
+.TechnicalHeader > h2 {
+  margin: 0 0 0 25px;
+  width: 100%;
+  text-align: right;
+}
+
+.TechnicalMainContent {
+  width: 100%;
+  height: 100%;
+}
+
+.TechnicalPracticesList {
+  list-style: none;
+  /* list-style-type: square;
+  list-style-position: inside; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+
+.TechnicalPractice {
+  font-size: 3vh;
+  height: 100%;
+  text-align: right;
+  margin: 1px 0 0 15px;
+  line-height: 3vh;
+}
+
+/* DESCRIPTIONS SECTION */
+
+.DescriptionsBlock {
+  grid-column-start: 3;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  background: #c5c6c7;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  line-height: 3vh;
+}
+
+.DescriptionsBlock > div {
+  height: 100%;
+  margin: 25px 0 0 0;
+}
+
+.DescriptionsBlock > div > h2 {
+  margin: 0;
+}
+
+.DescriptionsBlock > div > p {
+  margin: 25px 0 0 0;
+}
+
+/* IMAGE SECTION */
+
+.ImageBlock {
+  font-size: 2vh;
+  position: relative;
+  z-index: 0;
+  height: 100%;
+  border-radius: 15px;
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.ViewImages {
+  position: absolute;
+  color: white;
+  bottom: 0;
+  left: 10px;
+  z-index: 7;
+}
+
+.FadeEffect {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background: linear-gradient(to top, black, transparent 70%, transparent 100%);
+}
+
+.ImageBlock > img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+@keyframes contentLoadAnimation {
+  0% {
+    /* transform: translateY(-10%); */
+    opacity: 0.1;
+    transform: translateX(-10vw);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-2vw);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Desktop to tablet */
+@media (max-width: 1500px), (max-height: 900px) {
+  .DescriptionsBlock {
+    grid-column-end: 6;
+  }
+}
+
+/* tablet */
+@media (max-width: 1500px) {
+  .BlocksWrapper {
+    margin: 20px;
+  }
+}
+
+/* below tablet */
+@media (max-width: 1000px) {
+  .ExternalLinksBlock {
+    /* margin: auto 2vw auto auto; */
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .ImageBlock {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .TechIconsBlock {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .DescriptionsBlock {
+    /* grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 6; */
+    display: none;
+  }
+  .TechnicalBlock {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    text-align: center;
+  }
+  .TechnicalPracticesList {
+    justify-content: center;
+  }
+
+  .TechnicalPractice {
+    text-align: center;
+  }
+  .TechnicalHeader > h2 {
+    text-align: center;
+  }
+}
