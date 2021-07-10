@@ -1,74 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Project from './Project/Project';
 import Modal from '../../components/UI/Modal/Modal';
-import projectData from './ProjectData';
+import projectData from './Project/ProjectData';
 import WelcomeElements from './WelcomeElements/WelcomeElements';
-import Skills from '../Skills/Skills';
-import imageAssets from '../../assets/assets';
+import Skills from './Skills/Skills';
 import Courses from './Courses/Courses';
 import { useSwipeable } from 'react-swipeable';
 import AboutMe from './AboutMe/AboutMe';
 import ExtraInfo from './ExtraInfo/ExtraInfo';
 import ProfileLinks from './ProfileLinks/ProfileLinks';
 import styled, { css, keyframes } from 'styled-components';
+import LayoutsContext from '../../Layout/LayoutsContext';
+import Contact from './Contact/Contact';
+import imageAssets from '../../assets/assets';
 
-/************************ ANIMATIONS *************************/
-
-const menuPointerAnimation = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
-const menuLinkClick = keyframes`
-  0% {
-  background-color: #474747;
-  }
-  100% {
-    background-color: #c5c6c7;
-  }
-  `;
-
-const StyledProfileLinksWrapper = styled.div`
-  height: fit-content;
-`;
+/************************     MENU     *************************/
 
 const StyledDashBoardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  overflow: hidden;
-`;
-const StyledMenuWrapper = styled.div`
-  z-index: 100;
-  font-family: 'Teko';
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  min-height: 100vh;
-  max-height: 100vh;
-  min-width: 200px;
-  height: 100%;
-  width: 15vw;
-  background-color: #1f2833;
 `;
 
-const StyledMenuHeaderItems = styled.div`
+const StyledMenuWrapper = styled.div`
+  position: ${props => (props.isDesktop ? 'relative' : 'absolute')};
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  margin: auto;
+  z-index: 100;
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100%;
+  font-family: 'Teko';
+  background-color: #1f2833;
+  border-right: 4px solid #0b0c10;
+  transition: ${props => (props.isMenuOpen ? 'width 0.8s' : 'width 0.5s')};
+  width: ${props =>
+    props.isMenuOpen ? (props.isMobile ? '50vw' : '300px') : '5vw'};
+  cursor: ${props => (props.isMenuOpen ? 'arrow' : 'pointer')};
+`;
+
+const StyledBurgerIcon = styled.div`
+  position: absolute;
+  height: 40px;
+  width: 3vw;
+  color: #c5c6c7;
+  right: calc(50% - 1.5vw);
+  top: calc(50% - 20px);
+  div {
+    min-height: 5px;
+    min-width: 100%;
+    border-bottom: 4px solid #c5c6c7;
+    margin-top: 5px;
+  }
+`;
+
+const StyledProfileLinksWrapper = styled.div`
+  margin: 30vh auto auto auto;
+  height: fit-content;
   width: 100%;
-  margin: 0 auto 0 auto;
-  height: 300px;
-  background-color: #0b0c10;
-  box-sizing: border-box;
+  transition: ${props => (props.isMenuOpen ? 'opacity 2s' : 'opacity 0.2s')};
+  opacity: ${props => (props.isMenuOpen ? '1' : '0')};
 `;
 
 const StyledMenuLinksContainer = styled.div`
+  transition: ${props => (props.isMenuOpen ? 'opacity 2s' : 'opacity 0.2s')};
+  opacity: ${props => (props.isMenuOpen ? '1' : '0')};
   width: 100%;
-  margin: auto;
+  height: 100%;
+  margin: 5vh auto 5vh auto;
   display: flex;
   flex-direction: column;
   background-color: #1f2833;
@@ -78,23 +77,17 @@ const StyledMenuLink = styled.div`
   background-color: #1f2833;
   width: 100%;
   height: ${props => (props.isSmallMenuItem ? '2vh' : '4vh')};
-  margin: ${props =>
-    props.isSmallMenuItem ? '0.5vh auto 0.5vh auto' : '2vh auto 2vh auto'};
+  margin: auto;
   cursor: pointer;
   display: flex;
   justify-content: center;
 `;
 
 const StyledMenuLinkTitle = styled.h2`
-  background-color: #0b0c10;
   position: relative;
+  white-space: nowrap;
+  background-color: #0b0c10;
   width: 100%;
-  animation: ${props =>
-    props.isFocus
-      ? css`
-          ${menuLinkClick} 0.8s
-        `
-      : ''};
   background: ${props => (props.isFocus ? '#c5c6c7' : '#1f2833')};
   color: ${props => (props.isFocus ? '#474747' : '#c5c6c7')};
   margin: auto;
@@ -103,20 +96,11 @@ const StyledMenuLinkTitle = styled.h2`
   text-align: center;
 `;
 
-const StyledMenuPointer = styled.img`
-  width: 30px;
-  height: 180%;
-  position: absolute;
-  animation-name: ${menuPointerAnimation};
-  animation-duration: 1s;
-  right: -30px;
-  top: calc(50% - 90%);
-`;
-
 /************************ MAIN CONTENT *************************/
 
 const StyledMainContentWrapper = styled.div`
-  margin: auto;
+  margin: ${props => (props.isDesktop ? 'auto' : 'auto auto auto 5vw')};
+  /* margin: auto; */
   width: 100%;
   height: 100vh;
 `;
@@ -124,29 +108,26 @@ const StyledMainContentWrapper = styled.div`
 const StyledMainContentContainer = styled.div`
   margin: auto;
   height: 100%;
-  /* background: #0b0c10; */
   background-color: #c5c6c7;
   display: flex;
   justify-content: center;
 `;
 
-export default function Dashboard({ showModal }) {
-  const [isLoadingMenu, setIsLoadingMenu] = useState(true);
-
-  const startLoad = () => setIsLoadingMenu(true);
-  const stopLoad = () => setIsLoadingMenu(false);
+export default function Dashboard() {
+  const layouts = useContext(LayoutsContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(layouts.isDesktop);
 
   // ensures activeContentIndex is set to a valid index when scroll/swipe cycling through Menu.
   const incrementActiveIndexHandler = () => {
-    setActiveContentIndex(prev => {
-      if (prev === MenuLinks.length - 1) return 0;
-      return prev + 1;
+    setActiveContentIndex(currentIndex => {
+      if (currentIndex === MenuLinks.length - 1) return 0;
+      return currentIndex + 1;
     });
   };
   const decrementActiveIndexHandler = () => {
-    setActiveContentIndex(prev => {
-      if (prev === 0) return MenuLinks.length - 1;
-      return prev - 1;
+    setActiveContentIndex(currentIndex => {
+      if (currentIndex === 0) return MenuLinks.length - 1;
+      return currentIndex - 1;
     });
   };
 
@@ -158,13 +139,13 @@ export default function Dashboard({ showModal }) {
 
   // ************ LOGIC CONTROLS **********
 
-  // {Index:Element}: Index is derived from element creation order.
+  // {Int:Element}: Key index is derived from element creation order.
   const contentController = {};
 
   // Int: used to access contentController
   const [activeContentIndex, setActiveContentIndex] = useState(0);
 
-  // Element Array
+  // Menu Link Element Array
   const MenuLinks = [];
 
   // adds event listener to window which allows scrolling through menu items.
@@ -178,6 +159,8 @@ export default function Dashboard({ showModal }) {
   const handlers = useSwipeable({
     onSwipedDown: () => decrementActiveIndexHandler(),
     onSwipedUp: () => incrementActiveIndexHandler(),
+    onSwipedLeft: () => setIsMenuOpen(false),
+    onSwipedRight: () => setIsMenuOpen(true),
     ...config,
   });
 
@@ -189,9 +172,30 @@ export default function Dashboard({ showModal }) {
 
   // resets isShown but preserves last content to improve repeat modal opening performance.
   const closeModalHandler = () => {
-    setModalStatus({ isShown: false, content: { ...modalStatus.content } });
+    setModalStatus(prevState => {
+      return { isShown: false, content: { ...prevState.content } };
+    });
   };
 
+  const menuHoverHandler = () => {
+    if (layouts.isDesktop) {
+      setIsMenuOpen(true);
+    }
+  };
+
+  const closeMenuHander = () => {
+    if (!layouts.isDesktop) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  const toggleMenuHandler = () => {
+    if (!layouts.isDesktop) {
+      setIsMenuOpen(!isMenuOpen);
+    }
+  };
+
+  // keys are MenuItem titles, values are MainContentElements.
   const contentData = {
     Welcome: <AboutMe />,
     Skills: <Skills />,
@@ -199,23 +203,15 @@ export default function Dashboard({ showModal }) {
     'Code Challenges': (
       <ExtraInfo showModal={content => setModalStatus(content)} />
     ),
+    Contact: <Contact />,
   };
 
-  const menuPointers = {
-    light: (
-      <StyledMenuPointer src={imageAssets.menuPointerLight} alt="menuPointer" />
-    ),
-    dark: (
-      <StyledMenuPointer src={imageAssets.menuPointerDark} alt="menuPointer" />
-    ),
-  };
-
-  // index:element used to display content using activeContentKey
+  // index:element used to display content using activeContentKey.
   const createContentControl = (index, element) => {
     contentController[index] = element;
   };
 
-  // returns JSX Main Content element
+  // returns JSX Main Content element.
   const createProjectElement = project => {
     return (
       <div key={project.title}>
@@ -229,7 +225,7 @@ export default function Dashboard({ showModal }) {
   };
 
   // returns JSX MenuLink element with correct css Class
-  const createMenuLink = (key, pointerColor, size = 'large') => {
+  const createMenuLink = (key, size = 'large') => {
     const index = MenuLinks.length || 0;
     return (
       <StyledMenuLink
@@ -242,36 +238,46 @@ export default function Dashboard({ showModal }) {
       >
         <StyledMenuLinkTitle isFocus={activeContentIndex === index}>
           {key}
-          {activeContentIndex === index ? menuPointers[pointerColor] : null}
         </StyledMenuLinkTitle>
       </StyledMenuLink>
     );
   };
 
-  const createElementsFromContentData = (key, pointerColor, MenuLinkSize) => {
-    const MenuLink = createMenuLink(key, pointerColor, MenuLinkSize);
+  const createElementsFromContentData = (key, MenuLinkSize) => {
+    const MenuLink = createMenuLink(key, MenuLinkSize);
     const element = contentData[key];
 
     MenuLinks.push(MenuLink);
     createContentControl(MenuLinks.length - 1, element);
   };
 
-  // begins creation and ordering of MenuLinks
+  // begins creation and ordering of MenuLinks.
 
-  createElementsFromContentData('Welcome', 'dark', 'large');
-  createElementsFromContentData('Skills', 'light', 'large');
+  createElementsFromContentData('Welcome', 'large');
+  createElementsFromContentData('Skills', 'large');
 
   projectData.forEach(project => {
     const key = project.title;
     const element = createProjectElement(project);
-    const MenuLink = createMenuLink(key, 'dark', 'small');
+    const MenuLink = createMenuLink(key, 'small');
 
     MenuLinks.push(MenuLink);
     createContentControl(MenuLinks.length - 1, element);
   });
 
-  createElementsFromContentData('Education', 'dark', 'large');
-  createElementsFromContentData('Code Challenges', 'dark', 'large');
+  createElementsFromContentData('Education', 'large');
+  createElementsFromContentData('Code Challenges', 'large');
+  createElementsFromContentData('Contact', 'large');
+
+  const burgerIcon = isMenuOpen ? (
+    ''
+  ) : (
+    <StyledBurgerIcon>
+      <div></div>
+      <div></div>
+      <div></div>
+    </StyledBurgerIcon>
+  );
 
   return (
     <StyledDashBoardWrapper {...handlers}>
@@ -281,20 +287,25 @@ export default function Dashboard({ showModal }) {
       >
         {modalStatus.content}
       </Modal>
-      <StyledMenuWrapper>
-        <StyledMenuHeaderItems>
-          <WelcomeElements
-            isDrawOpen={activeContentIndex === 0}
-            loadingFinishedHandler={stopLoad}
-          />
-          <StyledProfileLinksWrapper>
-            <ProfileLinks />
-          </StyledProfileLinksWrapper>
-        </StyledMenuHeaderItems>
-        <StyledMenuLinksContainer>{MenuLinks}</StyledMenuLinksContainer>
+      <StyledMenuWrapper
+        {...layouts}
+        isMenuOpen={isMenuOpen}
+        onMouseEnter={() => menuHoverHandler()}
+        onClick={() => toggleMenuHandler(!isMenuOpen)}
+      >
+        <WelcomeElements
+          isMenuOpen={isMenuOpen}
+          isWelcomePage={activeContentIndex === 0}
+        />
+        <StyledProfileLinksWrapper isMenuOpen={isMenuOpen}>
+          <ProfileLinks />
+        </StyledProfileLinksWrapper>
+        {burgerIcon}
+        <StyledMenuLinksContainer isMenuOpen={isMenuOpen}>
+          {MenuLinks}
+        </StyledMenuLinksContainer>
       </StyledMenuWrapper>
-
-      <StyledMainContentWrapper>
+      <StyledMainContentWrapper {...layouts} onClick={() => closeMenuHander()}>
         <StyledMainContentContainer>
           {contentController[activeContentIndex]}
         </StyledMainContentContainer>
