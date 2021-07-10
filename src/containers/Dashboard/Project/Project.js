@@ -42,7 +42,7 @@ const Project = ({ project, showModalCb, closeModalCb }) => {
 
   return (
     <div className={`${classes.Project} ${classes.Font}`}>
-      <div className={classes.BlocksWrapper}>
+      <div className={`${classes.BlocksWrapper}`}>
         <div className={classes.TechIconsBlock}>
           <div>{techIcons}</div>
         </div>
@@ -52,6 +52,7 @@ const Project = ({ project, showModalCb, closeModalCb }) => {
         </div>
         <div className={classes.DescriptionsBlock}>
           <div>
+            <h2>Description</h2>
             <p>{project.description}</p>
             <p>{project.lessons}</p>
           </div>
