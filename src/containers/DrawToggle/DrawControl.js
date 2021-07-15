@@ -38,8 +38,8 @@ const DrawControl = ({
             : classes.BottomCenter
         }`}
       onClick={() => toggleDrawhandler()}
-      onMouseEnter={() => setIsMouseOverDraw(true)}
-      onMouseLeave={() => setIsMouseOverDraw(false)}
+      onMouseEnter={() => setIsDrawOpen(true)}
+      onMouseLeave={() => setIsDrawOpen(false)}
     >
       {!iconOnly ? (
         !isDrawOpen ? (

@@ -18,8 +18,8 @@
 }
 
 .TopRight {
-  top: 5px;
-  right: 5px;
+  top: calc(50% - 15px);
+  right: 10px;
 }
 
 .MoreInfo {
@@ -42,12 +42,6 @@
 .AnimateOpenIcon.OpenDrawIcon {
   transform: scale(1);
   animation: pulse 2s infinite;
-}
-
-@media (hover: hover) {
-  .DrawControl:hover {
-    animation: hoverPulse 0.3s ease-in-out;
-  }
 }
 
 @keyframes pulse {
