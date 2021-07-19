@@ -71,16 +71,11 @@ const StyledFadeEffect = styled.div`
   z-index: 4;
   opacity: ${props => (props.isFocus ? '0' : '1')};
   transition: opacity 1s;
-  background: linear-gradient(
-    to top,
-    #c5c6c7,
-    transparent 70%,
-    transparent 100%
-  );
+  background: linear-gradient(to top, black, 60%, transparent 100%);
 `;
 
 const StyledTextWrapper = styled.div`
-  color: #0b0c10;
+  color: #c5c6c7;
   position: absolute;
   bottom: 0;
   z-index: 10;
@@ -113,7 +108,6 @@ const StyledProjectsHeaderTile = styled.div`
   overflow: hidden;
   height: 100%;
   width: 100%;
-  /* background: linear-gradient(to top, black, transparent 70%, transparent 100%); */
   grid-column-start: ${props => props.colStart};
   grid-column-end: ${props => props.colEnd};
   grid-row-start: ${props => props.rowStart};
@@ -122,7 +116,6 @@ const StyledProjectsHeaderTile = styled.div`
 
 const StyledProjectsHeader = styled.h1`
   color: #c5c6c7;
-  /* margin: auto auto 0 auto; */
   margin: auto;
   font-size: 6vh;
 `;
@@ -196,7 +189,7 @@ function Projects({ showModalCb, closeModalCb }) {
         rowEnd={rowEnd}
         colStart={colStart}
         colEnd={colEnd}
-        onClick={() => setActiveProjectIndex(idx)}
+        onClick={e => setActiveProjectIndex(idx)}
         onMouseEnter={() => setFocusedTileIndex(idx)}
         onMouseLeave={() => setFocusedTileIndex(null)}
       >
