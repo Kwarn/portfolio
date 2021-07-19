@@ -5,7 +5,7 @@ const projects = [
     title: 'E-Commerce',
     images: [imageAssets.ecommerce, imageAssets.ecommerceImage2],
     liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
-    previewTechStack: 'Javascript, React, ApolloClient, CSS',
+    previewTechStack: 'Javascript, React, Apollo, Node, CSS',
     gitHubLink: 'https://github.com/Kwarn/e-commerce',
     description: `
     My current project and work in progess, built on behalf of a flooring wholesaler.

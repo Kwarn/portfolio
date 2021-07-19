@@ -12,8 +12,6 @@ const StyledWrapper = styled.div`
   background-color: #c5c6c7;
   overflow: hidden;
   box-shadow: 0 0 12px 12px #0b0c10 inset;
-  /* font-size: 2vw; */
-  /* font-family: 'San-serif'; */
 `;
 
 const StyledGrid = styled.div`
@@ -51,25 +49,30 @@ const StyledBackArrowImage = styled.img`
   margin: 0 0 auto auto;
 `;
 
-// const StyledTechIconsBlock = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   grid-column-start: 1;
-//   grid-column-end: 2;
-//   grid-row-start: 3;
-//   grid-row-end: 6;
-//   display: flex;
-//   flex-direction: column;
-// `;
-
-const StyledTechIconContainer = styled.div`
+const StyledTechIconsBlock = styled.div`
+  width: 100%;
+  height: 100%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  flex-direction: row;
   flex: 1;
+  @media (max-width: 900px) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
 `;
 
-// const StyledTechIcon = styled.img`
-//   margin: auto;
-//   max-width: 10vw;
-// `;
+const StyledTechIcon = styled.img`
+  margin: auto 5px auto 5px;
+  max-width: 40px;
+  padding: 0;
+  @media (max-width: 900px) {
+    max-width: 30px;
+  }
+`;
 
 const StyledTitleGroupBlock = styled.div`
   grid-column-start: 2;
@@ -128,7 +131,6 @@ const StyledMainContentTextBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* line-height: auto; */
   white-space: pre-line;
 `;
 const StyledMainContentText = styled.p`
@@ -180,6 +182,7 @@ const StyledViewImagesText = styled.h2`
 const StyledProjectImage = styled.img`
   margin: 0 auto auto auto;
   width: 100%;
+  object-position: top;
   object-fit: cover;
 `;
 const StyledFadeEffect = styled.div`
@@ -202,7 +205,7 @@ const StyledSwitchContentBlock = styled.div`
 const StyledContentSwitchButton = styled.button`
   color: #c5c6c7;
   cursor: pointer;
-  margin: auto auto 0 auto;
+  margin: auto;
   padding: 5px;
   width: fit-content;
   height: fit-content;
@@ -225,13 +228,11 @@ const Project = ({ project, showModalCb, closeModalCb, backToProjectsCb }) => {
     .split(',')
     .map(tag => tag.toLowerCase().trim());
 
-  // const techIcons = imageTags.map(tag =>
-  //   imageAssets[tag] ? (
-  //     <StyledTechIconContainer>
-  //       <StyledTechIcon key={tag} src={imageAssets[tag]} alt={tag} />
-  //     </StyledTechIconContainer>
-  //   ) : null
-  // );
+  const techIcons = imageTags.map(tag =>
+    imageAssets[tag] ? (
+      <StyledTechIcon key={tag} src={imageAssets[tag]} alt={tag} />
+    ) : null
+  );
 
   const externalLinks = (
     <>
@@ -265,6 +266,7 @@ const Project = ({ project, showModalCb, closeModalCb, backToProjectsCb }) => {
   return (
     <StyledWrapper>
       <StyledGrid>
+        <StyledTechIconsBlock>{techIcons}</StyledTechIconsBlock>
         <StyledBackArrowBlock>
           <StyledBackArrowImage
             onClick={backToProjectsCb}
@@ -296,7 +298,6 @@ const Project = ({ project, showModalCb, closeModalCb, backToProjectsCb }) => {
           <StyledViewImagesText>View images</StyledViewImagesText>
           <StyledProjectImage src={project.images[0]} alt="project" />
         </StyledProjectImagesBlock>
-        {/* <StyledTechIconsBlock>{techIcons}</StyledTechIconsBlock> */}
         <StyledSwitchContentBlock>
           <StyledContentSwitchButton
             onClick={() => setIsDescription(!isDescription)}
