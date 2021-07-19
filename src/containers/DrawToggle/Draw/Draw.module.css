@@ -11,10 +11,6 @@
   justify-content: center;
 }
 
-/* .HoverHighlight {
-  background: #ecd7cd;
-} */
-
 .Content {
   margin: auto 30px auto 10px;
 }
@@ -38,5 +34,11 @@
   100% {
     opacity: 1;
     max-height: 600px;
+  }
+}
+
+@media (max-width: 550px) {
+  .Content {
+    font-size: 0.7em;
   }
 }
