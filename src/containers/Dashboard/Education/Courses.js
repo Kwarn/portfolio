@@ -21,15 +21,22 @@ const StyledGrid = styled.div`
 `;
 
 const StyledFirstBlock = styled.div`
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto 100px auto 100px;
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 1;
   grid-column-end: 2;
   @media (max-width: 1800px) {
-    margin: auto auto auto 50px;
+    margin: auto 50px auto 25px;
+  }
+  @media (max-width: 1200px) {
+    margin: auto 25px auto 25px;
   }
   @media (max-width: 700px) {
+    margin: auto 25px auto 25px;
     grid-column-start: 1;
     grid-column-end: 3;
   }
@@ -70,14 +77,21 @@ const StyledThirdBlock = styled.div`
 `;
 
 const StyledFourthBlock = styled.div`
-  margin: auto;
+  margin: auto 100px auto 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 3;
+  @media (max-width: 1200px) {
+    margin: auto 25px auto 25px;
+  }
   @media (max-width: 700px) {
     grid-column-start: 1;
     grid-column-end: 3;
+    margin: auto 25px auto 25px;
   }
 `;
 
@@ -91,7 +105,7 @@ const Courses = ({ showModalCb }) => {
       cert: imageAssets.nodeCertificate,
     },
     {
-      title: 'Understanding TypeScript - 2020 Edition',
+      title: 'Understanding TypeScript',
       desc: `Complete guide to TypeScript including using TypeScript with React/Redux/Node/Express/Next, decorators, interfaces, types, namespaces and more..`,
       courseLink: 'https://www.udemy.com/course/understanding-typescript/',
       cert: imageAssets.typescriptCertificate,
@@ -104,7 +118,7 @@ const Courses = ({ showModalCb }) => {
       cert: imageAssets.reactCertificate,
     },
     {
-      title: 'Javascript - The Complete Guide 2020',
+      title: 'Javascript - The Complete Guide',
       desc: `A comprehensive course including ES6+ features. 
         This course was vital in helping cement my understanding of the 
         underlying ways in which Javascript works.`,
@@ -113,7 +127,7 @@ const Courses = ({ showModalCb }) => {
       cert: imageAssets.javascriptCertificate,
     },
     {
-      title: 'Javascript Algorithms and Data Structures',
+      title: 'Algorithms and Data Structures',
       desc: 'My first detailed introduction to Javascript, left me wanting more!',
       courseLink: 'https://www.freecodecamp.org/karl_warner',
       cert: imageAssets.freeCodeCampCertificate,

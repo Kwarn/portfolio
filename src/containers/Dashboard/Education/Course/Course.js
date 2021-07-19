@@ -7,13 +7,14 @@ const StyledCourseContainer = styled.div`
   text-decoration: none;
   color: #c5c6c7;
   height: 10vh;
-  margin: 5px auto 5px auto;
+  margin: auto;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: left;
   @media (max-width: 1000px) {
-    background: black;
+    background: rgba(0, 0, 0, 0.6);
   }
 `;
 const StyledCertificateWrapper = styled.div`
@@ -22,6 +23,7 @@ const StyledCertificateWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+  object-fit: cover;
 `;
 
 const StyledCertficiate = styled.img`
@@ -29,7 +31,7 @@ const StyledCertficiate = styled.img`
   max-width: 100px;
   margin: 5px 0 5px 0;
   @media (max-width: 700px) {
-    max-width: 100px;
+    max-width: 70px;
   }
 `;
 
@@ -48,19 +50,19 @@ const StyledCourseTitleLink = styled.a`
   color: inherit;
   font-size: 4vh;
   text-decoration: none;
-  margin: auto 3vw auto 2vw;
+  margin: auto 4vw auto 2vw;
   @media (max-width: 1000px) {
     font-size: 2.5vh;
   }
 `;
 
 const Course = ({ course, showModalCb }) => {
-  const { title, cert, certAlt, desc, courseLink } = course;
+  const { title, cert, desc, courseLink } = course;
 
   const certificate = cert ? (
     <StyledCertficiate src={cert} alt={`${title} certificate`} />
   ) : (
-    <StyledCertficiate src={certAlt} alt="alt-certificate" />
+    ''
   );
 
   const magnifyingGlass = cert ? (
