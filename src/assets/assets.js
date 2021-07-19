@@ -1,4 +1,5 @@
 const imageAssets = {
+  contactBg: require('../assets/contactBg.jpg'),
   codeImage: require('../assets/background5.jpg'),
   studyingBackground: require('../assets/studyingBackground.jpg'),
   studyingBackground2: require('../assets/studyingBackground2.jpg'),
@@ -18,9 +19,10 @@ const imageAssets = {
   squarePlayground: require('../assets/squarePlayground.png'),
   fizzyLookup: require('../assets/fizzyLookup.png'),
   fitness: require('../assets/fitness.png'),
+  apollo: require('../assets/apollo.png'),
   javascript: require('../assets/javascript.png'),
   node: require('../assets/node.png'),
-  mongodb: require('../assets/mongodb.jpeg'),
+  mongodb: require('../assets/mongoDb.png'),
   graphql: require('../assets/graphql.png'),
   python: require('../assets/python.png'),
   react: require('../assets/react.png'),
