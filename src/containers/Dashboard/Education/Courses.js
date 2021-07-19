@@ -4,9 +4,10 @@ import imageAssets from '../../../assets/assets';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
+  margin: auto;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #0b0c10;
   display: flex;
   justify-content: center;
