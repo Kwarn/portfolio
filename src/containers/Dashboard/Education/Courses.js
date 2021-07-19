@@ -44,12 +44,13 @@ const StyledSecondBlock = styled.div`
   background-size: cover;
   background-position: center;
   width: 100%;
-  border-radius: 0 0 0 30%;
+  border-radius: 0 0 0 70%;
   @media (max-width: 700px) {
     grid-column-start: 1;
     grid-column-end: 3;
     border-radius: 0 0 0 60%;
   }
+  box-shadow: inset 5px -5px 3px #c5c6c7;
 `;
 
 const StyledThirdBlock = styled.div`
@@ -60,11 +61,12 @@ const StyledThirdBlock = styled.div`
   background-image: url(${props => props.background});
   background-size: cover;
   background-position: center;
-  border-radius: 0 60% 0 0;
+  border-radius: 0 70% 0 0;
   @media (max-width: 700px) {
     grid-column-start: 1;
     grid-column-end: 3;
   }
+  box-shadow: inset -5px 5px 3px #c5c6c7;
 `;
 
 const StyledFourthBlock = styled.div`
