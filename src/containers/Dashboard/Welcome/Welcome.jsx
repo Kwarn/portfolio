@@ -18,17 +18,17 @@ const StyledAboutMeContainer = styled.div`
 const StyledQuoteContainer = styled.div`
   cursor: pointer;
   position: absolute;
-  top: 20vh;
+  top: 24vh;
   font-size: 2vh;
   mix-blend-mode: exclusion;
-  margin: auto auto auto 25vw;
+  margin: auto auto 0 25vw;
   width: 60%;
   display: flex;
   justify-content: center;
 `;
 
 const StyledQuote = styled.p`
-  margin: auto auto auto auto;
+  margin: auto;
 `;
 
 const StyledHeader = styled.h1`
@@ -67,11 +67,11 @@ const StyledAboutMeText = styled.p`
   font-size: 2.5vh;
   z-index: 1;
   margin: ${props =>
-    props.isMobile ? 'auto auto 2vh 30vw' : 'auto auto 10vh 25vw'};
+    props.isMobile ? 'auto auto 8vh 30vw' : 'auto auto 10vh 25vw'};
   width: 60%;
-  white-space: pre-line;
+  /* white-space: pre-line; */
   @media (max-width: 700px) {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 `;
 
@@ -103,11 +103,6 @@ export default function Welcome() {
     'I have always wished that my computer would be as easy to use as my telephone. My wish has come true. I no longer know how to use my telephone.',
   ];
 
-  // const aboutMe = `I'm an enthusiastic learner experienced in full-stack development, able
-  //       to utilize popular modern languages, frameworks, libraries and design
-  //       principles to create the latest generation of responsive, scalable, and
-  //       innovative web solutions.`;
-
   const aboutMe = `As a technical and mechanical enthusiast from a young age, I'm drawn to understanding how things work and thrive on pursuing the solutions when they don't!
                   Curiosity has led me to understand a broad range of technologies and I'm eager to continue my journey within a skilled team, to which I can contribute and grow with.`;
 
@@ -121,7 +116,7 @@ export default function Welcome() {
             else setQuotesIndex(prev => prev + 1);
           }}
         >
-          "{quotes[quotesIndex]}"
+          "{quotes[quotesIndex]}" {quotesIndex === 0 ? '- click' : ''}
         </StyledQuote>
       </StyledQuoteContainer>
       <StyledHeader {...layouts}>HELLO</StyledHeader>
