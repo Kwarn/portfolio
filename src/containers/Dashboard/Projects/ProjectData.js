@@ -1,11 +1,11 @@
 import imageAssets from '../../../assets/assets';
 
-const projects = [
+export const bigProjects = [
   {
     title: 'E-Commerce',
     images: [imageAssets.ecommerce, imageAssets.ecommerceImage2],
     liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
-    previewTechStack: 'Javascript, React, Apollo, Node, CSS',
+    previewTechStack: 'Javascript, React, Apollo, Node, Css',
     gitHubLink: 'https://github.com/Kwarn/e-commerce',
     description: `
     My current project and work in progess, built on behalf of a flooring wholesaler.
@@ -48,6 +48,9 @@ const projects = [
 
     The GraphQL API uses Json-web-token & bcrypt to handle authentication, mongoose with MongoDB to store user data, multer to handle file uploads and validation is handled with express-validator and connect-flash.`,
   },
+];
+
+export const smallProjects = [
   {
     title: 'Portfolio v1',
     images: [imageAssets.portfolio],
@@ -122,5 +125,3 @@ const projects = [
       'Storing user input, Database management, Tkinter widgets,  Grid place & pack layout management',
   },
 ];
-
-export default projects;

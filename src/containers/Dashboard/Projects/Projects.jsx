@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import projectData from './ProjectData';
+import { smallProjects, bigProjects } from './ProjectData';
 import Project from './Project/Project';
 import LayoutsContext from '../../../Layout/LayoutsContext';
 import imageAssets from '../../../assets/assets';
@@ -8,7 +8,7 @@ import imageAssets from '../../../assets/assets';
 const StyledWrapper = styled.div`
   display: flex;
   margin: auto;
-  height: 100vh;
+  height: 100%;
   background-image: url(${props => props.background});
   background-size: cover;
 `;
@@ -33,15 +33,17 @@ const StyledGrid = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: ${props =>
-    props.windowInnerWidth > 1300 ? '1fr 1fr 1fr 1fr' : '1fr 1fr'};
+    props.windowInnerWidth > 900 ? '1fr 1fr 1fr 1fr 1fr' : '1fr 1fr'};
   grid-template-rows: ${props =>
-    props.windowInnerWidth > 1300 ? '1fr 1fr' : '1fr 1fr 1fr 1fr'};
+    props.windowInnerWidth > 900
+      ? '1fr 1fr 1fr 1fr 1fr 1fr'
+      : '1fr 1fr 1fr 1fr 1fr 1fr'};
   gap: ${props =>
     props.windowInnerWidth > 1300
-      ? '40px 45px'
+      ? '20px 10px'
       : props.windowInnerWidth > 1000
-      ? '20px 35px'
-      : '15px 20px'};
+      ? '15px 10px'
+      : '15px 10px'};
 `;
 
 const StyledProjectTile = styled.div`
@@ -56,8 +58,8 @@ const StyledProjectTile = styled.div`
   grid-column-end: ${props => props.colEnd};
   grid-row-start: ${props => props.rowStart};
   grid-row-end: ${props => props.rowEnd};
-  border-radius: 15px;
-  box-shadow: 0 2px 10px #c5c6c7;
+  /* border-radius: 15px; */
+  box-shadow: 0 0px 8px #c5c6c7;
   cursor: pointer;
 `;
 
@@ -103,6 +105,7 @@ const StyledImage = styled.img`
 `;
 
 const StyledProjectsHeaderTile = styled.div`
+  z-index: 1000;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -149,66 +152,140 @@ function Projects({ showModalCb, closeModalCb }) {
 
   const projectTiles = [];
   const FullProjectElements = [];
-  let gridRow = 1;
-  let gridCol = 2;
   let index = 0;
 
-  projectTiles.push(
-    <StyledProjectsHeaderTile
-      key="projectsHeaderTile"
-      rowStart={1}
-      rowEnd={2}
-      colStart={1}
-      colEnd={2}
-    >
-      <StyledProjectsHeader>Projects</StyledProjectsHeader>
-    </StyledProjectsHeaderTile>
-  );
+  if (layouts.windowInnerWidth > 900) {
+    projectTiles.push(
+      <StyledProjectsHeaderTile
+        key="projectsHeaderTile"
+        rowStart={1}
+        rowEnd={5}
+        colStart={1}
+        colEnd={2}
+      >
+        <StyledProjectsHeader>Projects</StyledProjectsHeader>
+      </StyledProjectsHeaderTile>
+    );
+  } else {
+    projectTiles.push(
+      <StyledProjectsHeaderTile
+        key="projectsHeaderTile"
+        rowStart={4}
+        rowEnd={5}
+        colStart={1}
+        colEnd={2}
+      >
+        <StyledProjectsHeader>Projects</StyledProjectsHeader>
+      </StyledProjectsHeaderTile>
+    );
+  }
 
-  for (const project in projectData) {
-    const proj = projectData[project];
-    const title = projectData[project].title;
-    const image = projectData[project].images[0];
-    const techList = projectData[project].previewTechStack.split(',').join(' ');
-    const i = index;
-
-    FullProjectElements.push(createProjectElement(proj));
-
+  const createProjectTile = (
+    idx,
+    project,
+    title,
+    image,
+    techList,
+    { rowStart, rowEnd, colStart, colEnd }
+  ) => {
+    FullProjectElements.push(createProjectElement(project));
     projectTiles.push(
       <StyledProjectTile
         key={title}
-        rowStart={gridRow}
-        rowEnd={gridRow + 1}
-        colStart={gridCol}
-        colEnd={gridCol + 1}
-        onClick={() => setActiveProjectIndex(i)}
-        onMouseEnter={() => setFocusedTileIndex(i)}
+        rowStart={rowStart}
+        rowEnd={rowEnd}
+        colStart={colStart}
+        colEnd={colEnd}
+        onClick={() => setActiveProjectIndex(idx)}
+        onMouseEnter={() => setFocusedTileIndex(idx)}
         onMouseLeave={() => setFocusedTileIndex(null)}
       >
-        <StyledTextWrapper isFocus={focusedTileIndex === i}>
+        <StyledTextWrapper isFocus={focusedTileIndex === idx}>
           <StyledProjectTitle>{title}</StyledProjectTitle>
-          {/* <StyledTechList>{techList}</StyledTechList> */}
+          <StyledTechList>{techList}</StyledTechList>
         </StyledTextWrapper>
         <StyledImage src={image} alt={title} />
-        <StyledFadeEffect isFocus={focusedTileIndex === i} />
+        <StyledFadeEffect isFocus={focusedTileIndex === idx} />
       </StyledProjectTile>
     );
+  };
 
+  let bigRowStart = 1,
+    bigRowEnd = 5,
+    bigColStart = 2,
+    bigColEnd = 4;
+
+  if (layouts.windowInnerWidth < 900) {
+    bigColStart = 1;
+    bigColEnd = 2;
+    bigRowStart = 1;
+    bigRowEnd = 4;
+  }
+
+  for (const project in bigProjects) {
+    const proj = bigProjects[project];
+    const title = bigProjects[project].title;
+    const image = bigProjects[project].images[0];
+    const techList = bigProjects[project].previewTechStack.split(',').join(' ');
+    const i = index;
+    createProjectTile(i, proj, title, image, techList, {
+      rowStart: bigRowStart,
+      rowEnd: bigRowEnd,
+      colStart: bigColStart,
+      colEnd: bigColEnd,
+    });
+
+    if (layouts.windowInnerWidth < 900) {
+      bigColStart += 1;
+      bigColEnd += 1;
+    } else {
+      bigColStart += 2;
+      bigColEnd += 2;
+    }
     index++;
+  }
 
-    if (layouts.windowInnerWidth > 1300) {
-      if (gridCol === 4) {
-        gridRow++;
-        gridCol = 1;
+  let smallRowStart = 5,
+    smallRowEnd = 7,
+    smallColStart = 1,
+    smallColEnd = 2;
+
+  if (layouts.windowInnerWidth < 900) {
+    smallRowStart = 4;
+    smallRowEnd = 5;
+    smallColStart = 2;
+    smallColEnd = 3;
+  }
+
+  for (const project in smallProjects) {
+    const proj = smallProjects[project];
+    const title = smallProjects[project].title;
+    const image = smallProjects[project].images[0];
+    const techList = smallProjects[project].previewTechStack
+      .split(',')
+      .join(' ');
+    const i = index;
+    createProjectTile(i, proj, title, image, techList, {
+      rowStart: smallRowStart,
+      rowEnd: smallRowEnd,
+      colStart: smallColStart,
+      colEnd: smallColEnd,
+    });
+    if (layouts.windowInnerWidth < 900) {
+      if (index % 2 === 0) {
+        smallColStart = 1;
+        smallColEnd = 2;
+        smallRowStart++;
+        smallRowEnd++;
       } else {
-        gridCol++;
+        smallColStart++;
+        smallColEnd++;
       }
     } else {
-      if (gridCol === 2) {
-        gridRow++;
-        gridCol = 1;
-      } else gridCol++;
+      smallColStart++;
+      smallColEnd++;
     }
+    index++;
   }
 
   const FullProject = FullProjectElements[activeProjectIndex] || null;
