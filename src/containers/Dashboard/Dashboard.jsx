@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
+import _ from 'lodash';
 import Project from './Projects/Project/Project';
 import Modal from '../../components/UI/Modal/Modal';
 import WelcomeElements from './WelcomeElements/WelcomeElements';
@@ -31,7 +32,6 @@ const StyledMenuWrapper = styled.div`
   height: 100%;
   font-family: 'Teko';
   background-color: #1f2833;
-  /* border-right: 4px solid #0b0c10; */
   transition: ${props => (props.isMenuOpen ? 'width 0.8s' : 'width 0.5s')};
   width: ${props =>
     props.isMenuOpen ? (props.isMobile ? '50vw' : '300px') : '5vw'};
@@ -102,6 +102,10 @@ const StyledMainContentWrapper = styled.div`
   margin: ${props => (props.isDesktop ? 'auto' : 'auto auto auto 5vw')};
   width: 100%;
   height: 100vh;
+  @media (max-width: 800px) {
+    margin-bottom: 3vh;
+    height: 97vh;
+  }
 `;
 
 const StyledMainContentContainer = styled.div`
@@ -131,6 +135,7 @@ export default function Dashboard() {
   };
 
   const scrollHandler = e => {
+    console.log('Scrolled :>> ');
     // wheelDelta -> Chrome | deltaY -> Firefox.
     if (e.wheelDelta > 0 || e.deltaY < 0) decrementActiveIndexHandler();
     else incrementActiveIndexHandler();
@@ -147,21 +152,26 @@ export default function Dashboard() {
   // Menu Link Element Array
   const MenuLinks = [];
 
+  // Throttle scrolling -> this is to prevent cycling menu too quickly.
+  const throttle = useCallback(
+    _.throttle(
+      e => {
+        scrollHandler(e);
+      },
+      1000,
+      { trailing: false }
+    ),
+    []
+  );
+
   // adds event listener to window which allows scrolling through menu items.
   useEffect(() => {
-    let isScrolling;
-    // delay until scrolling has stopped -> this is to prevent cycling menu too quickly.
-    window.addEventListener('wheel', e => {
-      window.clearTimeout(isScrolling);
-      isScrolling = setTimeout(() => {
-        scrollHandler(e);
-      }, 50);
-    });
+    window.addEventListener('wheel', e => throttle(e));
     return window.removeEventListener('scroll', scrollHandler);
   }, [window]);
 
   // react-swipeable setup: allows swiping up and down to cycle through menu and main content.
-  const config = { trackMouse: true, preventDefault: true };
+  const config = { trackMouse: true, preventDefault: true, delta: 100 };
   const handlers = useSwipeable({
     onSwipedDown: () => decrementActiveIndexHandler(),
     onSwipedUp: () => incrementActiveIndexHandler(),
