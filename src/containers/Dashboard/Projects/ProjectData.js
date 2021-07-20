@@ -21,7 +21,7 @@ export const bigProjects = [
     title: 'Node Projects',
     images: [imageAssets.serverSideRendered],
     liveDemoLink: '',
-    previewTechStack: 'Node, Graphql, MongoDB',
+    previewTechStack: 'Node, Graphql, MongoDB, Aws',
     gitHubLink: 'https://github.com/Kwarn/node-the-complete-guide',
     projectLinks: {
       serverSideRendered: {

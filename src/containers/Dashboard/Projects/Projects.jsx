@@ -59,7 +59,7 @@ const StyledProjectTile = styled.div`
   grid-row-start: ${props => props.rowStart};
   grid-row-end: ${props => props.rowEnd};
   /* border-radius: 15px; */
-  box-shadow: 0 0px 8px #c5c6c7;
+  box-shadow: 0 0px 3px #c5c6c7;
   cursor: pointer;
 `;
 
@@ -125,27 +125,39 @@ function Projects({ showModalCb, closeModalCb }) {
   const [activeProjectIndex, setActiveProjectIndex] = useState(null);
   const layouts = useContext(LayoutsContext);
 
+  const projectTiles = [];
+  const FullProjectElements = [];
+  let index = 0;
+
   useEffect(() => {
     setActiveProjectIndex(null);
   }, []);
+
+  const switchProjectHandler = direction => {
+    direction === 'left'
+      ? setActiveProjectIndex(prevVal =>
+          prevVal === 0 ? FullProjectElements.length - 1 : prevVal - 1
+        )
+      : setActiveProjectIndex(prevVal =>
+          prevVal === FullProjectElements.length - 1 ? 0 : prevVal + 1
+        );
+  };
 
   // returns JSX Main Content element.
   const createProjectElement = project => {
     return (
       <div key={project.title}>
         <Project
+          index={activeProjectIndex}
           project={project}
           showModalCb={content => showModalCb(content)}
           closeModalCb={closeModalCb}
           backToProjectsCb={() => setActiveProjectIndex(null)}
+          switchProjectCb={() => switchProjectHandler()}
         />
       </div>
     );
   };
-
-  const projectTiles = [];
-  const FullProjectElements = [];
-  let index = 0;
 
   if (layouts.windowInnerWidth > 900) {
     projectTiles.push(
