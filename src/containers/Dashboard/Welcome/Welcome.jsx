@@ -20,7 +20,6 @@ const StyledQuoteContainer = styled.div`
   position: absolute;
   top: 24vh;
   font-size: 2vh;
-  mix-blend-mode: exclusion;
   margin: auto auto 0 25vw;
   width: 60%;
   display: flex;
@@ -28,6 +27,7 @@ const StyledQuoteContainer = styled.div`
 `;
 
 const StyledQuote = styled.p`
+  font-family: 'Courier New';
   margin: auto;
 `;
 
@@ -63,6 +63,7 @@ const StyledScrollText = styled.h1`
 `;
 
 const StyledAboutMeText = styled.p`
+  font-family: 'Courier New';
   color: #0b0c10;
   font-size: 2.5vh;
   z-index: 1;

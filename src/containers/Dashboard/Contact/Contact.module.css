@@ -5,6 +5,7 @@
   justify-content: center;
   background: url('../../../assets/contactBg.jpg');
   background-size: cover;
+  font-family: 'Courier New';
 }
 
 .Contact {
