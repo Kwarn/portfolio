@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import imageAssets from '../../assets/assets'
-import Draw from './Draw/Draw'
-import classes from './DrawControl.module.css'
+import React, { useState, useEffect } from 'react';
+import imageAssets from '../../assets/assets';
+import Draw from './Draw/Draw';
+import classes from './DrawControl.module.css';
 
 const DrawControl = ({
   drawContent,
@@ -11,21 +11,21 @@ const DrawControl = ({
   icon = 'info',
   shouldAnimate = true,
 }) => {
-  const [isDrawOpen, setIsDrawOpen] = useState(false)
-  const [isMouseOverDraw, setIsMouseOverDraw] = useState(false)
+  const [isDrawOpen, setIsDrawOpen] = useState(false);
+  const [isMouseOverDraw, setIsMouseOverDraw] = useState(false);
 
   useEffect(() => {
-    if (isDrawOpenByDefault) setIsDrawOpen(true)
-  }, [isDrawOpenByDefault])
+    if (isDrawOpenByDefault) setIsDrawOpen(true);
+  }, [isDrawOpenByDefault]);
 
   const toggleDrawhandler = () => {
-    setIsDrawOpen(!isDrawOpen)
-    setIsMouseOverDraw(false)
-  }
+    setIsDrawOpen(!isDrawOpen);
+    setIsMouseOverDraw(false);
+  };
 
   const draw = isDrawOpen ? (
     <Draw isMouseOverDraw={isMouseOverDraw} content={drawContent} />
-  ) : null
+  ) : null;
 
   const control = (
     <div
@@ -52,7 +52,7 @@ const DrawControl = ({
         } ${shouldAnimate ? classes.AnimateOpenIcon : ''}`}
         src={
           isDrawOpen
-            ? imageAssets.charcoalCross
+            ? imageAssets.whiteCross
             : icon === 'info'
             ? imageAssets.infoIcon
             : imageAssets.clickIcon
@@ -60,14 +60,14 @@ const DrawControl = ({
         alt={isDrawOpen ? 'closeDraw' : 'openDraw'}
       />
     </div>
-  )
+  );
 
   return (
     <>
       {draw}
       {control}
     </>
-  )
-}
+  );
+};
 
-export default DrawControl
+export default DrawControl;
