@@ -175,10 +175,10 @@ function Projects({ showModalCb, closeModalCb }) {
     projectTiles.push(
       <StyledProjectsHeaderTile
         key="projectsHeaderTile"
-        rowStart={4}
-        rowEnd={5}
+        rowStart={1}
+        rowEnd={2}
         colStart={1}
-        colEnd={2}
+        colEnd={3}
       >
         <StyledProjectsHeader>Projects</StyledProjectsHeader>
       </StyledProjectsHeaderTile>
@@ -223,8 +223,8 @@ function Projects({ showModalCb, closeModalCb }) {
   if (layouts.windowInnerWidth < 900) {
     bigColStart = 1;
     bigColEnd = 2;
-    bigRowStart = 1;
-    bigRowEnd = 4;
+    bigRowStart = 2;
+    bigRowEnd = 5;
   }
 
   for (const project in bigProjects) {
@@ -241,6 +241,10 @@ function Projects({ showModalCb, closeModalCb }) {
     });
 
     if (layouts.windowInnerWidth < 900) {
+      if (index === 0) {
+        bigRowStart = 2;
+        bigRowEnd = 4;
+      }
       bigColStart += 1;
       bigColEnd += 1;
     } else {
