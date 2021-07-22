@@ -134,13 +134,15 @@ function Projects({ showModalCb, closeModalCb }) {
   }, []);
 
   const switchProjectHandler = direction => {
-    direction === 'left'
-      ? setActiveProjectIndex(prevVal =>
-          prevVal === 0 ? FullProjectElements.length - 1 : prevVal - 1
-        )
-      : setActiveProjectIndex(prevVal =>
-          prevVal === FullProjectElements.length - 1 ? 0 : prevVal + 1
-        );
+    if (direction === 'left') {
+      setActiveProjectIndex(prevVal =>
+        prevVal === 0 ? FullProjectElements.length - 1 : prevVal - 1
+      );
+    }
+    if (direction === 'right')
+      setActiveProjectIndex(prevVal =>
+        prevVal === FullProjectElements.length - 1 ? 0 : prevVal + 1
+      );
   };
 
   // returns JSX Main Content element.
@@ -153,7 +155,7 @@ function Projects({ showModalCb, closeModalCb }) {
           showModalCb={content => showModalCb(content)}
           closeModalCb={closeModalCb}
           backToProjectsCb={() => setActiveProjectIndex(null)}
-          switchProjectCb={() => switchProjectHandler()}
+          switchProjectCb={direction => switchProjectHandler(direction)}
         />
       </div>
     );

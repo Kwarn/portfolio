@@ -3,7 +3,13 @@ import imageAssets from '../../../assets/assets';
 export const bigProjects = [
   {
     title: 'E-Commerce',
-    images: [imageAssets.ecommerce, imageAssets.ecommerceImage2],
+    images: [
+      imageAssets.ecommerce5,
+      imageAssets.ecommerce2,
+      imageAssets.ecommerce3,
+      imageAssets.ecommerce4,
+      imageAssets.ecommerceCode,
+    ],
     liveDemoLink: 'https://e-commerce-d1b62.web.app/home',
     previewTechStack: 'Javascript, React, Apollo, Node, Css',
     gitHubLink: 'https://github.com/Kwarn/e-commerce',
@@ -19,7 +25,7 @@ export const bigProjects = [
   },
   {
     title: 'Node Projects',
-    images: [imageAssets.serverSideRendered],
+    images: [imageAssets.serverSideRendered, imageAssets.graphqlProject],
     liveDemoLink: '',
     previewTechStack: 'Node, Graphql, MongoDB, Aws',
     gitHubLink: 'https://github.com/Kwarn/node-the-complete-guide',
@@ -55,6 +61,7 @@ export const smallProjects = [
     title: 'Portfolio v1',
     images: [imageAssets.portfolio],
     previewTechStack: 'Javascript, React, Firebase, CSS',
+    liveDemoLink: 'https://portfolio-v1-9290a.web.app/',
     gitHubLink: 'https://github.com/Kwarn/portfolio-v1',
     description: `
       This is my original portfolio which this site is a decendant of.

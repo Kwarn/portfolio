@@ -303,8 +303,8 @@ const Project = ({
 
   const config = { trackMouse: true, preventDefault: true, delta: 100 };
   const handlers = useSwipeable({
-    onSwipedLeft: () => switchProjectCb('left'),
-    onSwipedRight: () => switchProjectCb('right'),
+    onSwipedLeft: () => switchProjectCb('right'),
+    onSwipedRight: () => switchProjectCb('left'),
     ...config,
   });
 
@@ -326,7 +326,7 @@ const Project = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Demo
+          Live-Demo
         </StyledExternalLink>
       ) : null}
       {project.gitHubLink ? (
@@ -366,7 +366,7 @@ const Project = ({
         <StyledTechIconsBlock>{techIcons}</StyledTechIconsBlock>
         <StyledCloseIconBlock>
           <StyledCloseIconImage
-            onClick={backToProjectsCb}
+            onClick={() => backToProjectsCb()}
             src={imageAssets.blackCross}
             alt="backToProjectsArrow"
           />
@@ -384,12 +384,13 @@ const Project = ({
         </StyledMainContentTextBlock>
 
         <StyledProjectImagesBlock
-          onClick={() =>
+          onClick={e => {
+            e.stopPropagation();
             showModalCb({
               isShown: true,
               content: project.images,
-            })
-          }
+            });
+          }}
         >
           <StyledFadeEffect />
           <StyledViewImagesText>View images</StyledViewImagesText>
