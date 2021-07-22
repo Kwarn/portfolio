@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
 import _ from 'lodash';
-import Project from './Projects/Project/Project';
 import Modal from '../../components/UI/Modal/Modal';
 import WelcomeElements from './WelcomeElements/WelcomeElements';
 import Skills from './Skills/Skills';
@@ -135,7 +134,6 @@ export default function Dashboard() {
   };
 
   const scrollHandler = e => {
-    console.log('Scrolled :>> ');
     // wheelDelta -> Chrome | deltaY -> Firefox.
     if (e.wheelDelta > 0 || e.deltaY < 0) decrementActiveIndexHandler();
     else incrementActiveIndexHandler();
@@ -160,15 +158,14 @@ export default function Dashboard() {
       },
       1000,
       { trailing: false }
-    ),
-    []
+    )
   );
 
   // adds event listener to window which allows scrolling through menu items.
   useEffect(() => {
     window.addEventListener('wheel', e => throttle(e));
     return window.removeEventListener('scroll', scrollHandler);
-  }, [window]);
+  }, []);
 
   // react-swipeable setup: allows swiping up and down to cycle through menu and main content.
   const config = { trackMouse: true, preventDefault: true, delta: 100 };

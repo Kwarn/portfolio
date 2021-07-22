@@ -8,7 +8,6 @@ function FadeInSection({
   renderDelayDuration,
 }) {
   const [isVisible, setVisible] = useState(false);
-  const [animationShouldStop, setAnimationShouldStop] = useState(false);
   const domRef = useRef();
 
   useEffect(() => {

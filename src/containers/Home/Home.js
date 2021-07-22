@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Modal from '../../components/UI/Modal/Modal';
+import React, { useEffect } from 'react';
 import classes from './Home.module.css';
 import Dashboard from '../Dashboard/Dashboard';
 import WebFont from 'webfontloader';

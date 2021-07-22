@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import imageAssets from '../../../assets/assets';
 import LayoutsContext from '../../../Layout/LayoutsContext';
 

@@ -198,11 +198,6 @@ const WelcomeElements = ({ isMenuOpen, isWelcomePage }) => {
     setIsLoading(false);
   };
 
-  const drawHandler = (e, shouldOpen) => {
-    e.stopPropagation();
-    setIsDrawOpen(shouldOpen);
-  };
-
   const profileImage = (
     <StyledProfileImage
       // onMouseEnter={e => drawHandler(e, true)}
