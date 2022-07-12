@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import * as emailjs from 'emailjs-com'
-import { validateInput } from '../../../shared/validation'
-import { updateObject } from '../../../shared/Utility'
-import Spinner from '../../../components/UI/Spinner/Spinner'
-import classes from './Contact.module.css'
+import React, { useState, useEffect } from 'react';
+import * as emailjs from 'emailjs-com';
+import { validateInput } from '../../../shared/validation';
+import { updateObject } from '../../../shared/Utility';
+import Spinner from '../../../components/UI/Spinner/Spinner';
+import classes from './Contact.module.css';
 
 const Contact = ({ hasOwnWrapper = false }) => {
   const [nameElement, setNameElement] = useState({
@@ -15,7 +15,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
     isValid: false,
     invalidFormErrorMessage: 'Name must be at least 2 characters.',
     value: '',
-  })
+  });
   const [emailElement, setEmailElement] = useState({
     validation: {
       required: true,
@@ -25,7 +25,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
     isValid: false,
     invalidFormErrorMessage: 'Please enter a valid email address.',
     value: '',
-  })
+  });
   const [subjectElement, setSubjectElement] = useState({
     validation: {
       required: false,
@@ -33,7 +33,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
     wasTouched: false,
     isValid: true,
     value: '',
-  })
+  });
   const [textBoxElement, setTextBoxElement] = useState({
     validation: {
       required: true,
@@ -43,26 +43,26 @@ const Contact = ({ hasOwnWrapper = false }) => {
     isValid: false,
     invalidFormErrorMessage: 'Message must be at least 10 characters.',
     value: '',
-  })
-  const [isFormValid, setIsFormValid] = useState(false)
+  });
+  const [isFormValid, setIsFormValid] = useState(false);
   const [emailHandler, setEmailHandler] = useState({
     isSending: false,
     isSuccess: false,
-  })
+  });
 
-  const [invalidFormErrorMessages, setInvalidFormErrorMessages] = useState([])
+  const [invalidFormErrorMessages, setInvalidFormErrorMessages] = useState([]);
 
   useEffect(() => {
     if (nameElement.isValid && emailElement.isValid && textBoxElement.isValid)
-      setIsFormValid(true)
-    else setIsFormValid(false)
-  }, [nameElement, emailElement, subjectElement, textBoxElement])
+      setIsFormValid(true);
+    else setIsFormValid(false);
+  }, [nameElement, emailElement, subjectElement, textBoxElement]);
 
   const submitHandler = event => {
-    event.preventDefault()
+    event.preventDefault();
 
     if (isFormValid) {
-      setEmailHandler({ isSending: true, isSuccess: false })
+      setEmailHandler({ isSending: true, isSuccess: false });
       emailjs
         .sendForm(
           'gmail',
@@ -71,39 +71,39 @@ const Contact = ({ hasOwnWrapper = false }) => {
           process.env.REACT_APP_EMAILJS_API_KEY
         )
         .then(response => {
-          setEmailHandler({ isSending: false, isSuccess: true })
+          setEmailHandler({ isSending: false, isSuccess: true });
         })
         .catch(error => {
-          setEmailHandler({ isSending: false, isSuccess: false })
-        })
+          setEmailHandler({ isSending: false, isSuccess: false });
+        });
     } else {
       setInvalidFormErrorMessages([
         !nameElement.isValid ? nameElement.invalidFormErrorMessage : null,
         !emailElement.isValid ? emailElement.invalidFormErrorMessage : null,
         !textBoxElement.isValid ? textBoxElement.invalidFormErrorMessage : null,
-      ])
+      ]);
     }
-  }
+  };
 
   const inputChangedHandler = (value, elementIdentifier) => {
-    let targetElement
-    let setTargetElement
+    let targetElement;
+    let setTargetElement;
 
     if (elementIdentifier === 'name') {
-      targetElement = nameElement
-      setTargetElement = setNameElement
+      targetElement = nameElement;
+      setTargetElement = setNameElement;
     }
     if (elementIdentifier === 'email') {
-      targetElement = emailElement
-      setTargetElement = setEmailElement
+      targetElement = emailElement;
+      setTargetElement = setEmailElement;
     }
     if (elementIdentifier === 'subject') {
-      targetElement = subjectElement
-      setTargetElement = setSubjectElement
+      targetElement = subjectElement;
+      setTargetElement = setSubjectElement;
     }
     if (elementIdentifier === 'textBox') {
-      targetElement = textBoxElement
-      setTargetElement = setTextBoxElement
+      targetElement = textBoxElement;
+      setTargetElement = setTextBoxElement;
     }
     setTargetElement(
       updateObject(targetElement, {
@@ -111,8 +111,8 @@ const Contact = ({ hasOwnWrapper = false }) => {
         wasTouched: true,
         value: value,
       })
-    )
-  }
+    );
+  };
 
   const formSuccess = (
     <div className={classes.FormSuccess}>
@@ -120,7 +120,7 @@ const Contact = ({ hasOwnWrapper = false }) => {
       <p>Thank you for your interest, I will get back to you shortly!</p>
       <p>For urgent matters you can contact me directly on 07989148953.</p>
     </div>
-  )
+  );
 
   let content = emailHandler.isSuccess ? (
     formSuccess
@@ -182,17 +182,13 @@ const Contact = ({ hasOwnWrapper = false }) => {
         Personal information provided is confidential and will not be shared.
       </p>
     </form>
-  )
+  );
 
-  const final = hasOwnWrapper ? (
-    <div className={classes.ConditionalContactWrapper}>
+  return (
+    <div className={classes.ContactWrapper}>
       <div className={classes.Contact}>{content}</div>
     </div>
-  ) : (
-    <div className={classes.Contact}>{content}</div>
-  )
+  );
+};
 
-  return final
-}
-
-export default Contact
+export default Contact;

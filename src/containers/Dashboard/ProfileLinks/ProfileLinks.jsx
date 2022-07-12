@@ -33,16 +33,14 @@ const StyledLink = styled.a`
 
 const StyledImage = styled.img`
   width: auto;
-  /* height: ${props => (props.small ? '30px' : '40px')} */
   height: 40px;
-  /* margin: ${props => (props.small ? 'auto auto 5px auto' : 'auto')}; */
   cursor: pointer;
   &:hover {
     animation: ${animation} 1s;
   }
 `;
 
-export default function ProfileLinks() {
+export default function ProfileLinks({ isMenuOpen }) {
   const saveFile = () =>
     FileSaver.saveAs(
       process.env.PUBLIC_URL + '/resource/Karl_Warner_CV.pdf',

@@ -13,13 +13,13 @@ const drawClose = keyframes`
     opacity: 0;
   }
   100%{
-    width: 30px;
+    width: 0;
   }
 `;
 
 const drawOpen = keyframes`
   0% {
-    width: 30px;
+    width: 0;
     opacity: 0;
   }
   50% {
@@ -39,13 +39,13 @@ const drawCloseMobile = keyframes`
     opacity: 0;
   }
   100%{
-    width: 30px;
+    width: 0;
   }
 `;
 
 const drawOpenMobile = keyframes`
   0% {
-    width: 30px;
+    width: 0;
     opacity: 0;
   }
   50% {
@@ -86,7 +86,7 @@ const StyledWrapper = styled.div`
   position: absolute;
   top: 3vw;
   transition: left 0.5s;
-  left: ${props => (props.isMenuOpen ? 'calc(50% - 7vh)' : '5vw')};
+  left: ${props => (props.isMenuOpen ? 'calc(50% - 7vh)' : '1vw')};
 `;
 
 const StyledWelcomeElementsContainer = styled.div`
@@ -108,12 +108,10 @@ const StyledProfileImage = styled.img`
   border-right: 4px solid #0b0c10;
   border-bottom: 4px solid #0b0c10;
   height: ${props =>
-    props.isMenuOpen ? '15vh' : props.isWelcomePage ? '15vh' : '10vh'};
+    props.isMenuOpen ? '15vh' : props.isWelcomePage ? '15vh' : '5vh'};
   transition: height 0.5s;
   width: auto;
 `;
-
-// isMobile ? isDrawOpen ? drawOpenMobile : drawCloseMobile : isDrawOpen ? drawOpen : drawClose
 
 const StyledDraw = styled.div`
   display: flex;
@@ -147,7 +145,6 @@ const StyledDraw = styled.div`
   transition: height 0.4s;
   min-width: 100px;
   background: #c5c6c7;
-  /* width: 85vw; // Testing mobile */
 `;
 
 const StyledSpinnerWrapper = styled.div`
@@ -201,15 +198,10 @@ const WelcomeElements = ({ isMenuOpen, isWelcomePage }) => {
     setIsLoading(false);
   };
 
-  const drawHandler = (e, shouldOpen) => {
-    e.stopPropagation();
-    setIsDrawOpen(shouldOpen);
-  };
-
   const profileImage = (
     <StyledProfileImage
-      onMouseEnter={e => drawHandler(e, true)}
-      onMouseLeave={e => drawHandler(e, isWelcomePage)}
+      // onMouseEnter={e => drawHandler(e, true)}
+      // onMouseLeave={e => drawHandler(e, isWelcomePage)}
       isMenuOpen={isMenuOpen}
       isWelcomePage={isWelcomePage}
       onLoad={imageLoadedHandler}
@@ -220,7 +212,7 @@ const WelcomeElements = ({ isMenuOpen, isWelcomePage }) => {
 
   // this is magic. even though img isn't in the render it still triggers its on-load.
   // react must be loading the image without rendering causing imageLoadedHander to be fired
-  // as the image passed to both instances of img is the same, the loading time must be accurate?
+  // as the image (size in KB) passed to both instances of img is the same, the loading time must be accurate?
   const img = document.createElement('img');
   img.src = imageAssets.profileImage;
   img.alt = 'profilepic';

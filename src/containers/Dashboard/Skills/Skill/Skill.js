@@ -10,11 +10,12 @@ const StyledSkill = styled.div`
 `;
 
 const StyledTextSections = styled.div`
+  font-size: 2vh;
   display: inline-flex;
   img {
-    margin: auto 5px auto auto;
-    /* padding: 0 5px 0 5px; */
-    height: ${props => (props.isMobile ? '60px' : ' 100px')};
+    margin: auto 5px auto 5px;
+    height: ${props =>
+      props.isMobile ? '60px' : props.isTablet ? '70px' : ' 100px'};
     width: auto;
   }
 `;

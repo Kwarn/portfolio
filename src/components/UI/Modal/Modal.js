@@ -20,6 +20,9 @@ const StyledModal = styled.div`
   padding: 1px;
   box-sizing: border-box;
   transition: all 0.3s ease-in;
+  @media (max-width: 700px) {
+    width: 85%;
+  }
 `;
 
 const StyledCloseIcon = styled.img`

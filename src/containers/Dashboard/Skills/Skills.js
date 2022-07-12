@@ -6,8 +6,8 @@ import classes from './Skills.module.css';
 const Skills = () => {
   const [skills] = useState([
     {
-      title: 'TypeScript / JavaScript',
-      content: `ES6+, NodeJs, ExpressJs, GraphQL, React, React-Router, Redux, Redux-Saga, Thunk, Axios, Enzyme.`,
+      title: 'Core Skills',
+      content: `JavaScript ES6+, TypeScript, React, Redux, Node, Express, GraphQL, SQL, Apollo, HTML, CSS.`,
       image: imageAssets.javascript,
       fadeInAndAlignDirection: 'left',
       renderDelayDuration: 200,
@@ -21,14 +21,14 @@ const Skills = () => {
     },
     {
       title: 'Software & Practices',
-      content: `UI/UX design, SQL, HTML, CSS, GitHub, Unix Commands, Dev-Tools, Firebase, Webpack, Photoshop, Gimp, Adobe Premiere Pro..`,
+      content: `UI UX, Git, AWS, Unix Commands, Dev-Tools, Firebase, Heroku, Webpack, Gimp/Photoshop.`,
       image: imageAssets.uiUx,
       fadeInAndAlignDirection: 'left',
       renderDelayDuration: 600,
     },
     {
       title: 'Dev Environment',
-      content: `Ubuntu 20.04, Windows 10 with GitBash, VSCode, Pycharm, Firefox, Chrome.`,
+      content: `Linux Debian/Ubuntu, Windows 10 - GitBash, VSCode, Pycharm.`,
       image: imageAssets.visualStudioCode,
       fadeInAndAlignDirection: 'right',
       renderDelayDuration: 800,

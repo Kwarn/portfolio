@@ -1,18 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Project from './Project/Project';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
+import _ from 'lodash';
 import Modal from '../../components/UI/Modal/Modal';
-import projectData from './Project/ProjectData';
 import WelcomeElements from './WelcomeElements/WelcomeElements';
 import Skills from './Skills/Skills';
-import Courses from './Courses/Courses';
+import Courses from './Education/Courses';
 import { useSwipeable } from 'react-swipeable';
-import AboutMe from './AboutMe/AboutMe';
-import ExtraInfo from './ExtraInfo/ExtraInfo';
+import AboutMe from './Welcome/Welcome';
+import ExtraInfo from './CodeChallenges/ExtraInfo';
 import ProfileLinks from './ProfileLinks/ProfileLinks';
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 import LayoutsContext from '../../Layout/LayoutsContext';
 import Contact from './Contact/Contact';
-import imageAssets from '../../assets/assets';
+import Projects from './Projects/Projects';
 
 /************************     MENU     *************************/
 
@@ -26,13 +25,12 @@ const StyledMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: auto;
-  z-index: 100;
+  z-index: 4000;
   min-height: 100vh;
   max-height: 100vh;
   height: 100%;
   font-family: 'Teko';
   background-color: #1f2833;
-  border-right: 4px solid #0b0c10;
   transition: ${props => (props.isMenuOpen ? 'width 0.8s' : 'width 0.5s')};
   width: ${props =>
     props.isMenuOpen ? (props.isMobile ? '50vw' : '300px') : '5vw'};
@@ -50,7 +48,7 @@ const StyledBurgerIcon = styled.div`
     min-height: 5px;
     min-width: 100%;
     border-bottom: 4px solid #c5c6c7;
-    margin-top: 5px;
+    margin-top: ${props => (props.isMobile ? '0px' : '5px')};
   }
 `;
 
@@ -59,6 +57,7 @@ const StyledProfileLinksWrapper = styled.div`
   height: fit-content;
   width: 100%;
   transition: ${props => (props.isMenuOpen ? 'opacity 2s' : 'opacity 0.2s')};
+  visibility: ${props => (props.isMenuOpen ? 'visible' : 'hidden')};
   opacity: ${props => (props.isMenuOpen ? '1' : '0')};
 `;
 
@@ -76,7 +75,7 @@ const StyledMenuLinksContainer = styled.div`
 const StyledMenuLink = styled.div`
   background-color: #1f2833;
   width: 100%;
-  height: ${props => (props.isSmallMenuItem ? '2vh' : '4vh')};
+  height: 4vh;
   margin: auto;
   cursor: pointer;
   display: flex;
@@ -100,22 +99,25 @@ const StyledMenuLinkTitle = styled.h2`
 
 const StyledMainContentWrapper = styled.div`
   margin: ${props => (props.isDesktop ? 'auto' : 'auto auto auto 5vw')};
-  /* margin: auto; */
   width: 100%;
   height: 100vh;
+  @media (max-width: 800px) {
+    margin-bottom: 3vh;
+    height: 97vh;
+  }
 `;
 
 const StyledMainContentContainer = styled.div`
   margin: auto;
   height: 100%;
-  background-color: #c5c6c7;
+  background-color: #0b0c10;
   display: flex;
   justify-content: center;
 `;
 
 export default function Dashboard() {
   const layouts = useContext(LayoutsContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(layouts.isDesktop);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // ensures activeContentIndex is set to a valid index when scroll/swipe cycling through Menu.
   const incrementActiveIndexHandler = () => {
@@ -139,7 +141,7 @@ export default function Dashboard() {
 
   // ************ LOGIC CONTROLS **********
 
-  // {Int:Element}: Key index is derived from element creation order.
+  // {Int:Element}: key index is derived from element creation order.
   const contentController = {};
 
   // Int: used to access contentController
@@ -148,19 +150,28 @@ export default function Dashboard() {
   // Menu Link Element Array
   const MenuLinks = [];
 
+  // Throttle scrolling -> this is to prevent cycling menu too quickly.
+  const throttle = useCallback(
+    _.throttle(
+      e => {
+        scrollHandler(e);
+      },
+      1000,
+      { trailing: false }
+    )
+  );
+
   // adds event listener to window which allows scrolling through menu items.
   useEffect(() => {
-    window.addEventListener('wheel', e => scrollHandler(e));
+    window.addEventListener('wheel', e => throttle(e));
     return window.removeEventListener('scroll', scrollHandler);
-  }, [window]);
+  }, []);
 
   // react-swipeable setup: allows swiping up and down to cycle through menu and main content.
-  const config = { trackMouse: true, preventDefault: true };
+  const config = { trackMouse: true, preventDefault: true, delta: 100 };
   const handlers = useSwipeable({
     onSwipedDown: () => decrementActiveIndexHandler(),
     onSwipedUp: () => incrementActiveIndexHandler(),
-    onSwipedLeft: () => setIsMenuOpen(false),
-    onSwipedRight: () => setIsMenuOpen(true),
     ...config,
   });
 
@@ -177,29 +188,34 @@ export default function Dashboard() {
     });
   };
 
-  const menuHoverHandler = () => {
-    if (layouts.isDesktop) {
-      setIsMenuOpen(true);
-    }
-  };
-
-  const closeMenuHander = () => {
-    if (!layouts.isDesktop) {
-      setIsMenuOpen(false);
-    }
-  };
-
   const toggleMenuHandler = () => {
+    closeModalHandler();
     if (!layouts.isDesktop) {
       setIsMenuOpen(!isMenuOpen);
     }
   };
 
+  const burgerIcon = isMenuOpen ? (
+    ''
+  ) : (
+    <StyledBurgerIcon {...layouts}>
+      <div></div>
+      <div></div>
+      <div></div>
+    </StyledBurgerIcon>
+  );
+
   // keys are MenuItem titles, values are MainContentElements.
   const contentData = {
     Welcome: <AboutMe />,
     Skills: <Skills />,
-    Education: <Courses />,
+    Projects: (
+      <Projects
+        showModalCb={content => setModalStatus(content)}
+        closeModalCb={() => closeModalHandler()}
+      />
+    ),
+    Education: <Courses showModalCb={content => setModalStatus(content)} />,
     'Code Challenges': (
       <ExtraInfo showModal={content => setModalStatus(content)} />
     ),
@@ -211,29 +227,15 @@ export default function Dashboard() {
     contentController[index] = element;
   };
 
-  // returns JSX Main Content element.
-  const createProjectElement = project => {
-    return (
-      <div key={project.title}>
-        <Project
-          project={project}
-          showModalCb={content => setModalStatus(content)}
-          closeModalCb={closeModalHandler}
-        />
-      </div>
-    );
-  };
-
   // returns JSX MenuLink element with correct css Class
-  const createMenuLink = (key, size = 'large') => {
+  const createMenuLink = key => {
     const index = MenuLinks.length || 0;
     return (
       <StyledMenuLink
-        isSmallMenuItem={size === 'small'}
         isFocus={activeContentIndex === index}
         key={key}
         onClick={() => {
-          setActiveContentIndex(index);
+          if (isMenuOpen) setActiveContentIndex(index);
         }}
       >
         <StyledMenuLinkTitle isFocus={activeContentIndex === index}>
@@ -243,8 +245,8 @@ export default function Dashboard() {
     );
   };
 
-  const createElementsFromContentData = (key, MenuLinkSize) => {
-    const MenuLink = createMenuLink(key, MenuLinkSize);
+  const createElementsFromContentData = key => {
+    const MenuLink = createMenuLink(key);
     const element = contentData[key];
 
     MenuLinks.push(MenuLink);
@@ -253,31 +255,12 @@ export default function Dashboard() {
 
   // begins creation and ordering of MenuLinks.
 
-  createElementsFromContentData('Welcome', 'large');
-  createElementsFromContentData('Skills', 'large');
-
-  projectData.forEach(project => {
-    const key = project.title;
-    const element = createProjectElement(project);
-    const MenuLink = createMenuLink(key, 'small');
-
-    MenuLinks.push(MenuLink);
-    createContentControl(MenuLinks.length - 1, element);
-  });
-
-  createElementsFromContentData('Education', 'large');
-  createElementsFromContentData('Code Challenges', 'large');
-  createElementsFromContentData('Contact', 'large');
-
-  const burgerIcon = isMenuOpen ? (
-    ''
-  ) : (
-    <StyledBurgerIcon>
-      <div></div>
-      <div></div>
-      <div></div>
-    </StyledBurgerIcon>
-  );
+  createElementsFromContentData('Welcome');
+  createElementsFromContentData('Skills');
+  createElementsFromContentData('Projects');
+  createElementsFromContentData('Education');
+  createElementsFromContentData('Code Challenges');
+  createElementsFromContentData('Contact');
 
   return (
     <StyledDashBoardWrapper {...handlers}>
@@ -290,9 +273,15 @@ export default function Dashboard() {
       <StyledMenuWrapper
         {...layouts}
         isMenuOpen={isMenuOpen}
-        onMouseEnter={() => menuHoverHandler()}
-        onClick={() => toggleMenuHandler(!isMenuOpen)}
+        onMouseEnter={() => {
+          if (layouts.isDesktop) setIsMenuOpen(true);
+        }}
+        onMouseLeave={() => {
+          if (layouts.isDesktop) setIsMenuOpen(false);
+        }}
+        onClick={() => toggleMenuHandler()}
       >
+        {burgerIcon}
         <WelcomeElements
           isMenuOpen={isMenuOpen}
           isWelcomePage={activeContentIndex === 0}
@@ -300,12 +289,16 @@ export default function Dashboard() {
         <StyledProfileLinksWrapper isMenuOpen={isMenuOpen}>
           <ProfileLinks />
         </StyledProfileLinksWrapper>
-        {burgerIcon}
         <StyledMenuLinksContainer isMenuOpen={isMenuOpen}>
           {MenuLinks}
         </StyledMenuLinksContainer>
       </StyledMenuWrapper>
-      <StyledMainContentWrapper {...layouts} onClick={() => closeMenuHander()}>
+      <StyledMainContentWrapper
+        {...layouts}
+        onClick={() => {
+          if (!layouts.isDesktop) setIsMenuOpen(false);
+        }}
+      >
         <StyledMainContentContainer>
           {contentController[activeContentIndex]}
         </StyledMainContentContainer>
